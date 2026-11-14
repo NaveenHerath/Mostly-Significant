@@ -1,0 +1,4 @@
+place,region,lat,lon,measure_id,measure_name,unit,rate_per_decade,p_value,verdict,early_mean,late_mean,start_year,end_year,plain_definition,caveat
+London,UK,51.507,-0.128,heatwave_days,Heatwave days per year,days,2.5,0.003,real,8.4,18.1,1981,2025,placeholder definition for heatwave days per year,"fake data for building the app, NOT REAL numbers"
+London,UK,51.507,-0.128,warm_nights,Warm nights per year,nights,3.0,0.003,real,11.5,21.5,1981,2025,placeholder definition for warm nights per year,"fake data for building the app, NOT REAL numbers"
+London,UK,51.507,-0.128,summer_length,Days that feel like summer,days,4.0,0.003,real,74.3,92.8,1981,2025,placeholder definition for days that feel like summer,"fake data for building the app, NOT REAL numbers"
