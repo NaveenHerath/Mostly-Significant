@@ -1,0 +1,25 @@
+place,hot_day,warm_night,day_night_gap,sea_dominated,warm_season
+London,24.76,13.98,8.06,False,May-Sep
+Maidstone,23.26,14.83,6.52,False,May-Sep
+Norwich,23.86,13.9,7.61,False,May-Sep
+Plymouth,20.61,14.33,4.72,False,May-Sep
+Bristol,23.8,13.82,7.32,False,May-Sep
+Cardiff,22.01,14.04,6.08,False,May-Sep
+Birmingham,23.26,12.98,7.79,False,May-Sep
+Manchester,21.48,12.82,6.38,False,May-Sep
+Newcastle,20.36,12.3,5.95,False,May-Sep
+Belfast,19.78,12.7,5.47,False,May-Sep
+Edinburgh,19.62,12.19,5.52,False,May-Sep
+Aberdeen,18.52,11.3,5.21,False,May-Sep
+New York,27.33,21.89,5.39,False,Jun-Oct
+Los Angeles,33.44,20.73,11.44,False,Jun-Oct
+Toronto,29.47,17.92,9.39,False,May-Sep
+Sao Paulo,29.69,19.69,10.34,False,Oct-Feb
+Paris,27.46,15.4,9.12,False,May-Sep
+Berlin,28.82,16.13,8.67,False,May-Sep
+Madrid,35.3,18.17,12.91,False,May-Sep
+Cairo,40.25,22.31,15.03,False,May-Sep
+Delhi,45.24,30.69,14.07,False,Apr-Aug
+Tokyo,32.03,24.19,8.17,False,May-Sep
+Sydney,28.15,21.42,5.04,False,Nov-Mar
+Johannesburg,31.88,16.48,14.76,False,Oct-Feb

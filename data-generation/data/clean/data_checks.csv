@@ -1,0 +1,12 @@
+check,passed,detail
+full date coverage,True,16436 to 16436 days per place
+"missing values only in sunshine/cloud, almost all before 1984",True,"blank counts: {'ALLSKY_SFC_SW_DWN': 26284, 'CLOUD_AMT': 26280}; days with a gap from 1984 on: 4 {'Toronto': 4}"
+UK temperature between -20 and 45 C,True,"coldest -12.8, hottest 34.5"
+rainfall never negative,True,minimum 0.0
+humidity between 0 and 100,True,3.7 to 100.0
+soil wetness between 0 and 1,True,root 0.23 to 1.0
+no place warms faster than 0.8 C per decade at night,True,fastest is Berlin at 0.50 C per decade
+London's hottest day is 19 July 2022,True,hottest day is 2022-07-19 at 34.5 C
+December 2010 is London's coldest December,True,coldest December is 2010 at -0.3 C
+Storm Eunice shows as extreme wind,True,18 Feb 2022 max wind 20.48 m/s vs 99th percentile 15.2
+summers 2018 and 2022 have dry soil,True,"2018 is 8 driest, 2022 is 3 driest of 45"

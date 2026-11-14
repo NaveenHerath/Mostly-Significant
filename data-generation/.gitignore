@@ -1,0 +1,9 @@
+# Python's compiled files
+__pycache__/
+*.pyc
+
+# The raw NASA replies (about 100 MB). power_raw.zip holds the same files, compressed.
+data/raw/*.json
+
+# Local editor settings
+.vscode/
