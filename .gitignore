@@ -1,0 +1,12 @@
+# streamlit's helper files, only for my laptop
+.agents/
+.claude/
+
+# where the gemini key will go, must never go on github
+.streamlit/secrets.toml
+
+# python's temporary files
+__pycache__/
+
+# mac's hidden folder-settings file
+.DS_Store
