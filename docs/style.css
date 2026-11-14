@@ -1,0 +1,219 @@
+/* Hallmark · shape: app screen · genre: atmospheric · theme: Ribbon (deal 2/3, seed just-weather-hunch-fact-checker-c2b8·1fcc3724·2026-11-14·r0)
+ * nav: none, one page read top to bottom · signature: the then-vs-now pair set huge · states: loading, error, full · ribbon: two-in-the-morning
+ * axes: dark/grotesk-sans/topic-accents · posture: committed · contrast: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V3 · weakest: V, first run with no log to differ from; kept the flow from CLAUDE.md and let the numbers and verdict colours carry it */
+@import url("./tokens.css"); /* colours, fonts, spacing */
+@import url("./base.css"); /* hallmark's base rules (focus ring, reduced motion, overflow) */
+
+/* ---------- page layout ---------- */
+
+/* a narrow reading column, with the chart and map allowed to go wider */
+.page { padding: var(--space-xl) var(--gutter) var(--space-3xl); } /* side gutters plus space top and bottom */
+.page > *, #reveal > * { max-width: var(--measure); margin-inline: auto; } /* everything sits in the reading column by default */
+.page > .wide, #reveal > .wide { max-width: var(--wide); } /* chart and map get more room */
+
+/* ---------- title ---------- */
+
+.intro { padding-bottom: var(--space-xl); } /* breathing room under the title */
+noscript { display: block; } /* so the no-javascript note sits in the column like everything else */
+html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers, they can't work */
+.team { font-weight: 500; font-size: var(--text-sm); color: var(--color-muted); margin-bottom: var(--space-3xl); } /* team name, small and quiet, well above the title */
+.intro h1 { font-size: var(--text-hero); line-height: 1; max-width: none; } /* the big question */
+.lead { margin-top: var(--space-md); color: var(--color-muted); max-width: 44ch; } /* one-line explainer */
+
+/* ---------- steps ---------- */
+
+.step { padding-top: var(--space-xl); margin-top: var(--space-2xl); border-top: var(--rule-hair) solid var(--color-rule-2); } /* each step starts with a faint hairline */
+.step h2 { color: var(--color-ink); } /* step heading */
+.note { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); max-width: 60ch; } /* small helper text */
+
+/* ---------- pills and switches ---------- */
+
+.pills, .guesses { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-top: var(--space-md); } /* rows of pills that wrap on phones */
+
+.pill {
+  min-height: 44px; /* big enough to tap */
+  padding: 0 var(--space-md); /* side padding */
+  border: var(--rule-hair) solid var(--color-rule); /* thin outline */
+  border-radius: var(--radius-pill); /* fully round ends */
+  background: var(--color-paper-2); /* a step lighter than the page */
+  box-shadow: var(--edge-light), var(--shadow-part); /* tiny light edge and shadow so it feels solid */
+  color: var(--color-ink-2); /* softer text until picked */
+  font-size: var(--text-md); /* body size */
+  cursor: pointer; /* hand cursor */
+  -webkit-tap-highlight-color: transparent; /* no grey flash on phones */
+  transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); /* only these, never "all" */
+}
+.pill:active:not(:disabled) { transform: scale(0.97); } /* small press so it feels like it heard you */
+.pill[aria-pressed="true"] { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); } /* picked: filled with the topic colour */
+.pill:disabled { opacity: 0.35; cursor: not-allowed; box-shadow: none; } /* greyed out, e.g. rain for world cities */
+@media (hover: hover) and (pointer: fine) { /* hover only for real mice, not phones */
+  .pill:hover:not(:disabled):not([aria-pressed="true"]) { border-color: var(--color-muted); color: var(--color-ink); } /* gentle lift on hover */
+}
+
+/* the uk/world and topic switches look like one segmented track, so they read differently from the pills */
+.switch {
+  display: inline-flex; /* sits on one line */
+  flex-wrap: wrap; /* but can wrap on tiny phones */
+  gap: var(--space-2xs); /* small gap between segments */
+  margin-top: var(--space-md); /* space under the heading */
+  padding: var(--space-2xs); /* inner padding round the segments */
+  border: var(--rule-hair) solid var(--color-rule-2); /* faint outline round the track */
+  border-radius: var(--radius-pill); /* round track */
+  background: var(--color-paper-2); /* slightly lighter than the page */
+}
+.switch .pill { min-height: 40px; border-color: transparent; background: transparent; box-shadow: none; color: var(--color-muted); } /* segments are flat until picked */
+.switch .pill[aria-pressed="true"] { background: var(--color-paper-3); border-color: var(--color-rule); box-shadow: var(--edge-light), var(--shadow-part); color: var(--color-ink); } /* picked segment is raised, not coloured */
+#topics .pill[aria-pressed="true"] { color: var(--color-accent); } /* the picked topic shows its colour in the text */
+
+/* ---------- guess ---------- */
+
+.claim { margin-top: var(--space-md); font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1.2; letter-spacing: var(--tracking-display); color: var(--color-ink); max-width: 28ch; } /* the hunch, said back in big type */
+.guesses .pill { min-height: 52px; padding: 0 var(--space-lg); } /* guess buttons are a bit bigger, they're the main action */
+
+/* ---------- result ---------- */
+
+.result { border-top-color: var(--color-rule); } /* slightly stronger line above the answer */
+.result[data-verdict="real"] { --verdict: var(--verdict-real); } /* pick the verdict colour for this card */
+.result[data-verdict="leaning"] { --verdict: var(--verdict-leaning); } /* amber */
+.result[data-verdict="not_backed"] { --verdict: var(--verdict-not_backed); } /* grey */
+.result[data-verdict="opposite"] { --verdict: var(--verdict-opposite); } /* red */
+
+.result .verdict { font-family: var(--font-display); font-size: var(--text-3xl); line-height: 1.1; letter-spacing: var(--tracking-display); color: var(--verdict); } /* the verdict in its colour, always with words */
+.verdict-line { margin-top: var(--space-xs); color: var(--color-ink-2); } /* one plain sentence */
+.gut { margin-top: var(--space-2xs); color: var(--color-muted); } /* was your gut right */
+
+.then-now { display: flex; align-items: flex-end; gap: var(--space-lg); margin-top: var(--space-2xl); flex-wrap: wrap; } /* the two big numbers side by side */
+.figure-block { min-width: 0; } /* lets long numbers shrink instead of overflowing */
+.figure-label { font-size: var(--text-sm); color: var(--color-muted); } /* "1981 to 1990" */
+.big { font-family: var(--font-display); font-size: var(--text-figure); line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; margin-top: var(--space-xs); } /* the hero numbers */
+.big.then { color: var(--color-muted); } /* then is quieter */
+.big.now { color: var(--color-accent); } /* now carries the topic colour */
+.to { font-family: var(--font-display); font-size: calc(var(--text-figure) * 0.5); line-height: 1; color: var(--color-muted); padding-bottom: 0.25em; } /* the arrow between, quiet but easy to see */
+.noun { margin-top: var(--space-sm); font-size: var(--text-lg); color: var(--color-ink-2); } /* what the numbers mean */
+
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-columns); margin: var(--space-xl) 0 0; } /* two small facts side by side */
+.facts div { padding-top: var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule); } /* hairline above each */
+.facts dt { font-size: var(--text-sm); color: var(--color-muted); } /* fact label */
+.facts dd { margin: var(--space-2xs) 0 0; font-family: var(--font-display); font-size: var(--text-xl); letter-spacing: var(--tracking-display); color: var(--color-ink); } /* fact value */
+
+.caveat { margin-top: var(--space-lg); font-size: var(--text-sm); color: var(--color-muted); max-width: 60ch; } /* honest limitation, always shown */
+
+/* ---------- chart ---------- */
+
+.chart-box { margin-top: var(--space-lg); min-height: 260px; } /* room for the chart, holds its space while it draws */
+.chart-box svg { --plot-background: var(--color-paper-3); } /* plot's tooltip background, dark to match */
+.chart-box .yearly { stroke: var(--color-ink-2); stroke-opacity: 0.35; } /* yearly line, faint so the trend stands out */
+.chart-box .yearly-dot { fill: var(--color-ink-2); fill-opacity: 0.7; stroke: none; } /* yearly dots */
+.chart-box .trend { stroke: var(--color-accent); } /* trend line in the topic colour */
+.chart-box .avg { stroke: var(--color-ink); stroke-opacity: 0.7; } /* dashed averages */
+.chart-box .avg-label { fill: var(--color-ink-2); font-size: 12px; } /* "1980s: 7.2" */
+.chart-box [aria-label="tip"] { color: var(--color-ink); } /* tooltip text */
+.chart-box [aria-label="tip"] path { stroke: var(--color-rule); } /* tooltip outline */
+
+/* ---------- luck dots ---------- */
+
+.luck-line { margin-top: var(--space-md); font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.25; letter-spacing: var(--tracking-display); max-width: 30ch; } /* the one-sentence answer */
+.dots { margin-top: var(--space-lg); max-width: 520px; } /* grid of dots, not too wide */
+.dots svg { width: 100%; height: auto; } /* scales to fit */
+.dot { fill: var(--color-rule); } /* shuffles that didn't match, faint */
+.dot.hit { fill: var(--color-accent); } /* shuffles that matched, lit in the topic colour */
+
+/* ---------- map ---------- */
+
+.map-box { margin-top: var(--space-lg); height: 440px; border-radius: var(--radius-card); overflow: hidden; border: var(--rule-hair) solid var(--color-rule-2); } /* the map, with rounded corners */
+.map-box.leaflet-container { background: var(--color-paper); font-family: var(--font-body); } /* dark while tiles load, our font */
+.land { fill: var(--color-rule-2); fill-opacity: 1; stroke: var(--color-rule); stroke-width: 0.6; } /* countries a touch lighter than the sea, faint borders */
+.pin { stroke: var(--color-paper); stroke-width: 2; fill-opacity: 1; } /* every pin: dark outline so they separate */
+.pin--real { fill: var(--verdict-real); } /* green */
+.pin--leaning { fill: var(--verdict-leaning); } /* amber */
+.pin--not_backed { fill: var(--verdict-not_backed); } /* grey */
+.pin--opposite { fill: var(--verdict-opposite); } /* red */
+.pin--current { stroke: var(--color-ink); stroke-width: 3; } /* the picked place gets a light ring */
+.map-box .leaflet-tooltip { background: var(--color-paper-3); color: var(--color-ink); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-part); box-shadow: none; font-size: var(--text-sm); } /* dark tooltips */
+.map-box .leaflet-tooltip-top::before { border-top-color: var(--color-rule); } /* tooltip arrow matches its border */
+.map-box .leaflet-control-attribution { background: var(--color-paper-2); color: var(--color-muted); font-size: var(--text-xs); } /* credit line, dark */
+.map-box .leaflet-control-attribution a { color: var(--color-ink-2); } /* credit links */
+.map-box .leaflet-bar a { background: var(--color-paper-2); color: var(--color-ink); border-color: var(--color-rule); } /* zoom buttons, dark */
+.map-box .leaflet-bar { border-color: var(--color-rule); } /* zoom button outline */
+
+.legend { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); margin: var(--space-md) 0 0; padding: 0; list-style: none; font-size: var(--text-sm); color: var(--color-ink-2); } /* key under the map */
+.legend li { display: flex; align-items: center; gap: var(--space-xs); } /* swatch then words */
+.legend li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--swatch); } /* colour swatch matching the pins */
+.legend [data-verdict="real"] { --swatch: var(--verdict-real); } /* green */
+.legend [data-verdict="leaning"] { --swatch: var(--verdict-leaning); } /* amber */
+.legend [data-verdict="not_backed"] { --swatch: var(--verdict-not_backed); } /* grey */
+.legend [data-verdict="opposite"] { --swatch: var(--verdict-opposite); } /* red */
+
+/* ---------- report card ---------- */
+
+.report-group { margin-top: var(--space-xl); } /* space between topics */
+.report-group h3 { font-size: var(--text-lg); color: var(--color-ink-2); } /* topic name */
+.report-group ul { list-style: none; margin: var(--space-sm) 0 0; padding: 0; } /* plain list, no bullets */
+.report-row {
+  display: flex; /* text on the left, verdict on the right */
+  align-items: baseline; /* line them up on the text */
+  justify-content: space-between; /* push the verdict to the right */
+  gap: var(--space-md); /* gap between them */
+  width: 100%; /* full width row */
+  padding: var(--space-sm) 0; /* breathing room top and bottom */
+  border: 0; border-top: var(--rule-hair) solid var(--color-rule-2); /* hairline between rows, no box */
+  background: none; color: inherit; text-align: left; cursor: pointer; /* looks like a row, not a button */
+  -webkit-tap-highlight-color: transparent; /* no grey flash on phones */
+  transition: transform var(--dur-micro) var(--ease-out); /* only the press moves */
+}
+.report-row:active { transform: scale(0.99); } /* tiny press, it's a wide row so less than the pills */
+.report-text { display: flex; flex-direction: column; gap: var(--space-3xs); min-width: 0; } /* hunch over numbers */
+.report-hunch { color: var(--color-ink); } /* the sentence */
+.report-nums { font-size: var(--text-sm); color: var(--color-muted); font-variant-numeric: tabular-nums; } /* then vs now, small */
+.report-verdict { flex-shrink: 0; font-size: var(--text-sm); color: var(--verdict); text-align: right; } /* verdict in its colour */
+.report-row[data-verdict="real"] { --verdict: var(--verdict-real); } /* green */
+.report-row[data-verdict="leaning"] { --verdict: var(--verdict-leaning); } /* amber */
+.report-row[data-verdict="not_backed"] { --verdict: var(--verdict-not_backed); } /* grey */
+.report-row[data-verdict="opposite"] { --verdict: var(--verdict-opposite); } /* red */
+.report-row[aria-current="true"] .report-hunch { color: var(--color-accent); } /* the one you just checked, in the topic colour */
+@media (hover: hover) and (pointer: fine) { .report-row:hover .report-hunch { text-decoration: underline; text-decoration-color: var(--color-muted); text-underline-offset: 0.2em; } } /* hint it's tappable */
+
+/* ---------- how this works ---------- */
+
+.how p, .how li { color: var(--color-ink-2); margin-top: var(--space-sm); } /* reading text */
+.how h3 { margin-top: var(--space-xl); font-size: var(--text-lg); } /* "what it can't tell you" */
+.cant { padding-left: 1.1em; margin: 0; } /* small indent for the list */
+.verdicts { list-style: none; padding: 0; margin: 0; } /* no bullets, the colour does the job */
+.verdicts span { color: var(--verdict); } /* verdict name in its colour */
+.verdicts [data-verdict="real"] { --verdict: var(--verdict-real); } /* green */
+.verdicts [data-verdict="leaning"] { --verdict: var(--verdict-leaning); } /* amber */
+.verdicts [data-verdict="not_backed"] { --verdict: var(--verdict-not_backed); } /* grey */
+.verdicts [data-verdict="opposite"] { --verdict: var(--verdict-opposite); } /* red */
+.cant li { max-width: 60ch; } /* keep lines readable */
+.credit { font-size: var(--text-sm); color: var(--color-muted) !important; margin-top: var(--space-xl) !important; } /* source credit */
+.how a { text-decoration-color: var(--color-muted); } /* quiet underline */
+@media (hover: hover) and (pointer: fine) { .how a:hover { text-decoration-color: var(--color-accent); } } /* underline picks up the colour on hover */
+
+/* ---------- reveal motion ---------- */
+
+/* when the answer appears, each section fades and rises a touch, one after another */
+#reveal:not([hidden]) > .step { animation: rise 360ms var(--ease-out) both; } /* quick and small */
+#reveal > .step:nth-child(2) { animation-delay: 60ms; } /* chart just after the card */
+#reveal > .step:nth-child(n + 3) { animation-delay: 100ms; } /* the rest together */
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } } /* fade up from 8px below */
+@media (prefers-reduced-motion: reduce) { /* less motion wanted */
+  #reveal:not([hidden]) > .step { animation: fade 200ms ease both !important; animation-duration: 200ms !important; } /* keep the fade, drop the movement */
+  @keyframes fade { from { opacity: 0; } } /* just opacity */
+}
+
+/* ---------- phones ---------- */
+
+@media (max-width: 40rem) { /* small screens */
+  .claim { font-size: var(--text-xl); } /* claim a bit smaller */
+  .result .verdict { font-size: var(--text-2xl); } /* verdict a bit smaller */
+  .then-now { gap: var(--space-md); } /* tighter gap between numbers */
+  .facts { grid-template-columns: minmax(0, 1fr); gap: var(--space-md); } /* facts stack */
+  .team { margin-bottom: var(--space-2xl); } /* less space above the title */
+  .switch .pill { padding: 0 var(--space-sm); font-size: var(--text-sm); } /* tighter, smaller segments so the four topics fit on one line */
+  .big { font-size: clamp(2.5rem, 11vw, 3.25rem); } /* then and now fit side by side, even for dates like 18 Nov */
+  .then-now { flex-wrap: nowrap; } /* keep the arrow between them, never dangling */
+  .switch { border-radius: var(--radius-card); } /* if it does wrap, the track still looks tidy */
+  .pill { text-align: left; } /* long hunch sentences wrap neatly from the left */
+  .map-box { height: 340px; } /* shorter map on phones */
+}

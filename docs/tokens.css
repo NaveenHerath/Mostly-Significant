@@ -1,0 +1,79 @@
+/* every colour, font and size the page uses lives here, nowhere else */
+/* started from hallmark's ribbon scaffold, switched to the night colourway */
+:root {
+  color-scheme: dark; /* tells the browser we're dark, so scrollbars and form bits match */
+
+  /* spacing scale */
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; /* small gaps */
+  --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px; /* big gaps */
+
+  /* type sizes */
+  --text-xs: 0.75rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.2rem; /* small to body */
+  --text-xl: 1.44rem; --text-2xl: 1.728rem; --text-3xl: 2.074rem; /* headings */
+  --text-display-s: 1.44rem; --text-display: 1.728rem; --text-section: 1.44rem; --text-title: 1.05rem; --text-lead: 1.125rem; /* named roles base.css uses */
+  --text-hero: 3.6rem; /* the page title */
+  --text-figure: clamp(3.25rem, 12vw, 6.5rem); /* the big then and now numbers */
+
+  /* motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* curves */
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms; --dur-count: 700ms; /* how long things take */
+
+  /* layout */
+  --measure: 680px; /* the reading column */
+  --wide: 1100px; /* chart and map get this much */
+  --gutter: 64px; --gap-columns: 32px; /* side space and column gap */
+  --container: 1100px; /* base.css wants this one */
+  --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px; /* hallmark's section spacing */
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600; /* stacking */
+
+  /* night colours */
+  --color-paper: oklch(13.2% 0.022 258); /* the blue-black background */
+  --color-paper-2: oklch(16.4% 0.022 258); /* a step lighter, for pills and tracks */
+  --color-paper-3: oklch(20% 0.022 258); /* lighter again, for raised bits */
+  --color-ink: oklch(93.5% 0.012 85); /* main text, warm off-white */
+  --color-ink-2: oklch(84% 0.014 85); /* slightly softer text */
+  --color-muted: oklch(72% 0.02 255); /* secondary text, soft blue-grey */
+  --color-rule: oklch(27% 0.02 258); /* hairlines */
+  --color-rule-2: oklch(21% 0.02 258); /* fainter hairlines */
+  --color-error: oklch(70% 0.15 27); /* if the data won't load */
+  --color-success: oklch(75% 0.12 150); /* not really used, here for completeness */
+
+  /* one accent per topic, the current one gets copied into --color-accent */
+  --topic-heat: oklch(76% 0.13 52); /* ember orange */
+  --topic-seasons: oklch(78% 0.08 300); /* soft lilac */
+  --topic-rain: oklch(79% 0.085 232); /* sky blue */
+  --topic-sun: oklch(86% 0.1 92); /* pale gold */
+  --color-accent: var(--topic-heat); /* default until a topic is picked */
+  --color-accent-ink: oklch(18% 0.02 258); /* dark text that sits on the accent */
+  --color-focus: var(--color-accent); /* focus ring follows the topic */
+
+  /* verdict colours, exactly as in CLAUDE.md */
+  --verdict-real: #2ECC71; /* yes, it's real */
+  --verdict-leaning: #F1C40F; /* leaning that way */
+  --verdict-not_backed: #95A5A6; /* not backed by the data */
+  --verdict-opposite: #E74C3C; /* it's actually the opposite */
+
+  /* the machined look on controls */
+  --edge-light: inset 0 1px 0 oklch(100% 0 0 / 0.06); /* thin light catch on the top edge */
+  --shadow-part: 0 1px 0 oklch(0% 0 0 / 0.4), 0 8px 16px -8px oklch(0% 0 0 / 0.6); /* small shadow under pills */
+
+  /* fonts */
+  --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; /* headings and big numbers */
+  --font-body: "Figtree", ui-sans-serif, system-ui, sans-serif; /* everything else */
+  --font-outlier: ui-monospace, monospace; /* not used, base.css expects it */
+
+  /* shapes */
+  --radius-card: 20px; --radius-part: 6px; --radius-pill: 999px; --rule-hair: 1px; /* corners and line weight */
+  --shadow-card: none; /* no card shadows */
+  --tracking-display: -0.03em; --display-weight: 400; /* headings: light and a bit tight */
+}
+
+/* each topic swaps its colour into the accent */
+[data-topic="heat"] { --color-accent: var(--topic-heat); } /* heat = ember */
+[data-topic="seasons"] { --color-accent: var(--topic-seasons); } /* seasons = lilac */
+[data-topic="rain"] { --color-accent: var(--topic-rain); } /* rain = sky */
+[data-topic="sun"] { --color-accent: var(--topic-sun); } /* sun and heating = gold */
+
+/* smaller screens get smaller gutters */
+@media (max-width: 60rem) { :root { --gutter: 24px; --text-hero: 3rem; } } /* tablets */
+@media (max-width: 40rem) { :root { --gutter: 16px; --text-hero: 2.5rem; --gap-columns: 16px; } } /* phones */

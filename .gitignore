@@ -10,3 +10,9 @@ __pycache__/
 
 # mac's hidden folder-settings file
 .DS_Store
+
+# my notes for claude code, only for my laptop
+CLAUDE.md
+
+# local test script and its screenshots, only for my laptop
+tools/
