@@ -1,8 +1,4 @@
-# required packages
-streamlit
+# Packages the app needs. The analysis has its own list in data-generation/requirements.txt.
+streamlit>=1.50
 pandas
-numpy
-plotly
-
-# needed? : 
-# pymannkendall
+plotly>=5.24
