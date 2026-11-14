@@ -145,9 +145,11 @@ st.markdown("""
 .section { text-align: center; font-size: 1.35rem; font-weight: 600; margin: 2.4rem 0 0.2rem; }
 .sub { text-align: center; opacity: 0.65; margin-bottom: 0.8rem; }
 [data-testid="stCaptionContainer"] { text-align: center; }   /* small grey notes centred too */
-/* fade-in for the results so they don't just pop in */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-.fade { animation: fadeUp 0.6s ease-out both; }
+/* pills shrink a touch when pressed, so taps feel like they registered */
+[data-testid="stButtonGroup"] button { transition: transform 120ms cubic-bezier(0.23, 1, 0.32, 1); }
+[data-testid="stButtonGroup"] button:active { transform: scale(0.97); }
+/* keep sentences to a comfy reading width */
+.sub { max-width: 65ch; margin-left: auto; margin-right: auto; }
 /* report card rows */
 .rc { display: flex; justify-content: space-between; align-items: center; gap: 1rem;
       padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -162,7 +164,7 @@ results, annual, luck = load_data()               # read naveen's three results 
 # ======================================================================== THE TITLE
 
 st.markdown(
-    "<div style='text-align:center; font-size:3rem; font-weight:700; line-height:1.1; margin-top:1rem;'>Is it just me?</div>"
+    "<div style='text-align:center; font-size:3rem; font-weight:700; line-height:1.1; letter-spacing:-0.02em; margin-top:1rem;'>Is it just me?</div>"
     "<div style='text-align:center; font-size:1.15rem; margin-top:0.6rem; opacity:0.85;'>"
     "Check your weather hunches against 45 years of NASA data.</div>"
     "<div style='text-align:center; font-size:0.85rem; margin-top:0.4rem; opacity:0.5;'>A project by Mostly Significant</div>",
@@ -249,8 +251,12 @@ show_html(f"""
 <style>
   body {{ margin: 0; font-family: Inter, sans-serif; color: #E6E9EF; background: transparent; }}
   .card {{ background: #18213A; border-radius: 18px; padding: 26px 24px 22px; text-align: center;
-          border-top: 4px solid var(--c); animation: up .6s ease-out both; }}
-  @keyframes up {{ from {{ opacity: 0; transform: translateY(14px); }} to {{ opacity: 1; transform: none; }} }}
+          border-top: 4px solid var(--c); animation: up 350ms cubic-bezier(0.23, 1, 0.32, 1) both; }}
+  @keyframes up {{ from {{ opacity: 0; transform: translateY(8px); }} to {{ opacity: 1; transform: none; }} }}
+  @keyframes fade {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
+  @media (prefers-reduced-motion: reduce) {{ .card {{ animation-name: fade; }} }}   /* no sliding for people who turn motion off */
+  .early, .late {{ font-variant-numeric: tabular-nums; }}                           /* digits stay the same width so counting doesn't wobble */
+  .what {{ max-width: 65ch; margin-left: auto; margin-right: auto; }}
   .badge {{ display: inline-block; padding: 5px 14px; border-radius: 999px; font-weight: 600; font-size: 14px;
            color: #0E1525; background: var(--c); }}
   .text {{ margin-top: 10px; font-size: 16px; opacity: .9; }}
@@ -298,8 +304,9 @@ show_html(f"""
   }}
   function count(el, target) {{                                  // counts a number up from a start value to the target
     if (target === null) {{ el.textContent = "no value"; return; }}
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {{ el.textContent = fmt(target); return; }}   // motion turned off: just show it
     const start = d.is_date ? target - 30 : 0;                   // dates start a month earlier, everything else starts at 0
-    const t0 = performance.now(), ms = 1200;                     // takes 1.2 seconds
+    const t0 = performance.now(), ms = 800;                      // takes 0.8 seconds, long enough to notice, short enough not to wait
     function step(now) {{
       const p = Math.min((now - t0) / ms, 1);                    // how far through we are, 0 to 1
       const eased = 1 - Math.pow(1 - p, 3);                      // slows down at the end so it feels smooth
@@ -309,7 +316,7 @@ show_html(f"""
     requestAnimationFrame(step);
   }}
   count($("early"), d.early);                                    // count the 1980s number up
-  setTimeout(() => count($("late"), d.late), 350);               // then the recent one, a moment later
+  setTimeout(() => count($("late"), d.late), 150);               // then the recent one, a beat later
 </script>
 """, 340)                                         # 340 = how tall the card's box is
 
@@ -409,7 +416,7 @@ for t, info in TOPICS.items():                                              # go
         rows_html += (f"<div class='rc'><div>{HUNCHES[m]}</div><div>"
                       f"<span class='rc-change'>{show_change(r['rate_per_decade'], r['unit'])}</span>&nbsp;&nbsp;"
                       f"<span class='pill' style='background:{v['colour']};color:#0E1525'>{v['label']}</span></div></div>")
-st.markdown(f"<div class='fade'>{rows_html}</div>", unsafe_allow_html=True)
+st.markdown(rows_html, unsafe_allow_html=True)                              # no fade-in here, it's just a list
 
 # ======================================================================== HOW IT WORKS (short, for anyone curious)
 
@@ -431,3 +438,4 @@ with st.expander("What it can't tell you"):
 
 st.markdown("<div class='sub' style='margin-top:2rem;font-size:0.8rem'>Data: NASA POWER (MERRA-2) · "
             "Is it just me? by Mostly Significant · NASA Space Apps Challenge 2026</div>", unsafe_allow_html=True)
+
