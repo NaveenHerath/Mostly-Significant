@@ -34,6 +34,31 @@ with st.sidebar:                                     # everything indented here 
 
 row = place_rows[place_rows["measure_name"] == measure].iloc[0]   # grab the one row for the place + measure picked
 
+
+
+
+########### guessing game before result
+
+# guess first, then reveal
+st.subheader(f"Is '{measure.lower()}' going up in {place}?")      # ask the hunch as a question
+guess = st.radio(
+    "Before you look at the data, what does your gut say?",      # the question above the options
+    ["Yes, it's going up", "No, it's not", "Not sure"],         # the three answers
+    index=None,                                                  # nothing picked to start with
+    horizontal=True,                                             # options side by side instead of stacked
+    key=f"guess_{place}_{measure}",                              # a fresh guess for every place + measure
+)
+
+if guess is None:                                                # they haven't guessed yet
+    st.info("Make a guess to see what the data says.")           # nudge them
+    st.stop()                                                    # stop here, nothing below runs until they guess
+
+
+#############
+
+
+
+
 # what each verdict word means in plain english, and which coloured box to show it in
 verdicts = {
     "real":       ("Real trend: the data backs this up", st.success),        # green box
@@ -43,6 +68,27 @@ verdicts = {
 }
 text, show_box = verdicts[row["verdict"]]            # look up the text and the box for this verdict
 show_box(f"**{measure} in {place}:** {text}")        # draw the coloured verdict box
+
+
+
+######## guessing game result : 
+
+# did their gut match the data?
+if guess == "Yes, it's going up" and row["verdict"] == "real":           # they said yes, data says yes
+    st.write("Your gut was right, the data backs you up!")
+elif guess == "No, it's not" and row["verdict"] in ["not_backed", "opposite"]:   # they said no, data agrees
+    st.write("Your gut was right, the data doesn't show a rise!")
+elif guess == "Not sure":                                                # they didn't commit
+    st.write("Fair enough, that's exactly why we check the data!")
+else:                                                                    # gut and data disagree, or it's not proven yet
+    st.write("Your gut and the data don't quite agree. That's why it's worth checking!")
+
+
+
+
+
+
+
 
 # the key numbers in a row of three
 col1, col2, col3 = st.columns(3)                     # split the page into 3 side-by-side columns
@@ -124,6 +170,7 @@ fig_map = px.scatter_map(
     hover_name="place",                              # town name pops up when you hover
     hover_data={"rate_per_decade": True,             # also show the change per decade on hover
                 "lat": False, "lon": False},         # but hide the coordinates, nobody needs those
+    labels={"rate_per_decade": "Change per decade"}, # show a proper name instead of the column name
     zoom=4.3,                                        # zoomed in enough to see the whole uk
     center={"lat": 54.5, "lon": -3.0},               # roughly the middle of the uk
     map_style="carto-darkmatter",                    # dark map so it matches the app
