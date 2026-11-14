@@ -51,3 +51,41 @@ col2.metric("p-value", f"{row['p_value']:.3f}")                                 
 col3.metric(f"{row['start_year']} vs recent", f"{row['early_mean']} → {row['late_mean']} {row['unit']}")   # first 10 yrs vs last 10
 
 st.caption(row["plain_definition"])                  # small grey text explaining the measure
+
+
+
+
+############
+
+# CHARTS using plotly
+
+
+import plotly.graph_objects as go                    # plotly is the charting library, go = its building blocks
+
+# one sentence that explains the p-value like a human would
+p = row["p_value"]                                   # grab the p-value for this place + measure
+st.write(f"**What the p-value means:** if there was no real trend, there'd only be about a "
+         f"{p*100:.1f}% chance of seeing a pattern this strong just by luck.")   # e.g. 0.003 becomes 0.3%
+
+# the yearly data for the chart
+yearly = annual[(annual["place"] == place) & (annual["measure_id"] == row["measure_id"])]   # just this place + measure
+yearly = yearly.sort_values("year")                  # make sure the years go left to right in order
+
+# work out where to draw the trend line, using naveen's sen's slope
+slope_per_year = row["rate_per_decade"] / 10         # his number is per decade, i need it per year
+mid_year = yearly["year"].median()                   # the line goes through the middle year...
+mid_value = yearly["value"].median()                 # ...and the middle value, that's the standard way for sen's slope
+trend = mid_value + slope_per_year * (yearly["year"] - mid_year)   # the height of the line in every year
+
+fig = go.Figure()                                    # start an empty chart
+fig.add_trace(go.Scatter(x=yearly["year"], y=yearly["value"],     # the real yearly values
+                         mode="lines+markers", name="Each year")) # dots joined with a line
+fig.add_trace(go.Scatter(x=yearly["year"], y=trend,               # the trend line on top
+                         mode="lines", name="Trend",
+                         line=dict(width=4)))                     # make it thicker so it stands out
+fig.update_layout(height=420,                                     # how tall the chart is
+                  yaxis_title=f"{measure} ({row['unit']})",       # label the side so people know what they're looking at
+                  xaxis_title="Year",                             # label the bottom
+                  hovermode="x unified")                          # hovering shows both lines for that year
+st.plotly_chart(fig, width="stretch")                             # draw it, full width
+
