@@ -89,3 +89,45 @@ fig.update_layout(height=420,                                     # how tall the
                   hovermode="x unified")                          # hovering shows both lines for that year
 st.plotly_chart(fig, width="stretch")                             # draw it, full width
 
+
+
+#############
+
+# maps
+
+import plotly.express as px                          # plotly's shortcut version, builds a whole map in one go
+
+st.subheader("Same hunch, every town")                # heading above the map
+
+map_df = results[results["measure_id"] == row["measure_id"]].copy()   # every town's row for the measure picked
+
+nice_names = {                                       # turn the code words into proper labels for the legend
+    "real": "Real trend",
+    "leaning": "Leaning, not proven",
+    "not_backed": "Not backed up",
+    "opposite": "The opposite",
+}
+map_df["Verdict"] = map_df["verdict"].map(nice_names)   # make a new column with the nice label for each town
+
+colours = {                                          # same colour = same meaning, every time
+    "Real trend": "#2ecc71",                         # green
+    "Leaning, not proven": "#f1c40f",                # amber
+    "Not backed up": "#95a5a6",                      # grey
+    "The opposite": "#e74c3c",                       # red
+}
+
+fig_map = px.scatter_map(
+    map_df,                                          # the table to plot
+    lat="lat", lon="lon",                            # which columns say where each dot goes
+    color="Verdict",                                 # colour the dots by verdict
+    color_discrete_map=colours,                      # using my fixed colours above
+    hover_name="place",                              # town name pops up when you hover
+    hover_data={"rate_per_decade": True,             # also show the change per decade on hover
+                "lat": False, "lon": False},         # but hide the coordinates, nobody needs those
+    zoom=4.3,                                        # zoomed in enough to see the whole uk
+    center={"lat": 54.5, "lon": -3.0},               # roughly the middle of the uk
+    map_style="carto-darkmatter",                    # dark map so it matches the app
+    height=550,                                      # how tall the map is
+)
+fig_map.update_traces(marker=dict(size=18))          # make the dots big enough to see
+st.plotly_chart(fig_map, width="stretch")            # draw it, full width
