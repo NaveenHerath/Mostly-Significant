@@ -1,0 +1,8 @@
+# required packages
+streamlit
+pandas
+numpy
+plotly
+
+# needed? : 
+# pymannkendall
