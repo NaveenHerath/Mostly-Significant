@@ -1,0 +1,12 @@
+# the look of the whole app, every streamlit element reads its colours and font from here
+
+[theme]
+base = "dark"                    # start from streamlit's dark theme
+primaryColor = "#F28C38"         # warm orange accent for selected buttons and tiles (replaces the default red)
+backgroundColor = "#0E1525"      # deep navy page background instead of plain black
+secondaryBackgroundColor = "#18213A"   # slightly lighter navy for boxes and inputs
+textColor = "#E6E9EF"            # soft off-white text, easier on the eyes than pure white
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"   # inter, a clean modern font
+
+[client]
+toolbarMode = "minimal"          # hides the deploy button and dev menu from visitors
