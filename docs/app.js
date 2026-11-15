@@ -173,10 +173,16 @@ function renderTopics() { // the topic switch
   $("topic-note").hidden = state.region === "UK"; // only explain the greyed ones for world
 }
 
-function renderHunches() { // the hunch sentence pills
-  fill($("hunches"), measuresFor(state.place, state.topic).map((m) => // only hunches this place has
-    pill(HUNCHES[m].text, state.measure === m, () => setMeasure(m)) // pressed if picked
-  ));
+let pressedPill = { measure: null, i: 0 }; // which wording of a hunch was tapped (0 = the main sentence, 1+ = a preset)
+
+function renderHunches() { // the hunch sentence pills: every main sentence first, then the extra everyday presets
+  const ms = measuresFor(state.place, state.topic); // only hunches this place has
+  const isPressed = (m, i) => state.measure === m && (pressedPill.measure === m ? pressedPill.i === i : i === 0); // only the tapped wording looks picked, the main one if picked some other way
+  const make = (m, label, i) => pill(label, isPressed(m, i), () => { pressedPill = { measure: m, i }; setMeasure(m); }); // every wording picks the same hunch
+  fill($("hunches"), [
+    ...ms.map((m) => make(m, HUNCHES[m].text, 0)), // main sentences
+    ...ms.flatMap((m) => (HUNCHES[m].presets || []).map((p, j) => make(m, p, j + 1))), // presets, after them
+  ]);
 }
 
 function renderGuess() { // the claim line and the three guess buttons
@@ -383,9 +389,41 @@ function setMeasure(m) { // tapping a hunch
   render(); // redraw
 }
 
+// ---------- gut score (the bar in the corner) ----------
+
+const gutScore = { right: 0, total: 0 }; // this visit only, resets on refresh
+
+function gutRight(guess, verdict) { // was this guess right? true / false, or null for "no idea"
+  if (guess === "unsure") return null; // no guess, doesn't count
+  return (guess === "yes") === (verdict === "real" || verdict === "leaning"); // "true" wins on real or leaning, "not so" wins on the other two
+}
+
+function recordGuess(correct) { // add one guess to the score. the chat and the games at the bottom call this too
+  if (typeof correct !== "boolean") return; // ignore "no idea" and anything odd
+  gutScore.total += 1; // one more guess
+  if (correct) gutScore.right += 1; // and one more right
+  $("gut-score").textContent = `${gutScore.right} of ${gutScore.total} right`; // e.g. "3 of 4 right"
+  $("gutbar").hidden = false; // show the bar (first time it fades up)
+}
+window.recordGuess = recordGuess; // so about.js can call window.recordGuess(true)
+
+$("gut-share").addEventListener("click", async () => { // share the score
+  const btn = $("gut-share"); // the button
+  const text = `My gut was right ${gutScore.right} of ${gutScore.total} times on Is it just me?`; // what gets shared
+  const url = location.origin + location.pathname; // the site, without whatever hunch is in the address
+  if (navigator.share) { // phones (and some laptops) have a share sheet
+    try { await navigator.share({ text, url }); } catch { /* they closed it, fine */ } // open it
+    return; // done
+  }
+  try { await navigator.clipboard.writeText(`${text} ${url}`); btn.textContent = "Copied"; } // no share sheet: copy it instead
+  catch { btn.textContent = "Couldn’t copy"; } // clipboard blocked
+  setTimeout(() => { btn.textContent = "Share"; }, 1600); // back to normal after a moment
+});
+
 function setGuess(g) { // tapping a guess button
   const first = state.guess === null; // was the answer hidden until now?
   state.guess = g; // remember it
+  if (first && row()) recordGuess(gutRight(g, row().verdict)); // only the first guess on a question counts, changing your mind doesn't
   render(); // redraw, which reveals the answer
   if (first) $("result").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" }); // bring the answer into view
 }

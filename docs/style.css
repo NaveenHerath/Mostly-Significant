@@ -364,6 +364,22 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 .outro-credit { position: absolute; right: var(--gutter); bottom: var(--space-3xl); font-size: var(--text-xs); color: var(--color-ink-2); text-decoration: none; text-shadow: 0 1px 2px oklch(0% 0 0 / 0.8); } /* small credit in the corner */
 @media (hover: hover) and (pointer: fine) { .outro-credit:hover { text-decoration: underline; } } /* shows it's a link */
 
+/* ---------- gut score bar ---------- */
+
+.gutbar { /* small frosted pill fixed in the bottom right corner */
+  position: fixed; z-index: var(--z-sticky); /* floats over the page, under the top bar's menu */
+  right: max(var(--space-md), env(safe-area-inset-right)); bottom: max(var(--space-md), env(safe-area-inset-bottom)); /* clear of the edge and the phone's home bar */
+  display: flex; align-items: center; gap: var(--space-sm); /* words then button */
+  padding: var(--space-2xs) var(--space-2xs) var(--space-2xs) var(--space-md); /* tight round the button, room before the words */
+  border-radius: var(--radius-pill); /* round ends like the pills */
+  font-size: var(--text-sm); /* small, it's a side thing */
+}
+.gutbar:not([hidden]) { animation: rise var(--dur-short) var(--ease-out); } /* fades up 8px the first time it shows */
+.gutbar p { margin: 0; color: var(--color-muted); } /* "your gut" quiet */
+.gutbar strong { font-weight: 500; color: var(--color-ink); font-variant-numeric: tabular-nums; } /* the score stands out, digits don't jiggle */
+.gutbar .pill { min-height: 36px; padding: 0 var(--space-sm); font-size: var(--text-sm); } /* smaller pill than the main ones */
+@media (prefers-reduced-motion: reduce) { .gutbar:not([hidden]) { animation-name: fade; } } /* just fade in, no movement */
+
 /* ---------- reveal motion ---------- */
 
 /* when the answer appears, each section fades and rises a touch, one after another */

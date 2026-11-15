@@ -239,6 +239,7 @@ function startCase(turn, c) { // says what is being tested and asks for a guess.
   const row = el("div", "pills chat-guess");
   row.append(...GUESSES.map((g) => pill(g.label, false, async () => {
     row.querySelectorAll("button").forEach((b) => { b.disabled = true; });
+    recordGuess(gutRight(g.id, DATA.rows[c.place][c.measure].verdict)); // counts towards the gut score in the corner
     row.replaceWith(await card(c, g.id, await wording));
     turn.say(`${c.reversed ? "You put it the other way round, so I" : "I"} tested “${hunch}” in ${c.place}.`); // the question has been answered, so it's dropped from the line
     turn.bot.querySelector(".chat-alts")?.remove(); // the "did you mean" row has done its job
