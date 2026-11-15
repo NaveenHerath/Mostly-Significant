@@ -1,128 +1,152 @@
-/* the bottom block: odd one out, quiz, team and the rest. only uses tokens.css values */
+/* Hallmark · scope: component (bottom block: test your gut + about) · genre: atmospheric · theme: Ribbon night colourway, inherited from tokens.css · signature: the numbers set big, hairline rows instead of boxes · v2.0.0 */
+/* Hallmark · critique: one glass pane per section, no card inside a card, labels sentence case, motion on transform/opacity/colour only · weakest: the quiz still reads text-heavy before a pick */
 
-/* ---------- 1. odd one out ---------- */
+/* ---------- the two panes: real frosted glass, same recipe as .glass in style.css ---------- */
 
-.odd-progress { margin-top: var(--space-lg); font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); } /* small round counter */
-.odd-hunch { margin-top: var(--space-xs); color: var(--color-muted); } /* "is it just me, or ..." small and quiet */
-.odd-q { margin-top: var(--space-2xs); font-family: var(--font-display); font-size: var(--text-2xl); letter-spacing: var(--tracking-display); line-height: 1.2; color: var(--color-ink); max-width: 34ch; } /* the real question, big */
-
-.odd-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); margin-top: var(--space-lg); } /* three across on laptops */
-@media (max-width: 40rem) { .odd-cards { grid-template-columns: 1fr; } } /* stacked on phones */
-
-.odd-card {
-  display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2xs); /* name, numbers, label stacked */
-  min-height: 176px; padding: var(--space-md) var(--space-lg); /* tall enough for the answer, so nothing jumps on reveal */
-  text-align: left; font: inherit; color: var(--color-ink-2); /* plain text, not button styling */
-  background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); /* same feel as the pills, card shaped */
-  box-shadow: var(--edge-light), var(--shadow-part); /* tiny light edge and shadow */
-  cursor: pointer; -webkit-tap-highlight-color: transparent; /* hand cursor, no grey flash on phones */
-  transition: transform var(--dur-micro) var(--ease-out), border-color var(--dur-short) var(--ease-out), opacity var(--dur-short) var(--ease-out); /* only these */
+.about-pane {
+  background: var(--glass-fill); /* smoky, half see-through */
+  -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); /* frosts whatever is behind, safari needs the prefix */
 }
-.odd-card:active:not(:disabled) { transform: scale(0.98); } /* small press */
-.odd-card:disabled { cursor: default; } /* after picking, nothing more to click */
-@media (hover: hover) and (pointer: fine) { .odd-card:hover:not(:disabled) { border-color: var(--color-muted); color: var(--color-ink); } } /* mice only */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .about-pane { background: var(--glass-solid); } } /* no blur support: solid */
+@media (prefers-reduced-transparency: reduce) { .about-pane { background: var(--glass-solid); -webkit-backdrop-filter: none; backdrop-filter: none; } } /* less see-through wanted: solid */
 
-.odd-place { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-ink); } /* town name */
+.part-h { font-family: var(--font-display); font-size: var(--text-lg); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); color: var(--color-ink); } /* small subheading inside a pane */
+.part-p { margin-top: var(--space-2xs); max-width: 52ch; font-size: var(--text-sm); color: var(--color-ink-2); } /* a short line under a subheading */
+.part-small { margin-top: var(--space-xs); font-size: var(--text-xs); color: var(--color-muted); } /* footnote-sized */
 
-.odd-result { display: none; grid-template-columns: auto 1fr; align-items: center; column-gap: var(--space-sm); margin-top: auto; padding-top: var(--space-sm); } /* the answer, hidden till they pick */
-.odd-card.revealed .odd-result { display: grid; animation: odd-in var(--dur-short) var(--ease-out); } /* answer slides in */
-.odd-dir { grid-row: span 3; width: 2.25rem; height: 2.25rem; stroke-width: 2; color: var(--color-ink-2); } /* big up or down arrow on the left */
-.odd-word { font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; } /* verdict label over the numbers */
-.odd-word[data-verdict="real"] { color: var(--verdict-real); } /* each verdict in its own colour */
-.odd-word[data-verdict="leaning"] { color: var(--verdict-leaning); } /* amber */
-.odd-word[data-verdict="opposite"] { color: var(--verdict-opposite); } /* red */
-.odd-caveat { margin-top: var(--space-md); } /* the wind warning, under the cards */
-.odd-nums { display: flex; align-items: center; gap: var(--space-xs); font-family: var(--font-display); font-size: var(--text-2xl); font-variant-numeric: tabular-nums; color: var(--color-ink); } /* then -> now */
-.odd-nums .icon { width: 0.6em; height: 0.6em; color: var(--color-muted); } /* little arrow between then and now */
-.odd-noun { font-size: var(--text-sm); color: var(--color-muted); } /* what the numbers mean */
-@keyframes odd-in { from { opacity: 0; transform: translateY(4px); } } /* small rise, quick */
+/* ---------- test your gut: two games side by side ---------- */
 
-.odd-card.revealed { opacity: 0.7; } /* after the reveal the two normal ones step back */
-.odd-card.is-right { opacity: 1; border-color: var(--verdict-real); box-shadow: var(--edge-light), 0 0 40px -16px var(--verdict-real); } /* the real odd one goes green */
-.odd-card.is-right .odd-dir { color: var(--verdict-real); } /* its arrow too */
-.odd-card.is-wrong { opacity: 1; border-color: var(--verdict-opposite); } /* a wrong pick goes red */
+.games { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xl); margin-top: var(--space-lg); } /* two columns on laptops */
+.games > .part + .part { padding-left: var(--space-xl); border-left: var(--rule-hair) solid var(--color-rule); } /* hairline between the games, no boxes */
+@media (max-width: 60rem) {
+  .games { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); } /* stacked on tablets and phones */
+  .games > .part + .part { padding-left: 0; padding-top: var(--space-lg); border-left: 0; border-top: var(--rule-hair) solid var(--color-rule); } /* hairline on top instead */
+}
 
-.odd-foot { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-sm); margin-top: var(--space-lg); } /* next button, then the message under it */
-.odd-msg { min-height: 1.5em; color: var(--color-ink-2); } /* short feedback, keeps its line so the panel doesn't jump */
-.odd-next.is-waiting { visibility: hidden; } /* invisible before the pick but keeps its spot, so it never moves */
+.game-meta { margin-top: var(--space-2xs); font-size: var(--text-xs); color: var(--color-muted); font-variant-numeric: tabular-nums; } /* round 2 of 5 */
+.game-hint { margin-top: var(--space-2xs); max-width: 52ch; font-size: var(--text-sm); color: var(--color-muted); } /* what the quiz words mean */
+.game-hunch { margin-top: var(--space-xs); font-size: var(--text-sm); color: var(--color-muted); } /* "is it just me, or ..." */
+.game-q { margin-top: var(--space-2xs); max-width: 36ch; min-width: 0; overflow-wrap: break-word; font-family: var(--font-display); font-size: var(--text-xl); letter-spacing: var(--tracking-display); line-height: 1.25; color: var(--color-ink); } /* the question */
+.game-caveat { margin-top: var(--space-sm); font-size: var(--text-xs); color: var(--color-muted); max-width: 60ch; } /* the wind warning */
+.game-foot { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-xs); margin-top: var(--space-md); } /* next button, message under it */
+.game-msg { min-height: 1.5em; font-size: var(--text-sm); color: var(--color-ink-2); } /* short feedback */
+.game-next.is-waiting { visibility: hidden; } /* invisible before a pick but keeps its spot, so nothing moves */
 
-/* ---------- 2. real, error or quirk? ---------- */
+/* odd one out: three hairline rows */
+.odd-opts { margin-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); } /* hairline above the first row */
+.odd-opt {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--space-md); /* name left, answer right */
+  width: 100%; min-height: 64px; padding: var(--space-xs) var(--space-sm); /* compact, still easy to tap */
+  font: inherit; text-align: left; color: var(--color-ink-2); /* plain text, not button styling */
+  background: transparent; border: 0; border-bottom: var(--rule-hair) solid var(--color-rule); /* just a hairline under each */
+  cursor: pointer; -webkit-tap-highlight-color: transparent; /* hand cursor, no grey flash on phones */
+  transition: background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-short) var(--ease-out), opacity var(--dur-short) var(--ease-out); /* only these */
+}
+.odd-opt:active:not(:disabled) { background: var(--color-paper-3); } /* press shows straight away */
+.odd-opt:disabled { cursor: default; } /* one go per round */
+@media (hover: hover) and (pointer: fine) { .odd-opt:hover:not(:disabled) { background: color-mix(in oklab, var(--color-paper-3) 60%, transparent); } .odd-opt:hover:not(:disabled) .odd-tap { color: var(--color-ink-2); } } /* mice only */
 
-.quiz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); margin-top: var(--space-lg); } /* three across on laptops */
-@media (max-width: 60rem) { .quiz-grid { grid-template-columns: repeat(2, 1fr); } } /* two on tablets */
-@media (max-width: 40rem) { .quiz-grid { grid-template-columns: 1fr; } } /* one on phones */
+.odd-name { display: flex; flex-direction: column; min-width: 0; } /* place over region */
+.odd-place { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-ink); } /* place name */
+.odd-region { font-size: var(--text-xs); color: var(--color-muted); } /* devon, england */
+.odd-res { display: flex; flex-direction: column; align-items: flex-end; text-align: right; } /* right side */
+.odd-tap { font-size: var(--text-xs); color: var(--color-muted); transition: color var(--dur-micro) var(--ease-out); } /* faint hint before the pick */
+.odd-ans { display: none; flex-direction: column; align-items: flex-end; } /* the answer, hidden till the pick */
+.odd-opt.revealed .odd-tap { display: none; } /* hint goes */
+.odd-opt.revealed .odd-ans { display: flex; animation: about-in var(--dur-short) var(--ease-out); } /* answer arrives */
+.odd-nums { display: inline-flex; align-items: center; gap: var(--space-2xs); font-family: var(--font-display); font-size: var(--text-xl); font-variant-numeric: tabular-nums; color: var(--color-ink); } /* then -> now, the hero */
+.odd-dir { width: 1rem; height: 1rem; stroke-width: 2; color: var(--color-muted); } /* up or down */
+.odd-to { width: 0.6em; height: 0.6em; color: var(--color-muted); } /* little arrow between then and now */
+.odd-verdict { font-size: var(--text-xs); } /* the verdict, in its colour */
 
-.quiz-card { display: flex; flex-direction: column; padding: var(--space-md) var(--space-lg) var(--space-lg); background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); box-shadow: var(--edge-light), var(--shadow-part); } /* same card as the odd one out */
-.quiz-where { font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); } /* place and date, small */
-.quiz-figure { margin-top: var(--space-xs); font-family: var(--font-display); font-size: var(--text-3xl); letter-spacing: var(--tracking-display); font-variant-numeric: tabular-nums; color: var(--color-ink); } /* the number is the hero */
-.quiz-claim { margin-top: var(--space-2xs); font-size: var(--text-sm); color: var(--color-ink-2); } /* what the number is */
-.quiz-choices { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-top: auto; padding-top: var(--space-md); } /* three pills, pushed to the bottom so cards line up */
-.quiz-choice { min-height: 40px; padding: 0 var(--space-sm); font-size: var(--text-sm); } /* slightly smaller pills inside a card */
+.odd-opt.revealed { opacity: 0.72; } /* the two normal ones step back */
+.odd-opt.is-right { opacity: 1; background: color-mix(in oklab, var(--verdict-real) 9%, transparent); box-shadow: inset 3px 0 0 var(--verdict-real); } /* the odd one: green edge and wash */
+.odd-opt.is-wrong { opacity: 1; background: color-mix(in oklab, var(--verdict-opposite) 9%, transparent); box-shadow: inset 3px 0 0 var(--verdict-opposite); } /* a wrong pick: red */
+
+/* verdict colours, shared by the game and the figures */
+[data-verdict="real"] { color: var(--verdict-real); } /* green */
+[data-verdict="leaning"] { color: var(--verdict-leaning); } /* amber */
+[data-verdict="not_backed"] { color: var(--verdict-not_backed); } /* grey */
+[data-verdict="opposite"] { color: var(--verdict-opposite); } /* red */
+
+/* real, error or grid effect: one card at a time, the number is the hero */
+.quiz-where { display: flex; align-items: center; gap: var(--space-xs); margin-top: var(--space-md); font-size: var(--text-sm); color: var(--color-ink-2); } /* icon and place */
+.quiz-where .icon { width: 1rem; height: 1rem; color: var(--color-accent); } /* follows the hunch colour */
+.quiz-figure { margin-top: var(--space-2xs); font-family: var(--font-display); font-size: clamp(2.75rem, 6vw, 4rem); letter-spacing: var(--tracking-display); line-height: 1; font-variant-numeric: tabular-nums; color: var(--color-ink); } /* big number */
+.quiz-claim { margin-top: var(--space-xs); max-width: 44ch; min-height: 2.9em; font-size: var(--text-sm); color: var(--color-ink-2); } /* two lines kept, so the buttons don't hop between cards */
+.quiz-choices { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-top: var(--space-md); } /* three pills */
+.quiz-choice { min-height: 40px; padding: 0 var(--space-md); font-size: var(--text-sm); } /* a touch smaller than the main pills */
 .quiz-choice:disabled { opacity: 0.4; } /* the ones they didn't pick fade */
 .quiz-choice.is-right { opacity: 1; border-color: var(--verdict-real); color: var(--color-ink); } /* right pick goes green */
 .quiz-choice.is-wrong { opacity: 1; border-color: var(--verdict-opposite); color: var(--color-ink); } /* wrong pick goes red */
-.quiz-choice.is-answer { opacity: 1; border-color: var(--verdict-real); border-style: dashed; } /* the right answer, dashed so it reads as "this one" not "you picked" */
-.quiz-reveal { font-size: var(--text-sm); color: var(--color-ink-2); } /* the why, empty till they pick */
-.quiz-card.revealed .quiz-reveal { margin-top: var(--space-sm); animation: odd-in var(--dur-short) var(--ease-out); } /* fades in with a small rise */
+.quiz-choice.is-answer { opacity: 1; border-color: var(--verdict-real); border-style: dashed; } /* the right answer, dashed so it reads as "this one" */
+.quiz-reveal { margin-top: var(--space-sm); min-height: 4.5em; max-width: 52ch; font-size: var(--text-sm); color: var(--color-ink-2); } /* room for three lines, so the foot doesn't jump */
 .quiz-reveal strong { font-weight: 500; color: var(--color-ink); } /* the answer word */
-.quiz-score { min-height: 1.5em; margin-top: var(--space-lg); color: var(--color-ink-2); } /* final score, keeps its line */
 
-@media (prefers-reduced-motion: reduce) { .odd-card { transition: none; } .odd-card.revealed .odd-result, .quiz-card.revealed .quiz-reveal { animation: none; } .odd-card:active:not(:disabled) { transform: none; } } /* no movement if asked */
+/* ---------- about: sub-parts in two columns ---------- */
 
-.quiz-where { display: flex; align-items: center; gap: var(--space-xs); } /* icon then place */
-.quiz-where .icon { width: 1rem; height: 1rem; color: var(--color-accent); } /* same colour as the tile icons */
+.about-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xl) var(--space-2xl); margin-top: var(--space-lg); } /* two columns on laptops */
+.part-wide { grid-column: 1 / -1; } /* faq and demo take the full width */
+@media (max-width: 50rem) { .about-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); } } /* one column on phones */
 
-/* ---------- 3 to 5. tiles (what you can do, why, roadmap) ---------- */
+/* why: the numbers lead */
+.why-figs { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: var(--space-lg); margin-top: var(--space-md); } /* four figures in a row */
+@media (max-width: 30rem) { .why-figs { grid-template-columns: repeat(2, auto); gap: var(--space-md) var(--space-xl); } } /* two by two on small phones */
+.why-fig { display: flex; flex-direction: column-reverse; } /* dt comes first in the html, number shows on top */
+.why-n { margin: 0; font-family: var(--font-display); font-size: var(--text-3xl); letter-spacing: var(--tracking-display); line-height: 1.05; font-variant-numeric: tabular-nums; color: var(--color-ink); } /* the number */
+.why-l { font-size: var(--text-xs); color: var(--color-muted); } /* what it counts */
 
-.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: var(--space-sm); margin-top: var(--space-lg); } /* as many across as fit, stacked on phones */
-.tile {
-  position: relative; display: flex; flex-direction: column; gap: var(--space-2xs); /* icon, title, line stacked */
-  padding: var(--space-md) var(--space-lg); color: var(--color-ink-2); text-decoration: none; /* plain text even when it's a link */
-  background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); /* same card as the games */
-  box-shadow: var(--edge-light), var(--shadow-part); /* tiny edge and shadow */
-  transition: border-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); /* only these move */
-}
-a.tile:active { transform: scale(0.98); } /* small press on link tiles */
-@media (hover: hover) and (pointer: fine) { a.tile:hover { border-color: var(--color-muted); color: var(--color-ink); } } /* mice only */
-.tile-icon { width: 1.5rem; height: 1.5rem; color: var(--color-accent); } /* the line icon, in the hunch colour */
-.tile-tag { position: absolute; top: var(--space-md); right: var(--space-lg); font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); } /* "next" or "later", top right */
-.tile-title { margin-top: var(--space-xs); font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-ink); } /* short title */
-.tile-text { font-size: var(--text-sm); } /* one line */
-.why-facts { margin-top: var(--space-lg); color: var(--color-ink-2); } /* the headline numbers line */
-.why-facts strong { font-family: var(--font-display); font-weight: 500; color: var(--color-ink); font-variant-numeric: tabular-nums; } /* numbers stand out */
+/* hairline lists: icon beside the title, no boxes */
+.hl-list { margin-top: var(--space-sm); padding: 0; list-style: none; border-top: var(--rule-hair) solid var(--color-rule-2); } /* hairline above */
+.hl-list li { border-bottom: var(--rule-hair) solid var(--color-rule-2); } /* hairline between */
+.hl-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--space-sm); padding: var(--space-xs) var(--space-2xs); color: var(--color-ink-2); text-decoration: none; transition: background-color var(--dur-micro) var(--ease-out); } /* icon, words, tag */
+.hl-icon { width: 1.1rem; height: 1.1rem; color: var(--color-accent); } /* follows the hunch colour */
+.hl-words { display: flex; flex-direction: column; min-width: 0; } /* title over line */
+.hl-title { font-size: var(--text-md); color: var(--color-ink); } /* short title */
+.hl-text { font-size: var(--text-sm); color: var(--color-muted); } /* one line */
+.hl-tag { font-size: var(--text-xs); color: var(--color-ink-2); } /* next, later, watch */
+.hl-tag.is-soon { color: var(--color-muted); } /* coming soon, quieter */
+a.hl-row:active { background: var(--color-paper-3); } /* press shows straight away */
+@media (hover: hover) and (pointer: fine) { a.hl-row:hover { background: color-mix(in oklab, var(--color-paper-3) 60%, transparent); } a.hl-row:hover .hl-title { text-decoration: underline; text-underline-offset: 3px; } } /* mice only */
+.hl-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-2xl); border-top: 0; } /* demo and slides side by side */
+.hl-pair li:nth-child(-n + 2) { border-top: var(--rule-hair) solid var(--color-rule-2); } /* hairline above both */
+@media (max-width: 50rem) { .hl-pair { grid-template-columns: minmax(0, 1fr); } .hl-pair li:nth-child(2) { border-top: 0; } } /* stacked on phones */
 
-/* ---------- 6. team ---------- */
+/* team: two rows, initials in a ring */
+.team-list { margin-top: var(--space-sm); padding: 0; list-style: none; border-top: var(--rule-hair) solid var(--color-rule-2); } /* hairline above */
+.team-row { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-sm) var(--space-2xs); border-bottom: var(--rule-hair) solid var(--color-rule-2); } /* one person */
+.team-badge { display: grid; place-items: center; flex: none; width: 2.75rem; height: 2.75rem; border-radius: var(--radius-pill); border: var(--rule-hair) solid color-mix(in oklab, var(--color-accent) 55%, transparent); background: color-mix(in oklab, var(--color-accent) 14%, var(--color-paper-2)); font-family: var(--font-display); font-size: var(--text-md); color: var(--color-ink); } /* initials, tinted with the hunch colour */
+.team-words { display: flex; flex-direction: column; min-width: 0; } /* name, role, place */
+.team-name { font-size: var(--text-md); color: var(--color-ink); } /* name */
+.team-role { font-size: var(--text-sm); color: var(--color-ink-2); } /* what they did */
+.team-where { display: inline-flex; align-items: center; gap: var(--space-2xs); font-size: var(--text-xs); color: var(--color-muted); } /* place */
+.team-where .icon { width: 0.85rem; height: 0.85rem; } /* small pin */
 
-.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: var(--space-sm); margin-top: var(--space-lg); } /* two side by side, stacked on phones */
-.team-card { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md) var(--space-lg); background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); box-shadow: var(--edge-light), var(--shadow-part); } /* badge left, words right */
-.team-badge { display: grid; place-items: center; flex: none; width: 3.25rem; height: 3.25rem; border-radius: 50%; border: var(--rule-hair) solid var(--color-rule); font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-ink); background: color-mix(in oklab, var(--color-accent) 18%, var(--color-paper-2)); } /* initials in a circle, light wash of colour */
-.team-name { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-ink); } /* name */
-.team-role { margin-top: 2px; font-size: var(--text-sm); color: var(--color-ink-2); } /* what they did */
-.team-where { display: flex; align-items: center; gap: var(--space-2xs); margin-top: var(--space-2xs); font-size: var(--text-xs); color: var(--color-muted); } /* pin and place */
-.team-where .icon { width: 0.9rem; height: 0.9rem; } /* small pin */
-
-/* ---------- 7. faq ---------- */
-
-.faq-list { margin-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); } /* hairline above the first one */
-.faq-item { border-bottom: var(--rule-hair) solid var(--color-rule); } /* hairline between questions */
-.faq-item summary { display: flex; align-items: center; gap: var(--space-sm); min-height: 52px; padding: var(--space-xs) 0; cursor: pointer; list-style: none; color: var(--color-ink); } /* the question row, easy to tap */
+/* faq: hairline rows, two columns on laptops */
+.faq-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-2xl); align-items: start; margin-top: var(--space-sm); } /* halves the height */
+@media (max-width: 50rem) { .faq-list { grid-template-columns: minmax(0, 1fr); } } /* one column on phones */
+.faq-item { border-bottom: var(--rule-hair) solid var(--color-rule-2); } /* hairline under each */
+.faq-item:nth-child(-n + 2) { border-top: var(--rule-hair) solid var(--color-rule-2); } /* hairline above the first row */
+@media (max-width: 50rem) { .faq-item:nth-child(2) { border-top: 0; } } /* only the very first on phones */
+.faq-item summary { display: flex; align-items: center; gap: var(--space-sm); min-height: 48px; padding: var(--space-2xs) var(--space-2xs); cursor: pointer; list-style: none; color: var(--color-ink-2); } /* the question row */
 .faq-item summary::-webkit-details-marker { display: none; } /* hide safari's own triangle */
-.faq-icon { flex: none; width: 1.25rem; height: 1.25rem; color: var(--color-muted); } /* icon on the left */
-.faq-q { flex: 1; } /* question takes the middle */
-.faq-chevron { flex: none; width: 1.1rem; height: 1.1rem; color: var(--color-muted); transition: transform var(--dur-short) var(--ease-out); } /* arrow on the right */
-.faq-item[open] .faq-chevron { transform: rotate(180deg); } /* flips when open */
-.faq-a { max-width: 62ch; padding: 0 0 var(--space-md) calc(1.25rem + var(--space-sm)); font-size: var(--text-sm); color: var(--color-ink-2); } /* answer lines up under the question text */
+.faq-item[open] summary { color: var(--color-ink); } /* open one brightens */
+.faq-q { flex: 1; min-width: 0; font-size: var(--text-md); } /* question takes the middle */
+.faq-chevron { flex: none; width: 1rem; height: 1rem; color: var(--color-muted); transition: transform var(--dur-short) var(--ease-out); } /* turns when open */
+.faq-item[open] .faq-chevron { transform: rotate(180deg); } /* flips */
+.faq-a { padding: 0 var(--space-2xs) var(--space-sm) calc(1.1rem + var(--space-sm) + var(--space-2xs)); font-size: var(--text-sm); color: var(--color-ink-2); } /* lines up under the question text */
+.faq-a a { color: var(--color-ink); text-underline-offset: 3px; } /* repo link */
+@media (hover: hover) and (pointer: fine) { .faq-item summary:hover { color: var(--color-ink); } } /* mice only */
 
-/* ---------- 8. demo video and slides ---------- */
+/* ---------- focus ---------- */
 
-.media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: var(--space-sm); margin-top: var(--space-lg); } /* two cards */
-.media-card { display: flex; flex-direction: column; gap: var(--space-2xs); min-height: 168px; padding: var(--space-lg); color: var(--color-ink-2); text-decoration: none; background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); box-shadow: var(--edge-light), var(--shadow-part); transition: border-color var(--dur-short) var(--ease-out); } /* same card again */
-.media-card.is-soon { border-style: dashed; box-shadow: none; } /* placeholder look until there's a link */
-@media (hover: hover) and (pointer: fine) { a.media-card:hover { border-color: var(--color-muted); color: var(--color-ink); } } /* mice only */
-.media-icon { width: 2rem; height: 2rem; color: var(--color-accent); } /* big icon */
-.media-title { margin-top: var(--space-xs); font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-ink); } /* video or slides */
-.media-text { font-size: var(--text-sm); } /* one line */
-.media-cta { display: inline-flex; align-items: center; gap: var(--space-2xs); margin-top: auto; padding-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); } /* watch / coming soon */
-.media-cta .icon { width: 1rem; height: 1rem; } /* small arrow */
+.odd-opt:focus-visible, .hl-row:focus-visible, .faq-item summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; } /* full-width rows: ring drawn inside, shows instantly */
+.quiz-choice:focus-visible, .game-next:focus-visible, .faq-a a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; } /* pills and links: ring outside */
 
-@media (prefers-reduced-motion: reduce) { .tile, .faq-chevron, .media-card { transition: none; } a.tile:active { transform: none; } } /* no movement if asked */
+/* ---------- motion ---------- */
+
+@keyframes about-in { from { opacity: 0; transform: translateY(3px); } } /* small, quick rise */
+@media (prefers-reduced-motion: reduce) {
+  .odd-opt.revealed .odd-ans { animation: none; } /* answer just appears */
+  .odd-opt, .odd-tap, .hl-row, .faq-chevron { transition: none; } /* no movement or fades */
+}
