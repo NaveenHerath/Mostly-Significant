@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!-- icons from lucide-static v1.25.0 (lucide.dev), ISC licence. copied in so they work offline and never change under us -->
+  <!-- stroke colour and width come from style.css (.icon), so every icon matches -->
+  <symbol id="arrow-up-right" viewBox="0 0 24 24"> <!-- arrow-up-right -->
+    <path d="M7 7h10v10" />
+    <path d="M7 17 17 7" />
+  </symbol>
+  <symbol id="chart-line" viewBox="0 0 24 24"> <!-- chart-line -->
+    <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+    <path d="m19 9-5 5-4-4-3 3" />
+  </symbol>
+  <symbol id="circle-help" viewBox="0 0 24 24"> <!-- circle-help -->
+    <circle cx="12" cy="12" r="10" />
+    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+    <path d="M12 17h.01" />
+  </symbol>
+  <symbol id="cloud-rain" viewBox="0 0 24 24"> <!-- cloud-rain -->
+    <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+    <path d="M16 14v6" />
+    <path d="M8 14v6" />
+    <path d="M12 16v6" />
+  </symbol>
+  <symbol id="dices" viewBox="0 0 24 24"> <!-- dices -->
+    <rect width="12" height="12" x="2" y="10" rx="2" ry="2" />
+    <path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6" />
+    <path d="M6 18h.01" />
+    <path d="M10 14h.01" />
+    <path d="M15 6h.01" />
+    <path d="M18 9h.01" />
+  </symbol>
+  <symbol id="info" viewBox="0 0 24 24"> <!-- info -->
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 16v-4" />
+    <path d="M12 8h.01" />
+  </symbol>
+  <symbol id="leaf" viewBox="0 0 24 24"> <!-- leaf -->
+    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+  </symbol>
+  <symbol id="lightbulb" viewBox="0 0 24 24"> <!-- lightbulb -->
+    <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+    <path d="M9 18h6" />
+    <path d="M10 22h4" />
+  </symbol>
+  <symbol id="list-checks" viewBox="0 0 24 24"> <!-- list-checks -->
+    <path d="M13 5h8" />
+    <path d="M13 12h8" />
+    <path d="M13 19h8" />
+    <path d="m3 17 2 2 4-4" />
+    <path d="m3 7 2 2 4-4" />
+  </symbol>
+  <symbol id="map-pin" viewBox="0 0 24 24"> <!-- map-pin -->
+    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+    <circle cx="12" cy="10" r="3" />
+  </symbol>
+  <symbol id="map" viewBox="0 0 24 24"> <!-- map -->
+    <path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" />
+    <path d="M15 5.764v15" />
+    <path d="M9 3.236v15" />
+  </symbol>
+  <symbol id="menu" viewBox="0 0 24 24"> <!-- menu -->
+    <path d="M4 5h16" />
+    <path d="M4 12h16" />
+    <path d="M4 19h16" />
+  </symbol>
+  <symbol id="sun" viewBox="0 0 24 24"> <!-- sun -->
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2" />
+    <path d="M12 20v2" />
+    <path d="m4.93 4.93 1.41 1.41" />
+    <path d="m17.66 17.66 1.41 1.41" />
+    <path d="M2 12h2" />
+    <path d="M20 12h2" />
+    <path d="m6.34 17.66-1.41 1.41" />
+    <path d="m19.07 4.93-1.41 1.41" />
+  </symbol>
+  <symbol id="thermometer" viewBox="0 0 24 24"> <!-- thermometer -->
+    <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" />
+  </symbol>
+  <symbol id="x" viewBox="0 0 24 24"> <!-- x -->
+    <path d="M18 6 6 18" />
+    <path d="m6 6 12 12" />
+  </symbol>
+</svg>

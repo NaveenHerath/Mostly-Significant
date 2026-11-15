@@ -11,7 +11,8 @@
   --text-xs: 0.75rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.2rem; /* small to body */
   --text-xl: 1.44rem; --text-2xl: 1.728rem; --text-3xl: 2.074rem; /* headings */
   --text-display-s: 1.44rem; --text-display: 1.728rem; --text-section: 1.44rem; --text-title: 1.05rem; --text-lead: 1.125rem; /* named roles base.css uses */
-  --text-hero: 3.6rem; /* the page title */
+  --text-hero: clamp(3rem, 8vw, 6rem); /* the page title, big and centred */
+  --text-tagline: clamp(1.25rem, 2.6vw, 1.75rem); /* "your weather hunches, fact-checked." */
   --text-figure: clamp(3.25rem, 12vw, 6.5rem); /* the big then and now numbers */
 
   /* motion */
@@ -19,10 +20,11 @@
   --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms; --dur-count: 700ms; /* how long things take */
 
   /* layout */
-  --measure: 680px; /* the reading column */
-  --wide: 1100px; /* chart and map get this much */
+  --measure: 65ch; /* comfortable reading width for paragraphs */
+  --page: 1160px; /* the main column on laptops */
+  --bar-height: 56px; /* the sticky top bar */
   --gutter: 64px; --gap-columns: 32px; /* side space and column gap */
-  --container: 1100px; /* base.css wants this one */
+  --container: 1160px; /* base.css wants this one */
   --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px; /* hallmark's section spacing */
   --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600; /* stacking */
 
@@ -38,14 +40,24 @@
   --color-error: oklch(70% 0.15 27); /* if the data won't load */
   --color-success: oklch(75% 0.12 150); /* not really used, here for completeness */
 
-  /* one accent per topic, the current one gets copied into --color-accent */
-  --topic-heat: oklch(76% 0.13 52); /* ember orange */
-  --topic-seasons: oklch(78% 0.08 300); /* soft lilac */
-  --topic-rain: oklch(79% 0.085 232); /* sky blue */
-  --topic-sun: oklch(86% 0.1 92); /* pale gold */
-  --color-accent: var(--topic-heat); /* default until a topic is picked */
-  --color-accent-ink: oklch(18% 0.02 258); /* dark text that sits on the accent */
-  --color-focus: var(--color-accent); /* focus ring follows the topic */
+  /* one accent per hunch, the picked hunch's one gets copied into --color-accent */
+  --hunch-heat: oklch(52% 0.15 22); /* deep ember red, darker than the "opposite" red so they can't be mixed up */
+  --hunch-summer: oklch(91% 0.095 108); /* soft summer yellow (heat arrives earlier, summers last longer) */
+  --hunch-autumn: oklch(77% 0.08 38); /* soft autumn orange (autumn turns up later) */
+  --hunch-winter: oklch(88% 0.05 205); /* icy winter blue (frosts come later) */
+  --hunch-rain: oklch(79% 0.085 232); /* sky blue, same as before */
+  --hunch-sun: oklch(74% 0.15 62); /* deep amber gold, kept away from summer yellow and the "leaning" yellow */
+
+  /* the topic tabs' own highlight colour */
+  --tab-heat: var(--hunch-heat); /* heat tab matches its hunches */
+  --tab-seasons: oklch(84% 0.075 140); /* soft spring green, seasons gets its own */
+  --tab-rain: var(--hunch-rain); /* rain tab matches its hunches */
+  --tab-sun: var(--hunch-sun); /* sun tab matches its hunches */
+
+  --ink-dark: oklch(18% 0.02 258); /* dark text for sitting on the light accents */
+  --color-accent: var(--hunch-heat); /* default until a hunch is picked */
+  --color-accent-ink: var(--color-ink); /* text on the accent: light by default because ember is dark */
+  --color-focus: var(--color-accent); /* focus ring follows the hunch */
 
   /* verdict colours, exactly as in CLAUDE.md */
   --verdict-real: #2ECC71; /* yes, it's real */
@@ -68,12 +80,14 @@
   --tracking-display: -0.03em; --display-weight: 400; /* headings: light and a bit tight */
 }
 
-/* each topic swaps its colour into the accent */
-[data-topic="heat"] { --color-accent: var(--topic-heat); } /* heat = ember */
-[data-topic="seasons"] { --color-accent: var(--topic-seasons); } /* seasons = lilac */
-[data-topic="rain"] { --color-accent: var(--topic-rain); } /* rain = sky */
-[data-topic="sun"] { --color-accent: var(--topic-sun); } /* sun and heating = gold */
+/* each hunch swaps its colour into the accent, plus the right text colour to sit on it */
+[data-accent="heat"] { --color-accent: var(--hunch-heat); --color-accent-ink: var(--color-ink); } /* ember is dark, so light text */
+[data-accent="summer"] { --color-accent: var(--hunch-summer); --color-accent-ink: var(--ink-dark); } /* light colours get dark text */
+[data-accent="autumn"] { --color-accent: var(--hunch-autumn); --color-accent-ink: var(--ink-dark); } /* autumn orange */
+[data-accent="winter"] { --color-accent: var(--hunch-winter); --color-accent-ink: var(--ink-dark); } /* icy blue */
+[data-accent="rain"] { --color-accent: var(--hunch-rain); --color-accent-ink: var(--ink-dark); } /* sky blue */
+[data-accent="sun"] { --color-accent: var(--hunch-sun); --color-accent-ink: var(--ink-dark); } /* amber gold */
 
 /* smaller screens get smaller gutters */
-@media (max-width: 60rem) { :root { --gutter: 24px; --text-hero: 3rem; } } /* tablets */
-@media (max-width: 40rem) { :root { --gutter: 16px; --text-hero: 2.5rem; --gap-columns: 16px; } } /* phones */
+@media (max-width: 60rem) { :root { --gutter: 24px; } } /* tablets */
+@media (max-width: 40rem) { :root { --gutter: 16px; --gap-columns: 16px; } } /* phones */

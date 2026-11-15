@@ -1,37 +1,70 @@
 /* Hallmark · shape: app screen · genre: atmospheric · theme: Ribbon (deal 2/3, seed just-weather-hunch-fact-checker-c2b8·1fcc3724·2026-11-14·r0)
- * nav: none, one page read top to bottom · signature: the then-vs-now pair set huge · states: loading, error, full · ribbon: two-in-the-morning
- * axes: dark/grotesk-sans/topic-accents · posture: committed · contrast: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V3 · weakest: V, first run with no log to differ from; kept the flow from CLAUDE.md and let the numbers and verdict colours carry it */
+ * nav: slim sticky bar, logo left, section links right, menu on phones · signature: the then-vs-now pair set huge · states: loading, error, full · ribbon: two-in-the-morning
+ * axes: dark/grotesk-sans/hunch-accents · posture: committed · contrast: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V3 · weakest: V, first run with no log to differ from; kept the flow from CLAUDE.md and let the numbers and the per-hunch colours carry it */
 @import url("./tokens.css"); /* colours, fonts, spacing */
 @import url("./base.css"); /* hallmark's base rules (focus ring, reduced motion, overflow) */
 
+/* ---------- basics ---------- */
+
+html { scroll-behavior: smooth; } /* section links glide (base.css turns this off for reduced motion) */
+noscript { display: block; } /* so the no-javascript note sits in the column like everything else */
+html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers and links to them, they can't work */
+.icon { width: 1.1em; height: 1.1em; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; } /* every line icon, same size and stroke */
+.logo { width: 22px; height: 22px; flex-shrink: 0; color: var(--color-accent); } /* our mark, takes the hunch colour */
+.logo path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; } /* the rising line */
+.logo circle { fill: currentColor; } /* the two dots */
+.logo .logo-start { opacity: 0.55; } /* start dot quieter, end dot is the point */
+
+/* ---------- top bar ---------- */
+
+.bar {
+  position: sticky; top: 0; z-index: var(--z-sticky-nav); /* stays at the top, above everything else */
+  height: var(--bar-height); /* slim */
+  background: color-mix(in oklab, var(--color-paper) 82%, transparent); /* page colour, a little see-through */
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); /* blurs what scrolls underneath */
+  border-bottom: var(--rule-hair) solid var(--color-rule-2); /* hairline along the bottom */
+}
+.bar-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); max-width: var(--page); height: 100%; margin: 0 auto; padding: 0 var(--gutter); box-sizing: content-box; } /* same width as the page */
+.brand { display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 44px; color: var(--color-ink); font-weight: 500; font-size: var(--text-sm); text-decoration: none; } /* logo and team name */
+.site-nav { display: flex; align-items: center; gap: var(--space-lg); } /* the section links in a row */
+.site-nav a {
+  position: relative; /* so the underline can sit under it */
+  display: inline-flex; align-items: center; min-height: 44px; /* tall enough to tap */
+  color: var(--color-muted); font-size: var(--text-sm); text-decoration: none; /* quiet until current */
+  transition: color var(--dur-short) var(--ease-out); /* colour eases */
+}
+.site-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 10px; height: 2px; border-radius: 2px; background: var(--color-accent); transform: scaleX(0); transform-origin: left; transition: transform var(--dur-short) var(--ease-out); } /* underline, hidden until current */
+.site-nav a[aria-current="true"] { color: var(--color-ink); } /* current section is bright */
+.site-nav a[aria-current="true"]::after { transform: scaleX(1); } /* and gets its underline */
+@media (hover: hover) and (pointer: fine) { .site-nav a:hover { color: var(--color-ink); } } /* hover only for real mice */
+.menu-btn { display: none; } /* only shows on phones */
+
 /* ---------- page layout ---------- */
 
-/* a narrow reading column, with the chart and map allowed to go wider */
-.page { padding: var(--space-xl) var(--gutter) var(--space-3xl); } /* side gutters plus space top and bottom */
-.page > *, #reveal > * { max-width: var(--measure); margin-inline: auto; } /* everything sits in the reading column by default */
-.page > .wide, #reveal > .wide { max-width: var(--wide); } /* chart and map get more room */
+.page { max-width: var(--page); margin: 0 auto; padding: 0 var(--gutter) var(--space-lg); box-sizing: content-box; } /* wide column on laptops, gutters on the sides */
 
 /* ---------- title ---------- */
 
-.intro { padding-bottom: var(--space-xl); } /* breathing room under the title */
-noscript { display: block; } /* so the no-javascript note sits in the column like everything else */
-html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers, they can't work */
-.team { font-weight: 500; font-size: var(--text-sm); color: var(--color-muted); margin-bottom: var(--space-3xl); } /* team name, small and quiet, well above the title */
-.intro h1 { font-size: var(--text-hero); line-height: 1; max-width: none; } /* the big question */
-.lead { margin-top: var(--space-md); color: var(--color-muted); max-width: 44ch; } /* one-line explainer */
+.intro { padding: var(--space-3xl) 0 var(--space-2xl); text-align: center; } /* centred hero with room to breathe */
+.intro h1 { font-size: var(--text-hero); line-height: 0.95; max-width: none; margin: 0 auto; } /* the big question */
+.tagline { margin-top: var(--space-md); font-family: var(--font-display); font-size: var(--text-tagline); letter-spacing: var(--tracking-display); color: var(--color-ink-2); } /* "your weather hunches, fact-checked." */
+.lead { margin: var(--space-md) auto 0; color: var(--color-muted); max-width: 44ch; } /* one-line explainer */
+.intro + noscript .note { margin-inline: auto; text-align: center; } /* the no-js note sits under the hero */
 
 /* ---------- steps ---------- */
 
 .step { padding-top: var(--space-xl); margin-top: var(--space-2xl); border-top: var(--rule-hair) solid var(--color-rule-2); } /* each step starts with a faint hairline */
-.step h2 { color: var(--color-ink); } /* step heading */
+.step h2 { display: flex; align-items: center; gap: 0.45em; max-width: none; color: var(--color-ink); } /* step heading, icon then words */
+.step h2 .icon { opacity: 0.5; width: 0.9em; height: 0.9em; } /* heading icon, same colour as the words but faded so it stays quiet */
 .note { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); max-width: 60ch; } /* small helper text */
 
 /* ---------- pills and switches ---------- */
 
-.pills, .guesses { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-top: var(--space-md); } /* rows of pills that wrap on phones */
+.pills, .guesses { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-top: var(--space-md); } /* rows of pills that wrap */
 
 .pill {
+  display: inline-flex; align-items: center; gap: var(--space-xs); /* room for an icon before the word */
   min-height: 44px; /* big enough to tap */
   padding: 0 var(--space-md); /* side padding */
   border: var(--rule-hair) solid var(--color-rule); /* thin outline */
@@ -45,7 +78,7 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers, t
   transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); /* only these, never "all" */
 }
 .pill:active:not(:disabled) { transform: scale(0.97); } /* small press so it feels like it heard you */
-.pill[aria-pressed="true"] { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); } /* picked: filled with the topic colour */
+.pill[aria-pressed="true"] { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); } /* picked: filled with the hunch colour */
 .pill:disabled { opacity: 0.35; cursor: not-allowed; box-shadow: none; } /* greyed out, e.g. rain for world cities */
 @media (hover: hover) and (pointer: fine) { /* hover only for real mice, not phones */
   .pill:hover:not(:disabled):not([aria-pressed="true"]) { border-color: var(--color-muted); color: var(--color-ink); } /* gentle lift on hover */
@@ -63,12 +96,16 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers, t
   background: var(--color-paper-2); /* slightly lighter than the page */
 }
 .switch .pill { min-height: 40px; border-color: transparent; background: transparent; box-shadow: none; color: var(--color-muted); } /* segments are flat until picked */
-.switch .pill[aria-pressed="true"] { background: var(--color-paper-3); border-color: var(--color-rule); box-shadow: var(--edge-light), var(--shadow-part); color: var(--color-ink); } /* picked segment is raised, not coloured */
-#topics .pill[aria-pressed="true"] { color: var(--color-accent); } /* the picked topic shows its colour in the text */
+.switch .pill[aria-pressed="true"] { background: var(--color-paper-3); border-color: var(--color-rule); box-shadow: var(--edge-light), var(--shadow-part); color: var(--color-ink); } /* picked segment is raised, not filled */
+#topics [data-tab="heat"] { --tab: var(--tab-heat); } /* each topic tab's own colour */
+#topics [data-tab="seasons"] { --tab: var(--tab-seasons); } /* spring green */
+#topics [data-tab="rain"] { --tab: var(--tab-rain); } /* sky blue */
+#topics [data-tab="sun"] { --tab: var(--tab-sun); } /* amber gold */
+#topics .pill[aria-pressed="true"] .icon { color: var(--tab); } /* the picked topic's icon lights up in its colour */
 
 /* ---------- guess ---------- */
 
-.claim { margin-top: var(--space-md); font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1.2; letter-spacing: var(--tracking-display); color: var(--color-ink); max-width: 28ch; } /* the hunch, said back in big type */
+.claim { margin-top: var(--space-md); font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1.2; letter-spacing: var(--tracking-display); color: var(--color-ink); max-width: 32ch; } /* the hunch, said back in big type */
 .guesses .pill { min-height: 52px; padding: 0 var(--space-lg); } /* guess buttons are a bit bigger, they're the main action */
 
 /* ---------- result ---------- */
@@ -79,7 +116,7 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers, t
 .result[data-verdict="not_backed"] { --verdict: var(--verdict-not_backed); } /* grey */
 .result[data-verdict="opposite"] { --verdict: var(--verdict-opposite); } /* red */
 
-.result .verdict { font-family: var(--font-display); font-size: var(--text-3xl); line-height: 1.1; letter-spacing: var(--tracking-display); color: var(--verdict); } /* the verdict in its colour, always with words */
+.result .verdict { display: block; font-family: var(--font-display); font-size: var(--text-3xl); line-height: 1.1; letter-spacing: var(--tracking-display); color: var(--verdict); } /* the verdict in its colour, always with words */
 .verdict-line { margin-top: var(--space-xs); color: var(--color-ink-2); } /* one plain sentence */
 .gut { margin-top: var(--space-2xs); color: var(--color-muted); } /* was your gut right */
 
@@ -88,7 +125,7 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers, t
 .figure-label { font-size: var(--text-sm); color: var(--color-muted); } /* "1981 to 1990" */
 .big { font-family: var(--font-display); font-size: var(--text-figure); line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; margin-top: var(--space-xs); } /* the hero numbers */
 .big.then { color: var(--color-muted); } /* then is quieter */
-.big.now { color: var(--color-accent); } /* now carries the topic colour */
+.big.now { color: var(--color-accent); } /* now carries the hunch colour */
 .to { font-family: var(--font-display); font-size: calc(var(--text-figure) * 0.5); line-height: 1; color: var(--color-muted); padding-bottom: 0.25em; } /* the arrow between, quiet but easy to see */
 .noun { margin-top: var(--space-sm); font-size: var(--text-lg); color: var(--color-ink-2); } /* what the numbers mean */
 
@@ -105,7 +142,7 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers, t
 .chart-box svg { --plot-background: var(--color-paper-3); } /* plot's tooltip background, dark to match */
 .chart-box .yearly { stroke: var(--color-ink-2); stroke-opacity: 0.35; } /* yearly line, faint so the trend stands out */
 .chart-box .yearly-dot { fill: var(--color-ink-2); fill-opacity: 0.7; stroke: none; } /* yearly dots */
-.chart-box .trend { stroke: var(--color-accent); } /* trend line in the topic colour */
+.chart-box .trend { stroke: var(--color-accent); } /* trend line in the hunch colour */
 .chart-box .avg { stroke: var(--color-ink); stroke-opacity: 0.7; } /* dashed averages */
 .chart-box .avg-label { fill: var(--color-ink-2); font-size: 12px; } /* "1980s: 7.2" */
 .chart-box [aria-label="tip"] { color: var(--color-ink); } /* tooltip text */
@@ -117,12 +154,12 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers, t
 .dots { margin-top: var(--space-lg); max-width: 520px; } /* grid of dots, not too wide */
 .dots svg { width: 100%; height: auto; } /* scales to fit */
 .dot { fill: var(--color-rule); } /* shuffles that didn't match, faint */
-.dot.hit { fill: var(--color-accent); } /* shuffles that matched, lit in the topic colour */
+.dot.hit { fill: var(--color-accent); } /* shuffles that matched, lit in the hunch colour */
 
 /* ---------- map ---------- */
 
-.map-box { margin-top: var(--space-lg); height: 440px; border-radius: var(--radius-card); overflow: hidden; border: var(--rule-hair) solid var(--color-rule-2); } /* the map, with rounded corners */
-.map-box.leaflet-container { background: var(--color-paper); font-family: var(--font-body); } /* dark while tiles load, our font */
+.map-box { margin-top: var(--space-lg); height: 480px; border-radius: var(--radius-card); overflow: hidden; border: var(--rule-hair) solid var(--color-rule-2); } /* the map, with rounded corners */
+.map-box.leaflet-container { background: var(--color-paper); font-family: var(--font-body); } /* dark sea, our font */
 .land { fill: var(--color-rule-2); fill-opacity: 1; stroke: var(--color-rule); stroke-width: 0.6; } /* countries a touch lighter than the sea, faint borders */
 .pin { stroke: var(--color-paper); stroke-width: 2; fill-opacity: 1; } /* every pin: dark outline so they separate */
 .pin--real { fill: var(--verdict-real); } /* green */
@@ -147,7 +184,7 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers, t
 
 /* ---------- report card ---------- */
 
-.report-group { margin-top: var(--space-xl); } /* space between topics */
+.report-group { margin-top: var(--space-xl); min-width: 0; } /* space between topics */
 .report-group h3 { font-size: var(--text-lg); color: var(--color-ink-2); } /* topic name */
 .report-group ul { list-style: none; margin: var(--space-sm) 0 0; padding: 0; } /* plain list, no bullets */
 .report-row {
@@ -171,8 +208,8 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers, t
 .report-row[data-verdict="leaning"] { --verdict: var(--verdict-leaning); } /* amber */
 .report-row[data-verdict="not_backed"] { --verdict: var(--verdict-not_backed); } /* grey */
 .report-row[data-verdict="opposite"] { --verdict: var(--verdict-opposite); } /* red */
-.report-row[aria-current="true"] .report-hunch { color: var(--color-accent); } /* the one you just checked, in the topic colour */
-@media (hover: hover) and (pointer: fine) { .report-row:hover .report-hunch { text-decoration: underline; text-decoration-color: var(--color-muted); text-underline-offset: 0.2em; } } /* hint it's tappable */
+.report-row[aria-current="true"] .report-hunch { text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; text-underline-offset: 0.25em; } /* the one you just checked: underlined in its colour (text stays readable even for dark ember) */
+@media (hover: hover) and (pointer: fine) { .report-row:hover .report-hunch { text-decoration: underline; text-decoration-color: var(--color-muted); text-underline-offset: 0.25em; } } /* hint it's tappable */
 
 /* ---------- how this works ---------- */
 
@@ -190,6 +227,22 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers, t
 .how a { text-decoration-color: var(--color-muted); } /* quiet underline */
 @media (hover: hover) and (pointer: fine) { .how a:hover { text-decoration-color: var(--color-accent); } } /* underline picks up the colour on hover */
 
+/* ---------- footer ---------- */
+
+.site-footer { margin-top: var(--space-xl); padding: var(--space-2xl) var(--gutter) var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); } /* starts with a hairline */
+.footer-inner { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr); gap: var(--space-2xl); max-width: var(--page); margin: 0 auto; } /* brand on the left, link columns on the right */
+.footer-name { display: flex; align-items: center; gap: var(--space-xs); font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-ink); } /* logo and site name */
+.footer-desc { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); max-width: 36ch; } /* one-line description */
+.footer-cols { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr) minmax(0, 0.9fr); gap: var(--space-lg); } /* three link columns, data gets a bit more room for its longer links */
+.footer-h { font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; letter-spacing: 0; color: var(--color-ink-2); max-width: none; } /* column heading, body font, sentence case */
+.footer-cols ul { list-style: none; margin: var(--space-xs) 0 0; padding: 0; } /* plain list */
+.footer-cols li { padding-block: var(--space-2xs); line-height: 1.6; } /* room between links, still easy to tap */
+.footer-cols a { font-size: var(--text-sm); color: var(--color-muted); text-decoration: none; transition: color var(--dur-short) var(--ease-out); } /* quiet links that wrap like normal text */
+@media (hover: hover) and (pointer: fine) { .footer-cols a:hover { color: var(--color-ink); } } /* brighten on hover */
+.nowrap { white-space: nowrap; } /* keeps the last word and its arrow together */
+.icon-out { display: inline-block; width: 0.85em; height: 0.85em; margin-left: 0.25em; vertical-align: -0.1em; } /* small "opens elsewhere" arrow, sits right after the last word */
+.footer-bottom { max-width: var(--page); margin: var(--space-xl) auto 0; padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule-2); font-size: var(--text-xs); color: var(--color-muted); } /* the built-by line */
+
 /* ---------- reveal motion ---------- */
 
 /* when the answer appears, each section fades and rises a touch, one after another */
@@ -202,18 +255,47 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers, t
   @keyframes fade { from { opacity: 0; } } /* just opacity */
 }
 
+/* ---------- laptops: use the extra width ---------- */
+
+@media (min-width: 60rem) { /* wide enough for two columns */
+  .result { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: var(--space-2xl); align-items: end; } /* verdict and numbers left, facts right */
+  .result .facts { grid-template-columns: minmax(0, 1fr); margin-top: 0; gap: var(--space-md); } /* facts stack in the side column */
+  .result .big { font-size: min(var(--text-figure), 5rem); } /* capped so dates like 18 Nov to 23 Nov fit side by side in the left column */
+  .then-now { flex-wrap: nowrap; } /* then, arrow and now always stay on one line */
+  .luck-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-2xl); align-items: center; } /* dots and words side by side */
+  .luck-cols .dots { order: -1; } /* dots on the left */
+  .report { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-2xl); } /* topic groups in two columns */
+  .how-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xl); } /* method left, caveats right */
+  .how-cols > div > h3:first-child { margin-top: var(--space-sm); } /* caveats heading lines up with the first paragraph */
+}
+
 /* ---------- phones ---------- */
 
 @media (max-width: 40rem) { /* small screens */
+  .menu-btn { display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 44px; padding: 0 var(--space-sm); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-pill); background: var(--color-paper-2); color: var(--color-ink); font-size: var(--text-sm); cursor: pointer; -webkit-tap-highlight-color: transparent; transition: transform var(--dur-micro) var(--ease-out); } /* the menu button */
+  .menu-btn:active { transform: scale(0.97); } /* small press */
+  .menu-btn .icon-close, .menu-btn[aria-expanded="true"] .icon-open { display: none; } /* show lines when shut, cross when open */
+  .menu-btn[aria-expanded="true"] .icon-close { display: block; } /* the cross */
+  .site-nav { display: none; position: absolute; top: var(--bar-height); left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: var(--space-xs) var(--gutter) var(--space-md); background: var(--color-paper-2); border-bottom: var(--rule-hair) solid var(--color-rule); } /* the panel under the bar, shut by default */
+  .menu-btn[aria-expanded="true"] + .site-nav { display: flex; animation: drop var(--dur-short) var(--ease-out); } /* open */
+  .site-nav a { min-height: 48px; border-top: var(--rule-hair) solid var(--color-rule-2); font-size: var(--text-md); } /* stacked links, easy to tap */
+  .site-nav a:first-child { border-top: 0; } /* no line above the first */
+  .site-nav a::after { bottom: 12px; right: auto; width: 24px; } /* short underline under the current one */
+  html:not(.js) .menu-btn { display: none; } /* no javascript: no menu button */
+  html:not(.js) .site-nav { display: flex; position: static; flex-direction: row; padding: 0; background: none; border: 0; } /* just show the links inline */
+
+  .intro { padding: var(--space-2xl) 0 var(--space-xl); } /* less room around the hero */
   .claim { font-size: var(--text-xl); } /* claim a bit smaller */
   .result .verdict { font-size: var(--text-2xl); } /* verdict a bit smaller */
-  .then-now { gap: var(--space-md); } /* tighter gap between numbers */
+  .then-now { gap: var(--space-md); flex-wrap: nowrap; } /* tighter, and the arrow never dangles */
   .facts { grid-template-columns: minmax(0, 1fr); gap: var(--space-md); } /* facts stack */
-  .team { margin-bottom: var(--space-2xl); } /* less space above the title */
-  .switch .pill { padding: 0 var(--space-sm); font-size: var(--text-sm); } /* tighter, smaller segments so the four topics fit on one line */
+  .switch .pill { padding: 0 var(--space-sm); font-size: var(--text-sm); } /* tighter, smaller segments so the four topics fit */
   .big { font-size: clamp(2.5rem, 11vw, 3.25rem); } /* then and now fit side by side, even for dates like 18 Nov */
-  .then-now { flex-wrap: nowrap; } /* keep the arrow between them, never dangling */
   .switch { border-radius: var(--radius-card); } /* if it does wrap, the track still looks tidy */
+  #topics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } /* four topics as a neat 2 by 2 grid instead of a ragged wrap */
   .pill { text-align: left; } /* long hunch sentences wrap neatly from the left */
   .map-box { height: 340px; } /* shorter map on phones */
+  .footer-inner { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); } /* footer stacks */
+  .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } /* two link columns */
 }
+@keyframes drop { from { opacity: 0; transform: translateY(-6px); } } /* menu panel slides down a touch as it opens */

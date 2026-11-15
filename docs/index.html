@@ -4,7 +4,7 @@
   <meta charset="utf-8"> <!-- so the degree sign and m² show up right -->
   <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- makes it behave on phones -->
   <title>Is it just me?</title> <!-- tab title -->
-  <meta name="description" content="Check an everyday weather hunch against 45 years of NASA data."> <!-- for link previews -->
+  <meta name="description" content="Your weather hunches, fact-checked against 45 years of NASA data."> <!-- for link previews -->
   <meta name="theme-color" content="#0b0f18"> <!-- dark browser bar on phones, matches the page -->
   <script>document.documentElement.classList.add("js")</script> <!-- marks that javascript is on, so the pickers only show when they can work -->
   <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- start talking to google fonts early -->
@@ -14,37 +14,59 @@
   <link rel="stylesheet" href="style.css"> <!-- our styles (pulls in tokens.css and base.css), after leaflet so ours win -->
 </head>
 <body>
-  <div class="page"> <!-- caps the width and centres everything -->
+
+  <!-- top bar: logo on the left, section links on the right, sticks to the top -->
+  <header class="bar">
+    <div class="bar-inner"> <!-- same width as the page -->
+      <a class="brand" href="#top"> <!-- logo, back to the top -->
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18 9 12.5l4 2.5 6.5-8" /><circle class="logo-start" cx="3" cy="18" r="1.6" /><circle class="logo-end" cx="19.5" cy="7" r="2.6" /></svg> <!-- our mark: a rising trend line ending in a dot -->
+        <span>Mostly Significant</span> <!-- team name -->
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"> <!-- phone only: opens the links -->
+        <svg class="icon icon-open" aria-hidden="true"><use href="icons.svg#menu" /></svg> <!-- three lines -->
+        <svg class="icon icon-close" aria-hidden="true"><use href="icons.svg#x" /></svg> <!-- cross, when open -->
+        <span>Menu</span> <!-- the word, so it’s obvious -->
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Sections"> <!-- the section links -->
+        <a href="#where" data-nav="try" class="needs-js">Try it</a> <!-- the pickers -->
+        <a href="#map" data-nav="everywhere" class="needs-answer" hidden>Everywhere</a> <!-- map, only once you’ve guessed -->
+        <a href="#report" data-nav="hunches" class="needs-answer" hidden>Every hunch</a> <!-- report card, only once you’ve guessed -->
+        <a href="#how" data-nav="how">How it works</a> <!-- method and caveats -->
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" id="top"> <!-- caps the width and centres everything -->
 
     <!-- 1. title -->
     <header class="intro">
-      <p class="team">Mostly Significant</p> <!-- team name, small -->
       <h1>Is it just me?</h1> <!-- the big question -->
+      <p class="tagline">Your weather hunches, fact-checked.</p> <!-- short catchy line -->
       <p class="lead">Pick a place and a weather hunch, make a guess, then see what 45 years of NASA data say.</p> <!-- one-line explainer -->
     </header>
 
     <noscript><p class="note">This page needs JavaScript to look up the numbers. The method and sources are below.</p></noscript> <!-- fallback -->
 
     <!-- 2. where -->
-    <section class="step needs-js" id="where" aria-labelledby="where-h">
-      <h2 id="where-h">Where?</h2> <!-- step heading -->
+    <section class="step needs-js" id="where" data-nav="try" aria-labelledby="where-h">
+      <h2 id="where-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#map-pin" /></svg>Where?</h2> <!-- step heading -->
       <div class="switch" id="regions" role="group" aria-label="Region"></div> <!-- uk / world, filled by app.js -->
       <div class="pills" id="places" role="group" aria-label="Place"></div> <!-- place pills, filled by app.js -->
       <p class="note" id="place-note" hidden></p> <!-- e.g. the delhi warning -->
     </section>
 
     <!-- 3. hunch -->
-    <section class="step needs-js" id="hunch" aria-labelledby="hunch-h">
-      <h2 id="hunch-h">What’s your hunch?</h2> <!-- step heading -->
+    <section class="step needs-js" id="hunch" data-nav="try" aria-labelledby="hunch-h">
+      <h2 id="hunch-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#lightbulb" /></svg>What’s your hunch?</h2> <!-- step heading -->
       <div class="switch" id="topics" role="group" aria-label="Topic"></div> <!-- heat / seasons / rain / sun, filled by app.js -->
       <div class="pills" id="hunches" role="group" aria-label="Hunch"></div> <!-- hunch sentences, filled by app.js -->
       <p class="note" id="topic-note" hidden>World cities only have heat measures, so the other topics are UK only.</p> <!-- shown for world -->
     </section>
 
     <!-- 4. guess -->
-    <section class="step needs-js" id="guess" aria-labelledby="guess-h">
-      <h2 id="guess-h">Your guess</h2> <!-- step heading -->
-      <p class="claim" id="claim">Loading the data.</p> <!-- repeats the hunch with the place once data’s in, e.g. "Summers are getting hotter in London." -->
+    <section class="step needs-js" id="guess" data-nav="try" aria-labelledby="guess-h">
+      <h2 id="guess-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#circle-help" /></svg>Your guess</h2> <!-- step heading -->
+      <p class="claim" id="claim">Loading the data.</p> <!-- repeats the hunch with the place once data’s in, e.g. "We get more heatwave days in London." -->
       <div class="guesses" id="guesses" role="group" aria-label="Your guess"></div> <!-- the three buttons, filled by app.js -->
     </section>
 
@@ -52,55 +74,63 @@
     <div id="reveal" hidden>
 
       <!-- 5. result card -->
-      <section class="step result" id="result" aria-live="polite" aria-labelledby="verdict"> <!-- aria-live so screen readers hear the answer -->
-        <h2 class="verdict" id="verdict"></h2> <!-- verdict label with its colour, the heading of this section -->
-        <p class="verdict-line" id="verdict-line"></p> <!-- one plain sentence -->
-        <p class="gut" id="gut"></p> <!-- was your gut right -->
-        <div class="then-now"> <!-- the big numbers -->
-          <div class="figure-block"> <!-- then -->
-            <p class="figure-label">1981 to 1990</p> <!-- label -->
-            <p class="figure big then" id="then"></p> <!-- early mean -->
+      <section class="step result" id="result" data-nav="try" aria-live="polite" aria-labelledby="verdict"> <!-- aria-live so screen readers hear the answer -->
+        <div class="result-main"> <!-- left on laptops: verdict and the big numbers -->
+          <h2 class="verdict" id="verdict"></h2> <!-- verdict label with its colour, the heading of this section -->
+          <p class="verdict-line" id="verdict-line"></p> <!-- one plain sentence -->
+          <p class="gut" id="gut"></p> <!-- was your gut right -->
+          <div class="then-now"> <!-- the big numbers -->
+            <div class="figure-block"> <!-- then -->
+              <p class="figure-label">1981 to 1990</p> <!-- label -->
+              <p class="figure big then" id="then"></p> <!-- early mean -->
+            </div>
+            <span class="to" aria-hidden="true">→</span> <!-- arrow between them, screen readers skip it -->
+            <div class="figure-block"> <!-- now -->
+              <p class="figure-label">2016 to 2025</p> <!-- label -->
+              <p class="figure big now" id="now"></p> <!-- late mean, counts up from the 80s number -->
+            </div>
           </div>
-          <span class="to" aria-hidden="true">→</span> <!-- arrow between them, screen readers skip it -->
-          <div class="figure-block"> <!-- now -->
-            <p class="figure-label">2016 to 2025</p> <!-- label -->
-            <p class="figure big now" id="now"></p> <!-- late mean, counts up from the 80s number -->
-          </div>
+          <p class="noun" id="noun"></p> <!-- what the numbers are, e.g. "heatwave days a year" -->
         </div>
-        <p class="noun" id="noun"></p> <!-- what the numbers are, e.g. "heatwave days a year" -->
-        <dl class="facts"> <!-- small supporting facts -->
-          <div><dt>Change per decade</dt><dd class="figure" id="rate"></dd></div> <!-- sen’s slope -->
-          <div><dt>Shuffled years that beat this trend</dt><dd class="figure" id="luck-short"></dd></div> <!-- n of 1,000 -->
-        </dl>
-        <p class="caveat" id="caveat"></p> <!-- the honest limitation for this row -->
+        <div class="result-side"> <!-- right on laptops: the supporting facts -->
+          <dl class="facts"> <!-- small supporting facts -->
+            <div><dt>Change per decade</dt><dd class="figure" id="rate"></dd></div> <!-- sen’s slope -->
+            <div><dt>Shuffled years that beat this trend</dt><dd class="figure" id="luck-short"></dd></div> <!-- n of 1,000 -->
+          </dl>
+          <p class="caveat" id="caveat"></p> <!-- the honest limitation for this row -->
+        </div>
       </section>
 
       <!-- 6. chart -->
-      <section class="step wide" id="chart" aria-labelledby="chart-h">
-        <h2 id="chart-h">Year by year</h2> <!-- heading -->
+      <section class="step" id="chart" data-nav="try" aria-labelledby="chart-h">
+        <h2 id="chart-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#chart-line" /></svg>Year by year</h2> <!-- heading -->
         <p class="note" id="chart-note"></p> <!-- short what-am-i-looking-at line -->
-        <div class="chart-box" id="chart-box"></div> <!-- plot goes here (step 5) -->
+        <div class="chart-box" id="chart-box"></div> <!-- plot goes here -->
       </section>
 
       <!-- 7. luck -->
-      <section class="step" id="luck" aria-labelledby="luck-h">
-        <h2 id="luck-h">Could it be luck?</h2> <!-- heading -->
-        <p class="luck-line" id="luck-line"></p> <!-- one sentence: how often luck does this -->
-        <div class="dots" id="dots"></div> <!-- 1,000 dots, one per shuffle -->
-        <p class="note">We shuffled the years into a random order 1,000 times. Each dot is one shuffle. The lit ones showed a trend at least as strong as the real one.</p> <!-- explains the shuffle -->
+      <section class="step" id="luck" data-nav="try" aria-labelledby="luck-h">
+        <h2 id="luck-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#dices" /></svg>Could it be luck?</h2> <!-- heading -->
+        <div class="luck-cols"> <!-- text and dots side by side on laptops -->
+          <div class="luck-text"> <!-- the words -->
+            <p class="luck-line" id="luck-line"></p> <!-- one sentence: how often luck does this -->
+            <p class="note">We shuffled the years into a random order 1,000 times. Each dot is one shuffle. The lit ones showed a trend at least as strong as the real one.</p> <!-- explains the shuffle -->
+          </div>
+          <div class="dots" id="dots"></div> <!-- 1,000 dots, one per shuffle -->
+        </div>
       </section>
 
       <!-- 8. map -->
-      <section class="step wide" id="map" aria-labelledby="map-h">
-        <h2 id="map-h">Everywhere else</h2> <!-- heading -->
+      <section class="step" id="map" data-nav="everywhere" aria-labelledby="map-h">
+        <h2 id="map-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#map" /></svg>Everywhere else</h2> <!-- heading -->
         <p class="note" id="map-note"></p> <!-- which hunch the colours are for -->
         <div class="map-box" id="map-box"></div> <!-- leaflet map goes here -->
         <ul class="legend" id="legend"></ul> <!-- verdict colours with how many places got each -->
       </section>
 
       <!-- 9. report card -->
-      <section class="step" id="report" aria-labelledby="report-h">
-        <h2 id="report-h">Every hunch in <span id="report-place"></span></h2> <!-- heading with place name -->
+      <section class="step" id="report" data-nav="hunches" aria-labelledby="report-h">
+        <h2 id="report-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#list-checks" /></svg>Every hunch in <span id="report-place"></span></h2> <!-- heading with place name -->
         <p class="note">Tap one to guess it next.</p> <!-- tells people the rows do something -->
         <div class="report" id="report-list"></div> <!-- one group per topic, one row per hunch -->
       </section>
@@ -108,32 +138,79 @@
     </div>
 
     <!-- 10. how this works -->
-    <section class="step how" id="how" aria-labelledby="how-h">
-      <h2 id="how-h">How this works</h2> <!-- heading -->
-      <p>Daily weather from NASA POWER (MERRA-2), 1981 to 2025, for 12 UK towns and 12 world cities. Each hunch is turned into one yearly number, like heatwave days a year.</p> <!-- the data -->
-      <p>A Mann-Kendall test (Hamed-Rao version) checks whether that number has a real trend, and Sen’s slope gives the change per decade. Then the years are shuffled 1,000 times to see how often luck alone makes a trend this strong.</p> <!-- the stats -->
-      <h3>What the verdicts mean</h3> <!-- the four colours, explained once -->
-      <ul class="verdicts"> <!-- one line each, coloured like everywhere else -->
-        <li data-verdict="real"><span>Yes, it’s real.</span> The trend is very unlikely to be chance.</li> <!-- green -->
-        <li data-verdict="leaning"><span>Leaning that way.</span> It points your way, but chance can’t be ruled out yet.</li> <!-- amber -->
-        <li data-verdict="not_backed"><span>Not backed by the data.</span> No clear trend either way.</li> <!-- grey -->
-        <li data-verdict="opposite"><span>It’s actually the opposite.</span> A clear trend, the other way round.</li> <!-- red -->
-      </ul>
-      <p>The verdict is about the trend in the data, not a score for your guess.</p> <!-- per naveen’s notes -->
-      <h3>What it can’t tell you</h3> <!-- caveats -->
-      <ul class="cant"> <!-- the big limitations from naveen’s notes -->
-        <li>Each value is an average over a square about 50 km wide, so peaks read low. London’s hottest day shows about 34.5 °C, where stations hit about 40 °C. Trends still hold.</li> <!-- grid size -->
-        <li>“Unusually hot” means hot for that place, so the bar is different in each town.</li> <!-- relative thresholds -->
-        <li>Years with no heatwave or no frost have no date, so they drop out of those trends.</li> <!-- missing years -->
-        <li>Rain jumps around a lot from year to year, so most rain trends only reach “leaning”.</li> <!-- rain is noisy -->
-        <li>Belfast, Aberdeen and Toronto use the square next door, because their own is mostly sea or lake. Sunshine data starts in 1984. Sydney, Sao Paulo and Johannesburg count July to June, so they start in 1982.</li> <!-- the odd ones out -->
-        <li>It shows that something changed, not why.</li> <!-- no causes -->
-        <li>Snow, fog, wind, storms and humidity aren’t covered.</li> <!-- untestable hunches -->
-      </ul>
-      <p class="credit">Data: <a href="https://power.larc.nasa.gov/">NASA POWER</a> (MERRA-2), 1981 to 2025, about 50 km grid. Built by Mostly Significant for NASA Space Apps 2026, London.</p> <!-- credit -->
+    <section class="step how" id="how" data-nav="how" aria-labelledby="how-h">
+      <h2 id="how-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#info" /></svg>How this works</h2> <!-- heading -->
+      <div class="how-cols"> <!-- two columns on laptops -->
+        <div> <!-- left: method and verdicts -->
+          <p>Daily weather from NASA POWER (MERRA-2), 1981 to 2025, for 12 UK towns and 12 world cities. Each hunch is turned into one yearly number, like heatwave days a year.</p> <!-- the data -->
+          <p>A Mann-Kendall test (Hamed-Rao version) checks whether that number has a real trend, and Sen’s slope gives the change per decade. Then the years are shuffled 1,000 times to see how often luck alone makes a trend this strong.</p> <!-- the stats -->
+          <h3>What the verdicts mean</h3> <!-- the four colours, explained once -->
+          <ul class="verdicts"> <!-- one line each, coloured like everywhere else -->
+            <li data-verdict="real"><span>Yes, it’s real.</span> The trend is very unlikely to be chance.</li> <!-- green -->
+            <li data-verdict="leaning"><span>Leaning that way.</span> It points your way, but chance can’t be ruled out yet.</li> <!-- amber -->
+            <li data-verdict="not_backed"><span>Not backed by the data.</span> No clear trend either way.</li> <!-- grey -->
+            <li data-verdict="opposite"><span>It’s actually the opposite.</span> A clear trend, the other way round.</li> <!-- red -->
+          </ul>
+          <p>The verdict is about the trend in the data, not a score for your guess.</p> <!-- per naveen’s notes -->
+        </div>
+        <div> <!-- right: caveats -->
+          <h3 id="cant">What it can’t tell you</h3> <!-- caveats, the footer links here -->
+          <ul class="cant"> <!-- the big limitations from naveen’s notes -->
+            <li>Each value is an average over a square about 50 km wide, so peaks read low. London’s hottest day shows about 34.5 °C, where stations hit about 40 °C. Trends still hold.</li> <!-- grid size -->
+            <li>“Unusually hot” means hot for that place, so the bar is different in each town.</li> <!-- relative thresholds -->
+            <li>Years with no heatwave or no frost have no date, so they drop out of those trends.</li> <!-- missing years -->
+            <li>Rain jumps around a lot from year to year, so most rain trends only reach “leaning”.</li> <!-- rain is noisy -->
+            <li>Belfast, Aberdeen and Toronto use the square next door, because their own is mostly sea or lake. Sunshine data starts in 1984. Sydney, Sao Paulo and Johannesburg count July to June, so they start in 1982.</li> <!-- the odd ones out -->
+            <li>It shows that something changed, not why.</li> <!-- no causes -->
+            <li>Snow, fog, wind, storms and humidity aren’t covered.</li> <!-- untestable hunches -->
+          </ul>
+        </div>
+      </div>
+      <p class="credit">Data from NASA’s <a href="https://power.larc.nasa.gov/">POWER project</a> (MERRA-2), 1981 to 2025, about 50 km grid.</p> <!-- data credit, team credit is in the footer -->
     </section>
 
-  </div>
+  </main>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="footer-inner"> <!-- same width as the page -->
+      <div class="footer-brand"> <!-- left: logo and what this is -->
+        <p class="footer-name"> <!-- logo and name together -->
+          <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18 9 12.5l4 2.5 6.5-8" /><circle class="logo-start" cx="3" cy="18" r="1.6" /><circle class="logo-end" cx="19.5" cy="7" r="2.6" /></svg> <!-- same mark as the top bar -->
+          Is it just me? <!-- site name -->
+        </p>
+        <p class="footer-desc">Everyday weather hunches, checked against 45 years of NASA data.</p> <!-- one-line description -->
+      </div>
+      <nav class="footer-cols" aria-label="Footer"> <!-- the link columns -->
+        <div> <!-- project links, all on this page -->
+          <h2 class="footer-h">Project</h2> <!-- column heading -->
+          <ul>
+            <li class="needs-js"><a href="#where">Try it</a></li> <!-- the pickers, hidden without javascript -->
+            <li><a href="#how">How it works</a></li> <!-- method -->
+            <li><a href="#cant">What it can’t tell you</a></li> <!-- caveats -->
+          </ul>
+        </div>
+        <div> <!-- where the data comes from -->
+          <h2 class="footer-h">Data</h2> <!-- column heading -->
+          <ul>
+            <li><a href="https://power.larc.nasa.gov/" target="_blank" rel="noopener">NASA POWER<svg class="icon icon-out" aria-hidden="true"><use href="icons.svg#arrow-up-right" /></svg><span class="visually-hidden"> (opens in a new tab)</span></a></li> <!-- the data source -->
+            <li><a href="https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/" target="_blank" rel="noopener">MERRA-2<svg class="icon icon-out" aria-hidden="true"><use href="icons.svg#arrow-up-right" /></svg><span class="visually-hidden"> (opens in a new tab)</span></a></li> <!-- the model behind it -->
+            <li><a href="https://www.spaceappschallenge.org/2026/challenges/earth-system-trend-detective/?tab=details" target="_blank" rel="noopener">NASA Space Apps <span class="nowrap">2026<svg class="icon icon-out" aria-hidden="true"><use href="icons.svg#arrow-up-right" /></svg></span><span class="visually-hidden"> (opens in a new tab)</span></a></li> <!-- the challenge page -->
+          </ul>
+        </div>
+        <div> <!-- the team’s stuff -->
+          <h2 class="footer-h">Team</h2> <!-- column heading -->
+          <ul>
+            <li><a href="https://github.com/NaveenHerath/Mostly-Significant" target="_blank" rel="noopener">GitHub repo<svg class="icon icon-out" aria-hidden="true"><use href="icons.svg#arrow-up-right" /></svg><span class="visually-hidden"> (opens in a new tab)</span></a></li> <!-- the code -->
+            <!-- streamlit link, add the real url and uncomment when it's ready:
+            <li><a href="STREAMLIT_URL_HERE" target="_blank" rel="noopener">Streamlit version<svg class="icon icon-out" aria-hidden="true"><use href="icons.svg#arrow-up-right" /></svg><span class="visually-hidden"> (opens in a new tab)</span></a></li>
+            -->
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <p class="footer-bottom">Built by Mostly Significant for NASA Space Apps 2026, London.</p> <!-- bottom line -->
+  </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script> <!-- d3, which plot needs -->
   <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.16/dist/plot.umd.min.js"></script> <!-- observable plot, for the chart -->

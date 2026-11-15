@@ -139,10 +139,23 @@ function renderPlaces() { // the place pills
   $("place-note").textContent = note || ""; // the words
 }
 
+function iconSvg(name) { // a small line icon from icons.svg
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg"); // svg element
+  svg.setAttribute("class", "icon"); // styled in css (size, stroke)
+  svg.setAttribute("aria-hidden", "true"); // decoration only, the label says it
+  const use = document.createElementNS("http://www.w3.org/2000/svg", "use"); // points at the symbol
+  use.setAttribute("href", `icons.svg#${name}`); // which icon
+  svg.appendChild(use); // put it inside
+  return svg; // hand it back
+}
+
 function renderTopics() { // the topic switch
-  fill($("topics"), TOPICS.map((t) => // one per topic
-    pill(t.label, state.topic === t.id, () => setTopic(t.id), !topicHasData(state.place, t.id)) // disabled if no data
-  ));
+  fill($("topics"), TOPICS.map((t) => { // one per topic
+    const b = pill(t.label, state.topic === t.id, () => setTopic(t.id), !topicHasData(state.place, t.id)); // disabled if no data
+    b.dataset.tab = t.id; // css gives each tab its own highlight colour
+    b.prepend(iconSvg(t.icon)); // icon before the word
+    return b; // hand it back
+  }));
   $("topic-note").hidden = state.region === "UK"; // only explain the greyed ones for world
 }
 
@@ -340,7 +353,7 @@ window.addEventListener("resize", () => { // window changed size
 });
 
 function render() { // redraws everything from the current state
-  document.body.dataset.topic = state.topic; // css swaps the accent colour off this
+  document.body.dataset.accent = HUNCHES[state.measure].accent; // css swaps the accent colour to this hunch's
   renderRegions(); // uk / world
   renderPlaces(); // place pills
   renderTopics(); // topic switch
@@ -348,6 +361,7 @@ function render() { // redraws everything from the current state
   renderGuess(); // claim and guess buttons
   const show = state.guess !== null && !!row(); // only reveal after a guess
   $("reveal").hidden = !show; // hide or show the results
+  document.querySelectorAll(".needs-answer").forEach((a) => { a.hidden = !show; }); // bar links to the map and report only once there's an answer
   if (show) { // answer is showing
     renderResult(); // the card
     renderChart(); // year by year
@@ -426,6 +440,32 @@ function loadFromUrl() { // reads the picks back from a shared link
   const g = q.get("guess"); // yes / no / unsure
   if (GUT[g] && state.measure === m) state.guess = g; // only keep the guess if we landed on the hunch the link asked for
 }
+
+// ---------- top bar ----------
+
+const menuBtn = document.querySelector(".menu-btn"); // the phone menu button
+const siteNav = $("site-nav"); // the links
+
+function setMenu(open) { // opens or closes the phone menu
+  menuBtn.setAttribute("aria-expanded", open ? "true" : "false"); // tells screen readers, css shows the panel off this
+}
+menuBtn.addEventListener("click", () => setMenu(menuBtn.getAttribute("aria-expanded") !== "true")); // tap toggles it
+siteNav.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); }); // picking a link closes it
+document.addEventListener("keydown", (e) => { // escape closes it
+  if (e.key === "Escape" && menuBtn.getAttribute("aria-expanded") === "true") { setMenu(false); menuBtn.focus(); } // and puts focus back on the button
+});
+
+const visible = new Map(); // which sections are in the middle band of the screen right now
+const watcher = new IntersectionObserver((entries) => { // the browser tells us when sections cross the band
+  for (const e of entries) visible.set(e.target, e.isIntersecting); // remember each one
+  const current = [...visible].find(([el, on]) => on && el.offsetParent !== null)?.[0]; // first visible one that isn't hidden
+  const key = current?.dataset.nav; // which bar link it belongs to
+  siteNav.querySelectorAll("a").forEach((a) => { // every bar link
+    if (a.dataset.nav === key) a.setAttribute("aria-current", "true"); // highlight the matching one
+    else a.removeAttribute("aria-current"); // and clear the rest
+  });
+}, { rootMargin: "-45% 0px -50% 0px" }); // a thin band just above the middle of the screen
+document.querySelectorAll("main [data-nav]").forEach((s) => watcher.observe(s)); // watch every section that has a bar link
 
 // ---------- start ----------
 
