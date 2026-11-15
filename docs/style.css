@@ -57,14 +57,14 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
   padding: calc(var(--bar-height) + var(--space-2xl)) var(--gutter) var(--space-3xl); /* clears the bar, leaves room for the credit */
   overflow: hidden; /* video never spills out */
 }
-.hero-media { position: absolute; inset: 0; z-index: -2; background: var(--color-paper) var(--hero-poster) center / cover no-repeat; -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent); mask-image: linear-gradient(to bottom, #000 72%, transparent); } /* still frame underneath, and the bottom edge melts into the page photo */ /* still frame underneath, so there's never a blank box */
+.hero-media { position: absolute; inset: 0; z-index: -2; background: var(--color-paper) var(--hero-poster) center / cover no-repeat; -webkit-mask-image: linear-gradient(to bottom, var(--mask-solid) 72%, transparent); mask-image: linear-gradient(to bottom, var(--mask-solid) 72%, transparent); } /* still frame underneath, and the bottom edge melts into the page photo */ /* still frame underneath, so there's never a blank box */
 .hero-video { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity var(--dur-long) var(--ease-out); } /* fills the hero, hidden until it's actually playing */
 .hero-video.is-playing { opacity: 1; } /* fades in over the still frame, so no jump */
 .hero-shade {
   position: absolute; inset: 0; z-index: -1; /* above the video, below the panel */
   background:
-    radial-gradient(ellipse 60% 55% at 50% 52%, oklch(10% 0.02 258 / 0.45), transparent 75%), /* darker pool behind the panel, for contrast */
-    linear-gradient(to bottom, oklch(10% 0.02 258 / 0.75) 0, oklch(10% 0.02 258 / 0.15) 30%, oklch(10% 0.02 258 / 0.25) 65%, transparent 100%); /* dark behind the bar, light in the middle, fades into the page at the bottom */
+    radial-gradient(ellipse 60% 55% at 50% 52%, var(--shade-45), transparent 75%), /* darker pool behind the panel, for contrast */
+    linear-gradient(to bottom, var(--shade-75) 0, var(--shade-15) 30%, var(--shade-25) 65%, transparent 100%); /* dark behind the bar, light in the middle, fades into the page at the bottom */
 }
 
 .intro.glass { background: var(--glass-fill-hero); -webkit-backdrop-filter: var(--glass-blur-hero); backdrop-filter: var(--glass-blur-hero); } /* the title panel is lighter glass than the rest */
@@ -91,7 +91,7 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 .hero + noscript .note { margin: var(--space-lg) auto 0; text-align: center; } /* the no-js note sits under the hero */
 
 .hero-foot { position: absolute; right: var(--gutter); bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-xs); } /* bottom right corner: pause button then credit */
-.hero-credit { font-size: var(--text-xs); color: var(--color-ink-2); text-decoration: none; text-shadow: 0 1px 2px oklch(0% 0 0 / 0.8); } /* small and quiet, a shadow keeps it readable over clouds */
+.hero-credit { font-size: var(--text-xs); color: var(--color-ink-2); text-decoration: none; text-shadow: 0 1px 2px var(--text-halo); } /* small and quiet, a shadow keeps it readable over clouds */
 @media (hover: hover) and (pointer: fine) { .hero-credit:hover { color: var(--color-ink); text-decoration: underline; } } /* shows it's a link on hover */
 .hero-toggle {
   position: relative; /* so the bigger tap area sits round the button */
@@ -183,7 +183,7 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 [data-tab="seasons"] { --tab: var(--tab-seasons); } /* spring green */
 [data-tab="rain"] { --tab: var(--tab-rain); } /* sky blue */
 [data-tab="sun"] { --tab: var(--tab-sun); } /* amber gold */
-.flag { width: 1.25em; height: 0.94em; flex-shrink: 0; background-size: cover; border-radius: 2px; box-shadow: 0 0 0 1px oklch(100% 0 0 / 0.14); } /* small country flag, lined up with the text, faint edge so white flags don't vanish */
+.flag { width: 1.25em; height: 0.94em; flex-shrink: 0; background-size: cover; border-radius: 2px; box-shadow: 0 0 0 1px var(--flag-edge); } /* small country flag, lined up with the text, faint edge so white flags don't vanish */
 #topics .pill[aria-pressed="true"] .icon { color: var(--tab); filter: drop-shadow(0 0 6px color-mix(in oklab, var(--tab) 45%, transparent)); } /* the picked topic's icon lights up in its colour, with a faint glow */
 
 /* ---------- guess ---------- */
@@ -279,10 +279,14 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 
 /* ---------- how to use it ---------- */
 
-.guide-steps { list-style: none; counter-reset: guide; padding: 0; margin: var(--space-lg) 0 0; display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); } /* four across on laptops, two on tablets, stacked on phones */
-.guide-steps li { counter-increment: guide; border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-md); } /* a thin rule over each step instead of another box */
-.guide-steps li::before { content: counter(guide); display: block; font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1; color: var(--color-muted); font-variant-numeric: tabular-nums; } /* the big quiet step number */
-.guide-steps h3 { margin-top: var(--space-sm); font-size: var(--text-lg); color: var(--color-ink); } /* step name */
+.step.bare { background: none; border: 0; box-shadow: none; padding: var(--space-xl) 0 0; } /* no pane of its own, the tiles inside are the glass */
+.guide-steps { list-style: none; padding: 0; margin: var(--space-lg) 0 0; display: grid; gap: var(--space-sm); grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); } /* four frosted tiles in a row on laptops, two on tablets, stacked on phones */
+.guide-steps li { padding: var(--space-lg); --tile: var(--tab-heat); } /* .glass gives the frost, this gives room inside. each tile takes a topic colour */
+.guide-steps li:nth-child(2) { --tile: var(--tab-seasons); } /* green */
+.guide-steps li:nth-child(3) { --tile: var(--tab-rain); } /* sky blue */
+.guide-steps li:nth-child(4) { --tile: var(--tab-sun); } /* amber */
+.guide-steps .icon { width: 1.5rem; height: 1.5rem; color: var(--tile); } /* the tile's icon in its colour, instead of a step number */
+.guide-steps h3 { margin-top: var(--space-md); font-size: var(--text-lg); color: var(--color-ink); } /* tile name */
 .guide-steps p { margin-top: var(--space-2xs); color: var(--color-ink-2); max-width: 32ch; } /* one or two short lines */
 
 /* the two links under the hero */
@@ -291,11 +295,14 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 @media (hover: hover) and (pointer: fine) { .actions .pill .icon { transition: transform var(--dur-micro) var(--ease-out); } .actions .pill:hover .icon { transform: translateX(3px); } } /* arrow nudges on hover, same as the hero example */
 
 /* the data in numbers, inside how it works */
-.stats { list-style: none; padding: 0; margin: var(--space-xl) 0 0; display: grid; gap: var(--space-lg); grid-template-columns: repeat(4, minmax(0, 1fr)); } /* four across on laptops */
-.stats li { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline; column-gap: var(--space-xs); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); } /* icon beside the number, label under, hairline on top like the steps */
-.stats .icon { width: 1.1rem; height: 1.1rem; color: var(--color-muted); align-self: center; } /* small quiet icon */
-.stats strong { font-family: var(--font-display); font-weight: 400; font-size: var(--text-3xl); line-height: 1; letter-spacing: var(--tracking-display); color: var(--color-ink); font-variant-numeric: tabular-nums lining-nums; } /* the number is the hero */
-.stats span { grid-column: 1 / -1; margin-top: var(--space-2xs); font-size: var(--text-sm); color: var(--color-muted); } /* what the number counts */
+.stats { list-style: none; padding: 0; margin: var(--space-xl) 0 0; display: grid; gap: var(--space-lg); grid-template-columns: repeat(4, minmax(0, 1fr)); } /* four across on laptops, straight on the page, no box */
+.stats li { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: var(--space-sm); --tile: var(--tab-heat); } /* icon beside the number, label under */
+.stats li:nth-child(2) { --tile: var(--tab-seasons); } /* same colour order as the tiles above */
+.stats li:nth-child(3) { --tile: var(--tab-rain); } /* sky blue */
+.stats li:nth-child(4) { --tile: var(--tab-sun); } /* amber */
+.stats .icon { width: 1.25rem; height: 1.25rem; color: var(--tile); } /* small icon in its colour */
+.stats strong { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.25rem, 4.5vw, 3.5rem); line-height: 1; letter-spacing: -0.03em; color: var(--color-ink); font-variant-numeric: tabular-nums lining-nums; } /* the numbers are the hero */
+.stats span { grid-column: 1 / -1; margin-top: var(--space-xs); font-size: var(--text-sm); color: var(--color-muted); } /* what the number counts */
 
 /* ---------- the science ---------- */
 
@@ -304,7 +311,7 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 .icon-list { list-style: none; padding: 0; margin: 0; } /* icons replace the bullets */
 .icon-list li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); column-gap: var(--space-sm); align-items: start; } /* icon in a narrow column, words beside it */
 .icon-list .icon { width: 1.1rem; height: 1.1rem; margin-top: 0.2em; color: var(--color-muted); } /* quiet icon, lined up with the first line of text */
-.how h3 .icon { display: inline-block; width: 0.95em; height: 0.95em; margin-right: 0.4em; vertical-align: -0.12em; color: var(--color-muted); } /* small icon before "the chat box", inline so it sits on the same line */
+.how h3 .icon { display: inline-block; width: 0.95em; height: 0.95em; margin-right: 0.4em; vertical-align: -0.12em; opacity: 0.5; } /* small icon before "the chat box", inline so it sits on the same line */
 .how [data-verdict="real"], .how .v-real { --verdict: var(--verdict-real); } /* green */
 .how [data-verdict="leaning"], .how .v-leaning { --verdict: var(--verdict-leaning); } /* amber */
 .how [data-verdict="not_backed"], .how .v-not_backed { --verdict: var(--verdict-not_backed); } /* grey */
@@ -326,7 +333,7 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 
 /* all 1,142 trends as one bar */
 .how .sci-sub { margin-top: var(--space-2xl); } /* clear gap after the pipeline */
-.sci-bar { display: flex; gap: 2px; height: 14px; margin-top: var(--space-md); border-radius: var(--radius-pill); overflow: hidden; } /* one long bar split by count */
+.sci-bar { display: flex; gap: var(--space-3xs); height: 14px; margin-top: var(--space-md); border-radius: var(--radius-pill); overflow: hidden; } /* one long bar split by count */
 .sci-bar span { flex-basis: 0; background: var(--verdict); } /* each part's width comes from its count */
 .sci-legend { list-style: none; padding: 0; margin: var(--space-md) 0 0; display: grid; gap: var(--space-sm) var(--gap-columns); grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); } /* four across on laptops */
 .sci-legend li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-sm); align-items: baseline; margin: 0; } /* count beside the words */
@@ -375,7 +382,7 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 .outro-media {
   position: absolute; inset: 0; z-index: -1; /* behind the panel */
   background: var(--outro-photo) center 60% / cover no-repeat; /* the sharp night frame */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 40%, #000 62%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0, #000 40%, #000 62%, transparent 100%); /* fades in from the page at the top and back out into the footer at the bottom */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, var(--mask-solid) 40%, var(--mask-solid) 62%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0, var(--mask-solid) 40%, var(--mask-solid) 62%, transparent 100%); /* fades in from the page at the top and back out into the footer at the bottom */
 }
 .outro-panel { max-width: 30rem; padding: var(--space-xl); } /* the frosted panel, like the title one */
 .outro-panel h2 { font-size: var(--text-3xl); } /* big and calm */
@@ -389,23 +396,24 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 }
 .outro-link:active { transform: scale(0.97); } /* press */
 .outro-link .icon { width: 1em; height: 1em; } /* small arrow */
-.outro-credit { position: absolute; right: var(--gutter); bottom: var(--space-3xl); font-size: var(--text-xs); color: var(--color-ink-2); text-decoration: none; text-shadow: 0 1px 2px oklch(0% 0 0 / 0.8); } /* small credit in the corner */
+.outro-credit { position: absolute; right: var(--gutter); bottom: var(--space-3xl); font-size: var(--text-xs); color: var(--color-ink-2); text-decoration: none; text-shadow: 0 1px 2px var(--text-halo); } /* small credit in the corner */
 @media (hover: hover) and (pointer: fine) { .outro-credit:hover { text-decoration: underline; } } /* shows it's a link */
 
 /* ---------- gut score bar ---------- */
 
-.gutbar { /* small frosted pill fixed in the bottom right corner */
+.gutbar { /* frosted bar fixed in the bottom right corner, big enough to notice */
   position: fixed; z-index: var(--z-sticky); /* floats over the page, under the top bar's menu */
-  right: max(var(--space-md), env(safe-area-inset-right)); bottom: max(var(--space-md), env(safe-area-inset-bottom)); /* clear of the edge and the phone's home bar */
-  display: flex; align-items: center; gap: var(--space-sm); /* words then button */
-  padding: var(--space-2xs) var(--space-2xs) var(--space-2xs) var(--space-md); /* tight round the button, room before the words */
+  right: max(var(--space-lg), env(safe-area-inset-right)); bottom: max(var(--space-lg), env(safe-area-inset-bottom)); /* clear of the edge and the phone's home bar */
+  display: flex; align-items: center; gap: var(--space-md); /* score then button */
+  padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-lg); /* snug round the button, room before the words */
   border-radius: var(--radius-pill); /* round ends like the pills */
-  font-size: var(--text-sm); /* small, it's a side thing */
+  border-color: color-mix(in oklab, var(--color-accent) 45%, var(--glass-border)); /* edge picks up the hunch colour so it catches the eye */
 }
 .gutbar:not([hidden]) { animation: rise var(--dur-short) var(--ease-out); } /* fades up 8px the first time it shows */
-.gutbar p { margin: 0; color: var(--color-muted); } /* "your gut" quiet */
-.gutbar strong { font-weight: 500; color: var(--color-ink); font-variant-numeric: tabular-nums; } /* the score stands out, digits don't jiggle */
-.gutbar .pill { min-height: 36px; padding: 0 var(--space-sm); font-size: var(--text-sm); } /* smaller pill than the main ones */
+.gutbar p { margin: 0; display: flex; flex-direction: column; line-height: 1.1; } /* label over the score */
+.gutbar span { font-size: var(--text-xs); color: var(--color-muted); } /* "your gut score", small */
+.gutbar strong { font-family: var(--font-display); font-weight: 400; font-size: var(--text-xl); letter-spacing: var(--tracking-display); color: var(--color-ink); font-variant-numeric: tabular-nums; } /* the score is the point */
+.gutbar .pill { min-height: 44px; padding: 0 var(--space-md); } /* full size share button */
 @media (prefers-reduced-motion: reduce) { .gutbar:not([hidden]) { animation-name: fade; } } /* just fade in, no movement */
 
 /* ---------- reveal motion ---------- */
@@ -469,6 +477,12 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
   .actions { flex-direction: column; } /* the two links stack */
   .actions .pill { justify-content: center; } /* words centred in the full-width buttons */
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); } /* numbers 2 by 2 */
+  .step.bare { padding-top: var(--space-lg); } /* a bit less room above on phones */
+  .guide-steps li { padding: var(--space-md); display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-sm); } /* icon left of the words, so each tile stays short */
+  .guide-steps li .icon { grid-row: span 2; width: 1.25rem; height: 1.25rem; margin-top: 0.15em; } /* icon spans name and line */
+  .guide-steps h3 { margin-top: 0; } /* name level with the icon */
+  .gutbar { right: max(var(--space-md), env(safe-area-inset-right)); bottom: max(var(--space-md), env(safe-area-inset-bottom)); gap: var(--space-sm); padding-left: var(--space-md); } /* tighter to the corner on phones */
+  .gutbar strong { font-size: var(--text-lg); } /* score a touch smaller */
   .sci-steps li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); column-gap: var(--space-md); align-items: start; } /* drawing on the left, words on the right */
   .sci-steps li .sci-art { grid-row: span 2; } /* drawing spans the heading and the line */
   .sci-steps h3 { margin-top: 0; } /* heading lines up with the drawing top */

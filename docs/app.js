@@ -512,6 +512,18 @@ const watcher = new IntersectionObserver((entries) => { // the browser tells us 
 }, { rootMargin: "-45% 0px -50% 0px" }); // a thin band just above the middle of the screen
 document.querySelectorAll("main [data-nav]").forEach((s) => watcher.observe(s)); // watch every section that has a bar link
 
+function watchNavTargets() { // sections made later by about.js (test your gut, about) get watched too, once they exist
+  siteNav.querySelectorAll("a[data-nav]").forEach((a) => { // every bar link
+    const target = document.querySelector(a.getAttribute("href")); // the section it jumps to
+    if (!target || target.dataset.nav) return; // not there yet, or already watched
+    target.dataset.nav = a.dataset.nav; // tie it to the link
+    watcher.observe(target); // and watch it
+  });
+}
+watchNavTargets(); // anything already on the page
+const aboutRoot = $("about-root"); // T1's block fills this after the page loads
+if (aboutRoot) new MutationObserver(watchNavTargets).observe(aboutRoot, { childList: true, subtree: true }); // catch its sections as they arrive
+
 // ---------- hero video ----------
 
 const heroVideo = document.querySelector(".hero-video"); // the background timelapse

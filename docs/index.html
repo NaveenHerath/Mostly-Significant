@@ -34,9 +34,10 @@
       <nav class="site-nav" id="site-nav" aria-label="Sections"> <!-- the section links -->
         <a href="#guide" data-nav="guide">How it works</a> <!-- the four-step guide, first thing after the hero -->
         <a href="#chat" data-nav="try" class="needs-js">Try it</a> <!-- the chat box and the pickers -->
-        <a href="#map" data-nav="everywhere" class="needs-answer" hidden>Everywhere</a> <!-- map, only once you’ve guessed -->
+        <a href="#test-your-gut" data-nav="test-your-gut">Test your gut</a> <!-- the two games, T1's section in about.js -->
         <a href="#timeline" data-nav="timeline" class="needs-js">Watch it change</a> <!-- the map with the year slider -->
         <a href="#how" data-nav="how">The science</a> <!-- method and caveats -->
+        <a href="#about" data-nav="about">About</a> <!-- why, roadmap, team, faq, demo. T1's section in about.js -->
       </nav>
     </div>
   </header>
@@ -80,13 +81,13 @@
     </nav>
 
     <!-- 1b. how it works: sets expectations so people ask things the data can answer. plain text, works without js -->
-    <section class="step" id="guide" data-nav="guide" aria-labelledby="guide-h">
+    <section class="step bare" id="guide" data-nav="guide" aria-labelledby="guide-h">
       <h2 id="guide-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#list-checks" /></svg>How it works</h2> <!-- step heading -->
-      <ol class="guide-steps"> <!-- four short steps, a row on laptops, stacked on phones -->
-        <li><h3>What it is</h3><p>Check a weather hunch against 45 years of NASA data, for towns across the UK and cities around the world.</p></li> <!-- the point -->
-        <li><h3>What you can ask</h3><p>Heat, warm nights, when the seasons start and end, frost, rain, dry spells, sunshine and heating need.</p></li> <!-- what's testable -->
-        <li><h3>What it can’t do</h3><p>Snow, fog, forecasts, or your exact street. Each place is a square about 50 km across.</p></li> <!-- what isn't -->
-        <li><h3>How</h3><p>Ask in your own words, or pick one of ours. Make a guess, then see the verdict.</p></li> <!-- the steps -->
+      <ol class="guide-steps"> <!-- four frosted tiles, each with its own icon. a row on laptops, 2 by 2 on tablets, stacked on phones -->
+        <li class="glass"><svg class="icon" aria-hidden="true"><use href="icons.svg#lightbulb" /></svg><h3>What it is</h3><p>Check a weather hunch against 45 years of NASA data, for towns across the UK and cities around the world.</p></li> <!-- the point -->
+        <li class="glass"><svg class="icon" aria-hidden="true"><use href="icons.svg#message" /></svg><h3>What you can ask</h3><p>Heat, warm nights, when the seasons start and end, frost, rain, dry spells, sunshine and heating need.</p></li> <!-- what's testable -->
+        <li class="glass"><svg class="icon" aria-hidden="true"><use href="icons.svg#cloud-snow" /></svg><h3>What it can’t do</h3><p>Snow, fog, forecasts, or your exact street. Each place is a square about 50 km across.</p></li> <!-- what isn't -->
+        <li class="glass"><svg class="icon" aria-hidden="true"><use href="icons.svg#circle-help" /></svg><h3>How</h3><p>Ask in your own words, or pick one of ours. Make a guess, then see the verdict.</p></li> <!-- the steps -->
       </ol>
       <ul class="stats" aria-label="The data in numbers"> <!-- the size of the data, numbers checked against data.json -->
         <li><svg class="icon" aria-hidden="true"><use href="icons.svg#map-pin" /></svg><strong>75</strong><span>places, 49 in the UK</span></li> <!-- how many places -->
@@ -271,7 +272,7 @@
       <div class="sci-bar" aria-hidden="true"><span class="v-real" style="flex-grow: 448"></span><span class="v-leaning" style="flex-grow: 496"></span><span class="v-not_backed" style="flex-grow: 164"></span><span class="v-opposite" style="flex-grow: 34"></span></div> <!-- stacked bar, widths are the real counts -->
       <ul class="sci-legend"> <!-- counts and what each verdict means -->
         <li data-verdict="real"><strong>448</strong><span><b>Yes, it’s real.</b> The trend is very unlikely to be chance.</span></li> <!-- real -->
-        <li data-verdict="leaning"><strong>496</strong><span><b>Leaning that way.</b> It points that way, but chance can’t be ruled out yet.</span></li> <!-- leaning -->
+        <li data-verdict="leaning"><strong>496</strong><span><b>Signs of it, not proven.</b> It points that way, but it could still be luck.</span></li> <!-- leaning -->
         <li data-verdict="not_backed"><strong>164</strong><span><b>Not backed by the data.</b> No clear trend either way.</span></li> <!-- not_backed -->
         <li data-verdict="opposite"><strong>34</strong><span><b>It’s actually the opposite.</b> A clear trend, the other way round.</span></li> <!-- opposite -->
       </ul>
@@ -283,7 +284,7 @@
           <ul class="icon-list"> <!-- one icon per point -->
             <li><svg class="icon" aria-hidden="true"><use href="icons.svg#cpu" /></svg><span>A language model works out which test you mean: Google’s Gemini, or a small model (MiniLM) in your browser when Gemini can’t be reached.</span></li> <!-- the two models -->
             <li><svg class="icon" aria-hidden="true"><use href="icons.svg#shield-check" /></svg><span>Neither one supplies a number. Every figure comes from the NASA results, and a Gemini sentence with a number that isn’t on the card is thrown away.</span></li> <!-- why it can’t make a number up -->
-            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#list-checks" /></svg><span>On 60 test questions, Gemini picked the right test (or rightly said “can’t test that”) for 60 and the on-device model for 51.</span></li> <!-- from chat-eval/results.csv -->
+            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#list-checks" /></svg><span>On 62 test questions, both Gemini and the on-device model picked the right test (or rightly said “can’t test that”) every time. Both were tuned on earlier misses from this set, so brand-new sentences may do a little worse.</span></li> <!-- from chat-eval/results.csv -->
           </ul>
         </div>
         <div> <!-- right: caveats -->
@@ -373,8 +374,8 @@
 
   <!-- gut score: small bar in the corner, shows up after your first real guess (app.js) -->
   <div class="gutbar glass" id="gutbar" hidden>
-    <p role="status">Your gut <strong id="gut-score"></strong></p> <!-- e.g. "3 of 4 right", read out when it changes -->
-    <button class="pill" id="gut-share" type="button">Share</button> <!-- share sheet on phones, copies on laptops -->
+    <p role="status"><span>Your gut score</span> <strong id="gut-score"></strong></p> <!-- e.g. "3 of 4 right", read out when it changes -->
+    <button class="pill pill-primary" id="gut-share" type="button">Share</button> <!-- share sheet on phones, copies on laptops -->
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script> <!-- d3, which plot needs -->

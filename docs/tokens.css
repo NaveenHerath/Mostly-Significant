@@ -76,6 +76,10 @@
   --glass-edge: inset 0 1px 0 oklch(100% 0 0 / 0.10); /* brighter catch along the top edge, like light on a pane */
   --glass-shadow: 0 24px 60px -24px oklch(0% 0 0 / 0.7); /* soft drop shadow so the pane floats */
   --glass-solid: var(--color-paper-2); /* used instead when blur isn't available or transparency is turned down */
+  --shade-45: oklch(10% 0.02 258 / 0.45); --shade-75: oklch(10% 0.02 258 / 0.75); --shade-15: oklch(10% 0.02 258 / 0.15); --shade-25: oklch(10% 0.02 258 / 0.25); /* the dark tints over the hero video */
+  --mask-solid: #000; /* mask gradients only read alpha, this is "fully shown" */
+  --text-halo: oklch(0% 0 0 / 0.8); /* shadow that keeps tiny credits readable over clouds */
+  --flag-edge: oklch(100% 0 0 / 0.14); /* faint ring so white flags don't vanish */
   --glass-fill-hero: oklch(14% 0.025 258 / 0.30); /* the title panel, more see-through so the earth shows */
   --glass-blur-hero: blur(14px) saturate(140%); /* lighter blur over the video, cheaper to redraw every frame */
   --panel-fill: oklch(15% 0.025 258 / 0.62); /* every other section, smoky glass over the blurred page photo */
