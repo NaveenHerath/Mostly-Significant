@@ -68,3 +68,61 @@
 .quiz-score { min-height: 1.5em; margin-top: var(--space-lg); color: var(--color-ink-2); } /* final score, keeps its line */
 
 @media (prefers-reduced-motion: reduce) { .odd-card { transition: none; } .odd-card.revealed .odd-result, .quiz-card.revealed .quiz-reveal { animation: none; } .odd-card:active:not(:disabled) { transform: none; } } /* no movement if asked */
+
+.quiz-where { display: flex; align-items: center; gap: var(--space-xs); } /* icon then place */
+.quiz-where .icon { width: 1rem; height: 1rem; color: var(--color-accent); } /* same colour as the tile icons */
+
+/* ---------- 3 to 5. tiles (what you can do, why, roadmap) ---------- */
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: var(--space-sm); margin-top: var(--space-lg); } /* as many across as fit, stacked on phones */
+.tile {
+  position: relative; display: flex; flex-direction: column; gap: var(--space-2xs); /* icon, title, line stacked */
+  padding: var(--space-md) var(--space-lg); color: var(--color-ink-2); text-decoration: none; /* plain text even when it's a link */
+  background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); /* same card as the games */
+  box-shadow: var(--edge-light), var(--shadow-part); /* tiny edge and shadow */
+  transition: border-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); /* only these move */
+}
+a.tile:active { transform: scale(0.98); } /* small press on link tiles */
+@media (hover: hover) and (pointer: fine) { a.tile:hover { border-color: var(--color-muted); color: var(--color-ink); } } /* mice only */
+.tile-icon { width: 1.5rem; height: 1.5rem; color: var(--color-accent); } /* the line icon, in the hunch colour */
+.tile-tag { position: absolute; top: var(--space-md); right: var(--space-lg); font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); } /* "next" or "later", top right */
+.tile-title { margin-top: var(--space-xs); font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-ink); } /* short title */
+.tile-text { font-size: var(--text-sm); } /* one line */
+.why-facts { margin-top: var(--space-lg); color: var(--color-ink-2); } /* the headline numbers line */
+.why-facts strong { font-family: var(--font-display); font-weight: 500; color: var(--color-ink); font-variant-numeric: tabular-nums; } /* numbers stand out */
+
+/* ---------- 6. team ---------- */
+
+.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: var(--space-sm); margin-top: var(--space-lg); } /* two side by side, stacked on phones */
+.team-card { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md) var(--space-lg); background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); box-shadow: var(--edge-light), var(--shadow-part); } /* badge left, words right */
+.team-badge { display: grid; place-items: center; flex: none; width: 3.25rem; height: 3.25rem; border-radius: 50%; border: var(--rule-hair) solid var(--color-rule); font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-ink); background: color-mix(in oklab, var(--color-accent) 18%, var(--color-paper-2)); } /* initials in a circle, light wash of colour */
+.team-name { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-ink); } /* name */
+.team-role { margin-top: 2px; font-size: var(--text-sm); color: var(--color-ink-2); } /* what they did */
+.team-where { display: flex; align-items: center; gap: var(--space-2xs); margin-top: var(--space-2xs); font-size: var(--text-xs); color: var(--color-muted); } /* pin and place */
+.team-where .icon { width: 0.9rem; height: 0.9rem; } /* small pin */
+
+/* ---------- 7. faq ---------- */
+
+.faq-list { margin-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); } /* hairline above the first one */
+.faq-item { border-bottom: var(--rule-hair) solid var(--color-rule); } /* hairline between questions */
+.faq-item summary { display: flex; align-items: center; gap: var(--space-sm); min-height: 52px; padding: var(--space-xs) 0; cursor: pointer; list-style: none; color: var(--color-ink); } /* the question row, easy to tap */
+.faq-item summary::-webkit-details-marker { display: none; } /* hide safari's own triangle */
+.faq-icon { flex: none; width: 1.25rem; height: 1.25rem; color: var(--color-muted); } /* icon on the left */
+.faq-q { flex: 1; } /* question takes the middle */
+.faq-chevron { flex: none; width: 1.1rem; height: 1.1rem; color: var(--color-muted); transition: transform var(--dur-short) var(--ease-out); } /* arrow on the right */
+.faq-item[open] .faq-chevron { transform: rotate(180deg); } /* flips when open */
+.faq-a { max-width: 62ch; padding: 0 0 var(--space-md) calc(1.25rem + var(--space-sm)); font-size: var(--text-sm); color: var(--color-ink-2); } /* answer lines up under the question text */
+
+/* ---------- 8. demo video and slides ---------- */
+
+.media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: var(--space-sm); margin-top: var(--space-lg); } /* two cards */
+.media-card { display: flex; flex-direction: column; gap: var(--space-2xs); min-height: 168px; padding: var(--space-lg); color: var(--color-ink-2); text-decoration: none; background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); box-shadow: var(--edge-light), var(--shadow-part); transition: border-color var(--dur-short) var(--ease-out); } /* same card again */
+.media-card.is-soon { border-style: dashed; box-shadow: none; } /* placeholder look until there's a link */
+@media (hover: hover) and (pointer: fine) { a.media-card:hover { border-color: var(--color-muted); color: var(--color-ink); } } /* mice only */
+.media-icon { width: 2rem; height: 2rem; color: var(--color-accent); } /* big icon */
+.media-title { margin-top: var(--space-xs); font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-ink); } /* video or slides */
+.media-text { font-size: var(--text-sm); } /* one line */
+.media-cta { display: inline-flex; align-items: center; gap: var(--space-2xs); margin-top: auto; padding-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); } /* watch / coming soon */
+.media-cta .icon { width: 1rem; height: 1rem; } /* small arrow */
+
+@media (prefers-reduced-motion: reduce) { .tile, .faq-chevron, .media-card { transition: none; } a.tile:active { transform: none; } } /* no movement if asked */
