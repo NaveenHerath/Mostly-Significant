@@ -197,7 +197,6 @@ function renderResult() { // fills the result card (styling comes later)
   $("rate").textContent = fmtRate(r.rate, unit); // change per decade
   $("luck-short").textContent = fmtLuck(r.share, r.shuffles); // e.g. "692 of 1,000"
   $("caveat").textContent = r.caveat; // honest limitation
-  $("report-place").textContent = state.place; // heading for the report card
 }
 
 // ---------- chart (step 5) ----------
@@ -320,44 +319,6 @@ function renderMap() { // every place coloured by its verdict for the current hu
   $("map-note").textContent = `Every place we have, coloured by its verdict for “${HUNCHES[state.measure].text}”.`; // which hunch the colours are for
 }
 
-// ---------- report card (step 8) ----------
-
-function renderReport() { // every hunch for this place, grouped by topic, with its verdict
-  const groups = TOPICS.filter((t) => topicHasData(state.place, t.id)).map((t) => { // only topics this place has
-    const sec = document.createElement("div"); // one group
-    sec.className = "report-group"; // styled in css
-    const h = document.createElement("h3"); // topic name
-    h.textContent = t.label; // e.g. "Heat"
-    h.prepend(iconSvg(t.icon)); // same icon as its topic tab, so they match
-    h.dataset.tab = t.id; // css colours the icon like the tab
-    const list = document.createElement("ul"); // the rows
-    for (const m of measuresFor(state.place, t.id)) { // each hunch in the topic
-      const r = DATA.rows[state.place][m]; // its data
-      const unit = DATA.measures[m].unit; // its unit
-      const li = document.createElement("li"); // list item
-      const b = document.createElement("button"); // the row is a button so it works with a keyboard
-      b.type = "button"; // not a form submit
-      b.className = "report-row"; // styled in css
-      b.dataset.verdict = r.verdict; // css colours the verdict
-      if (m === state.measure) b.setAttribute("aria-current", "true"); // marks the one you just checked
-      b.innerHTML = `<span class="report-text"><span class="report-hunch"></span><span class="report-nums"></span></span><span class="report-verdict"></span>`; // empty slots, filled safely below
-      b.querySelector(".report-hunch").textContent = HUNCHES[m].text; // the hunch sentence
-      b.querySelector(".report-nums").textContent = `${fmtValue(r.early, unit)} → ${fmtValue(r.late, unit)} ${HUNCHES[m].noun}`; // then vs now, small
-      b.querySelector(".report-verdict").textContent = VERDICTS[r.verdict].label; // verdict words
-      b.addEventListener("click", () => { // tap a row
-        state.topic = t.id; // switch to its topic
-        setMeasure(m); // pick the hunch (hides the answer for a fresh guess)
-        $("guess").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" }); // take them back up to guess
-      });
-      li.appendChild(b); // button into the list item
-      list.appendChild(li); // list item into the list
-    }
-    sec.append(h, list); // heading then rows
-    return sec; // hand the group back
-  });
-  fill($("report-list"), groups); // swap them in
-}
-
 let resizeTimer = null; // so we don't redraw the chart on every pixel of a resize
 window.addEventListener("resize", () => { // window changed size
   clearTimeout(resizeTimer); // cancel the last one
@@ -374,13 +335,12 @@ function render() { // redraws everything from the current state
   updateExamples(); // hero examples that fit this place
   const show = state.guess !== null && !!row(); // only reveal after a guess
   $("reveal").hidden = !show; // hide or show the results
-  document.querySelectorAll(".needs-answer").forEach((a) => { a.hidden = !show; }); // bar links to the map and report only once there's an answer
+  document.querySelectorAll(".needs-answer").forEach((a) => { a.hidden = !show; }); // bar link to the map only once there's an answer
   if (show) { // answer is showing
     renderResult(); // the card
     renderChart(); // year by year
     renderLuck(); // the 1,000 dots
     renderMap(); // every place
-    renderReport(); // every hunch for this place
   }
   saveToUrl(); // keep the address bar in sync
 }

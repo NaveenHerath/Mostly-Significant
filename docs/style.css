@@ -178,7 +178,7 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 }
 .switch .pill { min-height: 40px; border-color: transparent; background: transparent; box-shadow: none; color: var(--color-muted); } /* segments are flat until picked */
 .switch .pill[aria-pressed="true"] { background: var(--color-paper-3); border-color: var(--color-rule); box-shadow: var(--edge-light), var(--shadow-part); color: var(--color-ink); } /* picked segment is raised, not filled */
-[data-tab="heat"] { --tab: var(--tab-heat); } /* each topic's own colour, used by the tabs and the report headings */
+[data-tab="heat"] { --tab: var(--tab-heat); } /* each topic's own colour, used by the tabs */
 [data-tab="seasons"] { --tab: var(--tab-seasons); } /* spring green */
 [data-tab="rain"] { --tab: var(--tab-rain); } /* sky blue */
 [data-tab="sun"] { --tab: var(--tab-sun); } /* amber gold */
@@ -275,36 +275,6 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 .legend [data-verdict="leaning"] { --swatch: var(--verdict-leaning); } /* amber */
 .legend [data-verdict="not_backed"] { --swatch: var(--verdict-not_backed); } /* grey */
 .legend [data-verdict="opposite"] { --swatch: var(--verdict-opposite); } /* red */
-
-/* ---------- report card ---------- */
-
-.report-group { margin-top: var(--space-xl); min-width: 0; } /* space between topics */
-.report-group h3 { display: flex; align-items: center; gap: 0.45em; font-size: var(--text-lg); color: var(--color-ink-2); } /* topic name, icon first */
-.report-group h3 .icon { width: 0.95em; height: 0.95em; color: var(--tab); } /* same icon as the tab, in the topic colour */
-.report-group ul { list-style: none; margin: var(--space-sm) 0 0; padding: 0; } /* plain list, no bullets */
-.report-row {
-  display: flex; /* text on the left, verdict on the right */
-  align-items: baseline; /* line them up on the text */
-  justify-content: space-between; /* push the verdict to the right */
-  gap: var(--space-md); /* gap between them */
-  width: 100%; /* full width row */
-  padding: var(--space-sm) 0; /* breathing room top and bottom */
-  border: 0; border-top: var(--rule-hair) solid var(--color-rule-2); /* hairline between rows, no box */
-  background: none; color: inherit; text-align: left; cursor: pointer; /* looks like a row, not a button */
-  -webkit-tap-highlight-color: transparent; /* no grey flash on phones */
-  transition: transform var(--dur-micro) var(--ease-out); /* only the press moves */
-}
-.report-row:active { transform: scale(0.99); } /* tiny press, it's a wide row so less than the pills */
-.report-text { display: flex; flex-direction: column; gap: var(--space-3xs); min-width: 0; } /* hunch over numbers */
-.report-hunch { color: var(--color-ink); } /* the sentence */
-.report-nums { font-size: var(--text-sm); color: var(--color-muted); font-variant-numeric: tabular-nums; } /* then vs now, small */
-.report-verdict { flex-shrink: 0; font-size: var(--text-sm); color: var(--verdict); text-align: right; } /* verdict in its colour */
-.report-row[data-verdict="real"] { --verdict: var(--verdict-real); } /* green */
-.report-row[data-verdict="leaning"] { --verdict: var(--verdict-leaning); } /* amber */
-.report-row[data-verdict="not_backed"] { --verdict: var(--verdict-not_backed); } /* grey */
-.report-row[data-verdict="opposite"] { --verdict: var(--verdict-opposite); } /* red */
-.report-row[aria-current="true"] .report-hunch { text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; text-underline-offset: 0.25em; } /* the one you just checked: underlined in its colour (text stays readable even for dark ember) */
-@media (hover: hover) and (pointer: fine) { .report-row:hover .report-hunch { text-decoration: underline; text-decoration-color: var(--color-muted); text-underline-offset: 0.25em; } } /* hint it's tappable */
 
 /* ---------- how to use it ---------- */
 
@@ -415,7 +385,6 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
   .then-now { flex-wrap: nowrap; } /* then, arrow and now always stay on one line */
   .luck-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-2xl); align-items: center; } /* dots and words side by side */
   .luck-cols .dots { order: -1; } /* dots on the left */
-  .report { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-2xl); } /* topic groups in two columns */
   .how-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xl); } /* method left, caveats right */
   .how-cols > div > h3:first-child { margin-top: var(--space-sm); } /* caveats heading lines up with the first paragraph */
 }

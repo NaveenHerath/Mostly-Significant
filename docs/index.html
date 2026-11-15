@@ -34,7 +34,6 @@
         <a href="#guide" data-nav="guide">How it works</a> <!-- the four-step guide, first thing after the hero -->
         <a href="#chat" data-nav="try" class="needs-js">Try it</a> <!-- the chat box and the pickers -->
         <a href="#map" data-nav="everywhere" class="needs-answer" hidden>Everywhere</a> <!-- map, only once you’ve guessed -->
-        <a href="#report" data-nav="hunches" class="needs-answer" hidden>Every hunch</a> <!-- report card, only once you’ve guessed -->
         <a href="#timeline" data-nav="timeline" class="needs-js">Watch it change</a> <!-- the map with the year slider -->
         <a href="#how" data-nav="how">The science</a> <!-- method and caveats -->
       </nav>
@@ -192,13 +191,6 @@
         <p class="note" id="map-note"></p> <!-- which hunch the colours are for -->
         <div class="map-box" id="map-box"></div> <!-- leaflet map goes here -->
         <ul class="legend" id="legend"></ul> <!-- verdict colours with how many places got each -->
-      </section>
-
-      <!-- 9. report card -->
-      <section class="step" id="report" data-nav="hunches" aria-labelledby="report-h">
-        <h2 id="report-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#list-checks" /></svg>Every hunch in <span id="report-place"></span></h2> <!-- heading with place name -->
-        <p class="note">Tap one to guess it next.</p> <!-- tells people the rows do something -->
-        <div class="report" id="report-list"></div> <!-- one group per topic, one row per hunch -->
       </section>
 
     </div>
