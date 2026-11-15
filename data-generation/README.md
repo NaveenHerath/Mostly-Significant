@@ -326,8 +326,6 @@ summers of 2018 and 2022).
 
 `early_mean` is the average of the first ten years (1981–1990) and `late_mean` the last ten
 (2016–2025). `lat`/`lon` in `results.csv` are the real city centre, for the map.
-[data/results/instructions.md](data/results/instructions.md) explains how the app and the
-chatbot use these files.
 
 ## Results in brief
 

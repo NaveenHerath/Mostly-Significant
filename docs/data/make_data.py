@@ -80,7 +80,7 @@ data = {"places": places, "measures": measures, "rows": rows}  # the whole thing
 OUT.write_text(json.dumps(data, separators=(",", ":"), ensure_ascii=False), encoding="utf-8")  # compact json
 print(f"wrote {OUT} ({OUT.stat().st_size // 1024} KB, {len(results)} rows)")  # quick sanity line
 
-# test cases from naveen's instructions.md section 6, so we can eyeball them
+# known figures from the analysis, so we can eyeball them
 checks = [  # (place, measure, expected early, expected late, expected verdict)
     ("London", "heatwave_days", 7.2, 18.7, "real"),
     ("London", "warm_nights", 12.9, 27.9, "real"),
