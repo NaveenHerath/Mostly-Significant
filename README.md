@@ -14,7 +14,7 @@ change and an honest note on what the data cannot say.
 | Places | 75: 49 UK towns and 26 world cities, in 22 countries, each in its own grid square |
 | Years | 45 (1981–2025), about 1.2 million place-days (1,232,700) |
 | Measures | 20: 18 per UK town, 10 per world city |
-| Trends tested | 1,142: 448 real, 496 leaning, 164 not backed, 34 the opposite |
+| Trends tested | 1,142: 448 real, 496 signs of it, 164 not backed, 34 the opposite |
 | Luck test | 1,000 shuffles per trend |
 | Data | NASA POWER (MERRA-2), 15 daily variables, about 50 km squares |
 
@@ -35,7 +35,7 @@ There are four verdicts:
 | Verdict | Meaning |
 |---|---|
 | **Yes, it's real** | Under a 5% chance of being luck, and in the direction the hunch claims |
-| **Leaning that way** | The right direction, but luck can't be ruled out |
+| **Signs of it, not proven** | It points that way, but it could still be luck |
 | **Not backed by the data** | No support in the data |
 | **It's actually the opposite** | A real trend, going the other way |
 
@@ -45,8 +45,8 @@ hunches, windy days, yearly sunshine and air conditioning.
 
 ### What is on the page
 
-From top to bottom. The top menu jumps to How it works, Try it, Everywhere, Watch it change
-and The science.
+From top to bottom. The top menu jumps to How it works, Try it, Test your gut, Watch it change,
+The science and About.
 
 | Section | What it does |
 |---|---|
@@ -59,10 +59,9 @@ and The science.
 | **Could it be luck?** | A grid of 1,000 dots, one per shuffle of the years, lit if it beat the real trend |
 | **Everywhere else** | Every place on a map, coloured by its verdict for the chosen hunch |
 | **Watch it change** | The map with a year slider, 1981 to 2025 |
-| **Odd one out** | A game: three places, one hunch, which one went the other way? |
-| **Real, error or quirk?** | A quiz on six odd things in the data: a real change, a data fault or a quirk of the grid |
-| **What you can do, why we built it, roadmap, meet the team, FAQ, demo video and slides** | The project around the data |
+| **Test your gut** | Two games. Odd one out: three places, one hunch, which one went the other way? Real, error or grid effect?: six odd things in the data, each a real change, a data fault or a grid effect (the 50 km square blurs or shifts it) |
 | **The science** | The data pipeline in five steps, all 1,142 verdicts in one bar, how the chat box works, and what the data can't tell you |
+| **About** | What you can do, why we built it, the roadmap, the team, FAQ, demo video and slides |
 | **Got another hunch?** | A nudge to go again, then the footer with the project, data and team links |
 
 A **gut score** sits in a small bar in the corner after the first guess ("3 of 4 right"). It
@@ -94,10 +93,9 @@ figure on the card comes from the results files. A Gemini sentence that contains
 not on the card is thrown away and a fixed template is used instead.
 
 `chat-eval/` holds 62 test questions and the script that scores both models on them
-(`node evaluate.mjs`, results in `chat-eval/results.csv`). The on-device model scores 62 of
-62, but only after its phrase list was tuned on these questions, so new sentences will do a
-little worse. Gemini scored 59 of 62 on the last run; its three misses have been fixed in
-`docs/api/route.js` and it is to be rerun. `node chat-eval/serve.mjs` runs
+(`node evaluate.mjs`, results in `chat-eval/results.csv`). Both models score 62 of 62.
+The on-device phrase list and Gemini's measure descriptions were tuned using earlier misses
+from this set, so brand-new sentences will do a little worse. `node chat-eval/serve.mjs` runs
 the site with the chat box on a laptop. The Gemini key is read from `.env.local`, which git
 ignores; the live site reads it from Vercel's environment variables.
 
@@ -159,7 +157,7 @@ from the NASA data is described in [data-generation/README.md](data-generation/R
   shows about 34.5 °C here (19 July 2022); weather stations recorded about 40 °C. The trends
   are still valid.
 - "Unusually hot" is relative to each place, so the bar differs from town to town.
-- Rain varies a lot from year to year, so most rain hunches are only "leaning".
+- Rain varies a lot from year to year, so most rain hunches are only "signs of it, not proven".
 - Muggy nights, windy days and dry soil days come from the weather model's humidity, wind
   and soil wetness, not from direct measurements, so they are less certain than temperature.
   Dry soil days change by less than a day a decade on Sen's slope (it comes out as 0), so the
