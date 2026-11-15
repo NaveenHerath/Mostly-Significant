@@ -1,12 +1,13 @@
 """
 Downloads NASA POWER daily weather data (1981-2025, 15 variables) for 12 UK towns and
-12 big world cities. This raw data is what the trend analysis is built on.
+26 world cities (12 big cities and 14 popular trip destinations). This raw data is what the
+trend analysis is built on.
 
 NASA's data comes in squares about 50 km wide. For a coastal city the square can be mostly
 sea, which gives flat, wrong temperatures. So each place is tested first and, if it lands
 on sea, the nearest neighbouring land square is used instead.
 
-How it is run: python download_power.py  (plain Python 3.8+, about 5 to 8 minutes)
+How it is run: python download_power.py  (plain Python 3.8+, about 10 to 15 minutes)
 
 It generates:
   data/raw/<place>.json   one file per place, NASA's reply unchanged
@@ -46,9 +47,16 @@ GRID_LAT, GRID_LON = 0.5, 0.625   # size of one NASA (MERRA-2) grid square, in d
 # square is chosen by hand: place -> (latitude, longitude, reason written to the manifest).
 # Toronto's square is mostly Lake Ontario. Its nights appear to warm 1.0 C per decade with sudden
 # jumps around 1997 and 2005, while the land squares around it all show a steady 0.3 to 0.4 C.
+#
+# Lisbon's square is mostly Atlantic and fails the sea test. The nearest square that passes
+# (37 km north) is an ocean-cooled coastal strip: its August afternoons average 25 C against
+# Lisbon's 28 C, and its days warm only 0.1 C per decade. The square across the Tagus (Montijo,
+# Setubal) is all land, starts 7 km from the city centre and warms 0.26 C per decade by day.
 FORCED_POINTS = {
     "Toronto": (44.0, -79.375, "moved 39 km north by hand: city square is mostly Lake Ontario "
                                "and its temperature record has artificial jumps"),
+    "Lisbon": (38.5, -8.75, "moved 42 km south-east by hand: city square is mostly Atlantic (gap 4.4 C) "
+                            "and the nearest square that passes is an ocean-cooled coastal strip"),
 }
 
 # The places: (name, region, latitude, longitude) of the real city centre.
@@ -80,6 +88,21 @@ PLACES = [
     ("Tokyo", "World", 35.68, 139.69),
     ("Sydney", "World", -33.87, 151.21),
     ("Johannesburg", "World", -26.20, 28.05),
+    # --- 14 popular trip destinations: the places people actually plan holidays to ---
+    ("Barcelona", "World", 41.39, 2.17),
+    ("Rome", "World", 41.90, 12.50),
+    ("Lisbon", "World", 38.72, -9.14),
+    ("Athens", "World", 37.98, 23.73),
+    ("Amsterdam", "World", 52.37, 4.90),
+    ("Istanbul", "World", 41.01, 28.98),
+    ("Dubai", "World", 25.20, 55.27),
+    ("Marrakech", "World", 31.63, -7.99),
+    ("Cape Town", "World", -33.92, 18.42),
+    ("Bangkok", "World", 13.76, 100.50),
+    ("Singapore", "World", 1.35, 103.82),
+    ("Orlando", "World", 28.54, -81.38),
+    ("Mexico City", "World", 19.43, -99.13),
+    ("Rio de Janeiro", "World", -22.91, -43.17),
 ]
 
 

@@ -1,0 +1,8 @@
+# Vercel only needs the site (docs/) and the results it is built from.
+# The rest of the analysis folder is large and is left out of the upload.
+data-generation/data/clean
+data-generation/data/raw
+data-generation/power_raw.zip
+data-generation/models
+app.py
+.streamlit

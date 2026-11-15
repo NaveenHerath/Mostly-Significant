@@ -1,0 +1,1711 @@
+place,year,mean_temp,anomaly
+London,1981,9.15,-0.8
+London,1982,9.87,-0.08
+London,1983,9.77,-0.18
+London,1984,9.57,-0.38
+London,1985,8.77,-1.18
+London,1986,8.75,-1.2
+London,1987,8.94,-1.01
+London,1988,9.68,-0.27
+London,1989,10.7,0.75
+London,1990,10.83,0.88
+London,1991,9.63,-0.31
+London,1992,9.85,-0.1
+London,1993,9.44,-0.5
+London,1994,10.18,0.23
+London,1995,10.24,0.3
+London,1996,9.0,-0.95
+London,1997,10.45,0.5
+London,1998,10.14,0.19
+London,1999,10.53,0.58
+London,2000,10.24,0.29
+London,2001,9.77,-0.18
+London,2002,10.65,0.7
+London,2003,10.32,0.38
+London,2004,10.37,0.42
+London,2005,10.47,0.52
+London,2006,10.97,1.02
+London,2007,10.65,0.7
+London,2008,10.16,0.21
+London,2009,10.36,0.41
+London,2010,9.0,-0.95
+London,2011,10.8,0.85
+London,2012,9.81,-0.14
+London,2013,9.42,-0.53
+London,2014,11.06,1.11
+London,2015,10.4,0.45
+London,2016,10.35,0.41
+London,2017,10.66,0.71
+London,2018,10.89,0.94
+London,2019,10.64,0.69
+London,2020,11.0,1.05
+London,2021,10.21,0.26
+London,2022,11.56,1.61
+London,2023,11.29,1.34
+London,2024,11.16,1.21
+London,2025,11.39,1.45
+Maidstone,1981,9.62,-0.71
+Maidstone,1982,10.2,-0.13
+Maidstone,1983,10.11,-0.22
+Maidstone,1984,9.85,-0.49
+Maidstone,1985,9.17,-1.16
+Maidstone,1986,9.15,-1.18
+Maidstone,1987,9.35,-0.98
+Maidstone,1988,10.06,-0.27
+Maidstone,1989,10.99,0.66
+Maidstone,1990,11.1,0.77
+Maidstone,1991,9.98,-0.35
+Maidstone,1992,10.22,-0.11
+Maidstone,1993,9.87,-0.46
+Maidstone,1994,10.6,0.27
+Maidstone,1995,10.67,0.34
+Maidstone,1996,9.38,-0.95
+Maidstone,1997,10.82,0.49
+Maidstone,1998,10.56,0.23
+Maidstone,1999,10.93,0.6
+Maidstone,2000,10.64,0.31
+Maidstone,2001,10.21,-0.12
+Maidstone,2002,11.08,0.75
+Maidstone,2003,10.73,0.4
+Maidstone,2004,10.72,0.39
+Maidstone,2005,10.75,0.42
+Maidstone,2006,11.22,0.89
+Maidstone,2007,11.1,0.77
+Maidstone,2008,10.62,0.29
+Maidstone,2009,10.79,0.46
+Maidstone,2010,9.45,-0.88
+Maidstone,2011,11.08,0.75
+Maidstone,2012,10.22,-0.11
+Maidstone,2013,9.81,-0.52
+Maidstone,2014,11.51,1.18
+Maidstone,2015,10.81,0.47
+Maidstone,2016,10.85,0.52
+Maidstone,2017,11.04,0.71
+Maidstone,2018,11.19,0.86
+Maidstone,2019,11.08,0.75
+Maidstone,2020,11.43,1.1
+Maidstone,2021,10.6,0.27
+Maidstone,2022,11.9,1.57
+Maidstone,2023,11.69,1.36
+Maidstone,2024,11.61,1.28
+Maidstone,2025,11.7,1.37
+Norwich,1981,8.89,-0.82
+Norwich,1982,9.49,-0.21
+Norwich,1983,9.43,-0.27
+Norwich,1984,9.15,-0.55
+Norwich,1985,8.61,-1.09
+Norwich,1986,8.53,-1.17
+Norwich,1987,8.78,-0.92
+Norwich,1988,9.44,-0.26
+Norwich,1989,10.24,0.54
+Norwich,1990,10.55,0.85
+Norwich,1991,9.59,-0.11
+Norwich,1992,9.79,0.09
+Norwich,1993,9.33,-0.37
+Norwich,1994,9.99,0.29
+Norwich,1995,10.02,0.32
+Norwich,1996,8.78,-0.92
+Norwich,1997,10.21,0.51
+Norwich,1998,10.0,0.3
+Norwich,1999,10.27,0.57
+Norwich,2000,10.08,0.38
+Norwich,2001,9.59,-0.11
+Norwich,2002,10.44,0.74
+Norwich,2003,10.07,0.37
+Norwich,2004,10.06,0.36
+Norwich,2005,10.15,0.45
+Norwich,2006,10.46,0.76
+Norwich,2007,10.35,0.65
+Norwich,2008,9.92,0.22
+Norwich,2009,10.02,0.32
+Norwich,2010,8.81,-0.89
+Norwich,2011,10.5,0.8
+Norwich,2012,9.64,-0.06
+Norwich,2013,9.22,-0.48
+Norwich,2014,10.93,1.22
+Norwich,2015,10.13,0.43
+Norwich,2016,10.18,0.48
+Norwich,2017,10.28,0.58
+Norwich,2018,10.42,0.72
+Norwich,2019,10.39,0.69
+Norwich,2020,10.69,0.99
+Norwich,2021,9.93,0.23
+Norwich,2022,11.1,1.4
+Norwich,2023,11.03,1.33
+Norwich,2024,10.95,1.25
+Norwich,2025,10.97,1.27
+Plymouth,1981,10.12,-0.42
+Plymouth,1982,10.54,-0.0
+Plymouth,1983,10.54,0.0
+Plymouth,1984,10.42,-0.12
+Plymouth,1985,9.64,-0.9
+Plymouth,1986,9.26,-1.28
+Plymouth,1987,9.84,-0.7
+Plymouth,1988,10.43,-0.11
+Plymouth,1989,11.35,0.81
+Plymouth,1990,11.12,0.58
+Plymouth,1991,10.14,-0.4
+Plymouth,1992,10.28,-0.26
+Plymouth,1993,10.15,-0.39
+Plymouth,1994,10.71,0.17
+Plymouth,1995,11.13,0.59
+Plymouth,1996,9.75,-0.79
+Plymouth,1997,11.06,0.52
+Plymouth,1998,10.83,0.29
+Plymouth,1999,11.0,0.46
+Plymouth,2000,10.6,0.06
+Plymouth,2001,10.57,0.03
+Plymouth,2002,10.92,0.38
+Plymouth,2003,10.9,0.36
+Plymouth,2004,10.87,0.33
+Plymouth,2005,10.88,0.34
+Plymouth,2006,11.08,0.54
+Plymouth,2007,11.25,0.71
+Plymouth,2008,10.57,0.03
+Plymouth,2009,10.64,0.1
+Plymouth,2010,9.64,-0.9
+Plymouth,2011,11.05,0.51
+Plymouth,2012,10.45,-0.09
+Plymouth,2013,10.29,-0.26
+Plymouth,2014,11.33,0.79
+Plymouth,2015,10.82,0.28
+Plymouth,2016,10.82,0.28
+Plymouth,2017,11.12,0.58
+Plymouth,2018,11.24,0.7
+Plymouth,2019,11.12,0.58
+Plymouth,2020,11.2,0.66
+Plymouth,2021,11.0,0.46
+Plymouth,2022,11.83,1.29
+Plymouth,2023,11.79,1.25
+Plymouth,2024,11.55,1.01
+Plymouth,2025,11.76,1.22
+Bristol,1981,9.29,-0.67
+Bristol,1982,9.93,-0.04
+Bristol,1983,9.92,-0.05
+Bristol,1984,9.93,-0.04
+Bristol,1985,8.78,-1.19
+Bristol,1986,8.64,-1.33
+Bristol,1987,9.11,-0.86
+Bristol,1988,9.78,-0.19
+Bristol,1989,10.8,0.83
+Bristol,1990,10.77,0.8
+Bristol,1991,9.63,-0.34
+Bristol,1992,9.79,-0.18
+Bristol,1993,9.45,-0.52
+Bristol,1994,10.15,0.19
+Bristol,1995,10.49,0.52
+Bristol,1996,9.05,-0.91
+Bristol,1997,10.42,0.45
+Bristol,1998,10.25,0.29
+Bristol,1999,10.51,0.55
+Bristol,2000,10.17,0.2
+Bristol,2001,9.84,-0.13
+Bristol,2002,10.52,0.55
+Bristol,2003,10.41,0.45
+Bristol,2004,10.46,0.49
+Bristol,2005,10.57,0.6
+Bristol,2006,10.85,0.88
+Bristol,2007,10.55,0.59
+Bristol,2008,9.94,-0.02
+Bristol,2009,10.07,0.11
+Bristol,2010,8.94,-1.03
+Bristol,2011,10.71,0.74
+Bristol,2012,9.71,-0.26
+Bristol,2013,9.57,-0.4
+Bristol,2014,10.86,0.89
+Bristol,2015,10.31,0.35
+Bristol,2016,10.16,0.19
+Bristol,2017,10.56,0.59
+Bristol,2018,10.66,0.69
+Bristol,2019,10.41,0.45
+Bristol,2020,10.75,0.78
+Bristol,2021,10.33,0.37
+Bristol,2022,11.31,1.34
+Bristol,2023,11.13,1.16
+Bristol,2024,10.92,0.95
+Bristol,2025,11.18,1.21
+Cardiff,1981,9.48,-0.55
+Cardiff,1982,10.01,-0.01
+Cardiff,1983,9.98,-0.04
+Cardiff,1984,9.91,-0.11
+Cardiff,1985,8.92,-1.1
+Cardiff,1986,8.73,-1.29
+Cardiff,1987,9.2,-0.83
+Cardiff,1988,9.85,-0.17
+Cardiff,1989,10.71,0.69
+Cardiff,1990,10.68,0.66
+Cardiff,1991,9.63,-0.39
+Cardiff,1992,9.85,-0.18
+Cardiff,1993,9.57,-0.46
+Cardiff,1994,10.19,0.16
+Cardiff,1995,10.51,0.48
+Cardiff,1996,9.15,-0.87
+Cardiff,1997,10.47,0.45
+Cardiff,1998,10.34,0.32
+Cardiff,1999,10.6,0.57
+Cardiff,2000,10.27,0.25
+Cardiff,2001,9.96,-0.07
+Cardiff,2002,10.49,0.46
+Cardiff,2003,10.43,0.41
+Cardiff,2004,10.52,0.5
+Cardiff,2005,10.55,0.52
+Cardiff,2006,10.79,0.76
+Cardiff,2007,10.72,0.69
+Cardiff,2008,10.06,0.03
+Cardiff,2009,10.15,0.13
+Cardiff,2010,9.05,-0.98
+Cardiff,2011,10.66,0.63
+Cardiff,2012,9.83,-0.19
+Cardiff,2013,9.66,-0.36
+Cardiff,2014,10.91,0.89
+Cardiff,2015,10.37,0.34
+Cardiff,2016,10.28,0.26
+Cardiff,2017,10.65,0.63
+Cardiff,2018,10.64,0.61
+Cardiff,2019,10.52,0.5
+Cardiff,2020,10.8,0.78
+Cardiff,2021,10.47,0.44
+Cardiff,2022,11.26,1.23
+Cardiff,2023,11.25,1.22
+Cardiff,2024,10.99,0.96
+Cardiff,2025,11.14,1.12
+Birmingham,1981,8.39,-0.78
+Birmingham,1982,9.02,-0.15
+Birmingham,1983,9.08,-0.09
+Birmingham,1984,8.9,-0.27
+Birmingham,1985,8.01,-1.16
+Birmingham,1986,7.81,-1.35
+Birmingham,1987,8.2,-0.97
+Birmingham,1988,8.97,-0.2
+Birmingham,1989,9.67,0.5
+Birmingham,1990,9.95,0.78
+Birmingham,1991,8.94,-0.23
+Birmingham,1992,9.13,-0.04
+Birmingham,1993,8.67,-0.5
+Birmingham,1994,9.27,0.1
+Birmingham,1995,9.45,0.28
+Birmingham,1996,8.31,-0.86
+Birmingham,1997,9.7,0.53
+Birmingham,1998,9.52,0.35
+Birmingham,1999,9.81,0.64
+Birmingham,2000,9.44,0.27
+Birmingham,2001,9.02,-0.15
+Birmingham,2002,9.72,0.55
+Birmingham,2003,9.6,0.43
+Birmingham,2004,9.75,0.58
+Birmingham,2005,9.88,0.71
+Birmingham,2006,10.21,1.04
+Birmingham,2007,9.87,0.7
+Birmingham,2008,9.3,0.13
+Birmingham,2009,9.35,0.18
+Birmingham,2010,8.13,-1.04
+Birmingham,2011,10.03,0.86
+Birmingham,2012,8.99,-0.18
+Birmingham,2013,8.68,-0.48
+Birmingham,2014,10.12,0.95
+Birmingham,2015,9.55,0.39
+Birmingham,2016,9.48,0.31
+Birmingham,2017,9.85,0.68
+Birmingham,2018,9.87,0.7
+Birmingham,2019,9.77,0.6
+Birmingham,2020,9.98,0.81
+Birmingham,2021,9.6,0.43
+Birmingham,2022,10.49,1.32
+Birmingham,2023,10.49,1.32
+Birmingham,2024,10.3,1.13
+Birmingham,2025,10.4,1.23
+Manchester,1981,8.02,-0.7
+Manchester,1982,8.57,-0.15
+Manchester,1983,8.65,-0.06
+Manchester,1984,8.47,-0.25
+Manchester,1985,7.61,-1.11
+Manchester,1986,7.4,-1.32
+Manchester,1987,7.75,-0.97
+Manchester,1988,8.61,-0.11
+Manchester,1989,9.08,0.36
+Manchester,1990,9.3,0.58
+Manchester,1991,8.4,-0.32
+Manchester,1992,8.6,-0.11
+Manchester,1993,8.11,-0.61
+Manchester,1994,8.65,-0.07
+Manchester,1995,8.98,0.26
+Manchester,1996,7.9,-0.82
+Manchester,1997,9.21,0.49
+Manchester,1998,9.09,0.37
+Manchester,1999,9.35,0.64
+Manchester,2000,9.04,0.32
+Manchester,2001,8.65,-0.07
+Manchester,2002,9.2,0.48
+Manchester,2003,9.27,0.55
+Manchester,2004,9.41,0.69
+Manchester,2005,9.48,0.76
+Manchester,2006,9.64,0.92
+Manchester,2007,9.47,0.75
+Manchester,2008,8.98,0.26
+Manchester,2009,8.96,0.24
+Manchester,2010,7.73,-0.99
+Manchester,2011,9.42,0.7
+Manchester,2012,8.51,-0.21
+Manchester,2013,8.36,-0.36
+Manchester,2014,9.71,0.99
+Manchester,2015,9.0,0.28
+Manchester,2016,9.03,0.31
+Manchester,2017,9.43,0.71
+Manchester,2018,9.37,0.65
+Manchester,2019,9.26,0.54
+Manchester,2020,9.52,0.8
+Manchester,2021,9.34,0.63
+Manchester,2022,10.01,1.29
+Manchester,2023,10.07,1.35
+Manchester,2024,9.85,1.13
+Manchester,2025,9.94,1.22
+Newcastle,1981,7.46,-0.74
+Newcastle,1982,7.87,-0.33
+Newcastle,1983,8.05,-0.16
+Newcastle,1984,7.99,-0.22
+Newcastle,1985,7.19,-1.01
+Newcastle,1986,7.0,-1.21
+Newcastle,1987,7.23,-0.98
+Newcastle,1988,8.02,-0.19
+Newcastle,1989,8.61,0.41
+Newcastle,1990,8.85,0.64
+Newcastle,1991,8.0,-0.21
+Newcastle,1992,8.01,-0.2
+Newcastle,1993,7.55,-0.66
+Newcastle,1994,8.05,-0.15
+Newcastle,1995,8.47,0.27
+Newcastle,1996,7.57,-0.63
+Newcastle,1997,8.74,0.53
+Newcastle,1998,8.46,0.25
+Newcastle,1999,8.63,0.43
+Newcastle,2000,8.4,0.19
+Newcastle,2001,8.09,-0.11
+Newcastle,2002,8.77,0.57
+Newcastle,2003,8.9,0.7
+Newcastle,2004,8.93,0.72
+Newcastle,2005,8.91,0.7
+Newcastle,2006,9.05,0.84
+Newcastle,2007,8.94,0.73
+Newcastle,2008,8.44,0.23
+Newcastle,2009,8.55,0.35
+Newcastle,2010,7.44,-0.77
+Newcastle,2011,8.79,0.59
+Newcastle,2012,7.94,-0.26
+Newcastle,2013,8.01,-0.2
+Newcastle,2014,9.14,0.93
+Newcastle,2015,8.4,0.2
+Newcastle,2016,8.4,0.2
+Newcastle,2017,8.72,0.51
+Newcastle,2018,8.63,0.43
+Newcastle,2019,8.74,0.53
+Newcastle,2020,8.9,0.69
+Newcastle,2021,8.75,0.54
+Newcastle,2022,9.47,1.26
+Newcastle,2023,9.37,1.16
+Newcastle,2024,9.24,1.03
+Newcastle,2025,9.42,1.21
+Belfast,1981,8.47,-0.45
+Belfast,1982,8.67,-0.24
+Belfast,1983,8.96,0.05
+Belfast,1984,8.71,-0.21
+Belfast,1985,8.01,-0.91
+Belfast,1986,7.65,-1.26
+Belfast,1987,8.35,-0.56
+Belfast,1988,8.86,-0.06
+Belfast,1989,9.19,0.27
+Belfast,1990,9.27,0.36
+Belfast,1991,8.78,-0.13
+Belfast,1992,8.67,-0.25
+Belfast,1993,8.47,-0.44
+Belfast,1994,8.78,-0.14
+Belfast,1995,9.3,0.39
+Belfast,1996,8.41,-0.51
+Belfast,1997,9.56,0.64
+Belfast,1998,9.26,0.35
+Belfast,1999,9.23,0.31
+Belfast,2000,9.0,0.08
+Belfast,2001,8.77,-0.14
+Belfast,2002,9.33,0.42
+Belfast,2003,9.41,0.5
+Belfast,2004,9.39,0.48
+Belfast,2005,9.56,0.64
+Belfast,2006,9.59,0.68
+Belfast,2007,9.67,0.75
+Belfast,2008,8.99,0.07
+Belfast,2009,9.06,0.15
+Belfast,2010,8.09,-0.82
+Belfast,2011,9.28,0.36
+Belfast,2012,8.75,-0.17
+Belfast,2013,8.68,-0.23
+Belfast,2014,9.46,0.54
+Belfast,2015,8.71,-0.21
+Belfast,2016,9.08,0.16
+Belfast,2017,9.32,0.4
+Belfast,2018,9.27,0.35
+Belfast,2019,9.3,0.38
+Belfast,2020,9.3,0.38
+Belfast,2021,9.62,0.7
+Belfast,2022,9.87,0.96
+Belfast,2023,10.19,1.27
+Belfast,2024,9.74,0.83
+Belfast,2025,10.1,1.18
+Edinburgh,1981,7.38,-0.71
+Edinburgh,1982,7.78,-0.31
+Edinburgh,1983,8.04,-0.05
+Edinburgh,1984,8.13,0.03
+Edinburgh,1985,7.03,-1.07
+Edinburgh,1986,6.99,-1.1
+Edinburgh,1987,7.2,-0.9
+Edinburgh,1988,7.99,-0.1
+Edinburgh,1989,8.49,0.4
+Edinburgh,1990,8.63,0.54
+Edinburgh,1991,7.93,-0.16
+Edinburgh,1992,7.88,-0.21
+Edinburgh,1993,7.43,-0.66
+Edinburgh,1994,7.94,-0.16
+Edinburgh,1995,8.37,0.28
+Edinburgh,1996,7.58,-0.51
+Edinburgh,1997,8.65,0.56
+Edinburgh,1998,8.29,0.2
+Edinburgh,1999,8.4,0.31
+Edinburgh,2000,8.21,0.12
+Edinburgh,2001,7.91,-0.18
+Edinburgh,2002,8.54,0.45
+Edinburgh,2003,8.82,0.73
+Edinburgh,2004,8.75,0.66
+Edinburgh,2005,8.73,0.64
+Edinburgh,2006,8.96,0.87
+Edinburgh,2007,8.68,0.59
+Edinburgh,2008,8.27,0.18
+Edinburgh,2009,8.45,0.35
+Edinburgh,2010,7.31,-0.78
+Edinburgh,2011,8.56,0.47
+Edinburgh,2012,7.72,-0.37
+Edinburgh,2013,7.97,-0.12
+Edinburgh,2014,8.94,0.84
+Edinburgh,2015,8.22,0.12
+Edinburgh,2016,8.21,0.12
+Edinburgh,2017,8.5,0.41
+Edinburgh,2018,8.4,0.31
+Edinburgh,2019,8.63,0.53
+Edinburgh,2020,8.71,0.62
+Edinburgh,2021,8.67,0.57
+Edinburgh,2022,9.33,1.24
+Edinburgh,2023,9.17,1.07
+Edinburgh,2024,8.99,0.89
+Edinburgh,2025,9.5,1.41
+Aberdeen,1981,6.45,-0.72
+Aberdeen,1982,6.93,-0.25
+Aberdeen,1983,7.2,0.03
+Aberdeen,1984,7.21,0.04
+Aberdeen,1985,6.17,-1.0
+Aberdeen,1986,5.98,-1.19
+Aberdeen,1987,6.25,-0.92
+Aberdeen,1988,7.16,-0.02
+Aberdeen,1989,7.53,0.36
+Aberdeen,1990,7.71,0.54
+Aberdeen,1991,7.11,-0.07
+Aberdeen,1992,7.02,-0.15
+Aberdeen,1993,6.54,-0.63
+Aberdeen,1994,7.02,-0.15
+Aberdeen,1995,7.35,0.18
+Aberdeen,1996,6.68,-0.5
+Aberdeen,1997,7.68,0.5
+Aberdeen,1998,7.18,0.01
+Aberdeen,1999,7.35,0.18
+Aberdeen,2000,7.27,0.1
+Aberdeen,2001,7.01,-0.16
+Aberdeen,2002,7.67,0.5
+Aberdeen,2003,8.06,0.88
+Aberdeen,2004,7.78,0.61
+Aberdeen,2005,7.82,0.64
+Aberdeen,2006,8.0,0.82
+Aberdeen,2007,7.73,0.55
+Aberdeen,2008,7.33,0.16
+Aberdeen,2009,7.58,0.41
+Aberdeen,2010,6.43,-0.74
+Aberdeen,2011,7.64,0.46
+Aberdeen,2012,6.85,-0.32
+Aberdeen,2013,7.11,-0.06
+Aberdeen,2014,8.02,0.85
+Aberdeen,2015,7.28,0.11
+Aberdeen,2016,7.39,0.22
+Aberdeen,2017,7.71,0.54
+Aberdeen,2018,7.64,0.47
+Aberdeen,2019,7.76,0.59
+Aberdeen,2020,7.81,0.64
+Aberdeen,2021,7.67,0.49
+Aberdeen,2022,8.46,1.28
+Aberdeen,2023,8.1,0.92
+Aberdeen,2024,8.07,0.9
+Aberdeen,2025,8.88,1.7
+New York,1981,11.07,-0.67
+New York,1982,11.24,-0.51
+New York,1983,11.77,0.02
+New York,1984,11.35,-0.4
+New York,1985,11.81,0.07
+New York,1986,11.54,-0.21
+New York,1987,11.29,-0.45
+New York,1988,11.19,-0.56
+New York,1989,11.07,-0.67
+New York,1990,12.3,0.55
+New York,1991,12.51,0.76
+New York,1992,10.94,-0.81
+New York,1993,11.42,-0.33
+New York,1994,11.23,-0.51
+New York,1995,11.67,-0.08
+New York,1996,10.85,-0.9
+New York,1997,11.52,-0.23
+New York,1998,12.61,0.86
+New York,1999,12.51,0.76
+New York,2000,11.36,-0.39
+New York,2001,12.39,0.65
+New York,2002,12.77,1.02
+New York,2003,11.05,-0.7
+New York,2004,11.69,-0.06
+New York,2005,12.15,0.4
+New York,2006,12.76,1.01
+New York,2007,11.99,0.25
+New York,2008,12.21,0.47
+New York,2009,11.64,-0.1
+New York,2010,12.47,0.73
+New York,2011,12.51,0.76
+New York,2012,13.48,1.73
+New York,2013,11.9,0.15
+New York,2014,11.39,-0.36
+New York,2015,12.21,0.47
+New York,2016,12.79,1.04
+New York,2017,12.44,0.7
+New York,2018,12.17,0.42
+New York,2019,12.23,0.49
+New York,2020,13.03,1.29
+New York,2021,12.92,1.17
+New York,2022,12.71,0.97
+New York,2023,13.27,1.53
+New York,2024,13.16,1.41
+New York,2025,12.43,0.69
+Los Angeles,1981,17.82,0.76
+Los Angeles,1982,16.2,-0.85
+Los Angeles,1983,16.67,-0.39
+Los Angeles,1984,17.9,0.85
+Los Angeles,1985,16.76,-0.29
+Los Angeles,1986,17.28,0.23
+Los Angeles,1987,16.91,-0.14
+Los Angeles,1988,17.17,0.11
+Los Angeles,1989,17.27,0.22
+Los Angeles,1990,17.27,0.22
+Los Angeles,1991,16.49,-0.57
+Los Angeles,1992,17.25,0.2
+Los Angeles,1993,16.69,-0.37
+Los Angeles,1994,16.82,-0.23
+Los Angeles,1995,17.18,0.13
+Los Angeles,1996,17.51,0.46
+Los Angeles,1997,17.69,0.63
+Los Angeles,1998,16.19,-0.86
+Los Angeles,1999,16.77,-0.29
+Los Angeles,2000,17.23,0.18
+Los Angeles,2001,16.89,-0.16
+Los Angeles,2002,16.82,-0.24
+Los Angeles,2003,17.48,0.43
+Los Angeles,2004,17.14,0.09
+Los Angeles,2005,16.93,-0.12
+Los Angeles,2006,17.37,0.32
+Los Angeles,2007,17.12,0.06
+Los Angeles,2008,17.5,0.44
+Los Angeles,2009,17.12,0.07
+Los Angeles,2010,16.17,-0.88
+Los Angeles,2011,16.15,-0.9
+Los Angeles,2012,17.5,0.45
+Los Angeles,2013,17.25,0.2
+Los Angeles,2014,18.64,1.58
+Los Angeles,2015,18.38,1.33
+Los Angeles,2016,17.97,0.91
+Los Angeles,2017,18.14,1.09
+Los Angeles,2018,17.91,0.86
+Los Angeles,2019,16.79,-0.26
+Los Angeles,2020,17.96,0.91
+Los Angeles,2021,17.61,0.55
+Los Angeles,2022,18.04,0.99
+Los Angeles,2023,16.59,-0.47
+Los Angeles,2024,17.49,0.44
+Los Angeles,2025,17.7,0.65
+Toronto,1981,6.93,-0.44
+Toronto,1982,6.28,-1.09
+Toronto,1983,7.03,-0.34
+Toronto,1984,6.74,-0.62
+Toronto,1985,6.49,-0.88
+Toronto,1986,7.09,-0.28
+Toronto,1987,8.48,1.11
+Toronto,1988,7.81,0.44
+Toronto,1989,6.91,-0.45
+Toronto,1990,7.92,0.56
+Toronto,1991,8.21,0.84
+Toronto,1992,6.45,-0.91
+Toronto,1993,6.8,-0.57
+Toronto,1994,6.77,-0.6
+Toronto,1995,7.26,-0.1
+Toronto,1996,6.2,-1.17
+Toronto,1997,6.82,-0.54
+Toronto,1998,9.26,1.89
+Toronto,1999,8.18,0.81
+Toronto,2000,7.23,-0.14
+Toronto,2001,7.84,0.47
+Toronto,2002,7.66,0.3
+Toronto,2003,6.31,-1.06
+Toronto,2004,7.02,-0.35
+Toronto,2005,8.34,0.98
+Toronto,2006,8.5,1.13
+Toronto,2007,7.83,0.46
+Toronto,2008,7.24,-0.13
+Toronto,2009,7.02,-0.35
+Toronto,2010,8.37,1.0
+Toronto,2011,8.05,0.69
+Toronto,2012,9.34,1.98
+Toronto,2013,7.5,0.14
+Toronto,2014,6.28,-1.09
+Toronto,2015,7.52,0.15
+Toronto,2016,8.88,1.52
+Toronto,2017,8.24,0.87
+Toronto,2018,7.96,0.59
+Toronto,2019,7.11,-0.26
+Toronto,2020,8.72,1.35
+Toronto,2021,9.1,1.73
+Toronto,2022,7.99,0.63
+Toronto,2023,9.08,1.72
+Toronto,2024,9.7,2.33
+Toronto,2025,8.22,0.86
+Sao Paulo,1981,18.76,-0.25
+Sao Paulo,1982,18.74,-0.27
+Sao Paulo,1983,18.65,-0.36
+Sao Paulo,1984,19.33,0.33
+Sao Paulo,1985,18.98,-0.03
+Sao Paulo,1986,19.14,0.13
+Sao Paulo,1987,18.59,-0.42
+Sao Paulo,1988,18.38,-0.63
+Sao Paulo,1989,18.08,-0.93
+Sao Paulo,1990,18.93,-0.07
+Sao Paulo,1991,18.61,-0.4
+Sao Paulo,1992,18.68,-0.33
+Sao Paulo,1993,18.89,-0.12
+Sao Paulo,1994,19.47,0.46
+Sao Paulo,1995,18.97,-0.04
+Sao Paulo,1996,18.5,-0.51
+Sao Paulo,1997,19.04,0.04
+Sao Paulo,1998,19.36,0.35
+Sao Paulo,1999,18.49,-0.52
+Sao Paulo,2000,19.07,0.06
+Sao Paulo,2001,19.58,0.57
+Sao Paulo,2002,20.23,1.22
+Sao Paulo,2003,19.54,0.53
+Sao Paulo,2004,18.77,-0.24
+Sao Paulo,2005,19.44,0.43
+Sao Paulo,2006,19.36,0.35
+Sao Paulo,2007,19.54,0.53
+Sao Paulo,2008,18.81,-0.2
+Sao Paulo,2009,19.38,0.37
+Sao Paulo,2010,18.95,-0.06
+Sao Paulo,2011,18.98,-0.03
+Sao Paulo,2012,19.95,0.94
+Sao Paulo,2013,19.15,0.14
+Sao Paulo,2014,20.69,1.68
+Sao Paulo,2015,20.43,1.42
+Sao Paulo,2016,19.59,0.59
+Sao Paulo,2017,19.63,0.62
+Sao Paulo,2018,20.29,1.28
+Sao Paulo,2019,20.51,1.5
+Sao Paulo,2020,19.74,0.73
+Sao Paulo,2021,20.01,1.0
+Sao Paulo,2022,19.41,0.4
+Sao Paulo,2023,20.38,1.37
+Sao Paulo,2024,21.52,2.51
+Sao Paulo,2025,20.56,1.55
+Paris,1981,9.75,-0.7
+Paris,1982,10.22,-0.23
+Paris,1983,10.07,-0.39
+Paris,1984,9.64,-0.81
+Paris,1985,8.79,-1.66
+Paris,1986,9.38,-1.08
+Paris,1987,9.28,-1.17
+Paris,1988,10.61,0.15
+Paris,1989,10.98,0.52
+Paris,1990,11.58,1.13
+Paris,1991,10.54,0.08
+Paris,1992,10.83,0.37
+Paris,1993,10.15,-0.31
+Paris,1994,11.2,0.74
+Paris,1995,10.84,0.39
+Paris,1996,9.37,-1.08
+Paris,1997,10.79,0.34
+Paris,1998,10.56,0.11
+Paris,1999,11.17,0.71
+Paris,2000,10.92,0.46
+Paris,2001,10.44,-0.02
+Paris,2002,11.06,0.6
+Paris,2003,11.01,0.56
+Paris,2004,10.76,0.31
+Paris,2005,10.98,0.52
+Paris,2006,11.16,0.71
+Paris,2007,11.11,0.66
+Paris,2008,10.38,-0.07
+Paris,2009,10.61,0.15
+Paris,2010,9.47,-0.98
+Paris,2011,11.61,1.16
+Paris,2012,10.52,0.07
+Paris,2013,10.05,-0.41
+Paris,2014,11.36,0.91
+Paris,2015,11.11,0.65
+Paris,2016,10.58,0.12
+Paris,2017,11.2,0.74
+Paris,2018,11.66,1.2
+Paris,2019,11.47,1.02
+Paris,2020,12.13,1.67
+Paris,2021,10.76,0.31
+Paris,2022,12.38,1.93
+Paris,2023,12.55,2.09
+Paris,2024,11.72,1.27
+Paris,2025,11.89,1.43
+Berlin,1981,8.04,-0.9
+Berlin,1982,9.04,0.09
+Berlin,1983,9.19,0.25
+Berlin,1984,7.95,-1.0
+Berlin,1985,7.38,-1.56
+Berlin,1986,7.69,-1.25
+Berlin,1987,6.81,-2.13
+Berlin,1988,8.95,0.0
+Berlin,1989,10.01,1.07
+Berlin,1990,9.63,0.69
+Berlin,1991,8.52,-0.42
+Berlin,1992,9.64,0.7
+Berlin,1993,8.35,-0.59
+Berlin,1994,9.64,0.7
+Berlin,1995,9.04,0.09
+Berlin,1996,7.14,-1.8
+Berlin,1997,8.98,0.04
+Berlin,1998,9.23,0.29
+Berlin,1999,9.91,0.97
+Berlin,2000,10.21,1.27
+Berlin,2001,9.11,0.17
+Berlin,2002,9.39,0.45
+Berlin,2003,9.31,0.36
+Berlin,2004,9.24,0.3
+Berlin,2005,9.37,0.43
+Berlin,2006,9.83,0.89
+Berlin,2007,10.12,1.18
+Berlin,2008,9.84,0.9
+Berlin,2009,9.35,0.41
+Berlin,2010,7.36,-1.59
+Berlin,2011,9.41,0.46
+Berlin,2012,9.13,0.19
+Berlin,2013,8.95,0.01
+Berlin,2014,10.6,1.66
+Berlin,2015,10.28,1.34
+Berlin,2016,9.98,1.04
+Berlin,2017,9.63,0.68
+Berlin,2018,10.88,1.94
+Berlin,2019,11.07,2.13
+Berlin,2020,10.73,1.79
+Berlin,2021,9.44,0.5
+Berlin,2022,10.96,2.01
+Berlin,2023,10.96,2.02
+Berlin,2024,11.5,2.56
+Berlin,2025,10.44,1.49
+Madrid,1981,13.01,-0.01
+Madrid,1982,12.69,-0.33
+Madrid,1983,13.14,0.12
+Madrid,1984,11.98,-1.04
+Madrid,1985,13.36,0.34
+Madrid,1986,12.99,-0.02
+Madrid,1987,13.47,0.45
+Madrid,1988,12.42,-0.6
+Madrid,1989,13.77,0.75
+Madrid,1990,13.15,0.14
+Madrid,1991,12.53,-0.49
+Madrid,1992,12.54,-0.48
+Madrid,1993,11.87,-1.15
+Madrid,1994,13.44,0.42
+Madrid,1995,13.82,0.8
+Madrid,1996,12.56,-0.46
+Madrid,1997,13.32,0.3
+Madrid,1998,12.7,-0.31
+Madrid,1999,12.92,-0.09
+Madrid,2000,12.92,-0.1
+Madrid,2001,13.02,0.0
+Madrid,2002,13.24,0.23
+Madrid,2003,13.62,0.61
+Madrid,2004,12.95,-0.07
+Madrid,2005,13.34,0.32
+Madrid,2006,13.91,0.89
+Madrid,2007,12.61,-0.41
+Madrid,2008,12.79,-0.22
+Madrid,2009,13.88,0.86
+Madrid,2010,12.56,-0.46
+Madrid,2011,14.0,0.98
+Madrid,2012,13.32,0.3
+Madrid,2013,12.7,-0.32
+Madrid,2014,13.88,0.86
+Madrid,2015,14.31,1.29
+Madrid,2016,13.79,0.77
+Madrid,2017,14.44,1.42
+Madrid,2018,13.42,0.4
+Madrid,2019,14.18,1.16
+Madrid,2020,13.99,0.98
+Madrid,2021,13.4,0.38
+Madrid,2022,15.09,2.07
+Madrid,2023,14.43,1.41
+Madrid,2024,14.42,1.4
+Madrid,2025,14.45,1.43
+Cairo,1981,21.02,-0.38
+Cairo,1982,20.62,-0.78
+Cairo,1983,20.47,-0.93
+Cairo,1984,21.04,-0.36
+Cairo,1985,21.36,-0.04
+Cairo,1986,20.89,-0.51
+Cairo,1987,20.71,-0.69
+Cairo,1988,21.57,0.17
+Cairo,1989,21.17,-0.23
+Cairo,1990,21.54,0.14
+Cairo,1991,21.33,-0.07
+Cairo,1992,20.5,-0.9
+Cairo,1993,21.46,0.06
+Cairo,1994,21.55,0.15
+Cairo,1995,21.27,-0.13
+Cairo,1996,21.58,0.18
+Cairo,1997,20.94,-0.46
+Cairo,1998,21.64,0.24
+Cairo,1999,21.76,0.36
+Cairo,2000,21.15,-0.25
+Cairo,2001,21.79,0.39
+Cairo,2002,21.86,0.46
+Cairo,2003,21.68,0.28
+Cairo,2004,21.58,0.18
+Cairo,2005,21.4,0.0
+Cairo,2006,21.31,-0.09
+Cairo,2007,21.74,0.33
+Cairo,2008,22.07,0.67
+Cairo,2009,21.9,0.5
+Cairo,2010,23.1,1.7
+Cairo,2011,21.14,-0.26
+Cairo,2012,21.74,0.34
+Cairo,2013,21.78,0.38
+Cairo,2014,22.11,0.71
+Cairo,2015,21.89,0.49
+Cairo,2016,21.99,0.59
+Cairo,2017,21.31,-0.09
+Cairo,2018,22.33,0.93
+Cairo,2019,21.92,0.52
+Cairo,2020,21.74,0.34
+Cairo,2021,22.24,0.84
+Cairo,2022,21.67,0.27
+Cairo,2023,22.67,1.27
+Cairo,2024,22.6,1.2
+Cairo,2025,22.54,1.14
+Delhi,1981,25.78,0.02
+Delhi,1982,24.52,-1.24
+Delhi,1983,24.74,-1.03
+Delhi,1984,25.77,0.01
+Delhi,1985,25.43,-0.34
+Delhi,1986,25.82,0.05
+Delhi,1987,27.25,1.48
+Delhi,1988,25.91,0.14
+Delhi,1989,26.01,0.25
+Delhi,1990,25.49,-0.28
+Delhi,1991,25.82,0.05
+Delhi,1992,25.89,0.12
+Delhi,1993,25.86,0.09
+Delhi,1994,25.82,0.05
+Delhi,1995,25.58,-0.19
+Delhi,1996,25.13,-0.63
+Delhi,1997,25.38,-0.39
+Delhi,1998,25.2,-0.57
+Delhi,1999,26.75,0.99
+Delhi,2000,26.03,0.27
+Delhi,2001,26.34,0.57
+Delhi,2002,26.72,0.95
+Delhi,2003,25.09,-0.68
+Delhi,2004,26.07,0.31
+Delhi,2005,25.46,-0.31
+Delhi,2006,26.36,0.59
+Delhi,2007,25.73,-0.04
+Delhi,2008,24.98,-0.79
+Delhi,2009,26.2,0.43
+Delhi,2010,25.88,0.12
+Delhi,2011,24.75,-1.02
+Delhi,2012,25.2,-0.56
+Delhi,2013,24.34,-1.43
+Delhi,2014,25.44,-0.33
+Delhi,2015,25.34,-0.42
+Delhi,2016,26.27,0.5
+Delhi,2017,25.82,0.05
+Delhi,2018,25.45,-0.32
+Delhi,2019,25.47,-0.3
+Delhi,2020,25.12,-0.64
+Delhi,2021,24.72,-1.04
+Delhi,2022,25.49,-0.28
+Delhi,2023,24.73,-1.04
+Delhi,2024,25.51,-0.26
+Delhi,2025,24.84,-0.93
+Tokyo,1981,14.64,-0.68
+Tokyo,1982,15.02,-0.3
+Tokyo,1983,14.57,-0.75
+Tokyo,1984,14.27,-1.05
+Tokyo,1985,15.07,-0.25
+Tokyo,1986,14.57,-0.75
+Tokyo,1987,15.58,0.26
+Tokyo,1988,14.72,-0.6
+Tokyo,1989,15.46,0.14
+Tokyo,1990,16.27,0.94
+Tokyo,1991,15.78,0.45
+Tokyo,1992,15.28,-0.04
+Tokyo,1993,14.7,-0.62
+Tokyo,1994,15.83,0.51
+Tokyo,1995,15.12,-0.2
+Tokyo,1996,14.72,-0.6
+Tokyo,1997,15.51,0.19
+Tokyo,1998,15.99,0.67
+Tokyo,1999,15.89,0.57
+Tokyo,2000,15.52,0.2
+Tokyo,2001,15.26,-0.06
+Tokyo,2002,15.58,0.26
+Tokyo,2003,15.19,-0.13
+Tokyo,2004,16.18,0.86
+Tokyo,2005,15.1,-0.22
+Tokyo,2006,15.4,0.08
+Tokyo,2007,15.74,0.42
+Tokyo,2008,15.36,0.04
+Tokyo,2009,15.48,0.16
+Tokyo,2010,15.83,0.51
+Tokyo,2011,15.28,-0.04
+Tokyo,2012,15.03,-0.29
+Tokyo,2013,15.66,0.34
+Tokyo,2014,15.41,0.09
+Tokyo,2015,15.73,0.41
+Tokyo,2016,15.99,0.67
+Tokyo,2017,15.38,0.06
+Tokyo,2018,16.3,0.98
+Tokyo,2019,16.05,0.73
+Tokyo,2020,16.16,0.84
+Tokyo,2021,16.1,0.78
+Tokyo,2022,15.78,0.45
+Tokyo,2023,16.95,1.63
+Tokyo,2024,17.04,1.72
+Tokyo,2025,16.64,1.32
+Sydney,1981,18.01,-0.16
+Sydney,1982,18.13,-0.03
+Sydney,1983,17.84,-0.33
+Sydney,1984,17.41,-0.75
+Sydney,1985,17.76,-0.4
+Sydney,1986,17.69,-0.47
+Sydney,1987,17.95,-0.21
+Sydney,1988,18.35,0.18
+Sydney,1989,17.89,-0.27
+Sydney,1990,17.77,-0.39
+Sydney,1991,18.03,-0.14
+Sydney,1992,17.33,-0.83
+Sydney,1993,17.85,-0.32
+Sydney,1994,17.79,-0.37
+Sydney,1995,17.38,-0.79
+Sydney,1996,17.78,-0.38
+Sydney,1997,18.47,0.31
+Sydney,1998,18.89,0.73
+Sydney,1999,18.47,0.31
+Sydney,2000,18.43,0.26
+Sydney,2001,18.84,0.67
+Sydney,2002,18.58,0.42
+Sydney,2003,18.3,0.14
+Sydney,2004,18.56,0.39
+Sydney,2005,18.82,0.66
+Sydney,2006,18.72,0.56
+Sydney,2007,18.46,0.3
+Sydney,2008,17.97,-0.2
+Sydney,2009,18.83,0.66
+Sydney,2010,18.6,0.44
+Sydney,2011,18.33,0.17
+Sydney,2012,17.99,-0.17
+Sydney,2013,18.79,0.62
+Sydney,2014,18.79,0.62
+Sydney,2015,18.66,0.5
+Sydney,2016,19.2,1.04
+Sydney,2017,19.24,1.07
+Sydney,2018,18.8,0.64
+Sydney,2019,19.25,1.09
+Sydney,2020,18.53,0.37
+Sydney,2021,18.2,0.04
+Sydney,2022,18.28,0.12
+Sydney,2023,19.24,1.08
+Sydney,2024,19.34,1.18
+Sydney,2025,19.36,1.2
+Johannesburg,1981,15.51,-1.15
+Johannesburg,1982,16.58,-0.09
+Johannesburg,1983,16.84,0.18
+Johannesburg,1984,16.75,0.09
+Johannesburg,1985,16.79,0.13
+Johannesburg,1986,16.5,-0.17
+Johannesburg,1987,16.22,-0.44
+Johannesburg,1988,16.53,-0.14
+Johannesburg,1989,16.11,-0.55
+Johannesburg,1990,16.78,0.11
+Johannesburg,1991,16.92,0.25
+Johannesburg,1992,17.39,0.72
+Johannesburg,1993,16.7,0.04
+Johannesburg,1994,16.16,-0.5
+Johannesburg,1995,16.55,-0.11
+Johannesburg,1996,15.48,-1.19
+Johannesburg,1997,16.03,-0.64
+Johannesburg,1998,17.13,0.47
+Johannesburg,1999,17.05,0.38
+Johannesburg,2000,15.88,-0.79
+Johannesburg,2001,16.77,0.11
+Johannesburg,2002,17.0,0.33
+Johannesburg,2003,17.82,1.16
+Johannesburg,2004,17.09,0.42
+Johannesburg,2005,17.67,1.0
+Johannesburg,2006,15.81,-0.86
+Johannesburg,2007,17.07,0.4
+Johannesburg,2008,17.09,0.43
+Johannesburg,2009,16.6,-0.07
+Johannesburg,2010,17.14,0.48
+Johannesburg,2011,16.33,-0.33
+Johannesburg,2012,16.95,0.28
+Johannesburg,2013,16.93,0.26
+Johannesburg,2014,16.58,-0.09
+Johannesburg,2015,18.24,1.57
+Johannesburg,2016,17.53,0.87
+Johannesburg,2017,16.94,0.27
+Johannesburg,2018,17.39,0.73
+Johannesburg,2019,17.91,1.25
+Johannesburg,2020,16.82,0.16
+Johannesburg,2021,16.69,0.02
+Johannesburg,2022,16.73,0.07
+Johannesburg,2023,17.58,0.91
+Johannesburg,2024,18.32,1.66
+Johannesburg,2025,17.03,0.37
+Barcelona,1981,14.95,-0.24
+Barcelona,1982,15.02,-0.17
+Barcelona,1983,15.22,0.03
+Barcelona,1984,13.94,-1.24
+Barcelona,1985,14.76,-0.43
+Barcelona,1986,14.89,-0.3
+Barcelona,1987,15.17,-0.01
+Barcelona,1988,15.17,-0.02
+Barcelona,1989,15.78,0.6
+Barcelona,1990,15.56,0.37
+Barcelona,1991,14.81,-0.38
+Barcelona,1992,14.79,-0.4
+Barcelona,1993,14.65,-0.54
+Barcelona,1994,15.85,0.66
+Barcelona,1995,15.35,0.17
+Barcelona,1996,14.74,-0.45
+Barcelona,1997,15.62,0.43
+Barcelona,1998,15.35,0.17
+Barcelona,1999,15.25,0.06
+Barcelona,2000,15.3,0.12
+Barcelona,2001,15.46,0.27
+Barcelona,2002,15.35,0.16
+Barcelona,2003,15.68,0.49
+Barcelona,2004,14.95,-0.24
+Barcelona,2005,14.89,-0.29
+Barcelona,2006,16.01,0.82
+Barcelona,2007,15.49,0.31
+Barcelona,2008,15.14,-0.05
+Barcelona,2009,15.81,0.63
+Barcelona,2010,14.64,-0.54
+Barcelona,2011,15.98,0.79
+Barcelona,2012,15.47,0.28
+Barcelona,2013,15.03,-0.16
+Barcelona,2014,15.99,0.81
+Barcelona,2015,16.07,0.89
+Barcelona,2016,15.87,0.69
+Barcelona,2017,16.08,0.89
+Barcelona,2018,15.72,0.54
+Barcelona,2019,15.8,0.61
+Barcelona,2020,15.85,0.66
+Barcelona,2021,15.55,0.37
+Barcelona,2022,17.36,2.17
+Barcelona,2023,17.03,1.85
+Barcelona,2024,16.74,1.56
+Barcelona,2025,16.73,1.55
+Rome,1981,14.67,-0.8
+Rome,1982,15.73,0.26
+Rome,1983,15.31,-0.16
+Rome,1984,14.45,-1.02
+Rome,1985,15.42,-0.06
+Rome,1986,15.15,-0.32
+Rome,1987,15.21,-0.27
+Rome,1988,15.4,-0.08
+Rome,1989,15.21,-0.26
+Rome,1990,15.61,0.13
+Rome,1991,14.67,-0.81
+Rome,1992,15.5,0.03
+Rome,1993,15.47,-0.0
+Rome,1994,16.39,0.91
+Rome,1995,15.0,-0.47
+Rome,1996,14.82,-0.65
+Rome,1997,15.76,0.29
+Rome,1998,15.57,0.1
+Rome,1999,15.45,-0.02
+Rome,2000,15.87,0.4
+Rome,2001,15.76,0.28
+Rome,2002,15.87,0.4
+Rome,2003,16.33,0.85
+Rome,2004,15.48,0.01
+Rome,2005,14.96,-0.51
+Rome,2006,15.72,0.25
+Rome,2007,16.15,0.68
+Rome,2008,16.01,0.54
+Rome,2009,16.01,0.54
+Rome,2010,15.24,-0.24
+Rome,2011,15.97,0.5
+Rome,2012,16.05,0.58
+Rome,2013,15.67,0.2
+Rome,2014,16.0,0.52
+Rome,2015,16.17,0.7
+Rome,2016,16.0,0.53
+Rome,2017,16.28,0.8
+Rome,2018,16.48,1.01
+Rome,2019,16.38,0.9
+Rome,2020,16.42,0.95
+Rome,2021,16.08,0.61
+Rome,2022,17.34,1.87
+Rome,2023,17.16,1.68
+Rome,2024,17.41,1.94
+Rome,2025,17.11,1.64
+Lisbon,1981,17.29,0.48
+Lisbon,1982,16.47,-0.34
+Lisbon,1983,16.8,-0.01
+Lisbon,1984,16.26,-0.55
+Lisbon,1985,16.61,-0.2
+Lisbon,1986,16.39,-0.42
+Lisbon,1987,17.32,0.51
+Lisbon,1988,16.41,-0.4
+Lisbon,1989,17.63,0.82
+Lisbon,1990,16.92,0.11
+Lisbon,1991,16.71,-0.1
+Lisbon,1992,16.63,-0.18
+Lisbon,1993,16.08,-0.73
+Lisbon,1994,16.84,0.03
+Lisbon,1995,18.13,1.32
+Lisbon,1996,16.38,-0.43
+Lisbon,1997,17.54,0.73
+Lisbon,1998,16.94,0.13
+Lisbon,1999,16.66,-0.15
+Lisbon,2000,16.85,0.04
+Lisbon,2001,16.39,-0.42
+Lisbon,2002,16.82,0.01
+Lisbon,2003,16.58,-0.23
+Lisbon,2004,16.64,-0.17
+Lisbon,2005,16.75,-0.06
+Lisbon,2006,17.27,0.46
+Lisbon,2007,16.37,-0.44
+Lisbon,2008,16.5,-0.31
+Lisbon,2009,17.31,0.5
+Lisbon,2010,16.8,-0.01
+Lisbon,2011,16.98,0.17
+Lisbon,2012,16.33,-0.48
+Lisbon,2013,16.49,-0.32
+Lisbon,2014,17.06,0.25
+Lisbon,2015,17.14,0.33
+Lisbon,2016,17.12,0.32
+Lisbon,2017,17.34,0.53
+Lisbon,2018,16.63,-0.18
+Lisbon,2019,16.99,0.18
+Lisbon,2020,17.29,0.48
+Lisbon,2021,16.79,-0.01
+Lisbon,2022,17.86,1.05
+Lisbon,2023,17.96,1.15
+Lisbon,2024,17.84,1.03
+Lisbon,2025,17.81,1.0
+Athens,1981,17.17,-0.11
+Athens,1982,16.51,-0.77
+Athens,1983,16.39,-0.89
+Athens,1984,16.82,-0.46
+Athens,1985,17.2,-0.08
+Athens,1986,17.04,-0.25
+Athens,1987,16.62,-0.66
+Athens,1988,17.22,-0.06
+Athens,1989,17.0,-0.28
+Athens,1990,17.64,0.36
+Athens,1991,16.54,-0.74
+Athens,1992,16.72,-0.57
+Athens,1993,17.14,-0.14
+Athens,1994,17.83,0.54
+Athens,1995,17.21,-0.07
+Athens,1996,16.78,-0.5
+Athens,1997,16.8,-0.48
+Athens,1998,17.37,0.09
+Athens,1999,18.16,0.88
+Athens,2000,17.61,0.33
+Athens,2001,17.88,0.6
+Athens,2002,17.62,0.34
+Athens,2003,17.19,-0.09
+Athens,2004,17.4,0.12
+Athens,2005,17.28,-0.0
+Athens,2006,17.03,-0.25
+Athens,2007,17.99,0.71
+Athens,2008,17.88,0.6
+Athens,2009,17.84,0.56
+Athens,2010,18.51,1.23
+Athens,2011,17.05,-0.23
+Athens,2012,18.27,0.99
+Athens,2013,18.14,0.86
+Athens,2014,18.32,1.04
+Athens,2015,17.71,0.43
+Athens,2016,18.24,0.96
+Athens,2017,17.96,0.68
+Athens,2018,18.36,1.08
+Athens,2019,18.17,0.89
+Athens,2020,18.06,0.78
+Athens,2021,18.26,0.98
+Athens,2022,18.17,0.89
+Athens,2023,18.78,1.5
+Athens,2024,19.47,2.19
+Athens,2025,18.67,1.39
+Amsterdam,1981,9.36,-0.55
+Amsterdam,1982,9.73,-0.19
+Amsterdam,1983,9.89,-0.03
+Amsterdam,1984,9.23,-0.69
+Amsterdam,1985,8.44,-1.48
+Amsterdam,1986,8.71,-1.2
+Amsterdam,1987,8.54,-1.37
+Amsterdam,1988,10.05,0.14
+Amsterdam,1989,10.44,0.52
+Amsterdam,1990,10.65,0.74
+Amsterdam,1991,9.44,-0.47
+Amsterdam,1992,10.25,0.33
+Amsterdam,1993,9.39,-0.52
+Amsterdam,1994,10.29,0.37
+Amsterdam,1995,10.22,0.3
+Amsterdam,1996,8.26,-1.65
+Amsterdam,1997,9.95,0.03
+Amsterdam,1998,10.19,0.28
+Amsterdam,1999,10.75,0.84
+Amsterdam,2000,10.61,0.7
+Amsterdam,2001,10.21,0.29
+Amsterdam,2002,10.53,0.61
+Amsterdam,2003,10.22,0.31
+Amsterdam,2004,10.31,0.4
+Amsterdam,2005,10.42,0.51
+Amsterdam,2006,10.78,0.86
+Amsterdam,2007,11.03,1.12
+Amsterdam,2008,10.41,0.49
+Amsterdam,2009,10.3,0.38
+Amsterdam,2010,8.84,-1.07
+Amsterdam,2011,10.47,0.55
+Amsterdam,2012,9.99,0.07
+Amsterdam,2013,9.41,-0.5
+Amsterdam,2014,11.37,1.46
+Amsterdam,2015,10.48,0.57
+Amsterdam,2016,10.5,0.58
+Amsterdam,2017,10.71,0.8
+Amsterdam,2018,10.98,1.06
+Amsterdam,2019,11.12,1.2
+Amsterdam,2020,11.37,1.45
+Amsterdam,2021,10.38,0.47
+Amsterdam,2022,11.54,1.63
+Amsterdam,2023,11.68,1.77
+Amsterdam,2024,11.65,1.73
+Amsterdam,2025,11.25,1.33
+Istanbul,1981,14.14,-0.28
+Istanbul,1982,13.75,-0.67
+Istanbul,1983,14.06,-0.36
+Istanbul,1984,14.23,-0.19
+Istanbul,1985,13.77,-0.65
+Istanbul,1986,14.14,-0.29
+Istanbul,1987,13.48,-0.95
+Istanbul,1988,14.37,-0.05
+Istanbul,1989,14.43,0.0
+Istanbul,1990,14.62,0.19
+Istanbul,1991,13.58,-0.85
+Istanbul,1992,13.57,-0.85
+Istanbul,1993,13.88,-0.54
+Istanbul,1994,15.19,0.77
+Istanbul,1995,14.36,-0.06
+Istanbul,1996,13.84,-0.58
+Istanbul,1997,13.47,-0.95
+Istanbul,1998,14.52,0.1
+Istanbul,1999,15.24,0.81
+Istanbul,2000,14.53,0.11
+Istanbul,2001,15.28,0.85
+Istanbul,2002,14.71,0.29
+Istanbul,2003,13.92,-0.5
+Istanbul,2004,14.53,0.11
+Istanbul,2005,14.62,0.2
+Istanbul,2006,14.55,0.13
+Istanbul,2007,15.6,1.17
+Istanbul,2008,15.38,0.95
+Istanbul,2009,15.28,0.85
+Istanbul,2010,15.68,1.26
+Istanbul,2011,14.23,-0.19
+Istanbul,2012,15.63,1.21
+Istanbul,2013,15.47,1.05
+Istanbul,2014,15.94,1.52
+Istanbul,2015,15.31,0.89
+Istanbul,2016,15.57,1.15
+Istanbul,2017,14.97,0.54
+Istanbul,2018,15.97,1.54
+Istanbul,2019,15.91,1.49
+Istanbul,2020,16.01,1.59
+Istanbul,2021,15.44,1.02
+Istanbul,2022,15.39,0.97
+Istanbul,2023,16.38,1.96
+Istanbul,2024,16.64,2.21
+Istanbul,2025,16.23,1.8
+Dubai,1981,27.66,-0.07
+Dubai,1982,26.43,-1.31
+Dubai,1983,26.46,-1.27
+Dubai,1984,27.1,-0.64
+Dubai,1985,27.55,-0.19
+Dubai,1986,27.39,-0.35
+Dubai,1987,27.85,0.11
+Dubai,1988,27.68,-0.05
+Dubai,1989,27.27,-0.46
+Dubai,1990,27.77,0.03
+Dubai,1991,27.19,-0.55
+Dubai,1992,26.66,-1.07
+Dubai,1993,27.7,-0.04
+Dubai,1994,27.72,-0.02
+Dubai,1995,27.47,-0.27
+Dubai,1996,27.95,0.21
+Dubai,1997,27.32,-0.42
+Dubai,1998,28.88,1.14
+Dubai,1999,28.68,0.95
+Dubai,2000,27.92,0.19
+Dubai,2001,28.07,0.33
+Dubai,2002,28.27,0.53
+Dubai,2003,28.22,0.48
+Dubai,2004,28.2,0.47
+Dubai,2005,28.15,0.42
+Dubai,2006,28.1,0.36
+Dubai,2007,28.17,0.44
+Dubai,2008,27.64,-0.1
+Dubai,2009,27.9,0.17
+Dubai,2010,28.72,0.98
+Dubai,2011,28.2,0.47
+Dubai,2012,28.15,0.41
+Dubai,2013,27.9,0.16
+Dubai,2014,28.02,0.29
+Dubai,2015,28.57,0.83
+Dubai,2016,28.24,0.5
+Dubai,2017,28.61,0.88
+Dubai,2018,28.61,0.87
+Dubai,2019,28.38,0.64
+Dubai,2020,28.49,0.75
+Dubai,2021,29.22,1.48
+Dubai,2022,28.84,1.1
+Dubai,2023,29.02,1.29
+Dubai,2024,28.86,1.13
+Dubai,2025,28.95,1.21
+Marrakech,1981,18.81,0.29
+Marrakech,1982,17.47,-1.05
+Marrakech,1983,19.05,0.53
+Marrakech,1984,18.12,-0.4
+Marrakech,1985,18.41,-0.11
+Marrakech,1986,18.06,-0.46
+Marrakech,1987,18.9,0.38
+Marrakech,1988,18.27,-0.25
+Marrakech,1989,18.45,-0.07
+Marrakech,1990,18.95,0.43
+Marrakech,1991,17.89,-0.63
+Marrakech,1992,17.76,-0.76
+Marrakech,1993,17.12,-1.4
+Marrakech,1994,18.84,0.32
+Marrakech,1995,18.63,0.11
+Marrakech,1996,17.8,-0.72
+Marrakech,1997,18.17,-0.35
+Marrakech,1998,19.36,0.84
+Marrakech,1999,18.23,-0.3
+Marrakech,2000,19.03,0.5
+Marrakech,2001,19.47,0.95
+Marrakech,2002,18.92,0.4
+Marrakech,2003,19.14,0.62
+Marrakech,2004,18.63,0.11
+Marrakech,2005,18.91,0.38
+Marrakech,2006,18.72,0.19
+Marrakech,2007,18.22,-0.3
+Marrakech,2008,18.26,-0.26
+Marrakech,2009,18.77,0.25
+Marrakech,2010,19.27,0.75
+Marrakech,2011,18.85,0.33
+Marrakech,2012,18.73,0.21
+Marrakech,2013,18.54,0.01
+Marrakech,2014,18.53,0.01
+Marrakech,2015,18.65,0.12
+Marrakech,2016,19.1,0.58
+Marrakech,2017,20.15,1.63
+Marrakech,2018,17.58,-0.94
+Marrakech,2019,19.04,0.52
+Marrakech,2020,19.56,1.04
+Marrakech,2021,19.0,0.48
+Marrakech,2022,20.28,1.76
+Marrakech,2023,20.28,1.76
+Marrakech,2024,20.4,1.88
+Marrakech,2025,20.02,1.5
+Cape Town,1981,15.91,-0.52
+Cape Town,1982,15.44,-0.99
+Cape Town,1983,15.84,-0.59
+Cape Town,1984,16.39,-0.05
+Cape Town,1985,16.64,0.21
+Cape Town,1986,16.58,0.15
+Cape Town,1987,16.19,-0.24
+Cape Town,1988,16.52,0.09
+Cape Town,1989,16.13,-0.3
+Cape Town,1990,16.13,-0.3
+Cape Town,1991,16.26,-0.17
+Cape Town,1992,16.18,-0.25
+Cape Town,1993,16.76,0.33
+Cape Town,1994,16.67,0.24
+Cape Town,1995,16.37,-0.06
+Cape Town,1996,15.57,-0.87
+Cape Town,1997,16.34,-0.09
+Cape Town,1998,16.51,0.08
+Cape Town,1999,17.39,0.96
+Cape Town,2000,16.95,0.52
+Cape Town,2001,16.79,0.36
+Cape Town,2002,16.61,0.18
+Cape Town,2003,16.71,0.28
+Cape Town,2004,17.09,0.66
+Cape Town,2005,16.7,0.27
+Cape Town,2006,16.21,-0.22
+Cape Town,2007,16.38,-0.05
+Cape Town,2008,16.45,0.02
+Cape Town,2009,16.64,0.21
+Cape Town,2010,16.57,0.14
+Cape Town,2011,16.5,0.07
+Cape Town,2012,16.26,-0.17
+Cape Town,2013,16.16,-0.27
+Cape Town,2014,16.6,0.17
+Cape Town,2015,16.49,0.06
+Cape Town,2016,16.64,0.21
+Cape Town,2017,16.46,0.03
+Cape Town,2018,16.48,0.05
+Cape Town,2019,16.55,0.12
+Cape Town,2020,16.24,-0.19
+Cape Town,2021,15.95,-0.48
+Cape Town,2022,16.66,0.23
+Cape Town,2023,15.74,-0.69
+Cape Town,2024,16.28,-0.15
+Cape Town,2025,16.8,0.37
+Bangkok,1981,27.25,-0.46
+Bangkok,1982,27.81,0.11
+Bangkok,1983,27.6,-0.1
+Bangkok,1984,27.43,-0.28
+Bangkok,1985,27.78,0.07
+Bangkok,1986,27.46,-0.24
+Bangkok,1987,27.97,0.27
+Bangkok,1988,27.5,-0.21
+Bangkok,1989,27.83,0.12
+Bangkok,1990,28.35,0.65
+Bangkok,1991,28.1,0.39
+Bangkok,1992,27.93,0.22
+Bangkok,1993,27.73,0.02
+Bangkok,1994,27.7,-0.0
+Bangkok,1995,27.63,-0.08
+Bangkok,1996,27.19,-0.52
+Bangkok,1997,28.5,0.79
+Bangkok,1998,28.68,0.97
+Bangkok,1999,26.74,-0.97
+Bangkok,2000,26.94,-0.77
+Bangkok,2001,27.64,-0.06
+Bangkok,2002,27.8,0.09
+Bangkok,2003,27.6,-0.11
+Bangkok,2004,28.14,0.43
+Bangkok,2005,27.76,0.06
+Bangkok,2006,27.59,-0.12
+Bangkok,2007,27.6,-0.1
+Bangkok,2008,27.37,-0.33
+Bangkok,2009,27.45,-0.26
+Bangkok,2010,28.1,0.4
+Bangkok,2011,26.84,-0.86
+Bangkok,2012,28.31,0.6
+Bangkok,2013,27.8,0.09
+Bangkok,2014,28.15,0.44
+Bangkok,2015,28.44,0.74
+Bangkok,2016,28.29,0.58
+Bangkok,2017,27.42,-0.28
+Bangkok,2018,27.56,-0.15
+Bangkok,2019,28.68,0.98
+Bangkok,2020,28.38,0.68
+Bangkok,2021,27.45,-0.26
+Bangkok,2022,27.28,-0.42
+Bangkok,2023,28.52,0.82
+Bangkok,2024,29.14,1.43
+Bangkok,2025,27.75,0.04
+Singapore,1981,26.8,0.01
+Singapore,1982,26.96,0.16
+Singapore,1983,27.09,0.3
+Singapore,1984,26.2,-0.6
+Singapore,1985,26.56,-0.23
+Singapore,1986,26.46,-0.34
+Singapore,1987,26.84,0.04
+Singapore,1988,26.77,-0.02
+Singapore,1989,26.59,-0.21
+Singapore,1990,27.03,0.24
+Singapore,1991,26.82,0.02
+Singapore,1992,26.78,-0.01
+Singapore,1993,26.67,-0.13
+Singapore,1994,26.63,-0.16
+Singapore,1995,26.72,-0.08
+Singapore,1996,26.5,-0.3
+Singapore,1997,27.19,0.39
+Singapore,1998,27.43,0.63
+Singapore,1999,26.59,-0.21
+Singapore,2000,26.64,-0.16
+Singapore,2001,26.75,-0.05
+Singapore,2002,26.89,0.1
+Singapore,2003,26.83,0.03
+Singapore,2004,26.76,-0.04
+Singapore,2005,26.93,0.14
+Singapore,2006,26.82,0.02
+Singapore,2007,26.7,-0.1
+Singapore,2008,26.69,-0.11
+Singapore,2009,26.96,0.16
+Singapore,2010,27.28,0.48
+Singapore,2011,26.71,-0.09
+Singapore,2012,27.12,0.32
+Singapore,2013,27.17,0.37
+Singapore,2014,27.32,0.52
+Singapore,2015,27.21,0.42
+Singapore,2016,27.55,0.76
+Singapore,2017,27.2,0.4
+Singapore,2018,27.14,0.35
+Singapore,2019,27.61,0.82
+Singapore,2020,27.28,0.48
+Singapore,2021,27.02,0.22
+Singapore,2022,27.14,0.34
+Singapore,2023,27.5,0.71
+Singapore,2024,27.84,1.05
+Singapore,2025,27.38,0.59
+Orlando,1981,21.61,-0.32
+Orlando,1982,22.02,0.09
+Orlando,1983,20.76,-1.17
+Orlando,1984,21.45,-0.48
+Orlando,1985,21.81,-0.12
+Orlando,1986,22.28,0.35
+Orlando,1987,21.51,-0.42
+Orlando,1988,21.2,-0.73
+Orlando,1989,22.26,0.33
+Orlando,1990,23.08,1.15
+Orlando,1991,22.07,0.14
+Orlando,1992,21.5,-0.43
+Orlando,1993,22.09,0.16
+Orlando,1994,22.32,0.39
+Orlando,1995,21.66,-0.27
+Orlando,1996,21.25,-0.68
+Orlando,1997,22.38,0.45
+Orlando,1998,22.78,0.85
+Orlando,1999,22.14,0.21
+Orlando,2000,22.2,0.27
+Orlando,2001,21.95,0.02
+Orlando,2002,22.08,0.15
+Orlando,2003,21.68,-0.25
+Orlando,2004,22.03,0.1
+Orlando,2005,21.66,-0.27
+Orlando,2006,22.72,0.79
+Orlando,2007,22.56,0.63
+Orlando,2008,21.81,-0.12
+Orlando,2009,22.08,0.15
+Orlando,2010,20.94,-0.99
+Orlando,2011,22.66,0.73
+Orlando,2012,22.57,0.64
+Orlando,2013,22.61,0.68
+Orlando,2014,21.91,-0.02
+Orlando,2015,23.14,1.21
+Orlando,2016,22.59,0.66
+Orlando,2017,22.97,1.04
+Orlando,2018,22.45,0.52
+Orlando,2019,23.03,1.1
+Orlando,2020,23.16,1.23
+Orlando,2021,22.9,0.97
+Orlando,2022,23.06,1.13
+Orlando,2023,23.62,1.69
+Orlando,2024,23.4,1.47
+Orlando,2025,23.16,1.23
+Mexico City,1981,12.97,-0.41
+Mexico City,1982,13.73,0.35
+Mexico City,1983,13.08,-0.3
+Mexico City,1984,12.75,-0.63
+Mexico City,1985,12.66,-0.72
+Mexico City,1986,12.87,-0.51
+Mexico City,1987,13.14,-0.24
+Mexico City,1988,13.36,-0.01
+Mexico City,1989,12.97,-0.41
+Mexico City,1990,13.1,-0.28
+Mexico City,1991,13.42,0.04
+Mexico City,1992,12.5,-0.87
+Mexico City,1993,13.22,-0.16
+Mexico City,1994,14.17,0.79
+Mexico City,1995,13.53,0.15
+Mexico City,1996,13.19,-0.18
+Mexico City,1997,13.29,-0.09
+Mexico City,1998,14.03,0.65
+Mexico City,1999,13.18,-0.2
+Mexico City,2000,13.56,0.18
+Mexico City,2001,13.5,0.12
+Mexico City,2002,13.91,0.53
+Mexico City,2003,13.83,0.45
+Mexico City,2004,13.35,-0.03
+Mexico City,2005,14.11,0.73
+Mexico City,2006,13.71,0.33
+Mexico City,2007,13.6,0.22
+Mexico City,2008,13.47,0.09
+Mexico City,2009,14.0,0.62
+Mexico City,2010,13.11,-0.26
+Mexico City,2011,13.86,0.49
+Mexico City,2012,13.51,0.13
+Mexico City,2013,13.85,0.47
+Mexico City,2014,13.65,0.28
+Mexico City,2015,13.94,0.56
+Mexico City,2016,13.87,0.49
+Mexico City,2017,14.01,0.63
+Mexico City,2018,14.05,0.67
+Mexico City,2019,14.74,1.36
+Mexico City,2020,14.58,1.2
+Mexico City,2021,14.25,0.87
+Mexico City,2022,14.63,1.25
+Mexico City,2023,15.21,1.83
+Mexico City,2024,15.18,1.8
+Mexico City,2025,14.5,1.12
+Rio de Janeiro,1981,23.05,0.06
+Rio de Janeiro,1982,22.5,-0.49
+Rio de Janeiro,1983,22.63,-0.36
+Rio de Janeiro,1984,23.19,0.2
+Rio de Janeiro,1985,22.64,-0.35
+Rio de Janeiro,1986,23.23,0.24
+Rio de Janeiro,1987,22.88,-0.11
+Rio de Janeiro,1988,22.38,-0.61
+Rio de Janeiro,1989,22.35,-0.64
+Rio de Janeiro,1990,22.96,-0.03
+Rio de Janeiro,1991,22.53,-0.47
+Rio de Janeiro,1992,22.64,-0.35
+Rio de Janeiro,1993,23.1,0.11
+Rio de Janeiro,1994,22.92,-0.08
+Rio de Janeiro,1995,23.14,0.14
+Rio de Janeiro,1996,22.51,-0.48
+Rio de Janeiro,1997,22.81,-0.18
+Rio de Janeiro,1998,23.32,0.32
+Rio de Janeiro,1999,22.56,-0.44
+Rio de Janeiro,2000,22.87,-0.12
+Rio de Janeiro,2001,23.56,0.57
+Rio de Janeiro,2002,23.73,0.73
+Rio de Janeiro,2003,23.28,0.28
+Rio de Janeiro,2004,22.62,-0.38
+Rio de Janeiro,2005,23.56,0.56
+Rio de Janeiro,2006,23.49,0.49
+Rio de Janeiro,2007,23.47,0.48
+Rio de Janeiro,2008,22.95,-0.05
+Rio de Janeiro,2009,23.59,0.6
+Rio de Janeiro,2010,23.36,0.37
+Rio de Janeiro,2011,22.88,-0.12
+Rio de Janeiro,2012,23.22,0.23
+Rio de Janeiro,2013,23.0,0.01
+Rio de Janeiro,2014,23.61,0.62
+Rio de Janeiro,2015,23.96,0.96
+Rio de Janeiro,2016,23.21,0.22
+Rio de Janeiro,2017,23.04,0.04
+Rio de Janeiro,2018,23.22,0.23
+Rio de Janeiro,2019,23.83,0.84
+Rio de Janeiro,2020,23.27,0.28
+Rio de Janeiro,2021,22.85,-0.14
+Rio de Janeiro,2022,22.95,-0.05
+Rio de Janeiro,2023,23.8,0.81
+Rio de Janeiro,2024,24.02,1.03
+Rio de Janeiro,2025,23.22,0.22

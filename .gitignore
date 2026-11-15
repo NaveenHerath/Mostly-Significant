@@ -16,3 +16,7 @@ CLAUDE.md
 
 # local test script and its screenshots, only for my laptop
 tools/
+
+# vercel's local link and token files, only for the laptop that deploys
+.vercel
+.env*

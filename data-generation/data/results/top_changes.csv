@@ -1,0 +1,311 @@
+place,rank,measure_id,measure_name,verdict,strength,rate_per_decade,early_mean,late_mean,unit
+London,1,summer_length,Length of summer,real,5.73,8.31,77.2,107.7,days
+London,2,heating_need,Heating need,real,4.9,-130.34,3181.08,2726.3,degree days
+London,3,hottest_day,Hottest day of the year,real,4.31,0.8,28.07,31.47,°C
+London,4,warm_nights,Warm nights per year,real,3.5,3.48,12.9,27.9,nights
+London,5,heatwave_events,Heatwaves per year,real,3.17,0.56,1.3,3.7,heatwaves
+London,6,heatwave_days,Heatwave days per year,real,3.09,2.8,7.2,18.7,days
+London,7,first_heatwave_doy,Date of first heatwave,real,2.88,-8.0,202.5,181.8,day of year
+London,8,wettest_day,Wettest day of the year,real,2.88,1.84,20.99,29.52,mm
+London,9,longest_heatwave,Longest heatwave,real,2.49,0.91,3.8,6.8,days
+London,10,autumn_onset_doy,Start of autumn,real,2.19,3.08,285.3,294.4,day of year
+London,11,summer_sunshine,Summer sunshine,leaning,1.45,0.2,17.13,17.96,MJ/m² per day
+London,12,heavy_rain_days,Heavy rain days per year,leaning,1.23,0.62,11.5,14.2,days
+London,13,first_frost_doy,First frost,leaning,1.15,2.57,321.5,326.8,day of year
+London,14,summer_dry_spell,Longest summer dry spell,leaning,0.99,0.5,13.5,20.4,days
+London,15,winter_rain,Winter rainfall,leaning,0.82,5.12,182.93,197.78,mm
+Maidstone,1,heatwave_events,Heatwaves per year,real,5.79,0.53,1.4,3.6,heatwaves
+Maidstone,2,heating_need,Heating need,real,5.23,-132.49,3058.73,2594.17,degree days
+Maidstone,3,summer_length,Length of summer,real,4.45,7.96,83.1,112.7,days
+Maidstone,4,hottest_day,Hottest day of the year,real,4.4,0.76,26.29,29.16,°C
+Maidstone,5,warm_nights,Warm nights per year,real,4.14,4.62,11.9,32.0,nights
+Maidstone,6,heatwave_days,Heatwave days per year,real,3.69,3.12,6.6,20.1,days
+Maidstone,7,longest_heatwave,Longest heatwave,real,3.49,1.11,3.3,7.7,days
+Maidstone,8,heavy_rain_days,Heavy rain days per year,real,3.09,0.73,9.9,13.4,days
+Maidstone,9,summer_sunshine,Summer sunshine,real,2.71,0.39,16.55,18.26,MJ/m² per day
+Maidstone,10,first_heatwave_doy,Date of first heatwave,leaning,1.95,-5.31,195.17,182.2,day of year
+Maidstone,11,wettest_day,Wettest day of the year,leaning,1.89,1.12,20.1,26.26,mm
+Maidstone,12,summer_dry_spell,Longest summer dry spell,leaning,1.26,0.51,12.7,21.3,days
+Maidstone,13,winter_rain,Winter rainfall,leaning,1.16,7.63,170.27,193.17,mm
+Maidstone,14,autumn_onset_doy,Start of autumn,leaning,0.88,1.16,295.8,299.5,day of year
+Maidstone,15,first_frost_doy,First frost,not_backed,0.75,-1.0,334.78,336.33,day of year
+Norwich,1,summer_length,Length of summer,real,5.1,8.89,64.9,100.6,days
+Norwich,2,heating_need,Heating need,real,4.92,-126.94,3279.89,2826.39,degree days
+Norwich,3,first_frost_doy,First frost,real,4.33,5.09,316.2,329.4,day of year
+Norwich,4,wettest_day,Wettest day of the year,real,4.21,3.82,21.82,36.66,mm
+Norwich,5,warm_nights,Warm nights per year,real,3.36,3.55,12.3,25.7,nights
+Norwich,6,autumn_onset_doy,Start of autumn,real,3.1,4.29,278.7,294.1,day of year
+Norwich,7,longest_heatwave,Longest heatwave,real,2.81,0.67,3.1,6.6,days
+Norwich,8,heavy_rain_days,Heavy rain days per year,real,2.68,1.53,9.8,16.2,days
+Norwich,9,heatwave_days,Heatwave days per year,real,2.59,1.94,4.9,14.3,days
+Norwich,10,heatwave_events,Heatwaves per year,real,2.43,0.32,1.0,2.9,heatwaves
+Norwich,11,winter_rain,Winter rainfall,real,2.3,12.14,155.08,209.74,mm
+Norwich,12,summer_sunshine,Summer sunshine,real,2.3,0.28,16.59,17.88,MJ/m² per day
+Norwich,13,hottest_day,Hottest day of the year,leaning,1.75,0.32,27.16,28.71,°C
+Norwich,14,summer_dry_spell,Longest summer dry spell,leaning,1.59,0.71,12.1,18.0,days
+Norwich,15,first_heatwave_doy,Date of first heatwave,leaning,1.3,-3.57,196.17,183.4,day of year
+Plymouth,1,heating_need,Heating need,real,4.47,-100.17,2929.08,2553.7,degree days
+Plymouth,2,autumn_onset_doy,Start of autumn,real,2.87,4.0,293.1,306.5,day of year
+Plymouth,3,warm_nights,Warm nights per year,real,2.7,3.68,14.8,28.9,nights
+Plymouth,4,summer_dry_spell,Longest summer dry spell,opposite,2.48,-1.29,15.3,11.7,days
+Plymouth,5,summer_length,Length of summer,real,2.33,5.06,59.8,83.2,days
+Plymouth,6,heavy_rain_days,Heavy rain days per year,real,2.12,2.05,30.3,40.3,days
+Plymouth,7,wettest_day,Wettest day of the year,real,2.08,1.09,29.02,32.29,mm
+Plymouth,8,hottest_day,Hottest day of the year,leaning,1.29,0.25,24.28,25.06,°C
+Plymouth,9,summer_sunshine,Summer sunshine,leaning,1.13,0.13,19.0,19.0,MJ/m² per day
+Plymouth,10,first_frost_doy,First frost,leaning,1.09,5.5,336.75,346.0,day of year
+Plymouth,11,winter_rain,Winter rainfall,leaning,1.02,12.15,347.07,413.7,mm
+Plymouth,12,first_heatwave_doy,Date of first heatwave,leaning,0.85,-2.65,187.5,186.7,day of year
+Plymouth,13,longest_heatwave,Longest heatwave,leaning,0.5,0.0,6.5,7.4,days
+Plymouth,14,heatwave_days,Heatwave days per year,leaning,0.49,0.0,14.1,16.0,days
+Plymouth,15,heatwave_events,Heatwaves per year,leaning,0.21,0.0,2.4,2.7,heatwaves
+Bristol,1,autumn_onset_doy,Start of autumn,real,4.8,2.5,283.9,293.8,day of year
+Bristol,2,heating_need,Heating need,real,4.22,-106.22,3160.36,2786.41,degree days
+Bristol,3,summer_length,Length of summer,real,3.05,5.74,71.4,94.2,days
+Bristol,4,warm_nights,Warm nights per year,real,2.62,3.0,14.8,26.5,nights
+Bristol,5,hottest_day,Hottest day of the year,leaning,1.93,0.49,28.52,30.15,°C
+Bristol,6,heavy_rain_days,Heavy rain days per year,leaning,1.92,1.18,14.7,21.4,days
+Bristol,7,summer_dry_spell,Longest summer dry spell,not_backed,1.86,-0.91,16.0,13.9,days
+Bristol,8,winter_rain,Winter rainfall,leaning,1.49,11.76,209.11,258.04,mm
+Bristol,9,summer_sunshine,Summer sunshine,leaning,1.48,0.12,17.43,17.81,MJ/m² per day
+Bristol,10,first_heatwave_doy,Date of first heatwave,leaning,1.47,-3.75,196.11,185.1,day of year
+Bristol,11,heatwave_days,Heatwave days per year,leaning,0.85,0.49,12.6,16.4,days
+Bristol,12,first_frost_doy,First frost,leaning,0.84,1.11,324.7,331.3,day of year
+Bristol,13,wettest_day,Wettest day of the year,leaning,0.8,0.42,22.67,25.19,mm
+Bristol,14,heatwave_events,Heatwaves per year,leaning,0.78,0.0,2.3,3.2,heatwaves
+Bristol,15,longest_heatwave,Longest heatwave,leaning,0.52,0.0,6.6,6.9,days
+Cardiff,1,heating_need,Heating need,real,4.49,-104.15,3139.65,2759.11,degree days
+Cardiff,2,summer_length,Length of summer,real,3.48,5.74,65.2,90.0,days
+Cardiff,3,warm_nights,Warm nights per year,real,3.03,3.57,14.5,28.6,nights
+Cardiff,4,summer_dry_spell,Longest summer dry spell,opposite,2.34,-1.0,15.2,11.5,days
+Cardiff,5,heavy_rain_days,Heavy rain days per year,real,2.16,1.28,20.7,26.7,days
+Cardiff,6,hottest_day,Hottest day of the year,leaning,1.94,0.42,26.05,27.7,°C
+Cardiff,7,summer_sunshine,Summer sunshine,leaning,1.48,0.12,17.43,17.81,MJ/m² per day
+Cardiff,8,autumn_onset_doy,Start of autumn,leaning,1.45,1.7,288.4,295.4,day of year
+Cardiff,9,winter_rain,Winter rainfall,leaning,1.24,10.48,254.5,302.18,mm
+Cardiff,10,first_heatwave_doy,Date of first heatwave,leaning,1.1,-2.86,183.11,179.1,day of year
+Cardiff,11,first_frost_doy,First frost,leaning,0.7,1.33,332.11,338.89,day of year
+Cardiff,12,heatwave_days,Heatwave days per year,leaning,0.4,0.0,13.4,15.3,days
+Cardiff,13,longest_heatwave,Longest heatwave,leaning,0.33,0.0,6.6,7.1,days
+Cardiff,14,wettest_day,Wettest day of the year,not_backed,0.33,-0.17,25.69,25.77,mm
+Cardiff,15,heatwave_events,Heatwaves per year,leaning,0.16,0.0,2.7,3.0,heatwaves
+Birmingham,1,heating_need,Heating need,real,4.88,-124.77,3462.07,3019.99,degree days
+Birmingham,2,summer_length,Length of summer,real,3.41,6.96,51.2,79.8,days
+Birmingham,3,hottest_day,Hottest day of the year,real,3.03,0.68,26.85,29.38,°C
+Birmingham,4,warm_nights,Warm nights per year,real,2.43,3.16,13.3,26.2,nights
+Birmingham,5,autumn_onset_doy,Start of autumn,real,2.41,2.07,276.2,283.7,day of year
+Birmingham,6,longest_heatwave,Longest heatwave,real,2.29,0.43,4.7,6.6,days
+Birmingham,7,first_frost_doy,First frost,real,2.15,4.62,312.8,321.0,day of year
+Birmingham,8,heatwave_days,Heatwave days per year,real,2.14,1.91,7.6,16.0,days
+Birmingham,9,heatwave_events,Heatwaves per year,real,1.97,0.0,1.4,3.2,heatwaves
+Birmingham,10,heavy_rain_days,Heavy rain days per year,leaning,1.8,0.49,13.2,17.3,days
+Birmingham,11,summer_sunshine,Summer sunshine,leaning,1.43,0.18,16.61,17.5,MJ/m² per day
+Birmingham,12,summer_dry_spell,Longest summer dry spell,not_backed,1.16,-0.48,13.7,13.9,days
+Birmingham,13,first_heatwave_doy,Date of first heatwave,leaning,1.07,-3.04,188.14,179.0,day of year
+Birmingham,14,winter_rain,Winter rainfall,leaning,0.82,5.93,186.91,211.86,mm
+Birmingham,15,wettest_day,Wettest day of the year,leaning,0.59,0.47,25.73,26.87,mm
+Manchester,1,heating_need,Heating need,real,4.47,-124.63,3636.17,3181.58,degree days
+Manchester,2,wettest_day,Wettest day of the year,real,3.49,2.13,25.87,32.33,mm
+Manchester,3,warm_nights,Warm nights per year,real,3.31,3.75,13.0,27.5,nights
+Manchester,4,winter_rain,Winter rainfall,real,2.73,12.18,251.9,297.36,mm
+Manchester,5,hottest_day,Hottest day of the year,real,2.6,0.5,24.99,26.73,°C
+Manchester,6,summer_length,Length of summer,real,2.6,5.42,34.8,59.5,days
+Manchester,7,heatwave_days,Heatwave days per year,leaning,1.96,1.43,8.2,14.6,days
+Manchester,8,longest_heatwave,Longest heatwave,leaning,1.95,0.77,5.0,8.2,days
+Manchester,9,heatwave_events,Heatwaves per year,leaning,1.64,0.0,1.5,2.6,heatwaves
+Manchester,10,summer_sunshine,Summer sunshine,leaning,0.66,0.09,16.69,16.98,MJ/m² per day
+Manchester,11,autumn_onset_doy,Start of autumn,leaning,0.48,0.75,275.1,279.0,day of year
+Manchester,12,first_frost_doy,First frost,leaning,0.48,0.91,322.2,322.4,day of year
+Manchester,13,first_heatwave_doy,Date of first heatwave,not_backed,0.41,1.0,168.29,174.9,day of year
+Manchester,14,heavy_rain_days,Heavy rain days per year,leaning,0.31,0.0,20.2,21.0,days
+Manchester,15,summer_dry_spell,Longest summer dry spell,leaning,0.31,0.0,10.7,10.8,days
+Newcastle,1,heating_need,Heating need,real,3.86,-115.46,3825.33,3406.72,degree days
+Newcastle,2,warm_nights,Warm nights per year,real,3.37,3.33,12.5,24.9,nights
+Newcastle,3,first_frost_doy,First frost,real,2.26,5.36,315.0,327.8,day of year
+Newcastle,4,summer_length,Length of summer,real,2.14,4.29,23.5,40.7,days
+Newcastle,5,autumn_onset_doy,Start of autumn,real,2.11,2.54,262.5,272.2,day of year
+Newcastle,6,hottest_day,Hottest day of the year,real,2.05,0.38,23.68,25.26,°C
+Newcastle,7,heatwave_events,Heatwaves per year,real,2.02,0.25,1.5,2.8,heatwaves
+Newcastle,8,summer_sunshine,Summer sunshine,leaning,1.76,0.22,15.25,16.23,MJ/m² per day
+Newcastle,9,heatwave_days,Heatwave days per year,leaning,1.39,1.0,7.8,11.4,days
+Newcastle,10,wettest_day,Wettest day of the year,leaning,1.35,1.41,27.81,32.0,mm
+Newcastle,11,winter_rain,Winter rainfall,leaning,1.24,4.06,187.0,222.31,mm
+Newcastle,12,first_heatwave_doy,Date of first heatwave,leaning,1.19,-3.33,176.0,177.7,day of year
+Newcastle,13,summer_dry_spell,Longest summer dry spell,not_backed,1.06,-0.61,11.7,10.8,days
+Newcastle,14,heavy_rain_days,Heavy rain days per year,leaning,0.94,0.38,14.7,15.8,days
+Newcastle,15,longest_heatwave,Longest heatwave,leaning,0.21,0.0,4.6,4.9,days
+Belfast,1,heating_need,Heating need,real,4.19,-94.85,3550.17,3191.58,degree days
+Belfast,2,warm_nights,Warm nights per year,real,2.7,2.5,13.5,24.1,nights
+Belfast,3,autumn_onset_doy,Start of autumn,real,2.59,3.71,268.4,279.9,day of year
+Belfast,4,summer_length,Length of summer,leaning,1.77,3.33,26.2,43.5,days
+Belfast,5,summer_sunshine,Summer sunshine,leaning,1.57,0.13,14.94,15.42,MJ/m² per day
+Belfast,6,first_frost_doy,First frost,leaning,1.46,2.71,327.8,336.33,day of year
+Belfast,7,summer_dry_spell,Longest summer dry spell,not_backed,1.42,-0.59,10.3,9.4,days
+Belfast,8,hottest_day,Hottest day of the year,leaning,1.36,0.27,22.84,23.72,°C
+Belfast,9,winter_rain,Winter rainfall,leaning,0.99,5.38,256.85,280.03,mm
+Belfast,10,heavy_rain_days,Heavy rain days per year,leaning,0.95,0.33,22.1,24.5,days
+Belfast,11,heatwave_days,Heatwave days per year,leaning,0.92,0.29,10.6,13.4,days
+Belfast,12,longest_heatwave,Longest heatwave,leaning,0.81,0.0,5.8,7.0,days
+Belfast,13,wettest_day,Wettest day of the year,leaning,0.6,0.43,28.02,26.89,mm
+Belfast,14,heatwave_events,Heatwaves per year,leaning,0.57,0.0,2.2,2.7,heatwaves
+Belfast,15,first_heatwave_doy,Date of first heatwave,not_backed,0.38,0.91,185.88,186.6,day of year
+Edinburgh,1,heating_need,Heating need,real,3.61,-111.59,3857.63,3468.92,degree days
+Edinburgh,2,warm_nights,Warm nights per year,real,2.73,3.04,13.0,26.2,nights
+Edinburgh,3,first_frost_doy,First frost,real,2.09,4.62,316.1,328.6,day of year
+Edinburgh,4,summer_dry_spell,Longest summer dry spell,opposite,1.97,-0.91,12.2,9.8,days
+Edinburgh,5,autumn_onset_doy,Start of autumn,leaning,1.85,2.33,263.5,270.4,day of year
+Edinburgh,6,summer_length,Length of summer,leaning,1.57,2.83,21.2,34.3,days
+Edinburgh,7,heavy_rain_days,Heavy rain days per year,leaning,1.5,0.89,12.8,15.6,days
+Edinburgh,8,first_heatwave_doy,Date of first heatwave,leaning,1.24,-3.81,175.57,175.56,day of year
+Edinburgh,9,summer_sunshine,Summer sunshine,leaning,1.13,0.15,15.18,15.79,MJ/m² per day
+Edinburgh,10,hottest_day,Hottest day of the year,leaning,0.98,0.16,23.61,24.89,°C
+Edinburgh,11,heatwave_events,Heatwaves per year,leaning,0.23,0.0,2.4,2.9,heatwaves
+Edinburgh,12,wettest_day,Wettest day of the year,leaning,0.21,0.17,27.58,28.88,mm
+Edinburgh,13,heatwave_days,Heatwave days per year,leaning,0.14,0.0,11.8,12.4,days
+Edinburgh,14,longest_heatwave,Longest heatwave,not_backed,0.1,0.0,4.9,4.7,days
+Edinburgh,15,winter_rain,Winter rainfall,leaning,0.05,0.09,209.63,227.05,mm
+Aberdeen,1,heating_need,Heating need,real,4.92,-111.21,4197.56,3788.36,degree days
+Aberdeen,2,warm_nights,Warm nights per year,real,3.76,4.38,11.7,27.7,nights
+Aberdeen,3,autumn_onset_doy,Start of autumn,real,2.34,4.29,240.7,264.6,day of year
+Aberdeen,4,first_frost_doy,First frost,real,2.01,4.11,312.8,325.5,day of year
+Aberdeen,5,summer_sunshine,Summer sunshine,leaning,1.56,0.13,14.95,15.69,MJ/m² per day
+Aberdeen,6,summer_dry_spell,Longest summer dry spell,not_backed,1.28,-0.67,11.7,9.6,days
+Aberdeen,7,summer_length,Length of summer,leaning,0.99,0.73,10.3,16.5,days
+Aberdeen,8,hottest_day,Hottest day of the year,leaning,0.73,0.11,22.08,22.79,°C
+Aberdeen,9,wettest_day,Wettest day of the year,leaning,0.61,0.6,30.21,30.57,mm
+Aberdeen,10,heavy_rain_days,Heavy rain days per year,leaning,0.53,0.0,18.6,19.9,days
+Aberdeen,11,winter_rain,Winter rainfall,not_backed,0.48,-4.73,217.01,224.43,mm
+Aberdeen,12,first_heatwave_doy,Date of first heatwave,leaning,0.47,-1.47,189.38,178.5,day of year
+Aberdeen,13,heatwave_events,Heatwaves per year,leaning,0.4,0.0,2.3,2.7,heatwaves
+Aberdeen,14,longest_heatwave,Longest heatwave,leaning,0.32,0.0,4.9,5.8,days
+Aberdeen,15,heatwave_days,Heatwave days per year,leaning,0.08,0.0,11.1,13.2,days
+New York,1,warm_nights,Warm nights per year,real,6.08,7.11,9.9,35.5,nights
+New York,2,heatwave_days,Heatwave days per year,real,3.4,2.22,4.8,14.3,days
+New York,3,heatwave_events,Heatwaves per year,real,2.78,0.45,1.1,3.0,heatwaves
+New York,4,longest_heatwave,Longest heatwave,leaning,1.68,0.62,3.1,5.9,days
+New York,5,hottest_day,Hottest day of the year,leaning,1.48,0.26,29.58,30.54,°C
+Los Angeles,1,longest_heatwave,Longest heatwave,real,2.28,0.0,5.3,6.0,days
+Los Angeles,2,warm_nights,Warm nights per year,leaning,1.79,1.25,16.1,20.0,nights
+Los Angeles,3,heatwave_events,Heatwaves per year,leaning,1.17,0.0,2.4,2.5,heatwaves
+Los Angeles,4,heatwave_days,Heatwave days per year,leaning,0.98,0.66,10.9,12.4,days
+Los Angeles,5,hottest_day,Hottest day of the year,leaning,0.18,0.03,38.27,38.59,°C
+Toronto,1,warm_nights,Warm nights per year,real,3.41,4.44,13.5,29.6,nights
+Toronto,2,hottest_day,Hottest day of the year,leaning,1.86,0.39,33.09,34.1,°C
+Toronto,3,heatwave_days,Heatwave days per year,leaning,1.73,1.82,10.2,16.4,days
+Toronto,4,heatwave_events,Heatwaves per year,leaning,1.71,0.37,2.3,3.8,heatwaves
+Toronto,5,longest_heatwave,Longest heatwave,leaning,1.54,0.34,4.4,6.3,days
+Sao Paulo,1,heatwave_events,Heatwaves per year,real,3.9,1.79,2.7,9.1,heatwaves
+Sao Paulo,2,hottest_day,Hottest day of the year,real,3.85,1.12,32.66,36.18,°C
+Sao Paulo,3,heatwave_days,Heatwave days per year,real,3.77,9.39,12.4,53.1,days
+Sao Paulo,4,warm_nights,Warm nights per year,real,3.59,5.36,11.0,32.4,nights
+Sao Paulo,5,longest_heatwave,Longest heatwave,real,3.25,1.76,4.7,10.8,days
+Paris,1,hottest_day,Hottest day of the year,real,4.33,1.08,30.44,34.7,°C
+Paris,2,heatwave_events,Heatwaves per year,real,2.84,0.51,1.2,3.6,heatwaves
+Paris,3,heatwave_days,Heatwave days per year,real,2.8,2.77,4.9,16.9,days
+Paris,4,warm_nights,Warm nights per year,real,2.75,3.0,12.7,24.7,nights
+Paris,5,longest_heatwave,Longest heatwave,real,2.09,0.77,2.6,6.3,days
+Berlin,1,warm_nights,Warm nights per year,real,4.59,5.0,9.7,29.6,nights
+Berlin,2,heatwave_events,Heatwaves per year,real,2.68,0.48,1.0,2.9,heatwaves
+Berlin,3,heatwave_days,Heatwave days per year,real,2.68,2.95,4.3,14.5,days
+Berlin,4,hottest_day,Hottest day of the year,real,2.47,0.69,32.93,35.73,°C
+Berlin,5,longest_heatwave,Longest heatwave,real,2.25,0.95,2.6,6.5,days
+Madrid,1,heatwave_days,Heatwave days per year,real,4.63,4.53,7.4,25.2,days
+Madrid,2,warm_nights,Warm nights per year,real,4.18,5.0,13.7,33.5,nights
+Madrid,3,longest_heatwave,Longest heatwave,real,3.94,1.11,4.6,11.8,days
+Madrid,4,hottest_day,Hottest day of the year,real,3.65,0.45,38.45,40.17,°C
+Madrid,5,heatwave_events,Heatwaves per year,real,3.42,0.43,1.7,3.8,heatwaves
+Cairo,1,warm_nights,Warm nights per year,real,5.72,8.69,11.3,47.0,nights
+Cairo,2,hottest_day,Hottest day of the year,real,2.82,0.39,42.79,44.11,°C
+Cairo,3,heatwave_events,Heatwaves per year,real,2.01,0.27,1.5,2.6,heatwaves
+Cairo,4,heatwave_days,Heatwave days per year,leaning,1.74,1.25,6.9,11.8,days
+Cairo,5,longest_heatwave,Longest heatwave,leaning,0.89,0.0,3.9,5.0,days
+Delhi,1,hottest_day,Hottest day of the year,not_backed,1.85,-0.16,47.55,46.81,°C
+Delhi,2,longest_heatwave,Longest heatwave,not_backed,1.37,-0.78,8.3,5.1,days
+Delhi,3,heatwave_days,Heatwave days per year,not_backed,1.26,-1.3,14.1,9.0,days
+Delhi,4,warm_nights,Warm nights per year,not_backed,1.21,-1.03,17.3,11.9,nights
+Delhi,5,heatwave_events,Heatwaves per year,not_backed,0.38,0.0,1.8,1.7,heatwaves
+Tokyo,1,warm_nights,Warm nights per year,real,7.13,7.04,10.8,40.0,nights
+Tokyo,2,hottest_day,Hottest day of the year,real,3.83,0.35,34.59,35.87,°C
+Tokyo,3,heatwave_days,Heatwave days per year,real,2.49,2.93,8.6,17.9,days
+Tokyo,4,longest_heatwave,Longest heatwave,real,2.21,1.13,5.1,7.6,days
+Tokyo,5,heatwave_events,Heatwaves per year,real,2.13,0.36,1.8,3.2,heatwaves
+Sydney,1,warm_nights,Warm nights per year,real,3.76,5.56,11.4,35.0,nights
+Sydney,2,longest_heatwave,Longest heatwave,leaning,1.52,0.0,1.5,3.3,days
+Sydney,3,heatwave_events,Heatwaves per year,leaning,0.99,0.0,0.8,1.5,heatwaves
+Sydney,4,heatwave_days,Heatwave days per year,leaning,0.92,0.0,2.4,5.1,days
+Sydney,5,hottest_day,Hottest day of the year,leaning,0.54,0.17,34.41,35.27,°C
+Johannesburg,1,heatwave_days,Heatwave days per year,real,4.58,3.15,4.9,23.8,days
+Johannesburg,2,longest_heatwave,Longest heatwave,real,3.06,0.96,3.3,7.5,days
+Johannesburg,3,heatwave_events,Heatwaves per year,real,3.05,0.67,1.3,4.6,heatwaves
+Johannesburg,4,hottest_day,Hottest day of the year,real,2.82,0.52,34.25,36.17,°C
+Johannesburg,5,warm_nights,Warm nights per year,real,2.23,2.6,18.1,31.6,nights
+Barcelona,1,warm_nights,Warm nights per year,real,4.38,6.67,10.3,37.8,nights
+Barcelona,2,heatwave_days,Heatwave days per year,real,2.79,3.33,7.6,22.3,days
+Barcelona,3,longest_heatwave,Longest heatwave,real,2.42,1.11,5.3,10.7,days
+Barcelona,4,heatwave_events,Heatwaves per year,real,2.22,0.36,1.6,3.4,heatwaves
+Barcelona,5,hottest_day,Hottest day of the year,real,2.12,0.46,35.12,36.51,°C
+Rome,1,warm_nights,Warm nights per year,real,4.44,6.23,9.7,35.7,nights
+Rome,2,hottest_day,Hottest day of the year,real,2.92,0.56,36.81,38.55,°C
+Rome,3,heatwave_days,Heatwave days per year,real,2.62,3.33,9.5,24.2,days
+Rome,4,longest_heatwave,Longest heatwave,real,2.34,1.3,6.3,12.5,days
+Rome,5,heatwave_events,Heatwaves per year,real,2.18,0.29,1.7,3.1,heatwaves
+Lisbon,1,heatwave_events,Heatwaves per year,leaning,1.81,0.3,2.1,3.6,heatwaves
+Lisbon,2,hottest_day,Hottest day of the year,leaning,1.13,0.22,38.73,40.0,°C
+Lisbon,3,heatwave_days,Heatwave days per year,leaning,0.9,0.83,9.7,14.1,days
+Lisbon,4,warm_nights,Warm nights per year,not_backed,0.13,0.0,17.7,16.2,nights
+Lisbon,5,longest_heatwave,Longest heatwave,not_backed,0.02,0.0,5.3,4.7,days
+Athens,1,warm_nights,Warm nights per year,real,10.02,10.0,7.0,41.5,nights
+Athens,2,heatwave_events,Heatwaves per year,real,4.7,0.53,1.4,3.3,heatwaves
+Athens,3,heatwave_days,Heatwave days per year,real,4.05,3.19,6.8,17.4,days
+Athens,4,longest_heatwave,Longest heatwave,real,2.8,0.86,4.9,8.0,days
+Athens,5,hottest_day,Hottest day of the year,leaning,1.03,0.23,39.22,39.81,°C
+Amsterdam,1,warm_nights,Warm nights per year,real,5.11,6.9,9.5,37.7,nights
+Amsterdam,2,hottest_day,Hottest day of the year,real,4.12,0.88,26.2,29.5,°C
+Amsterdam,3,heatwave_days,Heatwave days per year,real,2.25,2.16,5.9,16.1,days
+Amsterdam,4,heatwave_events,Heatwaves per year,leaning,1.96,0.34,1.5,3.2,heatwaves
+Amsterdam,5,longest_heatwave,Longest heatwave,leaning,1.87,0.62,3.3,7.6,days
+Istanbul,1,warm_nights,Warm nights per year,real,6.24,10.77,5.4,41.6,nights
+Istanbul,2,heatwave_events,Heatwaves per year,real,5.61,1.18,0.8,4.2,heatwaves
+Istanbul,3,heatwave_days,Heatwave days per year,real,3.79,6.67,3.9,22.3,days
+Istanbul,4,longest_heatwave,Longest heatwave,real,3.34,2.0,3.3,8.1,days
+Istanbul,5,hottest_day,Hottest day of the year,leaning,1.78,0.38,32.9,34.24,°C
+Dubai,1,warm_nights,Warm nights per year,real,5.06,7.5,9.1,35.5,nights
+Dubai,2,hottest_day,Hottest day of the year,real,3.23,0.37,42.66,43.81,°C
+Dubai,3,heatwave_events,Heatwaves per year,real,2.84,0.56,1.6,3.7,heatwaves
+Dubai,4,heatwave_days,Heatwave days per year,real,2.54,2.5,7.8,15.5,days
+Dubai,5,longest_heatwave,Longest heatwave,leaning,0.97,0.0,4.6,5.1,days
+Marrakech,1,hottest_day,Hottest day of the year,real,7.29,0.44,42.81,44.35,°C
+Marrakech,2,warm_nights,Warm nights per year,real,4.75,3.64,13.6,26.7,nights
+Marrakech,3,heatwave_days,Heatwave days per year,real,3.41,3.33,7.3,17.3,days
+Marrakech,4,heatwave_events,Heatwaves per year,real,2.9,0.53,1.8,3.0,heatwaves
+Marrakech,5,longest_heatwave,Longest heatwave,real,2.47,0.8,4.0,7.5,days
+Cape Town,1,warm_nights,Warm nights per year,leaning,1.77,1.74,11.5,17.7,nights
+Cape Town,2,heatwave_events,Heatwaves per year,leaning,0.59,0.0,0.5,1.2,heatwaves
+Cape Town,3,hottest_day,Hottest day of the year,leaning,0.52,0.08,35.23,35.39,°C
+Cape Town,4,heatwave_days,Heatwave days per year,leaning,0.26,0.0,2.3,4.0,days
+Cape Town,5,longest_heatwave,Longest heatwave,leaning,0.15,0.0,2.0,2.1,days
+Bangkok,1,longest_heatwave,Longest heatwave,not_backed,1.47,-0.83,10.0,7.1,days
+Bangkok,2,hottest_day,Hottest day of the year,not_backed,1.11,-0.18,41.91,41.55,°C
+Bangkok,3,warm_nights,Warm nights per year,leaning,0.98,1.54,16.4,30.6,nights
+Bangkok,4,heatwave_days,Heatwave days per year,not_backed,0.93,-0.94,15.4,15.1,days
+Bangkok,5,heatwave_events,Heatwaves per year,leaning,0.85,0.0,2.3,2.4,heatwaves
+Singapore,1,warm_nights,Warm nights per year,real,5.08,12.5,9.3,71.8,nights
+Singapore,2,heatwave_events,Heatwaves per year,leaning,1.45,0.0,2.4,4.4,heatwaves
+Singapore,3,hottest_day,Hottest day of the year,leaning,1.41,0.16,32.61,33.04,°C
+Singapore,4,heatwave_days,Heatwave days per year,leaning,1.25,0.0,13.1,22.1,days
+Singapore,5,longest_heatwave,Longest heatwave,leaning,1.03,0.0,4.3,5.0,days
+Orlando,1,warm_nights,Warm nights per year,real,4.28,7.42,9.2,41.1,nights
+Orlando,2,heatwave_events,Heatwaves per year,real,2.0,0.45,2.4,4.4,heatwaves
+Orlando,3,heatwave_days,Heatwave days per year,leaning,1.6,1.85,11.9,21.7,days
+Orlando,4,longest_heatwave,Longest heatwave,leaning,0.95,0.0,5.3,7.4,days
+Orlando,5,hottest_day,Hottest day of the year,leaning,0.95,0.19,36.75,37.23,°C
+Mexico City,1,warm_nights,Warm nights per year,real,7.03,9.24,12.8,53.4,nights
+Mexico City,2,longest_heatwave,Longest heatwave,real,3.4,2.0,3.2,14.2,days
+Mexico City,3,hottest_day,Hottest day of the year,real,3.06,0.4,29.13,30.53,°C
+Mexico City,4,heatwave_days,Heatwave days per year,real,3.02,4.29,6.1,26.7,days
+Mexico City,5,heatwave_events,Heatwaves per year,real,2.43,0.45,1.2,3.6,heatwaves
+Rio de Janeiro,1,hottest_day,Hottest day of the year,real,2.89,0.51,34.11,35.67,°C
+Rio de Janeiro,2,warm_nights,Warm nights per year,real,2.88,4.73,8.1,28.5,nights
+Rio de Janeiro,3,longest_heatwave,Longest heatwave,leaning,1.18,0.0,3.5,3.9,days
+Rio de Janeiro,4,heatwave_days,Heatwave days per year,leaning,0.59,0.0,6.9,7.5,days
+Rio de Janeiro,5,heatwave_events,Heatwaves per year,leaning,0.55,0.0,1.9,2.1,heatwaves

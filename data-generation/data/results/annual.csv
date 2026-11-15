@@ -10784,3 +10784,3143 @@ Johannesburg,warm_nights,2022,12.0
 Johannesburg,warm_nights,2023,17.0
 Johannesburg,warm_nights,2024,64.0
 Johannesburg,warm_nights,2025,46.0
+Barcelona,heatwave_events,1981,1.0
+Barcelona,heatwave_events,1982,1.0
+Barcelona,heatwave_events,1983,3.0
+Barcelona,heatwave_events,1984,0.0
+Barcelona,heatwave_events,1985,1.0
+Barcelona,heatwave_events,1986,1.0
+Barcelona,heatwave_events,1987,1.0
+Barcelona,heatwave_events,1988,4.0
+Barcelona,heatwave_events,1989,1.0
+Barcelona,heatwave_events,1990,3.0
+Barcelona,heatwave_events,1991,5.0
+Barcelona,heatwave_events,1992,0.0
+Barcelona,heatwave_events,1993,1.0
+Barcelona,heatwave_events,1994,5.0
+Barcelona,heatwave_events,1995,1.0
+Barcelona,heatwave_events,1996,0.0
+Barcelona,heatwave_events,1997,0.0
+Barcelona,heatwave_events,1998,1.0
+Barcelona,heatwave_events,1999,0.0
+Barcelona,heatwave_events,2000,0.0
+Barcelona,heatwave_events,2001,5.0
+Barcelona,heatwave_events,2002,1.0
+Barcelona,heatwave_events,2003,8.0
+Barcelona,heatwave_events,2004,2.0
+Barcelona,heatwave_events,2005,1.0
+Barcelona,heatwave_events,2006,3.0
+Barcelona,heatwave_events,2007,1.0
+Barcelona,heatwave_events,2008,1.0
+Barcelona,heatwave_events,2009,3.0
+Barcelona,heatwave_events,2010,3.0
+Barcelona,heatwave_events,2011,1.0
+Barcelona,heatwave_events,2012,5.0
+Barcelona,heatwave_events,2013,0.0
+Barcelona,heatwave_events,2014,0.0
+Barcelona,heatwave_events,2015,4.0
+Barcelona,heatwave_events,2016,4.0
+Barcelona,heatwave_events,2017,3.0
+Barcelona,heatwave_events,2018,1.0
+Barcelona,heatwave_events,2019,5.0
+Barcelona,heatwave_events,2020,2.0
+Barcelona,heatwave_events,2021,2.0
+Barcelona,heatwave_events,2022,5.0
+Barcelona,heatwave_events,2023,6.0
+Barcelona,heatwave_events,2024,3.0
+Barcelona,heatwave_events,2025,3.0
+Barcelona,heatwave_days,1981,5.0
+Barcelona,heatwave_days,1982,8.0
+Barcelona,heatwave_days,1983,13.0
+Barcelona,heatwave_days,1984,0.0
+Barcelona,heatwave_days,1985,4.0
+Barcelona,heatwave_days,1986,4.0
+Barcelona,heatwave_days,1987,10.0
+Barcelona,heatwave_days,1988,14.0
+Barcelona,heatwave_days,1989,5.0
+Barcelona,heatwave_days,1990,13.0
+Barcelona,heatwave_days,1991,20.0
+Barcelona,heatwave_days,1992,0.0
+Barcelona,heatwave_days,1993,4.0
+Barcelona,heatwave_days,1994,25.0
+Barcelona,heatwave_days,1995,6.0
+Barcelona,heatwave_days,1996,0.0
+Barcelona,heatwave_days,1997,0.0
+Barcelona,heatwave_days,1998,9.0
+Barcelona,heatwave_days,1999,0.0
+Barcelona,heatwave_days,2000,0.0
+Barcelona,heatwave_days,2001,20.0
+Barcelona,heatwave_days,2002,3.0
+Barcelona,heatwave_days,2003,40.0
+Barcelona,heatwave_days,2004,7.0
+Barcelona,heatwave_days,2005,7.0
+Barcelona,heatwave_days,2006,18.0
+Barcelona,heatwave_days,2007,4.0
+Barcelona,heatwave_days,2008,5.0
+Barcelona,heatwave_days,2009,16.0
+Barcelona,heatwave_days,2010,11.0
+Barcelona,heatwave_days,2011,5.0
+Barcelona,heatwave_days,2012,21.0
+Barcelona,heatwave_days,2013,0.0
+Barcelona,heatwave_days,2014,0.0
+Barcelona,heatwave_days,2015,31.0
+Barcelona,heatwave_days,2016,14.0
+Barcelona,heatwave_days,2017,19.0
+Barcelona,heatwave_days,2018,9.0
+Barcelona,heatwave_days,2019,24.0
+Barcelona,heatwave_days,2020,12.0
+Barcelona,heatwave_days,2021,8.0
+Barcelona,heatwave_days,2022,44.0
+Barcelona,heatwave_days,2023,34.0
+Barcelona,heatwave_days,2024,28.0
+Barcelona,heatwave_days,2025,31.0
+Barcelona,longest_heatwave,1981,5.0
+Barcelona,longest_heatwave,1982,8.0
+Barcelona,longest_heatwave,1983,6.0
+Barcelona,longest_heatwave,1984,0.0
+Barcelona,longest_heatwave,1985,4.0
+Barcelona,longest_heatwave,1986,4.0
+Barcelona,longest_heatwave,1987,10.0
+Barcelona,longest_heatwave,1988,5.0
+Barcelona,longest_heatwave,1989,5.0
+Barcelona,longest_heatwave,1990,6.0
+Barcelona,longest_heatwave,1991,6.0
+Barcelona,longest_heatwave,1992,0.0
+Barcelona,longest_heatwave,1993,4.0
+Barcelona,longest_heatwave,1994,7.0
+Barcelona,longest_heatwave,1995,6.0
+Barcelona,longest_heatwave,1996,0.0
+Barcelona,longest_heatwave,1997,0.0
+Barcelona,longest_heatwave,1998,9.0
+Barcelona,longest_heatwave,1999,0.0
+Barcelona,longest_heatwave,2000,0.0
+Barcelona,longest_heatwave,2001,6.0
+Barcelona,longest_heatwave,2002,3.0
+Barcelona,longest_heatwave,2003,15.0
+Barcelona,longest_heatwave,2004,4.0
+Barcelona,longest_heatwave,2005,7.0
+Barcelona,longest_heatwave,2006,8.0
+Barcelona,longest_heatwave,2007,4.0
+Barcelona,longest_heatwave,2008,5.0
+Barcelona,longest_heatwave,2009,10.0
+Barcelona,longest_heatwave,2010,5.0
+Barcelona,longest_heatwave,2011,5.0
+Barcelona,longest_heatwave,2012,9.0
+Barcelona,longest_heatwave,2013,0.0
+Barcelona,longest_heatwave,2014,0.0
+Barcelona,longest_heatwave,2015,12.0
+Barcelona,longest_heatwave,2016,5.0
+Barcelona,longest_heatwave,2017,9.0
+Barcelona,longest_heatwave,2018,9.0
+Barcelona,longest_heatwave,2019,6.0
+Barcelona,longest_heatwave,2020,7.0
+Barcelona,longest_heatwave,2021,4.0
+Barcelona,longest_heatwave,2022,19.0
+Barcelona,longest_heatwave,2023,9.0
+Barcelona,longest_heatwave,2024,22.0
+Barcelona,longest_heatwave,2025,17.0
+Barcelona,hottest_day,1981,33.68
+Barcelona,hottest_day,1982,37.86
+Barcelona,hottest_day,1983,36.91
+Barcelona,hottest_day,1984,33.89
+Barcelona,hottest_day,1985,34.14
+Barcelona,hottest_day,1986,33.55
+Barcelona,hottest_day,1987,39.59
+Barcelona,hottest_day,1988,33.86
+Barcelona,hottest_day,1989,33.19
+Barcelona,hottest_day,1990,34.54
+Barcelona,hottest_day,1991,35.54
+Barcelona,hottest_day,1992,34.07
+Barcelona,hottest_day,1993,35.48
+Barcelona,hottest_day,1994,37.72
+Barcelona,hottest_day,1995,33.44
+Barcelona,hottest_day,1996,34.47
+Barcelona,hottest_day,1997,32.63
+Barcelona,hottest_day,1998,35.02
+Barcelona,hottest_day,1999,33.48
+Barcelona,hottest_day,2000,33.9
+Barcelona,hottest_day,2001,36.03
+Barcelona,hottest_day,2002,33.38
+Barcelona,hottest_day,2003,36.77
+Barcelona,hottest_day,2004,34.99
+Barcelona,hottest_day,2005,34.53
+Barcelona,hottest_day,2006,35.59
+Barcelona,hottest_day,2007,34.75
+Barcelona,hottest_day,2008,33.8
+Barcelona,hottest_day,2009,35.77
+Barcelona,hottest_day,2010,35.41
+Barcelona,hottest_day,2011,34.64
+Barcelona,hottest_day,2012,35.73
+Barcelona,hottest_day,2013,32.56
+Barcelona,hottest_day,2014,33.32
+Barcelona,hottest_day,2015,36.58
+Barcelona,hottest_day,2016,35.02
+Barcelona,hottest_day,2017,35.75
+Barcelona,hottest_day,2018,35.81
+Barcelona,hottest_day,2019,38.2
+Barcelona,hottest_day,2020,33.68
+Barcelona,hottest_day,2021,35.36
+Barcelona,hottest_day,2022,37.73
+Barcelona,hottest_day,2023,38.21
+Barcelona,hottest_day,2024,36.61
+Barcelona,hottest_day,2025,38.75
+Barcelona,warm_nights,1981,4.0
+Barcelona,warm_nights,1982,10.0
+Barcelona,warm_nights,1983,11.0
+Barcelona,warm_nights,1984,1.0
+Barcelona,warm_nights,1985,4.0
+Barcelona,warm_nights,1986,6.0
+Barcelona,warm_nights,1987,20.0
+Barcelona,warm_nights,1988,11.0
+Barcelona,warm_nights,1989,19.0
+Barcelona,warm_nights,1990,17.0
+Barcelona,warm_nights,1991,27.0
+Barcelona,warm_nights,1992,16.0
+Barcelona,warm_nights,1993,7.0
+Barcelona,warm_nights,1994,34.0
+Barcelona,warm_nights,1995,19.0
+Barcelona,warm_nights,1996,3.0
+Barcelona,warm_nights,1997,13.0
+Barcelona,warm_nights,1998,13.0
+Barcelona,warm_nights,1999,10.0
+Barcelona,warm_nights,2000,5.0
+Barcelona,warm_nights,2001,15.0
+Barcelona,warm_nights,2002,8.0
+Barcelona,warm_nights,2003,53.0
+Barcelona,warm_nights,2004,12.0
+Barcelona,warm_nights,2005,16.0
+Barcelona,warm_nights,2006,29.0
+Barcelona,warm_nights,2007,11.0
+Barcelona,warm_nights,2008,14.0
+Barcelona,warm_nights,2009,31.0
+Barcelona,warm_nights,2010,25.0
+Barcelona,warm_nights,2011,8.0
+Barcelona,warm_nights,2012,22.0
+Barcelona,warm_nights,2013,24.0
+Barcelona,warm_nights,2014,8.0
+Barcelona,warm_nights,2015,38.0
+Barcelona,warm_nights,2016,22.0
+Barcelona,warm_nights,2017,32.0
+Barcelona,warm_nights,2018,31.0
+Barcelona,warm_nights,2019,35.0
+Barcelona,warm_nights,2020,30.0
+Barcelona,warm_nights,2021,14.0
+Barcelona,warm_nights,2022,70.0
+Barcelona,warm_nights,2023,48.0
+Barcelona,warm_nights,2024,44.0
+Barcelona,warm_nights,2025,52.0
+Rome,heatwave_events,1981,1.0
+Rome,heatwave_events,1982,3.0
+Rome,heatwave_events,1983,1.0
+Rome,heatwave_events,1984,2.0
+Rome,heatwave_events,1985,4.0
+Rome,heatwave_events,1986,0.0
+Rome,heatwave_events,1987,1.0
+Rome,heatwave_events,1988,2.0
+Rome,heatwave_events,1989,1.0
+Rome,heatwave_events,1990,2.0
+Rome,heatwave_events,1991,1.0
+Rome,heatwave_events,1992,4.0
+Rome,heatwave_events,1993,3.0
+Rome,heatwave_events,1994,5.0
+Rome,heatwave_events,1995,1.0
+Rome,heatwave_events,1996,1.0
+Rome,heatwave_events,1997,1.0
+Rome,heatwave_events,1998,5.0
+Rome,heatwave_events,1999,0.0
+Rome,heatwave_events,2000,1.0
+Rome,heatwave_events,2001,1.0
+Rome,heatwave_events,2002,1.0
+Rome,heatwave_events,2003,6.0
+Rome,heatwave_events,2004,1.0
+Rome,heatwave_events,2005,1.0
+Rome,heatwave_events,2006,1.0
+Rome,heatwave_events,2007,2.0
+Rome,heatwave_events,2008,3.0
+Rome,heatwave_events,2009,3.0
+Rome,heatwave_events,2010,2.0
+Rome,heatwave_events,2011,2.0
+Rome,heatwave_events,2012,6.0
+Rome,heatwave_events,2013,2.0
+Rome,heatwave_events,2014,0.0
+Rome,heatwave_events,2015,3.0
+Rome,heatwave_events,2016,2.0
+Rome,heatwave_events,2017,5.0
+Rome,heatwave_events,2018,2.0
+Rome,heatwave_events,2019,4.0
+Rome,heatwave_events,2020,4.0
+Rome,heatwave_events,2021,2.0
+Rome,heatwave_events,2022,3.0
+Rome,heatwave_events,2023,3.0
+Rome,heatwave_events,2024,4.0
+Rome,heatwave_events,2025,2.0
+Rome,heatwave_days,1981,7.0
+Rome,heatwave_days,1982,12.0
+Rome,heatwave_days,1983,16.0
+Rome,heatwave_days,1984,6.0
+Rome,heatwave_days,1985,17.0
+Rome,heatwave_days,1986,0.0
+Rome,heatwave_days,1987,6.0
+Rome,heatwave_days,1988,20.0
+Rome,heatwave_days,1989,5.0
+Rome,heatwave_days,1990,6.0
+Rome,heatwave_days,1991,3.0
+Rome,heatwave_days,1992,21.0
+Rome,heatwave_days,1993,19.0
+Rome,heatwave_days,1994,29.0
+Rome,heatwave_days,1995,8.0
+Rome,heatwave_days,1996,3.0
+Rome,heatwave_days,1997,3.0
+Rome,heatwave_days,1998,27.0
+Rome,heatwave_days,1999,0.0
+Rome,heatwave_days,2000,12.0
+Rome,heatwave_days,2001,9.0
+Rome,heatwave_days,2002,11.0
+Rome,heatwave_days,2003,45.0
+Rome,heatwave_days,2004,3.0
+Rome,heatwave_days,2005,4.0
+Rome,heatwave_days,2006,9.0
+Rome,heatwave_days,2007,20.0
+Rome,heatwave_days,2008,15.0
+Rome,heatwave_days,2009,15.0
+Rome,heatwave_days,2010,9.0
+Rome,heatwave_days,2011,14.0
+Rome,heatwave_days,2012,32.0
+Rome,heatwave_days,2013,13.0
+Rome,heatwave_days,2014,0.0
+Rome,heatwave_days,2015,21.0
+Rome,heatwave_days,2016,6.0
+Rome,heatwave_days,2017,30.0
+Rome,heatwave_days,2018,8.0
+Rome,heatwave_days,2019,27.0
+Rome,heatwave_days,2020,24.0
+Rome,heatwave_days,2021,11.0
+Rome,heatwave_days,2022,36.0
+Rome,heatwave_days,2023,35.0
+Rome,heatwave_days,2024,46.0
+Rome,heatwave_days,2025,19.0
+Rome,longest_heatwave,1981,7.0
+Rome,longest_heatwave,1982,4.0
+Rome,longest_heatwave,1983,16.0
+Rome,longest_heatwave,1984,3.0
+Rome,longest_heatwave,1985,6.0
+Rome,longest_heatwave,1986,0.0
+Rome,longest_heatwave,1987,6.0
+Rome,longest_heatwave,1988,13.0
+Rome,longest_heatwave,1989,5.0
+Rome,longest_heatwave,1990,3.0
+Rome,longest_heatwave,1991,3.0
+Rome,longest_heatwave,1992,10.0
+Rome,longest_heatwave,1993,10.0
+Rome,longest_heatwave,1994,8.0
+Rome,longest_heatwave,1995,8.0
+Rome,longest_heatwave,1996,3.0
+Rome,longest_heatwave,1997,3.0
+Rome,longest_heatwave,1998,9.0
+Rome,longest_heatwave,1999,0.0
+Rome,longest_heatwave,2000,12.0
+Rome,longest_heatwave,2001,9.0
+Rome,longest_heatwave,2002,11.0
+Rome,longest_heatwave,2003,15.0
+Rome,longest_heatwave,2004,3.0
+Rome,longest_heatwave,2005,4.0
+Rome,longest_heatwave,2006,9.0
+Rome,longest_heatwave,2007,15.0
+Rome,longest_heatwave,2008,6.0
+Rome,longest_heatwave,2009,9.0
+Rome,longest_heatwave,2010,5.0
+Rome,longest_heatwave,2011,11.0
+Rome,longest_heatwave,2012,9.0
+Rome,longest_heatwave,2013,9.0
+Rome,longest_heatwave,2014,0.0
+Rome,longest_heatwave,2015,11.0
+Rome,longest_heatwave,2016,3.0
+Rome,longest_heatwave,2017,11.0
+Rome,longest_heatwave,2018,5.0
+Rome,longest_heatwave,2019,12.0
+Rome,longest_heatwave,2020,9.0
+Rome,longest_heatwave,2021,7.0
+Rome,longest_heatwave,2022,26.0
+Rome,longest_heatwave,2023,17.0
+Rome,longest_heatwave,2024,25.0
+Rome,longest_heatwave,2025,10.0
+Rome,hottest_day,1981,39.54
+Rome,hottest_day,1982,37.2
+Rome,hottest_day,1983,40.13
+Rome,hottest_day,1984,35.82
+Rome,hottest_day,1985,37.25
+Rome,hottest_day,1986,34.28
+Rome,hottest_day,1987,35.96
+Rome,hottest_day,1988,36.55
+Rome,hottest_day,1989,35.33
+Rome,hottest_day,1990,36.05
+Rome,hottest_day,1991,35.13
+Rome,hottest_day,1992,36.68
+Rome,hottest_day,1993,37.87
+Rome,hottest_day,1994,38.0
+Rome,hottest_day,1995,36.7
+Rome,hottest_day,1996,35.7
+Rome,hottest_day,1997,34.47
+Rome,hottest_day,1998,37.94
+Rome,hottest_day,1999,36.87
+Rome,hottest_day,2000,37.52
+Rome,hottest_day,2001,36.57
+Rome,hottest_day,2002,37.16
+Rome,hottest_day,2003,38.86
+Rome,hottest_day,2004,37.6
+Rome,hottest_day,2005,38.96
+Rome,hottest_day,2006,36.89
+Rome,hottest_day,2007,39.85
+Rome,hottest_day,2008,36.5
+Rome,hottest_day,2009,36.99
+Rome,hottest_day,2010,36.57
+Rome,hottest_day,2011,37.45
+Rome,hottest_day,2012,38.04
+Rome,hottest_day,2013,38.1
+Rome,hottest_day,2014,33.37
+Rome,hottest_day,2015,37.37
+Rome,hottest_day,2016,35.04
+Rome,hottest_day,2017,40.92
+Rome,hottest_day,2018,37.07
+Rome,hottest_day,2019,38.54
+Rome,hottest_day,2020,38.33
+Rome,hottest_day,2021,38.8
+Rome,hottest_day,2022,39.09
+Rome,hottest_day,2023,40.11
+Rome,hottest_day,2024,39.14
+Rome,hottest_day,2025,38.43
+Rome,warm_nights,1981,6.0
+Rome,warm_nights,1982,14.0
+Rome,warm_nights,1983,16.0
+Rome,warm_nights,1984,2.0
+Rome,warm_nights,1985,12.0
+Rome,warm_nights,1986,7.0
+Rome,warm_nights,1987,10.0
+Rome,warm_nights,1988,19.0
+Rome,warm_nights,1989,8.0
+Rome,warm_nights,1990,3.0
+Rome,warm_nights,1991,12.0
+Rome,warm_nights,1992,23.0
+Rome,warm_nights,1993,20.0
+Rome,warm_nights,1994,27.0
+Rome,warm_nights,1995,11.0
+Rome,warm_nights,1996,6.0
+Rome,warm_nights,1997,3.0
+Rome,warm_nights,1998,33.0
+Rome,warm_nights,1999,7.0
+Rome,warm_nights,2000,14.0
+Rome,warm_nights,2001,11.0
+Rome,warm_nights,2002,12.0
+Rome,warm_nights,2003,48.0
+Rome,warm_nights,2004,12.0
+Rome,warm_nights,2005,9.0
+Rome,warm_nights,2006,24.0
+Rome,warm_nights,2007,20.0
+Rome,warm_nights,2008,29.0
+Rome,warm_nights,2009,30.0
+Rome,warm_nights,2010,16.0
+Rome,warm_nights,2011,12.0
+Rome,warm_nights,2012,30.0
+Rome,warm_nights,2013,13.0
+Rome,warm_nights,2014,0.0
+Rome,warm_nights,2015,42.0
+Rome,warm_nights,2016,15.0
+Rome,warm_nights,2017,34.0
+Rome,warm_nights,2018,23.0
+Rome,warm_nights,2019,38.0
+Rome,warm_nights,2020,34.0
+Rome,warm_nights,2021,25.0
+Rome,warm_nights,2022,51.0
+Rome,warm_nights,2023,36.0
+Rome,warm_nights,2024,61.0
+Rome,warm_nights,2025,40.0
+Lisbon,heatwave_events,1981,4.0
+Lisbon,heatwave_events,1982,1.0
+Lisbon,heatwave_events,1983,2.0
+Lisbon,heatwave_events,1984,0.0
+Lisbon,heatwave_events,1985,1.0
+Lisbon,heatwave_events,1986,1.0
+Lisbon,heatwave_events,1987,6.0
+Lisbon,heatwave_events,1988,1.0
+Lisbon,heatwave_events,1989,3.0
+Lisbon,heatwave_events,1990,2.0
+Lisbon,heatwave_events,1991,4.0
+Lisbon,heatwave_events,1992,4.0
+Lisbon,heatwave_events,1993,1.0
+Lisbon,heatwave_events,1994,0.0
+Lisbon,heatwave_events,1995,3.0
+Lisbon,heatwave_events,1996,0.0
+Lisbon,heatwave_events,1997,1.0
+Lisbon,heatwave_events,1998,3.0
+Lisbon,heatwave_events,1999,3.0
+Lisbon,heatwave_events,2000,4.0
+Lisbon,heatwave_events,2001,0.0
+Lisbon,heatwave_events,2002,1.0
+Lisbon,heatwave_events,2003,2.0
+Lisbon,heatwave_events,2004,2.0
+Lisbon,heatwave_events,2005,4.0
+Lisbon,heatwave_events,2006,4.0
+Lisbon,heatwave_events,2007,1.0
+Lisbon,heatwave_events,2008,1.0
+Lisbon,heatwave_events,2009,2.0
+Lisbon,heatwave_events,2010,3.0
+Lisbon,heatwave_events,2011,1.0
+Lisbon,heatwave_events,2012,2.0
+Lisbon,heatwave_events,2013,2.0
+Lisbon,heatwave_events,2014,1.0
+Lisbon,heatwave_events,2015,1.0
+Lisbon,heatwave_events,2016,5.0
+Lisbon,heatwave_events,2017,4.0
+Lisbon,heatwave_events,2018,3.0
+Lisbon,heatwave_events,2019,3.0
+Lisbon,heatwave_events,2020,4.0
+Lisbon,heatwave_events,2021,0.0
+Lisbon,heatwave_events,2022,5.0
+Lisbon,heatwave_events,2023,3.0
+Lisbon,heatwave_events,2024,4.0
+Lisbon,heatwave_events,2025,5.0
+Lisbon,heatwave_days,1981,20.0
+Lisbon,heatwave_days,1982,4.0
+Lisbon,heatwave_days,1983,6.0
+Lisbon,heatwave_days,1984,0.0
+Lisbon,heatwave_days,1985,3.0
+Lisbon,heatwave_days,1986,7.0
+Lisbon,heatwave_days,1987,22.0
+Lisbon,heatwave_days,1988,5.0
+Lisbon,heatwave_days,1989,15.0
+Lisbon,heatwave_days,1990,15.0
+Lisbon,heatwave_days,1991,22.0
+Lisbon,heatwave_days,1992,18.0
+Lisbon,heatwave_days,1993,3.0
+Lisbon,heatwave_days,1994,0.0
+Lisbon,heatwave_days,1995,13.0
+Lisbon,heatwave_days,1996,0.0
+Lisbon,heatwave_days,1997,4.0
+Lisbon,heatwave_days,1998,11.0
+Lisbon,heatwave_days,1999,9.0
+Lisbon,heatwave_days,2000,15.0
+Lisbon,heatwave_days,2001,0.0
+Lisbon,heatwave_days,2002,3.0
+Lisbon,heatwave_days,2003,16.0
+Lisbon,heatwave_days,2004,8.0
+Lisbon,heatwave_days,2005,15.0
+Lisbon,heatwave_days,2006,27.0
+Lisbon,heatwave_days,2007,3.0
+Lisbon,heatwave_days,2008,3.0
+Lisbon,heatwave_days,2009,13.0
+Lisbon,heatwave_days,2010,16.0
+Lisbon,heatwave_days,2011,3.0
+Lisbon,heatwave_days,2012,7.0
+Lisbon,heatwave_days,2013,10.0
+Lisbon,heatwave_days,2014,4.0
+Lisbon,heatwave_days,2015,3.0
+Lisbon,heatwave_days,2016,27.0
+Lisbon,heatwave_days,2017,14.0
+Lisbon,heatwave_days,2018,12.0
+Lisbon,heatwave_days,2019,9.0
+Lisbon,heatwave_days,2020,13.0
+Lisbon,heatwave_days,2021,0.0
+Lisbon,heatwave_days,2022,19.0
+Lisbon,heatwave_days,2023,14.0
+Lisbon,heatwave_days,2024,13.0
+Lisbon,heatwave_days,2025,20.0
+Lisbon,longest_heatwave,1981,8.0
+Lisbon,longest_heatwave,1982,4.0
+Lisbon,longest_heatwave,1983,3.0
+Lisbon,longest_heatwave,1984,0.0
+Lisbon,longest_heatwave,1985,3.0
+Lisbon,longest_heatwave,1986,7.0
+Lisbon,longest_heatwave,1987,6.0
+Lisbon,longest_heatwave,1988,5.0
+Lisbon,longest_heatwave,1989,8.0
+Lisbon,longest_heatwave,1990,9.0
+Lisbon,longest_heatwave,1991,8.0
+Lisbon,longest_heatwave,1992,6.0
+Lisbon,longest_heatwave,1993,3.0
+Lisbon,longest_heatwave,1994,0.0
+Lisbon,longest_heatwave,1995,6.0
+Lisbon,longest_heatwave,1996,0.0
+Lisbon,longest_heatwave,1997,4.0
+Lisbon,longest_heatwave,1998,4.0
+Lisbon,longest_heatwave,1999,3.0
+Lisbon,longest_heatwave,2000,4.0
+Lisbon,longest_heatwave,2001,0.0
+Lisbon,longest_heatwave,2002,3.0
+Lisbon,longest_heatwave,2003,11.0
+Lisbon,longest_heatwave,2004,5.0
+Lisbon,longest_heatwave,2005,4.0
+Lisbon,longest_heatwave,2006,10.0
+Lisbon,longest_heatwave,2007,3.0
+Lisbon,longest_heatwave,2008,3.0
+Lisbon,longest_heatwave,2009,8.0
+Lisbon,longest_heatwave,2010,6.0
+Lisbon,longest_heatwave,2011,3.0
+Lisbon,longest_heatwave,2012,4.0
+Lisbon,longest_heatwave,2013,7.0
+Lisbon,longest_heatwave,2014,4.0
+Lisbon,longest_heatwave,2015,3.0
+Lisbon,longest_heatwave,2016,8.0
+Lisbon,longest_heatwave,2017,5.0
+Lisbon,longest_heatwave,2018,6.0
+Lisbon,longest_heatwave,2019,3.0
+Lisbon,longest_heatwave,2020,4.0
+Lisbon,longest_heatwave,2021,0.0
+Lisbon,longest_heatwave,2022,5.0
+Lisbon,longest_heatwave,2023,6.0
+Lisbon,longest_heatwave,2024,4.0
+Lisbon,longest_heatwave,2025,6.0
+Lisbon,hottest_day,1981,40.77
+Lisbon,hottest_day,1982,38.23
+Lisbon,hottest_day,1983,37.88
+Lisbon,hottest_day,1984,38.53
+Lisbon,hottest_day,1985,38.01
+Lisbon,hottest_day,1986,37.12
+Lisbon,hottest_day,1987,39.06
+Lisbon,hottest_day,1988,39.23
+Lisbon,hottest_day,1989,39.76
+Lisbon,hottest_day,1990,38.73
+Lisbon,hottest_day,1991,42.5
+Lisbon,hottest_day,1992,39.81
+Lisbon,hottest_day,1993,38.15
+Lisbon,hottest_day,1994,37.21
+Lisbon,hottest_day,1995,42.12
+Lisbon,hottest_day,1996,33.51
+Lisbon,hottest_day,1997,36.99
+Lisbon,hottest_day,1998,38.32
+Lisbon,hottest_day,1999,38.34
+Lisbon,hottest_day,2000,38.61
+Lisbon,hottest_day,2001,35.89
+Lisbon,hottest_day,2002,37.71
+Lisbon,hottest_day,2003,40.82
+Lisbon,hottest_day,2004,38.84
+Lisbon,hottest_day,2005,40.55
+Lisbon,hottest_day,2006,38.97
+Lisbon,hottest_day,2007,39.22
+Lisbon,hottest_day,2008,37.28
+Lisbon,hottest_day,2009,37.49
+Lisbon,hottest_day,2010,39.28
+Lisbon,hottest_day,2011,36.61
+Lisbon,hottest_day,2012,39.16
+Lisbon,hottest_day,2013,40.36
+Lisbon,hottest_day,2014,37.1
+Lisbon,hottest_day,2015,37.88
+Lisbon,hottest_day,2016,41.44
+Lisbon,hottest_day,2017,40.81
+Lisbon,hottest_day,2018,43.73
+Lisbon,hottest_day,2019,38.45
+Lisbon,hottest_day,2020,38.21
+Lisbon,hottest_day,2021,37.97
+Lisbon,hottest_day,2022,39.12
+Lisbon,hottest_day,2023,40.25
+Lisbon,hottest_day,2024,39.1
+Lisbon,hottest_day,2025,40.92
+Lisbon,warm_nights,1981,26.0
+Lisbon,warm_nights,1982,11.0
+Lisbon,warm_nights,1983,10.0
+Lisbon,warm_nights,1984,6.0
+Lisbon,warm_nights,1985,14.0
+Lisbon,warm_nights,1986,13.0
+Lisbon,warm_nights,1987,35.0
+Lisbon,warm_nights,1988,5.0
+Lisbon,warm_nights,1989,34.0
+Lisbon,warm_nights,1990,23.0
+Lisbon,warm_nights,1991,28.0
+Lisbon,warm_nights,1992,18.0
+Lisbon,warm_nights,1993,16.0
+Lisbon,warm_nights,1994,3.0
+Lisbon,warm_nights,1995,20.0
+Lisbon,warm_nights,1996,2.0
+Lisbon,warm_nights,1997,18.0
+Lisbon,warm_nights,1998,13.0
+Lisbon,warm_nights,1999,10.0
+Lisbon,warm_nights,2000,14.0
+Lisbon,warm_nights,2001,3.0
+Lisbon,warm_nights,2002,4.0
+Lisbon,warm_nights,2003,20.0
+Lisbon,warm_nights,2004,10.0
+Lisbon,warm_nights,2005,19.0
+Lisbon,warm_nights,2006,27.0
+Lisbon,warm_nights,2007,8.0
+Lisbon,warm_nights,2008,5.0
+Lisbon,warm_nights,2009,25.0
+Lisbon,warm_nights,2010,21.0
+Lisbon,warm_nights,2011,5.0
+Lisbon,warm_nights,2012,8.0
+Lisbon,warm_nights,2013,17.0
+Lisbon,warm_nights,2014,11.0
+Lisbon,warm_nights,2015,11.0
+Lisbon,warm_nights,2016,29.0
+Lisbon,warm_nights,2017,10.0
+Lisbon,warm_nights,2018,17.0
+Lisbon,warm_nights,2019,8.0
+Lisbon,warm_nights,2020,14.0
+Lisbon,warm_nights,2021,6.0
+Lisbon,warm_nights,2022,23.0
+Lisbon,warm_nights,2023,15.0
+Lisbon,warm_nights,2024,13.0
+Lisbon,warm_nights,2025,27.0
+Athens,heatwave_events,1981,2.0
+Athens,heatwave_events,1982,1.0
+Athens,heatwave_events,1983,0.0
+Athens,heatwave_events,1984,1.0
+Athens,heatwave_events,1985,1.0
+Athens,heatwave_events,1986,1.0
+Athens,heatwave_events,1987,3.0
+Athens,heatwave_events,1988,3.0
+Athens,heatwave_events,1989,1.0
+Athens,heatwave_events,1990,1.0
+Athens,heatwave_events,1991,1.0
+Athens,heatwave_events,1992,0.0
+Athens,heatwave_events,1993,1.0
+Athens,heatwave_events,1994,1.0
+Athens,heatwave_events,1995,2.0
+Athens,heatwave_events,1996,3.0
+Athens,heatwave_events,1997,4.0
+Athens,heatwave_events,1998,3.0
+Athens,heatwave_events,1999,2.0
+Athens,heatwave_events,2000,3.0
+Athens,heatwave_events,2001,2.0
+Athens,heatwave_events,2002,2.0
+Athens,heatwave_events,2003,3.0
+Athens,heatwave_events,2004,2.0
+Athens,heatwave_events,2005,5.0
+Athens,heatwave_events,2006,3.0
+Athens,heatwave_events,2007,4.0
+Athens,heatwave_events,2008,2.0
+Athens,heatwave_events,2009,2.0
+Athens,heatwave_events,2010,5.0
+Athens,heatwave_events,2011,2.0
+Athens,heatwave_events,2012,5.0
+Athens,heatwave_events,2013,2.0
+Athens,heatwave_events,2014,5.0
+Athens,heatwave_events,2015,2.0
+Athens,heatwave_events,2016,1.0
+Athens,heatwave_events,2017,4.0
+Athens,heatwave_events,2018,2.0
+Athens,heatwave_events,2019,3.0
+Athens,heatwave_events,2020,2.0
+Athens,heatwave_events,2021,4.0
+Athens,heatwave_events,2022,3.0
+Athens,heatwave_events,2023,3.0
+Athens,heatwave_events,2024,7.0
+Athens,heatwave_events,2025,4.0
+Athens,heatwave_days,1981,10.0
+Athens,heatwave_days,1982,5.0
+Athens,heatwave_days,1983,0.0
+Athens,heatwave_days,1984,3.0
+Athens,heatwave_days,1985,6.0
+Athens,heatwave_days,1986,3.0
+Athens,heatwave_days,1987,18.0
+Athens,heatwave_days,1988,15.0
+Athens,heatwave_days,1989,4.0
+Athens,heatwave_days,1990,4.0
+Athens,heatwave_days,1991,3.0
+Athens,heatwave_days,1992,0.0
+Athens,heatwave_days,1993,6.0
+Athens,heatwave_days,1994,6.0
+Athens,heatwave_days,1995,6.0
+Athens,heatwave_days,1996,13.0
+Athens,heatwave_days,1997,13.0
+Athens,heatwave_days,1998,10.0
+Athens,heatwave_days,1999,12.0
+Athens,heatwave_days,2000,11.0
+Athens,heatwave_days,2001,7.0
+Athens,heatwave_days,2002,9.0
+Athens,heatwave_days,2003,11.0
+Athens,heatwave_days,2004,7.0
+Athens,heatwave_days,2005,18.0
+Athens,heatwave_days,2006,13.0
+Athens,heatwave_days,2007,21.0
+Athens,heatwave_days,2008,6.0
+Athens,heatwave_days,2009,7.0
+Athens,heatwave_days,2010,24.0
+Athens,heatwave_days,2011,14.0
+Athens,heatwave_days,2012,35.0
+Athens,heatwave_days,2013,6.0
+Athens,heatwave_days,2014,23.0
+Athens,heatwave_days,2015,11.0
+Athens,heatwave_days,2016,6.0
+Athens,heatwave_days,2017,22.0
+Athens,heatwave_days,2018,8.0
+Athens,heatwave_days,2019,10.0
+Athens,heatwave_days,2020,9.0
+Athens,heatwave_days,2021,27.0
+Athens,heatwave_days,2022,11.0
+Athens,heatwave_days,2023,20.0
+Athens,heatwave_days,2024,38.0
+Athens,heatwave_days,2025,23.0
+Athens,longest_heatwave,1981,7.0
+Athens,longest_heatwave,1982,5.0
+Athens,longest_heatwave,1983,0.0
+Athens,longest_heatwave,1984,3.0
+Athens,longest_heatwave,1985,6.0
+Athens,longest_heatwave,1986,3.0
+Athens,longest_heatwave,1987,10.0
+Athens,longest_heatwave,1988,7.0
+Athens,longest_heatwave,1989,4.0
+Athens,longest_heatwave,1990,4.0
+Athens,longest_heatwave,1991,3.0
+Athens,longest_heatwave,1992,0.0
+Athens,longest_heatwave,1993,6.0
+Athens,longest_heatwave,1994,6.0
+Athens,longest_heatwave,1995,3.0
+Athens,longest_heatwave,1996,7.0
+Athens,longest_heatwave,1997,4.0
+Athens,longest_heatwave,1998,4.0
+Athens,longest_heatwave,1999,7.0
+Athens,longest_heatwave,2000,5.0
+Athens,longest_heatwave,2001,4.0
+Athens,longest_heatwave,2002,5.0
+Athens,longest_heatwave,2003,4.0
+Athens,longest_heatwave,2004,4.0
+Athens,longest_heatwave,2005,4.0
+Athens,longest_heatwave,2006,5.0
+Athens,longest_heatwave,2007,9.0
+Athens,longest_heatwave,2008,3.0
+Athens,longest_heatwave,2009,4.0
+Athens,longest_heatwave,2010,10.0
+Athens,longest_heatwave,2011,9.0
+Athens,longest_heatwave,2012,12.0
+Athens,longest_heatwave,2013,3.0
+Athens,longest_heatwave,2014,7.0
+Athens,longest_heatwave,2015,7.0
+Athens,longest_heatwave,2016,6.0
+Athens,longest_heatwave,2017,11.0
+Athens,longest_heatwave,2018,5.0
+Athens,longest_heatwave,2019,4.0
+Athens,longest_heatwave,2020,6.0
+Athens,longest_heatwave,2021,11.0
+Athens,longest_heatwave,2022,5.0
+Athens,longest_heatwave,2023,10.0
+Athens,longest_heatwave,2024,8.0
+Athens,longest_heatwave,2025,14.0
+Athens,hottest_day,1981,38.16
+Athens,hottest_day,1982,40.88
+Athens,hottest_day,1983,38.26
+Athens,hottest_day,1984,38.44
+Athens,hottest_day,1985,40.67
+Athens,hottest_day,1986,39.6
+Athens,hottest_day,1987,41.79
+Athens,hottest_day,1988,40.81
+Athens,hottest_day,1989,36.71
+Athens,hottest_day,1990,36.88
+Athens,hottest_day,1991,35.7
+Athens,hottest_day,1992,36.99
+Athens,hottest_day,1993,39.27
+Athens,hottest_day,1994,40.74
+Athens,hottest_day,1995,36.73
+Athens,hottest_day,1996,37.44
+Athens,hottest_day,1997,39.43
+Athens,hottest_day,1998,40.9
+Athens,hottest_day,1999,37.87
+Athens,hottest_day,2000,41.49
+Athens,hottest_day,2001,37.12
+Athens,hottest_day,2002,38.11
+Athens,hottest_day,2003,40.65
+Athens,hottest_day,2004,39.48
+Athens,hottest_day,2005,37.1
+Athens,hottest_day,2006,38.44
+Athens,hottest_day,2007,42.55
+Athens,hottest_day,2008,39.19
+Athens,hottest_day,2009,41.03
+Athens,hottest_day,2010,39.27
+Athens,hottest_day,2011,38.59
+Athens,hottest_day,2012,41.78
+Athens,hottest_day,2013,36.58
+Athens,hottest_day,2014,38.08
+Athens,hottest_day,2015,38.55
+Athens,hottest_day,2016,39.95
+Athens,hottest_day,2017,42.58
+Athens,hottest_day,2018,37.01
+Athens,hottest_day,2019,38.95
+Athens,hottest_day,2020,37.89
+Athens,hottest_day,2021,42.42
+Athens,hottest_day,2022,38.17
+Athens,hottest_day,2023,42.32
+Athens,hottest_day,2024,38.84
+Athens,hottest_day,2025,39.98
+Athens,warm_nights,1981,7.0
+Athens,warm_nights,1982,4.0
+Athens,warm_nights,1983,3.0
+Athens,warm_nights,1984,0.0
+Athens,warm_nights,1985,7.0
+Athens,warm_nights,1986,2.0
+Athens,warm_nights,1987,16.0
+Athens,warm_nights,1988,23.0
+Athens,warm_nights,1989,3.0
+Athens,warm_nights,1990,5.0
+Athens,warm_nights,1991,4.0
+Athens,warm_nights,1992,3.0
+Athens,warm_nights,1993,6.0
+Athens,warm_nights,1994,11.0
+Athens,warm_nights,1995,5.0
+Athens,warm_nights,1996,8.0
+Athens,warm_nights,1997,12.0
+Athens,warm_nights,1998,21.0
+Athens,warm_nights,1999,17.0
+Athens,warm_nights,2000,14.0
+Athens,warm_nights,2001,30.0
+Athens,warm_nights,2002,28.0
+Athens,warm_nights,2003,30.0
+Athens,warm_nights,2004,19.0
+Athens,warm_nights,2005,23.0
+Athens,warm_nights,2006,31.0
+Athens,warm_nights,2007,41.0
+Athens,warm_nights,2008,25.0
+Athens,warm_nights,2009,20.0
+Athens,warm_nights,2010,44.0
+Athens,warm_nights,2011,19.0
+Athens,warm_nights,2012,46.0
+Athens,warm_nights,2013,18.0
+Athens,warm_nights,2014,29.0
+Athens,warm_nights,2015,32.0
+Athens,warm_nights,2016,42.0
+Athens,warm_nights,2017,34.0
+Athens,warm_nights,2018,36.0
+Athens,warm_nights,2019,32.0
+Athens,warm_nights,2020,20.0
+Athens,warm_nights,2021,55.0
+Athens,warm_nights,2022,35.0
+Athens,warm_nights,2023,48.0
+Athens,warm_nights,2024,70.0
+Athens,warm_nights,2025,43.0
+Amsterdam,heatwave_events,1981,1.0
+Amsterdam,heatwave_events,1982,4.0
+Amsterdam,heatwave_events,1983,5.0
+Amsterdam,heatwave_events,1984,1.0
+Amsterdam,heatwave_events,1985,0.0
+Amsterdam,heatwave_events,1986,1.0
+Amsterdam,heatwave_events,1987,0.0
+Amsterdam,heatwave_events,1988,0.0
+Amsterdam,heatwave_events,1989,1.0
+Amsterdam,heatwave_events,1990,2.0
+Amsterdam,heatwave_events,1991,3.0
+Amsterdam,heatwave_events,1992,2.0
+Amsterdam,heatwave_events,1993,1.0
+Amsterdam,heatwave_events,1994,3.0
+Amsterdam,heatwave_events,1995,4.0
+Amsterdam,heatwave_events,1996,3.0
+Amsterdam,heatwave_events,1997,4.0
+Amsterdam,heatwave_events,1998,2.0
+Amsterdam,heatwave_events,1999,3.0
+Amsterdam,heatwave_events,2000,2.0
+Amsterdam,heatwave_events,2001,2.0
+Amsterdam,heatwave_events,2002,2.0
+Amsterdam,heatwave_events,2003,2.0
+Amsterdam,heatwave_events,2004,1.0
+Amsterdam,heatwave_events,2005,0.0
+Amsterdam,heatwave_events,2006,4.0
+Amsterdam,heatwave_events,2007,0.0
+Amsterdam,heatwave_events,2008,1.0
+Amsterdam,heatwave_events,2009,3.0
+Amsterdam,heatwave_events,2010,1.0
+Amsterdam,heatwave_events,2011,1.0
+Amsterdam,heatwave_events,2012,3.0
+Amsterdam,heatwave_events,2013,1.0
+Amsterdam,heatwave_events,2014,4.0
+Amsterdam,heatwave_events,2015,2.0
+Amsterdam,heatwave_events,2016,3.0
+Amsterdam,heatwave_events,2017,0.0
+Amsterdam,heatwave_events,2018,2.0
+Amsterdam,heatwave_events,2019,3.0
+Amsterdam,heatwave_events,2020,3.0
+Amsterdam,heatwave_events,2021,2.0
+Amsterdam,heatwave_events,2022,6.0
+Amsterdam,heatwave_events,2023,4.0
+Amsterdam,heatwave_events,2024,5.0
+Amsterdam,heatwave_events,2025,4.0
+Amsterdam,heatwave_days,1981,5.0
+Amsterdam,heatwave_days,1982,16.0
+Amsterdam,heatwave_days,1983,15.0
+Amsterdam,heatwave_days,1984,7.0
+Amsterdam,heatwave_days,1985,0.0
+Amsterdam,heatwave_days,1986,3.0
+Amsterdam,heatwave_days,1987,0.0
+Amsterdam,heatwave_days,1988,0.0
+Amsterdam,heatwave_days,1989,4.0
+Amsterdam,heatwave_days,1990,9.0
+Amsterdam,heatwave_days,1991,9.0
+Amsterdam,heatwave_days,1992,6.0
+Amsterdam,heatwave_days,1993,3.0
+Amsterdam,heatwave_days,1994,16.0
+Amsterdam,heatwave_days,1995,21.0
+Amsterdam,heatwave_days,1996,10.0
+Amsterdam,heatwave_days,1997,21.0
+Amsterdam,heatwave_days,1998,6.0
+Amsterdam,heatwave_days,1999,15.0
+Amsterdam,heatwave_days,2000,6.0
+Amsterdam,heatwave_days,2001,9.0
+Amsterdam,heatwave_days,2002,12.0
+Amsterdam,heatwave_days,2003,13.0
+Amsterdam,heatwave_days,2004,11.0
+Amsterdam,heatwave_days,2005,0.0
+Amsterdam,heatwave_days,2006,30.0
+Amsterdam,heatwave_days,2007,0.0
+Amsterdam,heatwave_days,2008,5.0
+Amsterdam,heatwave_days,2009,10.0
+Amsterdam,heatwave_days,2010,7.0
+Amsterdam,heatwave_days,2011,3.0
+Amsterdam,heatwave_days,2012,11.0
+Amsterdam,heatwave_days,2013,3.0
+Amsterdam,heatwave_days,2014,13.0
+Amsterdam,heatwave_days,2015,10.0
+Amsterdam,heatwave_days,2016,10.0
+Amsterdam,heatwave_days,2017,0.0
+Amsterdam,heatwave_days,2018,28.0
+Amsterdam,heatwave_days,2019,17.0
+Amsterdam,heatwave_days,2020,19.0
+Amsterdam,heatwave_days,2021,6.0
+Amsterdam,heatwave_days,2022,28.0
+Amsterdam,heatwave_days,2023,21.0
+Amsterdam,heatwave_days,2024,18.0
+Amsterdam,heatwave_days,2025,14.0
+Amsterdam,longest_heatwave,1981,5.0
+Amsterdam,longest_heatwave,1982,5.0
+Amsterdam,longest_heatwave,1983,3.0
+Amsterdam,longest_heatwave,1984,7.0
+Amsterdam,longest_heatwave,1985,0.0
+Amsterdam,longest_heatwave,1986,3.0
+Amsterdam,longest_heatwave,1987,0.0
+Amsterdam,longest_heatwave,1988,0.0
+Amsterdam,longest_heatwave,1989,4.0
+Amsterdam,longest_heatwave,1990,6.0
+Amsterdam,longest_heatwave,1991,3.0
+Amsterdam,longest_heatwave,1992,3.0
+Amsterdam,longest_heatwave,1993,3.0
+Amsterdam,longest_heatwave,1994,9.0
+Amsterdam,longest_heatwave,1995,7.0
+Amsterdam,longest_heatwave,1996,4.0
+Amsterdam,longest_heatwave,1997,8.0
+Amsterdam,longest_heatwave,1998,3.0
+Amsterdam,longest_heatwave,1999,9.0
+Amsterdam,longest_heatwave,2000,3.0
+Amsterdam,longest_heatwave,2001,5.0
+Amsterdam,longest_heatwave,2002,7.0
+Amsterdam,longest_heatwave,2003,10.0
+Amsterdam,longest_heatwave,2004,11.0
+Amsterdam,longest_heatwave,2005,0.0
+Amsterdam,longest_heatwave,2006,15.0
+Amsterdam,longest_heatwave,2007,0.0
+Amsterdam,longest_heatwave,2008,5.0
+Amsterdam,longest_heatwave,2009,4.0
+Amsterdam,longest_heatwave,2010,7.0
+Amsterdam,longest_heatwave,2011,3.0
+Amsterdam,longest_heatwave,2012,5.0
+Amsterdam,longest_heatwave,2013,3.0
+Amsterdam,longest_heatwave,2014,4.0
+Amsterdam,longest_heatwave,2015,6.0
+Amsterdam,longest_heatwave,2016,4.0
+Amsterdam,longest_heatwave,2017,0.0
+Amsterdam,longest_heatwave,2018,22.0
+Amsterdam,longest_heatwave,2019,8.0
+Amsterdam,longest_heatwave,2020,12.0
+Amsterdam,longest_heatwave,2021,3.0
+Amsterdam,longest_heatwave,2022,8.0
+Amsterdam,longest_heatwave,2023,9.0
+Amsterdam,longest_heatwave,2024,5.0
+Amsterdam,longest_heatwave,2025,5.0
+Amsterdam,hottest_day,1981,25.63
+Amsterdam,hottest_day,1982,26.75
+Amsterdam,hottest_day,1983,27.47
+Amsterdam,hottest_day,1984,25.75
+Amsterdam,hottest_day,1985,25.11
+Amsterdam,hottest_day,1986,26.18
+Amsterdam,hottest_day,1987,25.19
+Amsterdam,hottest_day,1988,23.94
+Amsterdam,hottest_day,1989,26.19
+Amsterdam,hottest_day,1990,29.77
+Amsterdam,hottest_day,1991,27.26
+Amsterdam,hottest_day,1992,26.83
+Amsterdam,hottest_day,1993,25.81
+Amsterdam,hottest_day,1994,29.97
+Amsterdam,hottest_day,1995,27.49
+Amsterdam,hottest_day,1996,28.36
+Amsterdam,hottest_day,1997,29.28
+Amsterdam,hottest_day,1998,27.56
+Amsterdam,hottest_day,1999,25.94
+Amsterdam,hottest_day,2000,27.99
+Amsterdam,hottest_day,2001,28.42
+Amsterdam,hottest_day,2002,28.25
+Amsterdam,hottest_day,2003,28.99
+Amsterdam,hottest_day,2004,27.31
+Amsterdam,hottest_day,2005,28.93
+Amsterdam,hottest_day,2006,28.52
+Amsterdam,hottest_day,2007,25.83
+Amsterdam,hottest_day,2008,26.52
+Amsterdam,hottest_day,2009,27.9
+Amsterdam,hottest_day,2010,29.7
+Amsterdam,hottest_day,2011,28.32
+Amsterdam,hottest_day,2012,28.25
+Amsterdam,hottest_day,2013,29.28
+Amsterdam,hottest_day,2014,28.85
+Amsterdam,hottest_day,2015,27.63
+Amsterdam,hottest_day,2016,28.38
+Amsterdam,hottest_day,2017,27.32
+Amsterdam,hottest_day,2018,31.28
+Amsterdam,hottest_day,2019,32.08
+Amsterdam,hottest_day,2020,30.23
+Amsterdam,hottest_day,2021,26.7
+Amsterdam,hottest_day,2022,30.69
+Amsterdam,hottest_day,2023,29.72
+Amsterdam,hottest_day,2024,27.42
+Amsterdam,hottest_day,2025,31.17
+Amsterdam,warm_nights,1981,10.0
+Amsterdam,warm_nights,1982,15.0
+Amsterdam,warm_nights,1983,22.0
+Amsterdam,warm_nights,1984,9.0
+Amsterdam,warm_nights,1985,2.0
+Amsterdam,warm_nights,1986,1.0
+Amsterdam,warm_nights,1987,4.0
+Amsterdam,warm_nights,1988,4.0
+Amsterdam,warm_nights,1989,15.0
+Amsterdam,warm_nights,1990,13.0
+Amsterdam,warm_nights,1991,14.0
+Amsterdam,warm_nights,1992,19.0
+Amsterdam,warm_nights,1993,4.0
+Amsterdam,warm_nights,1994,24.0
+Amsterdam,warm_nights,1995,30.0
+Amsterdam,warm_nights,1996,5.0
+Amsterdam,warm_nights,1997,26.0
+Amsterdam,warm_nights,1998,5.0
+Amsterdam,warm_nights,1999,21.0
+Amsterdam,warm_nights,2000,6.0
+Amsterdam,warm_nights,2001,22.0
+Amsterdam,warm_nights,2002,26.0
+Amsterdam,warm_nights,2003,31.0
+Amsterdam,warm_nights,2004,18.0
+Amsterdam,warm_nights,2005,11.0
+Amsterdam,warm_nights,2006,33.0
+Amsterdam,warm_nights,2007,12.0
+Amsterdam,warm_nights,2008,22.0
+Amsterdam,warm_nights,2009,18.0
+Amsterdam,warm_nights,2010,19.0
+Amsterdam,warm_nights,2011,13.0
+Amsterdam,warm_nights,2012,19.0
+Amsterdam,warm_nights,2013,23.0
+Amsterdam,warm_nights,2014,27.0
+Amsterdam,warm_nights,2015,19.0
+Amsterdam,warm_nights,2016,40.0
+Amsterdam,warm_nights,2017,21.0
+Amsterdam,warm_nights,2018,43.0
+Amsterdam,warm_nights,2019,34.0
+Amsterdam,warm_nights,2020,31.0
+Amsterdam,warm_nights,2021,25.0
+Amsterdam,warm_nights,2022,35.0
+Amsterdam,warm_nights,2023,58.0
+Amsterdam,warm_nights,2024,42.0
+Amsterdam,warm_nights,2025,48.0
+Istanbul,heatwave_events,1981,0.0
+Istanbul,heatwave_events,1982,0.0
+Istanbul,heatwave_events,1983,0.0
+Istanbul,heatwave_events,1984,1.0
+Istanbul,heatwave_events,1985,1.0
+Istanbul,heatwave_events,1986,1.0
+Istanbul,heatwave_events,1987,2.0
+Istanbul,heatwave_events,1988,2.0
+Istanbul,heatwave_events,1989,1.0
+Istanbul,heatwave_events,1990,0.0
+Istanbul,heatwave_events,1991,0.0
+Istanbul,heatwave_events,1992,1.0
+Istanbul,heatwave_events,1993,0.0
+Istanbul,heatwave_events,1994,1.0
+Istanbul,heatwave_events,1995,0.0
+Istanbul,heatwave_events,1996,0.0
+Istanbul,heatwave_events,1997,0.0
+Istanbul,heatwave_events,1998,2.0
+Istanbul,heatwave_events,1999,4.0
+Istanbul,heatwave_events,2000,3.0
+Istanbul,heatwave_events,2001,4.0
+Istanbul,heatwave_events,2002,3.0
+Istanbul,heatwave_events,2003,2.0
+Istanbul,heatwave_events,2004,0.0
+Istanbul,heatwave_events,2005,2.0
+Istanbul,heatwave_events,2006,4.0
+Istanbul,heatwave_events,2007,7.0
+Istanbul,heatwave_events,2008,2.0
+Istanbul,heatwave_events,2009,4.0
+Istanbul,heatwave_events,2010,2.0
+Istanbul,heatwave_events,2011,1.0
+Istanbul,heatwave_events,2012,6.0
+Istanbul,heatwave_events,2013,4.0
+Istanbul,heatwave_events,2014,5.0
+Istanbul,heatwave_events,2015,3.0
+Istanbul,heatwave_events,2016,4.0
+Istanbul,heatwave_events,2017,5.0
+Istanbul,heatwave_events,2018,3.0
+Istanbul,heatwave_events,2019,0.0
+Istanbul,heatwave_events,2020,6.0
+Istanbul,heatwave_events,2021,4.0
+Istanbul,heatwave_events,2022,1.0
+Istanbul,heatwave_events,2023,6.0
+Istanbul,heatwave_events,2024,6.0
+Istanbul,heatwave_events,2025,7.0
+Istanbul,heatwave_days,1981,0.0
+Istanbul,heatwave_days,1982,0.0
+Istanbul,heatwave_days,1983,0.0
+Istanbul,heatwave_days,1984,3.0
+Istanbul,heatwave_days,1985,5.0
+Istanbul,heatwave_days,1986,4.0
+Istanbul,heatwave_days,1987,12.0
+Istanbul,heatwave_days,1988,10.0
+Istanbul,heatwave_days,1989,5.0
+Istanbul,heatwave_days,1990,0.0
+Istanbul,heatwave_days,1991,0.0
+Istanbul,heatwave_days,1992,3.0
+Istanbul,heatwave_days,1993,0.0
+Istanbul,heatwave_days,1994,6.0
+Istanbul,heatwave_days,1995,0.0
+Istanbul,heatwave_days,1996,0.0
+Istanbul,heatwave_days,1997,0.0
+Istanbul,heatwave_days,1998,11.0
+Istanbul,heatwave_days,1999,17.0
+Istanbul,heatwave_days,2000,13.0
+Istanbul,heatwave_days,2001,26.0
+Istanbul,heatwave_days,2002,19.0
+Istanbul,heatwave_days,2003,9.0
+Istanbul,heatwave_days,2004,0.0
+Istanbul,heatwave_days,2005,10.0
+Istanbul,heatwave_days,2006,26.0
+Istanbul,heatwave_days,2007,37.0
+Istanbul,heatwave_days,2008,10.0
+Istanbul,heatwave_days,2009,13.0
+Istanbul,heatwave_days,2010,25.0
+Istanbul,heatwave_days,2011,16.0
+Istanbul,heatwave_days,2012,39.0
+Istanbul,heatwave_days,2013,16.0
+Istanbul,heatwave_days,2014,25.0
+Istanbul,heatwave_days,2015,30.0
+Istanbul,heatwave_days,2016,24.0
+Istanbul,heatwave_days,2017,22.0
+Istanbul,heatwave_days,2018,13.0
+Istanbul,heatwave_days,2019,0.0
+Istanbul,heatwave_days,2020,22.0
+Istanbul,heatwave_days,2021,26.0
+Istanbul,heatwave_days,2022,9.0
+Istanbul,heatwave_days,2023,33.0
+Istanbul,heatwave_days,2024,36.0
+Istanbul,heatwave_days,2025,38.0
+Istanbul,longest_heatwave,1981,0.0
+Istanbul,longest_heatwave,1982,0.0
+Istanbul,longest_heatwave,1983,0.0
+Istanbul,longest_heatwave,1984,3.0
+Istanbul,longest_heatwave,1985,5.0
+Istanbul,longest_heatwave,1986,4.0
+Istanbul,longest_heatwave,1987,9.0
+Istanbul,longest_heatwave,1988,7.0
+Istanbul,longest_heatwave,1989,5.0
+Istanbul,longest_heatwave,1990,0.0
+Istanbul,longest_heatwave,1991,0.0
+Istanbul,longest_heatwave,1992,3.0
+Istanbul,longest_heatwave,1993,0.0
+Istanbul,longest_heatwave,1994,6.0
+Istanbul,longest_heatwave,1995,0.0
+Istanbul,longest_heatwave,1996,0.0
+Istanbul,longest_heatwave,1997,0.0
+Istanbul,longest_heatwave,1998,7.0
+Istanbul,longest_heatwave,1999,6.0
+Istanbul,longest_heatwave,2000,5.0
+Istanbul,longest_heatwave,2001,9.0
+Istanbul,longest_heatwave,2002,10.0
+Istanbul,longest_heatwave,2003,5.0
+Istanbul,longest_heatwave,2004,0.0
+Istanbul,longest_heatwave,2005,7.0
+Istanbul,longest_heatwave,2006,13.0
+Istanbul,longest_heatwave,2007,10.0
+Istanbul,longest_heatwave,2008,5.0
+Istanbul,longest_heatwave,2009,4.0
+Istanbul,longest_heatwave,2010,21.0
+Istanbul,longest_heatwave,2011,16.0
+Istanbul,longest_heatwave,2012,10.0
+Istanbul,longest_heatwave,2013,5.0
+Istanbul,longest_heatwave,2014,8.0
+Istanbul,longest_heatwave,2015,12.0
+Istanbul,longest_heatwave,2016,8.0
+Istanbul,longest_heatwave,2017,6.0
+Istanbul,longest_heatwave,2018,5.0
+Istanbul,longest_heatwave,2019,0.0
+Istanbul,longest_heatwave,2020,6.0
+Istanbul,longest_heatwave,2021,11.0
+Istanbul,longest_heatwave,2022,9.0
+Istanbul,longest_heatwave,2023,9.0
+Istanbul,longest_heatwave,2024,14.0
+Istanbul,longest_heatwave,2025,13.0
+Istanbul,hottest_day,1981,31.15
+Istanbul,hottest_day,1982,33.22
+Istanbul,hottest_day,1983,32.39
+Istanbul,hottest_day,1984,33.6
+Istanbul,hottest_day,1985,33.92
+Istanbul,hottest_day,1986,31.94
+Istanbul,hottest_day,1987,35.22
+Istanbul,hottest_day,1988,35.38
+Istanbul,hottest_day,1989,31.31
+Istanbul,hottest_day,1990,30.86
+Istanbul,hottest_day,1991,33.05
+Istanbul,hottest_day,1992,32.15
+Istanbul,hottest_day,1993,32.81
+Istanbul,hottest_day,1994,34.89
+Istanbul,hottest_day,1995,31.53
+Istanbul,hottest_day,1996,33.1
+Istanbul,hottest_day,1997,34.49
+Istanbul,hottest_day,1998,32.79
+Istanbul,hottest_day,1999,34.14
+Istanbul,hottest_day,2000,37.18
+Istanbul,hottest_day,2001,34.46
+Istanbul,hottest_day,2002,36.5
+Istanbul,hottest_day,2003,33.43
+Istanbul,hottest_day,2004,34.24
+Istanbul,hottest_day,2005,32.92
+Istanbul,hottest_day,2006,35.31
+Istanbul,hottest_day,2007,38.08
+Istanbul,hottest_day,2008,34.88
+Istanbul,hottest_day,2009,34.39
+Istanbul,hottest_day,2010,34.31
+Istanbul,hottest_day,2011,32.81
+Istanbul,hottest_day,2012,34.19
+Istanbul,hottest_day,2013,32.81
+Istanbul,hottest_day,2014,32.62
+Istanbul,hottest_day,2015,34.85
+Istanbul,hottest_day,2016,33.48
+Istanbul,hottest_day,2017,34.93
+Istanbul,hottest_day,2018,31.6
+Istanbul,hottest_day,2019,31.61
+Istanbul,hottest_day,2020,32.38
+Istanbul,hottest_day,2021,36.26
+Istanbul,hottest_day,2022,32.94
+Istanbul,hottest_day,2023,37.48
+Istanbul,hottest_day,2024,34.28
+Istanbul,hottest_day,2025,37.44
+Istanbul,warm_nights,1981,2.0
+Istanbul,warm_nights,1982,1.0
+Istanbul,warm_nights,1983,7.0
+Istanbul,warm_nights,1984,1.0
+Istanbul,warm_nights,1985,5.0
+Istanbul,warm_nights,1986,4.0
+Istanbul,warm_nights,1987,9.0
+Istanbul,warm_nights,1988,15.0
+Istanbul,warm_nights,1989,10.0
+Istanbul,warm_nights,1990,0.0
+Istanbul,warm_nights,1991,16.0
+Istanbul,warm_nights,1992,8.0
+Istanbul,warm_nights,1993,5.0
+Istanbul,warm_nights,1994,12.0
+Istanbul,warm_nights,1995,4.0
+Istanbul,warm_nights,1996,5.0
+Istanbul,warm_nights,1997,2.0
+Istanbul,warm_nights,1998,12.0
+Istanbul,warm_nights,1999,27.0
+Istanbul,warm_nights,2000,17.0
+Istanbul,warm_nights,2001,40.0
+Istanbul,warm_nights,2002,30.0
+Istanbul,warm_nights,2003,22.0
+Istanbul,warm_nights,2004,12.0
+Istanbul,warm_nights,2005,31.0
+Istanbul,warm_nights,2006,28.0
+Istanbul,warm_nights,2007,50.0
+Istanbul,warm_nights,2008,22.0
+Istanbul,warm_nights,2009,20.0
+Istanbul,warm_nights,2010,42.0
+Istanbul,warm_nights,2011,22.0
+Istanbul,warm_nights,2012,49.0
+Istanbul,warm_nights,2013,29.0
+Istanbul,warm_nights,2014,37.0
+Istanbul,warm_nights,2015,35.0
+Istanbul,warm_nights,2016,39.0
+Istanbul,warm_nights,2017,27.0
+Istanbul,warm_nights,2018,50.0
+Istanbul,warm_nights,2019,22.0
+Istanbul,warm_nights,2020,23.0
+Istanbul,warm_nights,2021,44.0
+Istanbul,warm_nights,2022,36.0
+Istanbul,warm_nights,2023,53.0
+Istanbul,warm_nights,2024,69.0
+Istanbul,warm_nights,2025,53.0
+Dubai,heatwave_events,1981,2.0
+Dubai,heatwave_events,1982,0.0
+Dubai,heatwave_events,1983,0.0
+Dubai,heatwave_events,1984,0.0
+Dubai,heatwave_events,1985,3.0
+Dubai,heatwave_events,1986,1.0
+Dubai,heatwave_events,1987,3.0
+Dubai,heatwave_events,1988,2.0
+Dubai,heatwave_events,1989,4.0
+Dubai,heatwave_events,1990,1.0
+Dubai,heatwave_events,1991,1.0
+Dubai,heatwave_events,1992,1.0
+Dubai,heatwave_events,1993,5.0
+Dubai,heatwave_events,1994,1.0
+Dubai,heatwave_events,1995,1.0
+Dubai,heatwave_events,1996,4.0
+Dubai,heatwave_events,1997,0.0
+Dubai,heatwave_events,1998,4.0
+Dubai,heatwave_events,1999,6.0
+Dubai,heatwave_events,2000,2.0
+Dubai,heatwave_events,2001,2.0
+Dubai,heatwave_events,2002,1.0
+Dubai,heatwave_events,2003,3.0
+Dubai,heatwave_events,2004,1.0
+Dubai,heatwave_events,2005,1.0
+Dubai,heatwave_events,2006,1.0
+Dubai,heatwave_events,2007,2.0
+Dubai,heatwave_events,2008,2.0
+Dubai,heatwave_events,2009,0.0
+Dubai,heatwave_events,2010,2.0
+Dubai,heatwave_events,2011,2.0
+Dubai,heatwave_events,2012,2.0
+Dubai,heatwave_events,2013,2.0
+Dubai,heatwave_events,2014,3.0
+Dubai,heatwave_events,2015,5.0
+Dubai,heatwave_events,2016,7.0
+Dubai,heatwave_events,2017,4.0
+Dubai,heatwave_events,2018,3.0
+Dubai,heatwave_events,2019,2.0
+Dubai,heatwave_events,2020,4.0
+Dubai,heatwave_events,2021,4.0
+Dubai,heatwave_events,2022,0.0
+Dubai,heatwave_events,2023,5.0
+Dubai,heatwave_events,2024,4.0
+Dubai,heatwave_events,2025,4.0
+Dubai,heatwave_days,1981,9.0
+Dubai,heatwave_days,1982,0.0
+Dubai,heatwave_days,1983,0.0
+Dubai,heatwave_days,1984,0.0
+Dubai,heatwave_days,1985,14.0
+Dubai,heatwave_days,1986,4.0
+Dubai,heatwave_days,1987,22.0
+Dubai,heatwave_days,1988,7.0
+Dubai,heatwave_days,1989,15.0
+Dubai,heatwave_days,1990,7.0
+Dubai,heatwave_days,1991,3.0
+Dubai,heatwave_days,1992,4.0
+Dubai,heatwave_days,1993,19.0
+Dubai,heatwave_days,1994,3.0
+Dubai,heatwave_days,1995,3.0
+Dubai,heatwave_days,1996,24.0
+Dubai,heatwave_days,1997,0.0
+Dubai,heatwave_days,1998,31.0
+Dubai,heatwave_days,1999,26.0
+Dubai,heatwave_days,2000,6.0
+Dubai,heatwave_days,2001,11.0
+Dubai,heatwave_days,2002,5.0
+Dubai,heatwave_days,2003,9.0
+Dubai,heatwave_days,2004,3.0
+Dubai,heatwave_days,2005,6.0
+Dubai,heatwave_days,2006,5.0
+Dubai,heatwave_days,2007,10.0
+Dubai,heatwave_days,2008,7.0
+Dubai,heatwave_days,2009,0.0
+Dubai,heatwave_days,2010,15.0
+Dubai,heatwave_days,2011,7.0
+Dubai,heatwave_days,2012,10.0
+Dubai,heatwave_days,2013,9.0
+Dubai,heatwave_days,2014,10.0
+Dubai,heatwave_days,2015,20.0
+Dubai,heatwave_days,2016,25.0
+Dubai,heatwave_days,2017,25.0
+Dubai,heatwave_days,2018,9.0
+Dubai,heatwave_days,2019,10.0
+Dubai,heatwave_days,2020,17.0
+Dubai,heatwave_days,2021,17.0
+Dubai,heatwave_days,2022,0.0
+Dubai,heatwave_days,2023,20.0
+Dubai,heatwave_days,2024,15.0
+Dubai,heatwave_days,2025,17.0
+Dubai,longest_heatwave,1981,6.0
+Dubai,longest_heatwave,1982,0.0
+Dubai,longest_heatwave,1983,0.0
+Dubai,longest_heatwave,1984,0.0
+Dubai,longest_heatwave,1985,8.0
+Dubai,longest_heatwave,1986,4.0
+Dubai,longest_heatwave,1987,12.0
+Dubai,longest_heatwave,1988,4.0
+Dubai,longest_heatwave,1989,5.0
+Dubai,longest_heatwave,1990,7.0
+Dubai,longest_heatwave,1991,3.0
+Dubai,longest_heatwave,1992,4.0
+Dubai,longest_heatwave,1993,5.0
+Dubai,longest_heatwave,1994,3.0
+Dubai,longest_heatwave,1995,3.0
+Dubai,longest_heatwave,1996,8.0
+Dubai,longest_heatwave,1997,0.0
+Dubai,longest_heatwave,1998,14.0
+Dubai,longest_heatwave,1999,7.0
+Dubai,longest_heatwave,2000,3.0
+Dubai,longest_heatwave,2001,8.0
+Dubai,longest_heatwave,2002,5.0
+Dubai,longest_heatwave,2003,3.0
+Dubai,longest_heatwave,2004,3.0
+Dubai,longest_heatwave,2005,6.0
+Dubai,longest_heatwave,2006,5.0
+Dubai,longest_heatwave,2007,6.0
+Dubai,longest_heatwave,2008,4.0
+Dubai,longest_heatwave,2009,0.0
+Dubai,longest_heatwave,2010,9.0
+Dubai,longest_heatwave,2011,4.0
+Dubai,longest_heatwave,2012,7.0
+Dubai,longest_heatwave,2013,6.0
+Dubai,longest_heatwave,2014,4.0
+Dubai,longest_heatwave,2015,6.0
+Dubai,longest_heatwave,2016,5.0
+Dubai,longest_heatwave,2017,8.0
+Dubai,longest_heatwave,2018,3.0
+Dubai,longest_heatwave,2019,7.0
+Dubai,longest_heatwave,2020,6.0
+Dubai,longest_heatwave,2021,6.0
+Dubai,longest_heatwave,2022,0.0
+Dubai,longest_heatwave,2023,6.0
+Dubai,longest_heatwave,2024,4.0
+Dubai,longest_heatwave,2025,6.0
+Dubai,hottest_day,1981,42.13
+Dubai,hottest_day,1982,41.42
+Dubai,hottest_day,1983,40.95
+Dubai,hottest_day,1984,43.07
+Dubai,hottest_day,1985,42.64
+Dubai,hottest_day,1986,43.14
+Dubai,hottest_day,1987,43.81
+Dubai,hottest_day,1988,43.09
+Dubai,hottest_day,1989,42.83
+Dubai,hottest_day,1990,43.54
+Dubai,hottest_day,1991,42.26
+Dubai,hottest_day,1992,41.26
+Dubai,hottest_day,1993,43.51
+Dubai,hottest_day,1994,41.96
+Dubai,hottest_day,1995,43.01
+Dubai,hottest_day,1996,43.41
+Dubai,hottest_day,1997,41.7
+Dubai,hottest_day,1998,43.06
+Dubai,hottest_day,1999,43.08
+Dubai,hottest_day,2000,42.22
+Dubai,hottest_day,2001,43.09
+Dubai,hottest_day,2002,42.74
+Dubai,hottest_day,2003,41.99
+Dubai,hottest_day,2004,41.79
+Dubai,hottest_day,2005,42.11
+Dubai,hottest_day,2006,42.47
+Dubai,hottest_day,2007,42.58
+Dubai,hottest_day,2008,42.92
+Dubai,hottest_day,2009,41.39
+Dubai,hottest_day,2010,43.03
+Dubai,hottest_day,2011,43.59
+Dubai,hottest_day,2012,44.58
+Dubai,hottest_day,2013,43.29
+Dubai,hottest_day,2014,43.88
+Dubai,hottest_day,2015,44.25
+Dubai,hottest_day,2016,44.47
+Dubai,hottest_day,2017,43.45
+Dubai,hottest_day,2018,44.2
+Dubai,hottest_day,2019,42.81
+Dubai,hottest_day,2020,43.81
+Dubai,hottest_day,2021,44.17
+Dubai,hottest_day,2022,42.89
+Dubai,hottest_day,2023,43.88
+Dubai,hottest_day,2024,43.27
+Dubai,hottest_day,2025,45.15
+Dubai,warm_nights,1981,8.0
+Dubai,warm_nights,1982,0.0
+Dubai,warm_nights,1983,6.0
+Dubai,warm_nights,1984,0.0
+Dubai,warm_nights,1985,4.0
+Dubai,warm_nights,1986,4.0
+Dubai,warm_nights,1987,22.0
+Dubai,warm_nights,1988,18.0
+Dubai,warm_nights,1989,13.0
+Dubai,warm_nights,1990,16.0
+Dubai,warm_nights,1991,3.0
+Dubai,warm_nights,1992,3.0
+Dubai,warm_nights,1993,19.0
+Dubai,warm_nights,1994,20.0
+Dubai,warm_nights,1995,10.0
+Dubai,warm_nights,1996,29.0
+Dubai,warm_nights,1997,5.0
+Dubai,warm_nights,1998,49.0
+Dubai,warm_nights,1999,32.0
+Dubai,warm_nights,2000,14.0
+Dubai,warm_nights,2001,15.0
+Dubai,warm_nights,2002,16.0
+Dubai,warm_nights,2003,18.0
+Dubai,warm_nights,2004,21.0
+Dubai,warm_nights,2005,18.0
+Dubai,warm_nights,2006,15.0
+Dubai,warm_nights,2007,28.0
+Dubai,warm_nights,2008,13.0
+Dubai,warm_nights,2009,5.0
+Dubai,warm_nights,2010,38.0
+Dubai,warm_nights,2011,27.0
+Dubai,warm_nights,2012,27.0
+Dubai,warm_nights,2013,24.0
+Dubai,warm_nights,2014,14.0
+Dubai,warm_nights,2015,29.0
+Dubai,warm_nights,2016,27.0
+Dubai,warm_nights,2017,26.0
+Dubai,warm_nights,2018,21.0
+Dubai,warm_nights,2019,30.0
+Dubai,warm_nights,2020,52.0
+Dubai,warm_nights,2021,42.0
+Dubai,warm_nights,2022,34.0
+Dubai,warm_nights,2023,46.0
+Dubai,warm_nights,2024,40.0
+Dubai,warm_nights,2025,37.0
+Marrakech,heatwave_events,1981,1.0
+Marrakech,heatwave_events,1982,3.0
+Marrakech,heatwave_events,1983,0.0
+Marrakech,heatwave_events,1984,1.0
+Marrakech,heatwave_events,1985,1.0
+Marrakech,heatwave_events,1986,3.0
+Marrakech,heatwave_events,1987,1.0
+Marrakech,heatwave_events,1988,6.0
+Marrakech,heatwave_events,1989,1.0
+Marrakech,heatwave_events,1990,1.0
+Marrakech,heatwave_events,1991,2.0
+Marrakech,heatwave_events,1992,0.0
+Marrakech,heatwave_events,1993,2.0
+Marrakech,heatwave_events,1994,4.0
+Marrakech,heatwave_events,1995,2.0
+Marrakech,heatwave_events,1996,1.0
+Marrakech,heatwave_events,1997,0.0
+Marrakech,heatwave_events,1998,5.0
+Marrakech,heatwave_events,1999,1.0
+Marrakech,heatwave_events,2000,2.0
+Marrakech,heatwave_events,2001,3.0
+Marrakech,heatwave_events,2002,2.0
+Marrakech,heatwave_events,2003,2.0
+Marrakech,heatwave_events,2004,3.0
+Marrakech,heatwave_events,2005,3.0
+Marrakech,heatwave_events,2006,2.0
+Marrakech,heatwave_events,2007,2.0
+Marrakech,heatwave_events,2008,3.0
+Marrakech,heatwave_events,2009,2.0
+Marrakech,heatwave_events,2010,5.0
+Marrakech,heatwave_events,2011,5.0
+Marrakech,heatwave_events,2012,3.0
+Marrakech,heatwave_events,2013,4.0
+Marrakech,heatwave_events,2014,2.0
+Marrakech,heatwave_events,2015,1.0
+Marrakech,heatwave_events,2016,3.0
+Marrakech,heatwave_events,2017,3.0
+Marrakech,heatwave_events,2018,0.0
+Marrakech,heatwave_events,2019,1.0
+Marrakech,heatwave_events,2020,2.0
+Marrakech,heatwave_events,2021,4.0
+Marrakech,heatwave_events,2022,4.0
+Marrakech,heatwave_events,2023,4.0
+Marrakech,heatwave_events,2024,5.0
+Marrakech,heatwave_events,2025,4.0
+Marrakech,heatwave_days,1981,5.0
+Marrakech,heatwave_days,1982,12.0
+Marrakech,heatwave_days,1983,0.0
+Marrakech,heatwave_days,1984,3.0
+Marrakech,heatwave_days,1985,3.0
+Marrakech,heatwave_days,1986,11.0
+Marrakech,heatwave_days,1987,5.0
+Marrakech,heatwave_days,1988,25.0
+Marrakech,heatwave_days,1989,4.0
+Marrakech,heatwave_days,1990,5.0
+Marrakech,heatwave_days,1991,12.0
+Marrakech,heatwave_days,1992,0.0
+Marrakech,heatwave_days,1993,11.0
+Marrakech,heatwave_days,1994,17.0
+Marrakech,heatwave_days,1995,10.0
+Marrakech,heatwave_days,1996,4.0
+Marrakech,heatwave_days,1997,0.0
+Marrakech,heatwave_days,1998,21.0
+Marrakech,heatwave_days,1999,4.0
+Marrakech,heatwave_days,2000,12.0
+Marrakech,heatwave_days,2001,9.0
+Marrakech,heatwave_days,2002,6.0
+Marrakech,heatwave_days,2003,13.0
+Marrakech,heatwave_days,2004,12.0
+Marrakech,heatwave_days,2005,10.0
+Marrakech,heatwave_days,2006,7.0
+Marrakech,heatwave_days,2007,11.0
+Marrakech,heatwave_days,2008,15.0
+Marrakech,heatwave_days,2009,17.0
+Marrakech,heatwave_days,2010,23.0
+Marrakech,heatwave_days,2011,15.0
+Marrakech,heatwave_days,2012,17.0
+Marrakech,heatwave_days,2013,18.0
+Marrakech,heatwave_days,2014,6.0
+Marrakech,heatwave_days,2015,4.0
+Marrakech,heatwave_days,2016,28.0
+Marrakech,heatwave_days,2017,17.0
+Marrakech,heatwave_days,2018,0.0
+Marrakech,heatwave_days,2019,3.0
+Marrakech,heatwave_days,2020,12.0
+Marrakech,heatwave_days,2021,15.0
+Marrakech,heatwave_days,2022,25.0
+Marrakech,heatwave_days,2023,25.0
+Marrakech,heatwave_days,2024,22.0
+Marrakech,heatwave_days,2025,26.0
+Marrakech,longest_heatwave,1981,5.0
+Marrakech,longest_heatwave,1982,5.0
+Marrakech,longest_heatwave,1983,0.0
+Marrakech,longest_heatwave,1984,3.0
+Marrakech,longest_heatwave,1985,3.0
+Marrakech,longest_heatwave,1986,5.0
+Marrakech,longest_heatwave,1987,5.0
+Marrakech,longest_heatwave,1988,5.0
+Marrakech,longest_heatwave,1989,4.0
+Marrakech,longest_heatwave,1990,5.0
+Marrakech,longest_heatwave,1991,9.0
+Marrakech,longest_heatwave,1992,0.0
+Marrakech,longest_heatwave,1993,8.0
+Marrakech,longest_heatwave,1994,6.0
+Marrakech,longest_heatwave,1995,7.0
+Marrakech,longest_heatwave,1996,4.0
+Marrakech,longest_heatwave,1997,0.0
+Marrakech,longest_heatwave,1998,5.0
+Marrakech,longest_heatwave,1999,4.0
+Marrakech,longest_heatwave,2000,6.0
+Marrakech,longest_heatwave,2001,3.0
+Marrakech,longest_heatwave,2002,3.0
+Marrakech,longest_heatwave,2003,10.0
+Marrakech,longest_heatwave,2004,5.0
+Marrakech,longest_heatwave,2005,4.0
+Marrakech,longest_heatwave,2006,4.0
+Marrakech,longest_heatwave,2007,8.0
+Marrakech,longest_heatwave,2008,7.0
+Marrakech,longest_heatwave,2009,14.0
+Marrakech,longest_heatwave,2010,6.0
+Marrakech,longest_heatwave,2011,3.0
+Marrakech,longest_heatwave,2012,7.0
+Marrakech,longest_heatwave,2013,7.0
+Marrakech,longest_heatwave,2014,3.0
+Marrakech,longest_heatwave,2015,4.0
+Marrakech,longest_heatwave,2016,13.0
+Marrakech,longest_heatwave,2017,8.0
+Marrakech,longest_heatwave,2018,0.0
+Marrakech,longest_heatwave,2019,3.0
+Marrakech,longest_heatwave,2020,8.0
+Marrakech,longest_heatwave,2021,5.0
+Marrakech,longest_heatwave,2022,9.0
+Marrakech,longest_heatwave,2023,9.0
+Marrakech,longest_heatwave,2024,6.0
+Marrakech,longest_heatwave,2025,14.0
+Marrakech,hottest_day,1981,42.5
+Marrakech,hottest_day,1982,42.87
+Marrakech,hottest_day,1983,41.29
+Marrakech,hottest_day,1984,43.18
+Marrakech,hottest_day,1985,42.92
+Marrakech,hottest_day,1986,42.73
+Marrakech,hottest_day,1987,43.36
+Marrakech,hottest_day,1988,43.62
+Marrakech,hottest_day,1989,42.75
+Marrakech,hottest_day,1990,42.87
+Marrakech,hottest_day,1991,42.58
+Marrakech,hottest_day,1992,41.95
+Marrakech,hottest_day,1993,42.76
+Marrakech,hottest_day,1994,43.86
+Marrakech,hottest_day,1995,44.0
+Marrakech,hottest_day,1996,41.85
+Marrakech,hottest_day,1997,40.04
+Marrakech,hottest_day,1998,45.0
+Marrakech,hottest_day,1999,43.8
+Marrakech,hottest_day,2000,42.82
+Marrakech,hottest_day,2001,44.01
+Marrakech,hottest_day,2002,43.72
+Marrakech,hottest_day,2003,44.61
+Marrakech,hottest_day,2004,43.79
+Marrakech,hottest_day,2005,44.27
+Marrakech,hottest_day,2006,44.11
+Marrakech,hottest_day,2007,42.94
+Marrakech,hottest_day,2008,43.42
+Marrakech,hottest_day,2009,44.41
+Marrakech,hottest_day,2010,43.76
+Marrakech,hottest_day,2011,43.48
+Marrakech,hottest_day,2012,44.61
+Marrakech,hottest_day,2013,44.05
+Marrakech,hottest_day,2014,43.12
+Marrakech,hottest_day,2015,43.65
+Marrakech,hottest_day,2016,44.51
+Marrakech,hottest_day,2017,44.22
+Marrakech,hottest_day,2018,43.98
+Marrakech,hottest_day,2019,42.88
+Marrakech,hottest_day,2020,44.47
+Marrakech,hottest_day,2021,44.97
+Marrakech,hottest_day,2022,44.39
+Marrakech,hottest_day,2023,45.35
+Marrakech,hottest_day,2024,44.96
+Marrakech,hottest_day,2025,43.76
+Marrakech,warm_nights,1981,5.0
+Marrakech,warm_nights,1982,11.0
+Marrakech,warm_nights,1983,4.0
+Marrakech,warm_nights,1984,14.0
+Marrakech,warm_nights,1985,19.0
+Marrakech,warm_nights,1986,12.0
+Marrakech,warm_nights,1987,10.0
+Marrakech,warm_nights,1988,27.0
+Marrakech,warm_nights,1989,13.0
+Marrakech,warm_nights,1990,21.0
+Marrakech,warm_nights,1991,18.0
+Marrakech,warm_nights,1992,9.0
+Marrakech,warm_nights,1993,12.0
+Marrakech,warm_nights,1994,26.0
+Marrakech,warm_nights,1995,22.0
+Marrakech,warm_nights,1996,2.0
+Marrakech,warm_nights,1997,2.0
+Marrakech,warm_nights,1998,28.0
+Marrakech,warm_nights,1999,11.0
+Marrakech,warm_nights,2000,14.0
+Marrakech,warm_nights,2001,12.0
+Marrakech,warm_nights,2002,4.0
+Marrakech,warm_nights,2003,25.0
+Marrakech,warm_nights,2004,22.0
+Marrakech,warm_nights,2005,22.0
+Marrakech,warm_nights,2006,19.0
+Marrakech,warm_nights,2007,16.0
+Marrakech,warm_nights,2008,14.0
+Marrakech,warm_nights,2009,18.0
+Marrakech,warm_nights,2010,28.0
+Marrakech,warm_nights,2011,19.0
+Marrakech,warm_nights,2012,29.0
+Marrakech,warm_nights,2013,23.0
+Marrakech,warm_nights,2014,6.0
+Marrakech,warm_nights,2015,15.0
+Marrakech,warm_nights,2016,37.0
+Marrakech,warm_nights,2017,31.0
+Marrakech,warm_nights,2018,5.0
+Marrakech,warm_nights,2019,13.0
+Marrakech,warm_nights,2020,24.0
+Marrakech,warm_nights,2021,18.0
+Marrakech,warm_nights,2022,39.0
+Marrakech,warm_nights,2023,28.0
+Marrakech,warm_nights,2024,26.0
+Marrakech,warm_nights,2025,46.0
+Cape Town,heatwave_events,1982,0.0
+Cape Town,heatwave_events,1983,0.0
+Cape Town,heatwave_events,1984,2.0
+Cape Town,heatwave_events,1985,1.0
+Cape Town,heatwave_events,1986,0.0
+Cape Town,heatwave_events,1987,0.0
+Cape Town,heatwave_events,1988,1.0
+Cape Town,heatwave_events,1989,0.0
+Cape Town,heatwave_events,1990,1.0
+Cape Town,heatwave_events,1991,0.0
+Cape Town,heatwave_events,1992,2.0
+Cape Town,heatwave_events,1993,2.0
+Cape Town,heatwave_events,1994,2.0
+Cape Town,heatwave_events,1995,3.0
+Cape Town,heatwave_events,1996,0.0
+Cape Town,heatwave_events,1997,0.0
+Cape Town,heatwave_events,1998,2.0
+Cape Town,heatwave_events,1999,4.0
+Cape Town,heatwave_events,2000,3.0
+Cape Town,heatwave_events,2001,2.0
+Cape Town,heatwave_events,2002,1.0
+Cape Town,heatwave_events,2003,1.0
+Cape Town,heatwave_events,2004,2.0
+Cape Town,heatwave_events,2005,0.0
+Cape Town,heatwave_events,2006,1.0
+Cape Town,heatwave_events,2007,1.0
+Cape Town,heatwave_events,2008,0.0
+Cape Town,heatwave_events,2009,0.0
+Cape Town,heatwave_events,2010,2.0
+Cape Town,heatwave_events,2011,2.0
+Cape Town,heatwave_events,2012,3.0
+Cape Town,heatwave_events,2013,0.0
+Cape Town,heatwave_events,2014,2.0
+Cape Town,heatwave_events,2015,1.0
+Cape Town,heatwave_events,2016,4.0
+Cape Town,heatwave_events,2017,1.0
+Cape Town,heatwave_events,2018,1.0
+Cape Town,heatwave_events,2019,0.0
+Cape Town,heatwave_events,2020,0.0
+Cape Town,heatwave_events,2021,0.0
+Cape Town,heatwave_events,2022,2.0
+Cape Town,heatwave_events,2023,1.0
+Cape Town,heatwave_events,2024,3.0
+Cape Town,heatwave_events,2025,0.0
+Cape Town,heatwave_days,1982,0.0
+Cape Town,heatwave_days,1983,0.0
+Cape Town,heatwave_days,1984,7.0
+Cape Town,heatwave_days,1985,3.0
+Cape Town,heatwave_days,1986,0.0
+Cape Town,heatwave_days,1987,0.0
+Cape Town,heatwave_days,1988,7.0
+Cape Town,heatwave_days,1989,0.0
+Cape Town,heatwave_days,1990,6.0
+Cape Town,heatwave_days,1991,0.0
+Cape Town,heatwave_days,1992,7.0
+Cape Town,heatwave_days,1993,6.0
+Cape Town,heatwave_days,1994,7.0
+Cape Town,heatwave_days,1995,9.0
+Cape Town,heatwave_days,1996,0.0
+Cape Town,heatwave_days,1997,0.0
+Cape Town,heatwave_days,1998,6.0
+Cape Town,heatwave_days,1999,14.0
+Cape Town,heatwave_days,2000,17.0
+Cape Town,heatwave_days,2001,7.0
+Cape Town,heatwave_days,2002,9.0
+Cape Town,heatwave_days,2003,3.0
+Cape Town,heatwave_days,2004,7.0
+Cape Town,heatwave_days,2005,0.0
+Cape Town,heatwave_days,2006,3.0
+Cape Town,heatwave_days,2007,6.0
+Cape Town,heatwave_days,2008,0.0
+Cape Town,heatwave_days,2009,0.0
+Cape Town,heatwave_days,2010,6.0
+Cape Town,heatwave_days,2011,7.0
+Cape Town,heatwave_days,2012,11.0
+Cape Town,heatwave_days,2013,0.0
+Cape Town,heatwave_days,2014,8.0
+Cape Town,heatwave_days,2015,4.0
+Cape Town,heatwave_days,2016,16.0
+Cape Town,heatwave_days,2017,3.0
+Cape Town,heatwave_days,2018,3.0
+Cape Town,heatwave_days,2019,0.0
+Cape Town,heatwave_days,2020,0.0
+Cape Town,heatwave_days,2021,0.0
+Cape Town,heatwave_days,2022,6.0
+Cape Town,heatwave_days,2023,3.0
+Cape Town,heatwave_days,2024,9.0
+Cape Town,heatwave_days,2025,0.0
+Cape Town,longest_heatwave,1982,0.0
+Cape Town,longest_heatwave,1983,0.0
+Cape Town,longest_heatwave,1984,4.0
+Cape Town,longest_heatwave,1985,3.0
+Cape Town,longest_heatwave,1986,0.0
+Cape Town,longest_heatwave,1987,0.0
+Cape Town,longest_heatwave,1988,7.0
+Cape Town,longest_heatwave,1989,0.0
+Cape Town,longest_heatwave,1990,6.0
+Cape Town,longest_heatwave,1991,0.0
+Cape Town,longest_heatwave,1992,4.0
+Cape Town,longest_heatwave,1993,3.0
+Cape Town,longest_heatwave,1994,4.0
+Cape Town,longest_heatwave,1995,3.0
+Cape Town,longest_heatwave,1996,0.0
+Cape Town,longest_heatwave,1997,0.0
+Cape Town,longest_heatwave,1998,3.0
+Cape Town,longest_heatwave,1999,5.0
+Cape Town,longest_heatwave,2000,9.0
+Cape Town,longest_heatwave,2001,4.0
+Cape Town,longest_heatwave,2002,9.0
+Cape Town,longest_heatwave,2003,3.0
+Cape Town,longest_heatwave,2004,4.0
+Cape Town,longest_heatwave,2005,0.0
+Cape Town,longest_heatwave,2006,3.0
+Cape Town,longest_heatwave,2007,6.0
+Cape Town,longest_heatwave,2008,0.0
+Cape Town,longest_heatwave,2009,0.0
+Cape Town,longest_heatwave,2010,3.0
+Cape Town,longest_heatwave,2011,4.0
+Cape Town,longest_heatwave,2012,5.0
+Cape Town,longest_heatwave,2013,0.0
+Cape Town,longest_heatwave,2014,4.0
+Cape Town,longest_heatwave,2015,4.0
+Cape Town,longest_heatwave,2016,6.0
+Cape Town,longest_heatwave,2017,3.0
+Cape Town,longest_heatwave,2018,3.0
+Cape Town,longest_heatwave,2019,0.0
+Cape Town,longest_heatwave,2020,0.0
+Cape Town,longest_heatwave,2021,0.0
+Cape Town,longest_heatwave,2022,3.0
+Cape Town,longest_heatwave,2023,3.0
+Cape Town,longest_heatwave,2024,3.0
+Cape Town,longest_heatwave,2025,0.0
+Cape Town,hottest_day,1982,33.77
+Cape Town,hottest_day,1983,33.8
+Cape Town,hottest_day,1984,35.84
+Cape Town,hottest_day,1985,33.83
+Cape Town,hottest_day,1986,36.73
+Cape Town,hottest_day,1987,34.75
+Cape Town,hottest_day,1988,37.77
+Cape Town,hottest_day,1989,36.22
+Cape Town,hottest_day,1990,35.42
+Cape Town,hottest_day,1991,34.14
+Cape Town,hottest_day,1992,36.25
+Cape Town,hottest_day,1993,36.15
+Cape Town,hottest_day,1994,36.27
+Cape Town,hottest_day,1995,36.47
+Cape Town,hottest_day,1996,35.5
+Cape Town,hottest_day,1997,32.92
+Cape Town,hottest_day,1998,35.6
+Cape Town,hottest_day,1999,35.85
+Cape Town,hottest_day,2000,37.22
+Cape Town,hottest_day,2001,36.61
+Cape Town,hottest_day,2002,35.79
+Cape Town,hottest_day,2003,38.67
+Cape Town,hottest_day,2004,36.04
+Cape Town,hottest_day,2005,38.1
+Cape Town,hottest_day,2006,35.38
+Cape Town,hottest_day,2007,36.64
+Cape Town,hottest_day,2008,34.7
+Cape Town,hottest_day,2009,36.39
+Cape Town,hottest_day,2010,37.79
+Cape Town,hottest_day,2011,36.56
+Cape Town,hottest_day,2012,36.16
+Cape Town,hottest_day,2013,35.58
+Cape Town,hottest_day,2014,35.14
+Cape Town,hottest_day,2015,37.81
+Cape Town,hottest_day,2016,35.61
+Cape Town,hottest_day,2017,34.24
+Cape Town,hottest_day,2018,36.25
+Cape Town,hottest_day,2019,35.07
+Cape Town,hottest_day,2020,35.28
+Cape Town,hottest_day,2021,34.61
+Cape Town,hottest_day,2022,37.23
+Cape Town,hottest_day,2023,33.84
+Cape Town,hottest_day,2024,36.66
+Cape Town,hottest_day,2025,35.15
+Cape Town,warm_nights,1982,0.0
+Cape Town,warm_nights,1983,7.0
+Cape Town,warm_nights,1984,13.0
+Cape Town,warm_nights,1985,12.0
+Cape Town,warm_nights,1986,20.0
+Cape Town,warm_nights,1987,5.0
+Cape Town,warm_nights,1988,20.0
+Cape Town,warm_nights,1989,12.0
+Cape Town,warm_nights,1990,16.0
+Cape Town,warm_nights,1991,10.0
+Cape Town,warm_nights,1992,14.0
+Cape Town,warm_nights,1993,20.0
+Cape Town,warm_nights,1994,17.0
+Cape Town,warm_nights,1995,24.0
+Cape Town,warm_nights,1996,10.0
+Cape Town,warm_nights,1997,6.0
+Cape Town,warm_nights,1998,24.0
+Cape Town,warm_nights,1999,34.0
+Cape Town,warm_nights,2000,27.0
+Cape Town,warm_nights,2001,10.0
+Cape Town,warm_nights,2002,20.0
+Cape Town,warm_nights,2003,25.0
+Cape Town,warm_nights,2004,18.0
+Cape Town,warm_nights,2005,26.0
+Cape Town,warm_nights,2006,12.0
+Cape Town,warm_nights,2007,19.0
+Cape Town,warm_nights,2008,19.0
+Cape Town,warm_nights,2009,20.0
+Cape Town,warm_nights,2010,21.0
+Cape Town,warm_nights,2011,37.0
+Cape Town,warm_nights,2012,25.0
+Cape Town,warm_nights,2013,22.0
+Cape Town,warm_nights,2014,25.0
+Cape Town,warm_nights,2015,8.0
+Cape Town,warm_nights,2016,40.0
+Cape Town,warm_nights,2017,13.0
+Cape Town,warm_nights,2018,17.0
+Cape Town,warm_nights,2019,13.0
+Cape Town,warm_nights,2020,11.0
+Cape Town,warm_nights,2021,11.0
+Cape Town,warm_nights,2022,19.0
+Cape Town,warm_nights,2023,16.0
+Cape Town,warm_nights,2024,15.0
+Cape Town,warm_nights,2025,22.0
+Bangkok,heatwave_events,1981,1.0
+Bangkok,heatwave_events,1982,3.0
+Bangkok,heatwave_events,1983,3.0
+Bangkok,heatwave_events,1984,1.0
+Bangkok,heatwave_events,1985,2.0
+Bangkok,heatwave_events,1986,2.0
+Bangkok,heatwave_events,1987,2.0
+Bangkok,heatwave_events,1988,2.0
+Bangkok,heatwave_events,1989,3.0
+Bangkok,heatwave_events,1990,4.0
+Bangkok,heatwave_events,1991,2.0
+Bangkok,heatwave_events,1992,5.0
+Bangkok,heatwave_events,1993,3.0
+Bangkok,heatwave_events,1994,2.0
+Bangkok,heatwave_events,1995,0.0
+Bangkok,heatwave_events,1996,2.0
+Bangkok,heatwave_events,1997,2.0
+Bangkok,heatwave_events,1998,5.0
+Bangkok,heatwave_events,1999,1.0
+Bangkok,heatwave_events,2000,0.0
+Bangkok,heatwave_events,2001,0.0
+Bangkok,heatwave_events,2002,0.0
+Bangkok,heatwave_events,2003,2.0
+Bangkok,heatwave_events,2004,2.0
+Bangkok,heatwave_events,2005,0.0
+Bangkok,heatwave_events,2006,0.0
+Bangkok,heatwave_events,2007,1.0
+Bangkok,heatwave_events,2008,0.0
+Bangkok,heatwave_events,2009,0.0
+Bangkok,heatwave_events,2010,5.0
+Bangkok,heatwave_events,2011,0.0
+Bangkok,heatwave_events,2012,0.0
+Bangkok,heatwave_events,2013,2.0
+Bangkok,heatwave_events,2014,2.0
+Bangkok,heatwave_events,2015,1.0
+Bangkok,heatwave_events,2016,5.0
+Bangkok,heatwave_events,2017,2.0
+Bangkok,heatwave_events,2018,0.0
+Bangkok,heatwave_events,2019,3.0
+Bangkok,heatwave_events,2020,2.0
+Bangkok,heatwave_events,2021,0.0
+Bangkok,heatwave_events,2022,1.0
+Bangkok,heatwave_events,2023,7.0
+Bangkok,heatwave_events,2024,3.0
+Bangkok,heatwave_events,2025,1.0
+Bangkok,heatwave_days,1981,8.0
+Bangkok,heatwave_days,1982,23.0
+Bangkok,heatwave_days,1983,40.0
+Bangkok,heatwave_days,1984,3.0
+Bangkok,heatwave_days,1985,11.0
+Bangkok,heatwave_days,1986,11.0
+Bangkok,heatwave_days,1987,13.0
+Bangkok,heatwave_days,1988,16.0
+Bangkok,heatwave_days,1989,12.0
+Bangkok,heatwave_days,1990,17.0
+Bangkok,heatwave_days,1991,7.0
+Bangkok,heatwave_days,1992,37.0
+Bangkok,heatwave_days,1993,16.0
+Bangkok,heatwave_days,1994,7.0
+Bangkok,heatwave_days,1995,0.0
+Bangkok,heatwave_days,1996,11.0
+Bangkok,heatwave_days,1997,12.0
+Bangkok,heatwave_days,1998,48.0
+Bangkok,heatwave_days,1999,5.0
+Bangkok,heatwave_days,2000,0.0
+Bangkok,heatwave_days,2001,0.0
+Bangkok,heatwave_days,2002,0.0
+Bangkok,heatwave_days,2003,6.0
+Bangkok,heatwave_days,2004,21.0
+Bangkok,heatwave_days,2005,0.0
+Bangkok,heatwave_days,2006,0.0
+Bangkok,heatwave_days,2007,4.0
+Bangkok,heatwave_days,2008,0.0
+Bangkok,heatwave_days,2009,0.0
+Bangkok,heatwave_days,2010,20.0
+Bangkok,heatwave_days,2011,0.0
+Bangkok,heatwave_days,2012,0.0
+Bangkok,heatwave_days,2013,25.0
+Bangkok,heatwave_days,2014,7.0
+Bangkok,heatwave_days,2015,3.0
+Bangkok,heatwave_days,2016,41.0
+Bangkok,heatwave_days,2017,9.0
+Bangkok,heatwave_days,2018,0.0
+Bangkok,heatwave_days,2019,9.0
+Bangkok,heatwave_days,2020,13.0
+Bangkok,heatwave_days,2021,0.0
+Bangkok,heatwave_days,2022,4.0
+Bangkok,heatwave_days,2023,28.0
+Bangkok,heatwave_days,2024,41.0
+Bangkok,heatwave_days,2025,6.0
+Bangkok,longest_heatwave,1981,8.0
+Bangkok,longest_heatwave,1982,13.0
+Bangkok,longest_heatwave,1983,30.0
+Bangkok,longest_heatwave,1984,3.0
+Bangkok,longest_heatwave,1985,7.0
+Bangkok,longest_heatwave,1986,6.0
+Bangkok,longest_heatwave,1987,9.0
+Bangkok,longest_heatwave,1988,11.0
+Bangkok,longest_heatwave,1989,6.0
+Bangkok,longest_heatwave,1990,7.0
+Bangkok,longest_heatwave,1991,4.0
+Bangkok,longest_heatwave,1992,14.0
+Bangkok,longest_heatwave,1993,10.0
+Bangkok,longest_heatwave,1994,4.0
+Bangkok,longest_heatwave,1995,0.0
+Bangkok,longest_heatwave,1996,8.0
+Bangkok,longest_heatwave,1997,7.0
+Bangkok,longest_heatwave,1998,18.0
+Bangkok,longest_heatwave,1999,5.0
+Bangkok,longest_heatwave,2000,0.0
+Bangkok,longest_heatwave,2001,0.0
+Bangkok,longest_heatwave,2002,0.0
+Bangkok,longest_heatwave,2003,3.0
+Bangkok,longest_heatwave,2004,11.0
+Bangkok,longest_heatwave,2005,0.0
+Bangkok,longest_heatwave,2006,0.0
+Bangkok,longest_heatwave,2007,4.0
+Bangkok,longest_heatwave,2008,0.0
+Bangkok,longest_heatwave,2009,0.0
+Bangkok,longest_heatwave,2010,6.0
+Bangkok,longest_heatwave,2011,0.0
+Bangkok,longest_heatwave,2012,0.0
+Bangkok,longest_heatwave,2013,22.0
+Bangkok,longest_heatwave,2014,4.0
+Bangkok,longest_heatwave,2015,3.0
+Bangkok,longest_heatwave,2016,15.0
+Bangkok,longest_heatwave,2017,5.0
+Bangkok,longest_heatwave,2018,0.0
+Bangkok,longest_heatwave,2019,3.0
+Bangkok,longest_heatwave,2020,7.0
+Bangkok,longest_heatwave,2021,0.0
+Bangkok,longest_heatwave,2022,4.0
+Bangkok,longest_heatwave,2023,5.0
+Bangkok,longest_heatwave,2024,26.0
+Bangkok,longest_heatwave,2025,6.0
+Bangkok,hottest_day,1981,40.53
+Bangkok,hottest_day,1982,42.56
+Bangkok,hottest_day,1983,42.98
+Bangkok,hottest_day,1984,40.33
+Bangkok,hottest_day,1985,41.93
+Bangkok,hottest_day,1986,41.42
+Bangkok,hottest_day,1987,42.09
+Bangkok,hottest_day,1988,41.42
+Bangkok,hottest_day,1989,43.03
+Bangkok,hottest_day,1990,42.83
+Bangkok,hottest_day,1991,40.95
+Bangkok,hottest_day,1992,42.7
+Bangkok,hottest_day,1993,41.18
+Bangkok,hottest_day,1994,40.63
+Bangkok,hottest_day,1995,41.06
+Bangkok,hottest_day,1996,41.88
+Bangkok,hottest_day,1997,41.81
+Bangkok,hottest_day,1998,42.5
+Bangkok,hottest_day,1999,40.69
+Bangkok,hottest_day,2000,39.58
+Bangkok,hottest_day,2001,39.49
+Bangkok,hottest_day,2002,40.97
+Bangkok,hottest_day,2003,40.91
+Bangkok,hottest_day,2004,42.4
+Bangkok,hottest_day,2005,39.9
+Bangkok,hottest_day,2006,39.93
+Bangkok,hottest_day,2007,41.28
+Bangkok,hottest_day,2008,40.06
+Bangkok,hottest_day,2009,40.05
+Bangkok,hottest_day,2010,41.95
+Bangkok,hottest_day,2011,37.93
+Bangkok,hottest_day,2012,41.36
+Bangkok,hottest_day,2013,42.67
+Bangkok,hottest_day,2014,40.34
+Bangkok,hottest_day,2015,40.99
+Bangkok,hottest_day,2016,42.97
+Bangkok,hottest_day,2017,41.12
+Bangkok,hottest_day,2018,39.51
+Bangkok,hottest_day,2019,41.96
+Bangkok,hottest_day,2020,41.42
+Bangkok,hottest_day,2021,40.29
+Bangkok,hottest_day,2022,40.53
+Bangkok,hottest_day,2023,42.79
+Bangkok,hottest_day,2024,44.43
+Bangkok,hottest_day,2025,40.49
+Bangkok,warm_nights,1981,5.0
+Bangkok,warm_nights,1982,20.0
+Bangkok,warm_nights,1983,32.0
+Bangkok,warm_nights,1984,4.0
+Bangkok,warm_nights,1985,19.0
+Bangkok,warm_nights,1986,7.0
+Bangkok,warm_nights,1987,12.0
+Bangkok,warm_nights,1988,21.0
+Bangkok,warm_nights,1989,17.0
+Bangkok,warm_nights,1990,27.0
+Bangkok,warm_nights,1991,25.0
+Bangkok,warm_nights,1992,33.0
+Bangkok,warm_nights,1993,13.0
+Bangkok,warm_nights,1994,5.0
+Bangkok,warm_nights,1995,19.0
+Bangkok,warm_nights,1996,5.0
+Bangkok,warm_nights,1997,13.0
+Bangkok,warm_nights,1998,63.0
+Bangkok,warm_nights,1999,2.0
+Bangkok,warm_nights,2000,1.0
+Bangkok,warm_nights,2001,2.0
+Bangkok,warm_nights,2002,9.0
+Bangkok,warm_nights,2003,9.0
+Bangkok,warm_nights,2004,27.0
+Bangkok,warm_nights,2005,13.0
+Bangkok,warm_nights,2006,0.0
+Bangkok,warm_nights,2007,9.0
+Bangkok,warm_nights,2008,8.0
+Bangkok,warm_nights,2009,2.0
+Bangkok,warm_nights,2010,48.0
+Bangkok,warm_nights,2011,0.0
+Bangkok,warm_nights,2012,21.0
+Bangkok,warm_nights,2013,30.0
+Bangkok,warm_nights,2014,25.0
+Bangkok,warm_nights,2015,14.0
+Bangkok,warm_nights,2016,43.0
+Bangkok,warm_nights,2017,14.0
+Bangkok,warm_nights,2018,4.0
+Bangkok,warm_nights,2019,37.0
+Bangkok,warm_nights,2020,41.0
+Bangkok,warm_nights,2021,14.0
+Bangkok,warm_nights,2022,5.0
+Bangkok,warm_nights,2023,54.0
+Bangkok,warm_nights,2024,81.0
+Bangkok,warm_nights,2025,13.0
+Singapore,heatwave_events,1981,3.0
+Singapore,heatwave_events,1982,10.0
+Singapore,heatwave_events,1983,5.0
+Singapore,heatwave_events,1984,0.0
+Singapore,heatwave_events,1985,0.0
+Singapore,heatwave_events,1986,0.0
+Singapore,heatwave_events,1987,0.0
+Singapore,heatwave_events,1988,0.0
+Singapore,heatwave_events,1989,0.0
+Singapore,heatwave_events,1990,6.0
+Singapore,heatwave_events,1991,2.0
+Singapore,heatwave_events,1992,3.0
+Singapore,heatwave_events,1993,0.0
+Singapore,heatwave_events,1994,0.0
+Singapore,heatwave_events,1995,0.0
+Singapore,heatwave_events,1996,0.0
+Singapore,heatwave_events,1997,8.0
+Singapore,heatwave_events,1998,9.0
+Singapore,heatwave_events,1999,0.0
+Singapore,heatwave_events,2000,0.0
+Singapore,heatwave_events,2001,0.0
+Singapore,heatwave_events,2002,2.0
+Singapore,heatwave_events,2003,0.0
+Singapore,heatwave_events,2004,2.0
+Singapore,heatwave_events,2005,2.0
+Singapore,heatwave_events,2006,1.0
+Singapore,heatwave_events,2007,0.0
+Singapore,heatwave_events,2008,0.0
+Singapore,heatwave_events,2009,0.0
+Singapore,heatwave_events,2010,3.0
+Singapore,heatwave_events,2011,0.0
+Singapore,heatwave_events,2012,3.0
+Singapore,heatwave_events,2013,3.0
+Singapore,heatwave_events,2014,7.0
+Singapore,heatwave_events,2015,4.0
+Singapore,heatwave_events,2016,7.0
+Singapore,heatwave_events,2017,0.0
+Singapore,heatwave_events,2018,5.0
+Singapore,heatwave_events,2019,12.0
+Singapore,heatwave_events,2020,7.0
+Singapore,heatwave_events,2021,0.0
+Singapore,heatwave_events,2022,0.0
+Singapore,heatwave_events,2023,5.0
+Singapore,heatwave_events,2024,8.0
+Singapore,heatwave_events,2025,0.0
+Singapore,heatwave_days,1981,10.0
+Singapore,heatwave_days,1982,38.0
+Singapore,heatwave_days,1983,53.0
+Singapore,heatwave_days,1984,0.0
+Singapore,heatwave_days,1985,0.0
+Singapore,heatwave_days,1986,0.0
+Singapore,heatwave_days,1987,0.0
+Singapore,heatwave_days,1988,0.0
+Singapore,heatwave_days,1989,0.0
+Singapore,heatwave_days,1990,30.0
+Singapore,heatwave_days,1991,12.0
+Singapore,heatwave_days,1992,9.0
+Singapore,heatwave_days,1993,0.0
+Singapore,heatwave_days,1994,0.0
+Singapore,heatwave_days,1995,0.0
+Singapore,heatwave_days,1996,0.0
+Singapore,heatwave_days,1997,39.0
+Singapore,heatwave_days,1998,62.0
+Singapore,heatwave_days,1999,0.0
+Singapore,heatwave_days,2000,0.0
+Singapore,heatwave_days,2001,0.0
+Singapore,heatwave_days,2002,9.0
+Singapore,heatwave_days,2003,0.0
+Singapore,heatwave_days,2004,7.0
+Singapore,heatwave_days,2005,12.0
+Singapore,heatwave_days,2006,3.0
+Singapore,heatwave_days,2007,0.0
+Singapore,heatwave_days,2008,0.0
+Singapore,heatwave_days,2009,0.0
+Singapore,heatwave_days,2010,28.0
+Singapore,heatwave_days,2011,0.0
+Singapore,heatwave_days,2012,12.0
+Singapore,heatwave_days,2013,9.0
+Singapore,heatwave_days,2014,49.0
+Singapore,heatwave_days,2015,23.0
+Singapore,heatwave_days,2016,43.0
+Singapore,heatwave_days,2017,0.0
+Singapore,heatwave_days,2018,19.0
+Singapore,heatwave_days,2019,69.0
+Singapore,heatwave_days,2020,31.0
+Singapore,heatwave_days,2021,0.0
+Singapore,heatwave_days,2022,0.0
+Singapore,heatwave_days,2023,17.0
+Singapore,heatwave_days,2024,42.0
+Singapore,heatwave_days,2025,0.0
+Singapore,longest_heatwave,1981,4.0
+Singapore,longest_heatwave,1982,6.0
+Singapore,longest_heatwave,1983,23.0
+Singapore,longest_heatwave,1984,0.0
+Singapore,longest_heatwave,1985,0.0
+Singapore,longest_heatwave,1986,0.0
+Singapore,longest_heatwave,1987,0.0
+Singapore,longest_heatwave,1988,0.0
+Singapore,longest_heatwave,1989,0.0
+Singapore,longest_heatwave,1990,10.0
+Singapore,longest_heatwave,1991,8.0
+Singapore,longest_heatwave,1992,3.0
+Singapore,longest_heatwave,1993,0.0
+Singapore,longest_heatwave,1994,0.0
+Singapore,longest_heatwave,1995,0.0
+Singapore,longest_heatwave,1996,0.0
+Singapore,longest_heatwave,1997,8.0
+Singapore,longest_heatwave,1998,12.0
+Singapore,longest_heatwave,1999,0.0
+Singapore,longest_heatwave,2000,0.0
+Singapore,longest_heatwave,2001,0.0
+Singapore,longest_heatwave,2002,5.0
+Singapore,longest_heatwave,2003,0.0
+Singapore,longest_heatwave,2004,4.0
+Singapore,longest_heatwave,2005,8.0
+Singapore,longest_heatwave,2006,3.0
+Singapore,longest_heatwave,2007,0.0
+Singapore,longest_heatwave,2008,0.0
+Singapore,longest_heatwave,2009,0.0
+Singapore,longest_heatwave,2010,17.0
+Singapore,longest_heatwave,2011,0.0
+Singapore,longest_heatwave,2012,6.0
+Singapore,longest_heatwave,2013,3.0
+Singapore,longest_heatwave,2014,13.0
+Singapore,longest_heatwave,2015,13.0
+Singapore,longest_heatwave,2016,12.0
+Singapore,longest_heatwave,2017,0.0
+Singapore,longest_heatwave,2018,5.0
+Singapore,longest_heatwave,2019,11.0
+Singapore,longest_heatwave,2020,8.0
+Singapore,longest_heatwave,2021,0.0
+Singapore,longest_heatwave,2022,0.0
+Singapore,longest_heatwave,2023,4.0
+Singapore,longest_heatwave,2024,10.0
+Singapore,longest_heatwave,2025,0.0
+Singapore,hottest_day,1981,32.6
+Singapore,hottest_day,1982,33.04
+Singapore,hottest_day,1983,34.92
+Singapore,hottest_day,1984,31.14
+Singapore,hottest_day,1985,32.69
+Singapore,hottest_day,1986,32.23
+Singapore,hottest_day,1987,31.82
+Singapore,hottest_day,1988,32.31
+Singapore,hottest_day,1989,32.59
+Singapore,hottest_day,1990,32.77
+Singapore,hottest_day,1991,32.76
+Singapore,hottest_day,1992,32.02
+Singapore,hottest_day,1993,31.51
+Singapore,hottest_day,1994,31.75
+Singapore,hottest_day,1995,31.51
+Singapore,hottest_day,1996,31.63
+Singapore,hottest_day,1997,32.59
+Singapore,hottest_day,1998,34.47
+Singapore,hottest_day,1999,31.66
+Singapore,hottest_day,2000,31.71
+Singapore,hottest_day,2001,31.84
+Singapore,hottest_day,2002,31.95
+Singapore,hottest_day,2003,31.9
+Singapore,hottest_day,2004,33.15
+Singapore,hottest_day,2005,32.98
+Singapore,hottest_day,2006,31.57
+Singapore,hottest_day,2007,31.9
+Singapore,hottest_day,2008,32.15
+Singapore,hottest_day,2009,31.67
+Singapore,hottest_day,2010,32.93
+Singapore,hottest_day,2011,31.41
+Singapore,hottest_day,2012,32.72
+Singapore,hottest_day,2013,31.9
+Singapore,hottest_day,2014,33.65
+Singapore,hottest_day,2015,32.49
+Singapore,hottest_day,2016,33.12
+Singapore,hottest_day,2017,33.89
+Singapore,hottest_day,2018,32.37
+Singapore,hottest_day,2019,33.63
+Singapore,hottest_day,2020,33.86
+Singapore,hottest_day,2021,32.14
+Singapore,hottest_day,2022,32.28
+Singapore,hottest_day,2023,32.88
+Singapore,hottest_day,2024,34.05
+Singapore,hottest_day,2025,32.18
+Singapore,warm_nights,1981,8.0
+Singapore,warm_nights,1982,8.0
+Singapore,warm_nights,1983,20.0
+Singapore,warm_nights,1984,0.0
+Singapore,warm_nights,1985,3.0
+Singapore,warm_nights,1986,2.0
+Singapore,warm_nights,1987,1.0
+Singapore,warm_nights,1988,20.0
+Singapore,warm_nights,1989,1.0
+Singapore,warm_nights,1990,30.0
+Singapore,warm_nights,1991,5.0
+Singapore,warm_nights,1992,25.0
+Singapore,warm_nights,1993,5.0
+Singapore,warm_nights,1994,0.0
+Singapore,warm_nights,1995,23.0
+Singapore,warm_nights,1996,3.0
+Singapore,warm_nights,1997,20.0
+Singapore,warm_nights,1998,73.0
+Singapore,warm_nights,1999,4.0
+Singapore,warm_nights,2000,14.0
+Singapore,warm_nights,2001,16.0
+Singapore,warm_nights,2002,20.0
+Singapore,warm_nights,2003,24.0
+Singapore,warm_nights,2004,19.0
+Singapore,warm_nights,2005,22.0
+Singapore,warm_nights,2006,9.0
+Singapore,warm_nights,2007,14.0
+Singapore,warm_nights,2008,6.0
+Singapore,warm_nights,2009,29.0
+Singapore,warm_nights,2010,62.0
+Singapore,warm_nights,2011,19.0
+Singapore,warm_nights,2012,17.0
+Singapore,warm_nights,2013,53.0
+Singapore,warm_nights,2014,65.0
+Singapore,warm_nights,2015,20.0
+Singapore,warm_nights,2016,76.0
+Singapore,warm_nights,2017,42.0
+Singapore,warm_nights,2018,27.0
+Singapore,warm_nights,2019,65.0
+Singapore,warm_nights,2020,48.0
+Singapore,warm_nights,2021,33.0
+Singapore,warm_nights,2022,49.0
+Singapore,warm_nights,2023,113.0
+Singapore,warm_nights,2024,156.0
+Singapore,warm_nights,2025,109.0
+Orlando,heatwave_events,1981,8.0
+Orlando,heatwave_events,1982,0.0
+Orlando,heatwave_events,1983,0.0
+Orlando,heatwave_events,1984,0.0
+Orlando,heatwave_events,1985,2.0
+Orlando,heatwave_events,1986,3.0
+Orlando,heatwave_events,1987,3.0
+Orlando,heatwave_events,1988,1.0
+Orlando,heatwave_events,1989,5.0
+Orlando,heatwave_events,1990,2.0
+Orlando,heatwave_events,1991,0.0
+Orlando,heatwave_events,1992,0.0
+Orlando,heatwave_events,1993,5.0
+Orlando,heatwave_events,1994,0.0
+Orlando,heatwave_events,1995,3.0
+Orlando,heatwave_events,1996,0.0
+Orlando,heatwave_events,1997,1.0
+Orlando,heatwave_events,1998,5.0
+Orlando,heatwave_events,1999,3.0
+Orlando,heatwave_events,2000,5.0
+Orlando,heatwave_events,2001,1.0
+Orlando,heatwave_events,2002,2.0
+Orlando,heatwave_events,2003,1.0
+Orlando,heatwave_events,2004,1.0
+Orlando,heatwave_events,2005,0.0
+Orlando,heatwave_events,2006,5.0
+Orlando,heatwave_events,2007,0.0
+Orlando,heatwave_events,2008,2.0
+Orlando,heatwave_events,2009,1.0
+Orlando,heatwave_events,2010,6.0
+Orlando,heatwave_events,2011,5.0
+Orlando,heatwave_events,2012,2.0
+Orlando,heatwave_events,2013,0.0
+Orlando,heatwave_events,2014,1.0
+Orlando,heatwave_events,2015,1.0
+Orlando,heatwave_events,2016,2.0
+Orlando,heatwave_events,2017,4.0
+Orlando,heatwave_events,2018,0.0
+Orlando,heatwave_events,2019,1.0
+Orlando,heatwave_events,2020,3.0
+Orlando,heatwave_events,2021,4.0
+Orlando,heatwave_events,2022,7.0
+Orlando,heatwave_events,2023,6.0
+Orlando,heatwave_events,2024,9.0
+Orlando,heatwave_events,2025,8.0
+Orlando,heatwave_days,1981,35.0
+Orlando,heatwave_days,1982,0.0
+Orlando,heatwave_days,1983,0.0
+Orlando,heatwave_days,1984,0.0
+Orlando,heatwave_days,1985,15.0
+Orlando,heatwave_days,1986,14.0
+Orlando,heatwave_days,1987,17.0
+Orlando,heatwave_days,1988,4.0
+Orlando,heatwave_days,1989,22.0
+Orlando,heatwave_days,1990,12.0
+Orlando,heatwave_days,1991,0.0
+Orlando,heatwave_days,1992,0.0
+Orlando,heatwave_days,1993,26.0
+Orlando,heatwave_days,1994,0.0
+Orlando,heatwave_days,1995,12.0
+Orlando,heatwave_days,1996,0.0
+Orlando,heatwave_days,1997,3.0
+Orlando,heatwave_days,1998,42.0
+Orlando,heatwave_days,1999,13.0
+Orlando,heatwave_days,2000,26.0
+Orlando,heatwave_days,2001,7.0
+Orlando,heatwave_days,2002,12.0
+Orlando,heatwave_days,2003,5.0
+Orlando,heatwave_days,2004,11.0
+Orlando,heatwave_days,2005,0.0
+Orlando,heatwave_days,2006,19.0
+Orlando,heatwave_days,2007,0.0
+Orlando,heatwave_days,2008,9.0
+Orlando,heatwave_days,2009,6.0
+Orlando,heatwave_days,2010,31.0
+Orlando,heatwave_days,2011,27.0
+Orlando,heatwave_days,2012,6.0
+Orlando,heatwave_days,2013,0.0
+Orlando,heatwave_days,2014,3.0
+Orlando,heatwave_days,2015,3.0
+Orlando,heatwave_days,2016,7.0
+Orlando,heatwave_days,2017,15.0
+Orlando,heatwave_days,2018,0.0
+Orlando,heatwave_days,2019,12.0
+Orlando,heatwave_days,2020,10.0
+Orlando,heatwave_days,2021,16.0
+Orlando,heatwave_days,2022,28.0
+Orlando,heatwave_days,2023,27.0
+Orlando,heatwave_days,2024,59.0
+Orlando,heatwave_days,2025,43.0
+Orlando,longest_heatwave,1981,8.0
+Orlando,longest_heatwave,1982,0.0
+Orlando,longest_heatwave,1983,0.0
+Orlando,longest_heatwave,1984,0.0
+Orlando,longest_heatwave,1985,10.0
+Orlando,longest_heatwave,1986,8.0
+Orlando,longest_heatwave,1987,8.0
+Orlando,longest_heatwave,1988,4.0
+Orlando,longest_heatwave,1989,8.0
+Orlando,longest_heatwave,1990,7.0
+Orlando,longest_heatwave,1991,0.0
+Orlando,longest_heatwave,1992,0.0
+Orlando,longest_heatwave,1993,9.0
+Orlando,longest_heatwave,1994,0.0
+Orlando,longest_heatwave,1995,6.0
+Orlando,longest_heatwave,1996,0.0
+Orlando,longest_heatwave,1997,3.0
+Orlando,longest_heatwave,1998,16.0
+Orlando,longest_heatwave,1999,6.0
+Orlando,longest_heatwave,2000,9.0
+Orlando,longest_heatwave,2001,7.0
+Orlando,longest_heatwave,2002,8.0
+Orlando,longest_heatwave,2003,5.0
+Orlando,longest_heatwave,2004,11.0
+Orlando,longest_heatwave,2005,0.0
+Orlando,longest_heatwave,2006,6.0
+Orlando,longest_heatwave,2007,0.0
+Orlando,longest_heatwave,2008,6.0
+Orlando,longest_heatwave,2009,6.0
+Orlando,longest_heatwave,2010,8.0
+Orlando,longest_heatwave,2011,8.0
+Orlando,longest_heatwave,2012,3.0
+Orlando,longest_heatwave,2013,0.0
+Orlando,longest_heatwave,2014,3.0
+Orlando,longest_heatwave,2015,3.0
+Orlando,longest_heatwave,2016,4.0
+Orlando,longest_heatwave,2017,5.0
+Orlando,longest_heatwave,2018,0.0
+Orlando,longest_heatwave,2019,12.0
+Orlando,longest_heatwave,2020,4.0
+Orlando,longest_heatwave,2021,5.0
+Orlando,longest_heatwave,2022,7.0
+Orlando,longest_heatwave,2023,10.0
+Orlando,longest_heatwave,2024,16.0
+Orlando,longest_heatwave,2025,11.0
+Orlando,hottest_day,1981,38.98
+Orlando,hottest_day,1982,33.06
+Orlando,hottest_day,1983,35.2
+Orlando,hottest_day,1984,34.9
+Orlando,hottest_day,1985,40.04
+Orlando,hottest_day,1986,37.18
+Orlando,hottest_day,1987,37.14
+Orlando,hottest_day,1988,36.88
+Orlando,hottest_day,1989,37.15
+Orlando,hottest_day,1990,36.95
+Orlando,hottest_day,1991,31.87
+Orlando,hottest_day,1992,35.46
+Orlando,hottest_day,1993,37.71
+Orlando,hottest_day,1994,35.5
+Orlando,hottest_day,1995,37.44
+Orlando,hottest_day,1996,34.59
+Orlando,hottest_day,1997,35.73
+Orlando,hottest_day,1998,40.3
+Orlando,hottest_day,1999,36.55
+Orlando,hottest_day,2000,39.03
+Orlando,hottest_day,2001,36.15
+Orlando,hottest_day,2002,38.36
+Orlando,hottest_day,2003,35.64
+Orlando,hottest_day,2004,39.06
+Orlando,hottest_day,2005,34.41
+Orlando,hottest_day,2006,38.15
+Orlando,hottest_day,2007,35.18
+Orlando,hottest_day,2008,37.11
+Orlando,hottest_day,2009,38.5
+Orlando,hottest_day,2010,37.89
+Orlando,hottest_day,2011,38.42
+Orlando,hottest_day,2012,35.89
+Orlando,hottest_day,2013,33.83
+Orlando,hottest_day,2014,35.64
+Orlando,hottest_day,2015,35.22
+Orlando,hottest_day,2016,36.99
+Orlando,hottest_day,2017,37.85
+Orlando,hottest_day,2018,33.43
+Orlando,hottest_day,2019,37.63
+Orlando,hottest_day,2020,35.99
+Orlando,hottest_day,2021,37.81
+Orlando,hottest_day,2022,38.31
+Orlando,hottest_day,2023,37.55
+Orlando,hottest_day,2024,39.32
+Orlando,hottest_day,2025,37.44
+Orlando,warm_nights,1981,30.0
+Orlando,warm_nights,1982,1.0
+Orlando,warm_nights,1983,10.0
+Orlando,warm_nights,1984,0.0
+Orlando,warm_nights,1985,5.0
+Orlando,warm_nights,1986,5.0
+Orlando,warm_nights,1987,19.0
+Orlando,warm_nights,1988,3.0
+Orlando,warm_nights,1989,9.0
+Orlando,warm_nights,1990,10.0
+Orlando,warm_nights,1991,3.0
+Orlando,warm_nights,1992,4.0
+Orlando,warm_nights,1993,27.0
+Orlando,warm_nights,1994,1.0
+Orlando,warm_nights,1995,24.0
+Orlando,warm_nights,1996,5.0
+Orlando,warm_nights,1997,8.0
+Orlando,warm_nights,1998,63.0
+Orlando,warm_nights,1999,14.0
+Orlando,warm_nights,2000,16.0
+Orlando,warm_nights,2001,6.0
+Orlando,warm_nights,2002,7.0
+Orlando,warm_nights,2003,5.0
+Orlando,warm_nights,2004,32.0
+Orlando,warm_nights,2005,45.0
+Orlando,warm_nights,2006,15.0
+Orlando,warm_nights,2007,22.0
+Orlando,warm_nights,2008,10.0
+Orlando,warm_nights,2009,16.0
+Orlando,warm_nights,2010,57.0
+Orlando,warm_nights,2011,38.0
+Orlando,warm_nights,2012,7.0
+Orlando,warm_nights,2013,7.0
+Orlando,warm_nights,2014,20.0
+Orlando,warm_nights,2015,28.0
+Orlando,warm_nights,2016,46.0
+Orlando,warm_nights,2017,24.0
+Orlando,warm_nights,2018,9.0
+Orlando,warm_nights,2019,26.0
+Orlando,warm_nights,2020,38.0
+Orlando,warm_nights,2021,20.0
+Orlando,warm_nights,2022,54.0
+Orlando,warm_nights,2023,52.0
+Orlando,warm_nights,2024,88.0
+Orlando,warm_nights,2025,54.0
+Mexico City,heatwave_events,1981,0.0
+Mexico City,heatwave_events,1982,2.0
+Mexico City,heatwave_events,1983,4.0
+Mexico City,heatwave_events,1984,2.0
+Mexico City,heatwave_events,1985,0.0
+Mexico City,heatwave_events,1986,0.0
+Mexico City,heatwave_events,1987,0.0
+Mexico City,heatwave_events,1988,2.0
+Mexico City,heatwave_events,1989,1.0
+Mexico City,heatwave_events,1990,1.0
+Mexico City,heatwave_events,1991,6.0
+Mexico City,heatwave_events,1992,0.0
+Mexico City,heatwave_events,1993,1.0
+Mexico City,heatwave_events,1994,2.0
+Mexico City,heatwave_events,1995,4.0
+Mexico City,heatwave_events,1996,1.0
+Mexico City,heatwave_events,1997,0.0
+Mexico City,heatwave_events,1998,6.0
+Mexico City,heatwave_events,1999,3.0
+Mexico City,heatwave_events,2000,2.0
+Mexico City,heatwave_events,2001,3.0
+Mexico City,heatwave_events,2002,2.0
+Mexico City,heatwave_events,2003,2.0
+Mexico City,heatwave_events,2004,1.0
+Mexico City,heatwave_events,2005,3.0
+Mexico City,heatwave_events,2006,2.0
+Mexico City,heatwave_events,2007,0.0
+Mexico City,heatwave_events,2008,3.0
+Mexico City,heatwave_events,2009,3.0
+Mexico City,heatwave_events,2010,3.0
+Mexico City,heatwave_events,2011,4.0
+Mexico City,heatwave_events,2012,1.0
+Mexico City,heatwave_events,2013,1.0
+Mexico City,heatwave_events,2014,1.0
+Mexico City,heatwave_events,2015,0.0
+Mexico City,heatwave_events,2016,4.0
+Mexico City,heatwave_events,2017,2.0
+Mexico City,heatwave_events,2018,2.0
+Mexico City,heatwave_events,2019,5.0
+Mexico City,heatwave_events,2020,4.0
+Mexico City,heatwave_events,2021,1.0
+Mexico City,heatwave_events,2022,5.0
+Mexico City,heatwave_events,2023,4.0
+Mexico City,heatwave_events,2024,7.0
+Mexico City,heatwave_events,2025,2.0
+Mexico City,heatwave_days,1981,0.0
+Mexico City,heatwave_days,1982,8.0
+Mexico City,heatwave_days,1983,29.0
+Mexico City,heatwave_days,1984,8.0
+Mexico City,heatwave_days,1985,0.0
+Mexico City,heatwave_days,1986,0.0
+Mexico City,heatwave_days,1987,0.0
+Mexico City,heatwave_days,1988,10.0
+Mexico City,heatwave_days,1989,3.0
+Mexico City,heatwave_days,1990,3.0
+Mexico City,heatwave_days,1991,31.0
+Mexico City,heatwave_days,1992,0.0
+Mexico City,heatwave_days,1993,6.0
+Mexico City,heatwave_days,1994,7.0
+Mexico City,heatwave_days,1995,18.0
+Mexico City,heatwave_days,1996,5.0
+Mexico City,heatwave_days,1997,0.0
+Mexico City,heatwave_days,1998,56.0
+Mexico City,heatwave_days,1999,14.0
+Mexico City,heatwave_days,2000,8.0
+Mexico City,heatwave_days,2001,13.0
+Mexico City,heatwave_days,2002,25.0
+Mexico City,heatwave_days,2003,29.0
+Mexico City,heatwave_days,2004,3.0
+Mexico City,heatwave_days,2005,22.0
+Mexico City,heatwave_days,2006,7.0
+Mexico City,heatwave_days,2007,0.0
+Mexico City,heatwave_days,2008,16.0
+Mexico City,heatwave_days,2009,17.0
+Mexico City,heatwave_days,2010,19.0
+Mexico City,heatwave_days,2011,21.0
+Mexico City,heatwave_days,2012,8.0
+Mexico City,heatwave_days,2013,5.0
+Mexico City,heatwave_days,2014,3.0
+Mexico City,heatwave_days,2015,0.0
+Mexico City,heatwave_days,2016,24.0
+Mexico City,heatwave_days,2017,13.0
+Mexico City,heatwave_days,2018,8.0
+Mexico City,heatwave_days,2019,34.0
+Mexico City,heatwave_days,2020,28.0
+Mexico City,heatwave_days,2021,6.0
+Mexico City,heatwave_days,2022,31.0
+Mexico City,heatwave_days,2023,29.0
+Mexico City,heatwave_days,2024,62.0
+Mexico City,heatwave_days,2025,32.0
+Mexico City,longest_heatwave,1981,0.0
+Mexico City,longest_heatwave,1982,4.0
+Mexico City,longest_heatwave,1983,12.0
+Mexico City,longest_heatwave,1984,5.0
+Mexico City,longest_heatwave,1985,0.0
+Mexico City,longest_heatwave,1986,0.0
+Mexico City,longest_heatwave,1987,0.0
+Mexico City,longest_heatwave,1988,5.0
+Mexico City,longest_heatwave,1989,3.0
+Mexico City,longest_heatwave,1990,3.0
+Mexico City,longest_heatwave,1991,10.0
+Mexico City,longest_heatwave,1992,0.0
+Mexico City,longest_heatwave,1993,6.0
+Mexico City,longest_heatwave,1994,4.0
+Mexico City,longest_heatwave,1995,7.0
+Mexico City,longest_heatwave,1996,5.0
+Mexico City,longest_heatwave,1997,0.0
+Mexico City,longest_heatwave,1998,15.0
+Mexico City,longest_heatwave,1999,7.0
+Mexico City,longest_heatwave,2000,5.0
+Mexico City,longest_heatwave,2001,7.0
+Mexico City,longest_heatwave,2002,21.0
+Mexico City,longest_heatwave,2003,26.0
+Mexico City,longest_heatwave,2004,3.0
+Mexico City,longest_heatwave,2005,14.0
+Mexico City,longest_heatwave,2006,4.0
+Mexico City,longest_heatwave,2007,0.0
+Mexico City,longest_heatwave,2008,6.0
+Mexico City,longest_heatwave,2009,11.0
+Mexico City,longest_heatwave,2010,8.0
+Mexico City,longest_heatwave,2011,11.0
+Mexico City,longest_heatwave,2012,8.0
+Mexico City,longest_heatwave,2013,5.0
+Mexico City,longest_heatwave,2014,3.0
+Mexico City,longest_heatwave,2015,0.0
+Mexico City,longest_heatwave,2016,9.0
+Mexico City,longest_heatwave,2017,10.0
+Mexico City,longest_heatwave,2018,5.0
+Mexico City,longest_heatwave,2019,17.0
+Mexico City,longest_heatwave,2020,9.0
+Mexico City,longest_heatwave,2021,6.0
+Mexico City,longest_heatwave,2022,9.0
+Mexico City,longest_heatwave,2023,17.0
+Mexico City,longest_heatwave,2024,37.0
+Mexico City,longest_heatwave,2025,23.0
+Mexico City,hottest_day,1981,28.2
+Mexico City,hottest_day,1982,29.25
+Mexico City,hottest_day,1983,32.2
+Mexico City,hottest_day,1984,28.9
+Mexico City,hottest_day,1985,28.06
+Mexico City,hottest_day,1986,28.35
+Mexico City,hottest_day,1987,27.86
+Mexico City,hottest_day,1988,29.8
+Mexico City,hottest_day,1989,29.23
+Mexico City,hottest_day,1990,29.48
+Mexico City,hottest_day,1991,29.69
+Mexico City,hottest_day,1992,26.28
+Mexico City,hottest_day,1993,29.89
+Mexico City,hottest_day,1994,29.8
+Mexico City,hottest_day,1995,29.29
+Mexico City,hottest_day,1996,29.01
+Mexico City,hottest_day,1997,27.76
+Mexico City,hottest_day,1998,32.31
+Mexico City,hottest_day,1999,29.71
+Mexico City,hottest_day,2000,29.19
+Mexico City,hottest_day,2001,30.22
+Mexico City,hottest_day,2002,30.89
+Mexico City,hottest_day,2003,31.7
+Mexico City,hottest_day,2004,28.28
+Mexico City,hottest_day,2005,30.64
+Mexico City,hottest_day,2006,29.47
+Mexico City,hottest_day,2007,28.37
+Mexico City,hottest_day,2008,30.02
+Mexico City,hottest_day,2009,29.76
+Mexico City,hottest_day,2010,30.36
+Mexico City,hottest_day,2011,31.05
+Mexico City,hottest_day,2012,29.3
+Mexico City,hottest_day,2013,29.8
+Mexico City,hottest_day,2014,29.26
+Mexico City,hottest_day,2015,27.24
+Mexico City,hottest_day,2016,30.26
+Mexico City,hottest_day,2017,30.22
+Mexico City,hottest_day,2018,30.01
+Mexico City,hottest_day,2019,30.01
+Mexico City,hottest_day,2020,29.76
+Mexico City,hottest_day,2021,29.49
+Mexico City,hottest_day,2022,31.07
+Mexico City,hottest_day,2023,31.11
+Mexico City,hottest_day,2024,32.72
+Mexico City,hottest_day,2025,30.7
+Mexico City,warm_nights,1981,15.0
+Mexico City,warm_nights,1982,20.0
+Mexico City,warm_nights,1983,31.0
+Mexico City,warm_nights,1984,5.0
+Mexico City,warm_nights,1985,3.0
+Mexico City,warm_nights,1986,7.0
+Mexico City,warm_nights,1987,12.0
+Mexico City,warm_nights,1988,6.0
+Mexico City,warm_nights,1989,10.0
+Mexico City,warm_nights,1990,19.0
+Mexico City,warm_nights,1991,14.0
+Mexico City,warm_nights,1992,4.0
+Mexico City,warm_nights,1993,9.0
+Mexico City,warm_nights,1994,17.0
+Mexico City,warm_nights,1995,35.0
+Mexico City,warm_nights,1996,22.0
+Mexico City,warm_nights,1997,10.0
+Mexico City,warm_nights,1998,53.0
+Mexico City,warm_nights,1999,7.0
+Mexico City,warm_nights,2000,8.0
+Mexico City,warm_nights,2001,17.0
+Mexico City,warm_nights,2002,29.0
+Mexico City,warm_nights,2003,38.0
+Mexico City,warm_nights,2004,24.0
+Mexico City,warm_nights,2005,36.0
+Mexico City,warm_nights,2006,17.0
+Mexico City,warm_nights,2007,25.0
+Mexico City,warm_nights,2008,27.0
+Mexico City,warm_nights,2009,38.0
+Mexico City,warm_nights,2010,42.0
+Mexico City,warm_nights,2011,32.0
+Mexico City,warm_nights,2012,10.0
+Mexico City,warm_nights,2013,18.0
+Mexico City,warm_nights,2014,26.0
+Mexico City,warm_nights,2015,32.0
+Mexico City,warm_nights,2016,52.0
+Mexico City,warm_nights,2017,48.0
+Mexico City,warm_nights,2018,30.0
+Mexico City,warm_nights,2019,44.0
+Mexico City,warm_nights,2020,40.0
+Mexico City,warm_nights,2021,32.0
+Mexico City,warm_nights,2022,33.0
+Mexico City,warm_nights,2023,77.0
+Mexico City,warm_nights,2024,114.0
+Mexico City,warm_nights,2025,64.0
+Rio de Janeiro,heatwave_events,1982,4.0
+Rio de Janeiro,heatwave_events,1983,5.0
+Rio de Janeiro,heatwave_events,1984,2.0
+Rio de Janeiro,heatwave_events,1985,1.0
+Rio de Janeiro,heatwave_events,1986,2.0
+Rio de Janeiro,heatwave_events,1987,2.0
+Rio de Janeiro,heatwave_events,1988,2.0
+Rio de Janeiro,heatwave_events,1989,0.0
+Rio de Janeiro,heatwave_events,1990,1.0
+Rio de Janeiro,heatwave_events,1991,0.0
+Rio de Janeiro,heatwave_events,1992,2.0
+Rio de Janeiro,heatwave_events,1993,1.0
+Rio de Janeiro,heatwave_events,1994,1.0
+Rio de Janeiro,heatwave_events,1995,5.0
+Rio de Janeiro,heatwave_events,1996,0.0
+Rio de Janeiro,heatwave_events,1997,0.0
+Rio de Janeiro,heatwave_events,1998,4.0
+Rio de Janeiro,heatwave_events,1999,0.0
+Rio de Janeiro,heatwave_events,2000,0.0
+Rio de Janeiro,heatwave_events,2001,5.0
+Rio de Janeiro,heatwave_events,2002,2.0
+Rio de Janeiro,heatwave_events,2003,1.0
+Rio de Janeiro,heatwave_events,2004,0.0
+Rio de Janeiro,heatwave_events,2005,0.0
+Rio de Janeiro,heatwave_events,2006,5.0
+Rio de Janeiro,heatwave_events,2007,5.0
+Rio de Janeiro,heatwave_events,2008,2.0
+Rio de Janeiro,heatwave_events,2009,0.0
+Rio de Janeiro,heatwave_events,2010,7.0
+Rio de Janeiro,heatwave_events,2011,3.0
+Rio de Janeiro,heatwave_events,2012,1.0
+Rio de Janeiro,heatwave_events,2013,4.0
+Rio de Janeiro,heatwave_events,2014,4.0
+Rio de Janeiro,heatwave_events,2015,9.0
+Rio de Janeiro,heatwave_events,2016,3.0
+Rio de Janeiro,heatwave_events,2017,2.0
+Rio de Janeiro,heatwave_events,2018,1.0
+Rio de Janeiro,heatwave_events,2019,4.0
+Rio de Janeiro,heatwave_events,2020,0.0
+Rio de Janeiro,heatwave_events,2021,1.0
+Rio de Janeiro,heatwave_events,2022,1.0
+Rio de Janeiro,heatwave_events,2023,1.0
+Rio de Janeiro,heatwave_events,2024,4.0
+Rio de Janeiro,heatwave_events,2025,4.0
+Rio de Janeiro,heatwave_days,1982,12.0
+Rio de Janeiro,heatwave_days,1983,15.0
+Rio de Janeiro,heatwave_days,1984,11.0
+Rio de Janeiro,heatwave_days,1985,3.0
+Rio de Janeiro,heatwave_days,1986,7.0
+Rio de Janeiro,heatwave_days,1987,7.0
+Rio de Janeiro,heatwave_days,1988,10.0
+Rio de Janeiro,heatwave_days,1989,0.0
+Rio de Janeiro,heatwave_days,1990,4.0
+Rio de Janeiro,heatwave_days,1991,0.0
+Rio de Janeiro,heatwave_days,1992,7.0
+Rio de Janeiro,heatwave_days,1993,4.0
+Rio de Janeiro,heatwave_days,1994,18.0
+Rio de Janeiro,heatwave_days,1995,17.0
+Rio de Janeiro,heatwave_days,1996,0.0
+Rio de Janeiro,heatwave_days,1997,0.0
+Rio de Janeiro,heatwave_days,1998,12.0
+Rio de Janeiro,heatwave_days,1999,0.0
+Rio de Janeiro,heatwave_days,2000,0.0
+Rio de Janeiro,heatwave_days,2001,15.0
+Rio de Janeiro,heatwave_days,2002,8.0
+Rio de Janeiro,heatwave_days,2003,5.0
+Rio de Janeiro,heatwave_days,2004,0.0
+Rio de Janeiro,heatwave_days,2005,0.0
+Rio de Janeiro,heatwave_days,2006,16.0
+Rio de Janeiro,heatwave_days,2007,17.0
+Rio de Janeiro,heatwave_days,2008,6.0
+Rio de Janeiro,heatwave_days,2009,0.0
+Rio de Janeiro,heatwave_days,2010,24.0
+Rio de Janeiro,heatwave_days,2011,13.0
+Rio de Janeiro,heatwave_days,2012,3.0
+Rio de Janeiro,heatwave_days,2013,13.0
+Rio de Janeiro,heatwave_days,2014,43.0
+Rio de Janeiro,heatwave_days,2015,48.0
+Rio de Janeiro,heatwave_days,2016,9.0
+Rio de Janeiro,heatwave_days,2017,8.0
+Rio de Janeiro,heatwave_days,2018,3.0
+Rio de Janeiro,heatwave_days,2019,14.0
+Rio de Janeiro,heatwave_days,2020,0.0
+Rio de Janeiro,heatwave_days,2021,4.0
+Rio de Janeiro,heatwave_days,2022,4.0
+Rio de Janeiro,heatwave_days,2023,3.0
+Rio de Janeiro,heatwave_days,2024,16.0
+Rio de Janeiro,heatwave_days,2025,14.0
+Rio de Janeiro,longest_heatwave,1982,3.0
+Rio de Janeiro,longest_heatwave,1983,3.0
+Rio de Janeiro,longest_heatwave,1984,8.0
+Rio de Janeiro,longest_heatwave,1985,3.0
+Rio de Janeiro,longest_heatwave,1986,4.0
+Rio de Janeiro,longest_heatwave,1987,4.0
+Rio de Janeiro,longest_heatwave,1988,6.0
+Rio de Janeiro,longest_heatwave,1989,0.0
+Rio de Janeiro,longest_heatwave,1990,4.0
+Rio de Janeiro,longest_heatwave,1991,0.0
+Rio de Janeiro,longest_heatwave,1992,4.0
+Rio de Janeiro,longest_heatwave,1993,4.0
+Rio de Janeiro,longest_heatwave,1994,18.0
+Rio de Janeiro,longest_heatwave,1995,4.0
+Rio de Janeiro,longest_heatwave,1996,0.0
+Rio de Janeiro,longest_heatwave,1997,0.0
+Rio de Janeiro,longest_heatwave,1998,3.0
+Rio de Janeiro,longest_heatwave,1999,0.0
+Rio de Janeiro,longest_heatwave,2000,0.0
+Rio de Janeiro,longest_heatwave,2001,3.0
+Rio de Janeiro,longest_heatwave,2002,4.0
+Rio de Janeiro,longest_heatwave,2003,5.0
+Rio de Janeiro,longest_heatwave,2004,0.0
+Rio de Janeiro,longest_heatwave,2005,0.0
+Rio de Janeiro,longest_heatwave,2006,4.0
+Rio de Janeiro,longest_heatwave,2007,5.0
+Rio de Janeiro,longest_heatwave,2008,3.0
+Rio de Janeiro,longest_heatwave,2009,0.0
+Rio de Janeiro,longest_heatwave,2010,5.0
+Rio de Janeiro,longest_heatwave,2011,7.0
+Rio de Janeiro,longest_heatwave,2012,3.0
+Rio de Janeiro,longest_heatwave,2013,4.0
+Rio de Janeiro,longest_heatwave,2014,24.0
+Rio de Janeiro,longest_heatwave,2015,15.0
+Rio de Janeiro,longest_heatwave,2016,3.0
+Rio de Janeiro,longest_heatwave,2017,5.0
+Rio de Janeiro,longest_heatwave,2018,3.0
+Rio de Janeiro,longest_heatwave,2019,5.0
+Rio de Janeiro,longest_heatwave,2020,0.0
+Rio de Janeiro,longest_heatwave,2021,4.0
+Rio de Janeiro,longest_heatwave,2022,4.0
+Rio de Janeiro,longest_heatwave,2023,3.0
+Rio de Janeiro,longest_heatwave,2024,7.0
+Rio de Janeiro,longest_heatwave,2025,5.0
+Rio de Janeiro,hottest_day,1982,34.41
+Rio de Janeiro,hottest_day,1983,34.0
+Rio de Janeiro,hottest_day,1984,33.39
+Rio de Janeiro,hottest_day,1985,36.04
+Rio de Janeiro,hottest_day,1986,34.26
+Rio de Janeiro,hottest_day,1987,34.86
+Rio de Janeiro,hottest_day,1988,35.13
+Rio de Janeiro,hottest_day,1989,32.13
+Rio de Janeiro,hottest_day,1990,33.14
+Rio de Janeiro,hottest_day,1991,33.76
+Rio de Janeiro,hottest_day,1992,32.96
+Rio de Janeiro,hottest_day,1993,32.29
+Rio de Janeiro,hottest_day,1994,34.59
+Rio de Janeiro,hottest_day,1995,35.13
+Rio de Janeiro,hottest_day,1996,32.72
+Rio de Janeiro,hottest_day,1997,31.52
+Rio de Janeiro,hottest_day,1998,36.44
+Rio de Janeiro,hottest_day,1999,34.12
+Rio de Janeiro,hottest_day,2000,35.1
+Rio de Janeiro,hottest_day,2001,34.78
+Rio de Janeiro,hottest_day,2002,32.87
+Rio de Janeiro,hottest_day,2003,35.63
+Rio de Janeiro,hottest_day,2004,34.31
+Rio de Janeiro,hottest_day,2005,33.66
+Rio de Janeiro,hottest_day,2006,37.92
+Rio de Janeiro,hottest_day,2007,35.49
+Rio de Janeiro,hottest_day,2008,34.91
+Rio de Janeiro,hottest_day,2009,35.19
+Rio de Janeiro,hottest_day,2010,34.71
+Rio de Janeiro,hottest_day,2011,34.3
+Rio de Janeiro,hottest_day,2012,34.95
+Rio de Janeiro,hottest_day,2013,36.28
+Rio de Janeiro,hottest_day,2014,34.47
+Rio de Janeiro,hottest_day,2015,36.56
+Rio de Janeiro,hottest_day,2016,35.18
+Rio de Janeiro,hottest_day,2017,36.02
+Rio de Janeiro,hottest_day,2018,34.64
+Rio de Janeiro,hottest_day,2019,33.33
+Rio de Janeiro,hottest_day,2020,36.41
+Rio de Janeiro,hottest_day,2021,35.56
+Rio de Janeiro,hottest_day,2022,36.13
+Rio de Janeiro,hottest_day,2023,32.99
+Rio de Janeiro,hottest_day,2024,40.19
+Rio de Janeiro,hottest_day,2025,36.25
+Rio de Janeiro,warm_nights,1982,0.0
+Rio de Janeiro,warm_nights,1983,12.0
+Rio de Janeiro,warm_nights,1984,1.0
+Rio de Janeiro,warm_nights,1985,4.0
+Rio de Janeiro,warm_nights,1986,6.0
+Rio de Janeiro,warm_nights,1987,9.0
+Rio de Janeiro,warm_nights,1988,24.0
+Rio de Janeiro,warm_nights,1989,7.0
+Rio de Janeiro,warm_nights,1990,13.0
+Rio de Janeiro,warm_nights,1991,5.0
+Rio de Janeiro,warm_nights,1992,6.0
+Rio de Janeiro,warm_nights,1993,11.0
+Rio de Janeiro,warm_nights,1994,19.0
+Rio de Janeiro,warm_nights,1995,21.0
+Rio de Janeiro,warm_nights,1996,40.0
+Rio de Janeiro,warm_nights,1997,0.0
+Rio de Janeiro,warm_nights,1998,51.0
+Rio de Janeiro,warm_nights,1999,24.0
+Rio de Janeiro,warm_nights,2000,3.0
+Rio de Janeiro,warm_nights,2001,29.0
+Rio de Janeiro,warm_nights,2002,14.0
+Rio de Janeiro,warm_nights,2003,32.0
+Rio de Janeiro,warm_nights,2004,2.0
+Rio de Janeiro,warm_nights,2005,21.0
+Rio de Janeiro,warm_nights,2006,23.0
+Rio de Janeiro,warm_nights,2007,9.0
+Rio de Janeiro,warm_nights,2008,2.0
+Rio de Janeiro,warm_nights,2009,18.0
+Rio de Janeiro,warm_nights,2010,52.0
+Rio de Janeiro,warm_nights,2011,8.0
+Rio de Janeiro,warm_nights,2012,0.0
+Rio de Janeiro,warm_nights,2013,22.0
+Rio de Janeiro,warm_nights,2014,15.0
+Rio de Janeiro,warm_nights,2015,39.0
+Rio de Janeiro,warm_nights,2016,31.0
+Rio de Janeiro,warm_nights,2017,36.0
+Rio de Janeiro,warm_nights,2018,22.0
+Rio de Janeiro,warm_nights,2019,58.0
+Rio de Janeiro,warm_nights,2020,18.0
+Rio de Janeiro,warm_nights,2021,15.0
+Rio de Janeiro,warm_nights,2022,9.0
+Rio de Janeiro,warm_nights,2023,21.0
+Rio de Janeiro,warm_nights,2024,53.0
+Rio de Janeiro,warm_nights,2025,22.0

@@ -17,14 +17,16 @@ Everything on this page belongs to phase 1. The only thing that passes from phas
 phase 2 is the results files in `data/results`. The app does no calculation of its own, so
 every number a user sees is generated here.
 
-The phase runs as four scripts, each feeding the next:
+The phase runs as six scripts, each feeding the next:
 
 ```
 NASA POWER API
-   → download_power.py     raw daily data for 24 places        data/raw
+   → download_power.py     raw daily data for 38 places        data/raw
    → src/clean.py          one checked daily table             data/clean
    → src/build_results.py  yearly measures, trends, verdicts   data/results
    → src/build_extras.py   luck test and season dates          data/results
+   → src/build_casefile.py extras for the app's case file      data/results
+   → src/build_outlook.py  weekly chances for next year        data/results
    → the app (phase 2)
 ```
 
@@ -38,12 +40,15 @@ NASA POWER API
   `WS10M_MAX`, `ALLSKY_SFC_SW_DWN`, `CLOUD_AMT`, `HDD18_3`, `CDD18_3`, `GWETROOT`, `GWETTOP`,
   `EVPTRNS`. Missing values are `-999`. Sunshine and cloud start in 1984.
 
-## Places (24)
+## Places (38)
 
 - **UK, analysed in depth (12):** London, Maidstone, Norwich, Plymouth, Bristol, Cardiff,
   Birmingham, Manchester, Newcastle, Belfast, Edinburgh, Aberdeen.
 - **World, big cities (12):** New York, Los Angeles, Toronto, Sao Paulo, Paris, Berlin,
   Madrid, Cairo, Delhi, Tokyo, Sydney, Johannesburg.
+- **World, popular trip destinations (14):** Barcelona, Rome, Lisbon, Athens,
+  Amsterdam, Istanbul, Dubai, Marrakech, Cape Town, Bangkok, Singapore, Orlando, Mexico City,
+  Rio de Janeiro.
 
 ### The sea problem
 
@@ -55,13 +60,27 @@ In a first download Aberdeen and Belfast showed almost no frost and no real heat
 gap is only 2 to 4 °C; over land it is usually 5 °C or more. If the gap is under 4.5 °C, the
 eight neighbouring squares are tried, nearest first, and the first land square is used.
 
-Three places are moved this way:
+Five places are moved this way:
 
 | Place | Moved | Reason |
 |---|---|---|
 | Belfast | 23 km | City square failed the sea test (gap 4.2 °C) |
 | Aberdeen | 30 km | City square failed the sea test (gap 2.4 °C) |
 | Toronto | 39 km north, by hand | City square is mostly Lake Ontario. It passed the sea test, but its nights appeared to warm 1.0 °C per decade with sudden jumps, while the land squares around it show 0.3 to 0.4 °C |
+| Lisbon | 42 km south-east, by hand | City square failed the sea test (gap 4.4 °C). The nearest square that passes is an ocean-cooled coastal strip: August afternoons average 25 °C against Lisbon's 28 °C, and its days warm only 0.1 °C per decade. The square across the Tagus is all land and starts 7 km from the city centre. It lies inland of the city, so its August afternoons read about 3 °C higher than Lisbon's |
+| Cape Town | 32 km | City square failed the sea test (gap 3.0 °C). The square used starts 2 km east of the city centre and holds most of the metropolitan area |
+
+Each of the 14 trip destinations was also checked against its neighbouring squares for grid
+elevation, monthly temperatures, warming rate and sudden jumps in the record. Two notes come
+out of that check:
+
+- **Singapore** passes the sea test on the 2015 test year (gap 4.8 °C) but its 45-year gap is
+  4.3 °C, so `build_results.py` marks its rows `PROVISIONAL`. No neighbouring square is
+  better (the only one with a larger gap is 70 km north, inland). Its warming rate is the
+  same in all five squares around it (0.2 °C per decade at night), so the trends hold, but
+  daytime highs read about 1.5 °C low.
+- **Mexico City**'s square averages 2,627 m above sea level against the city's 2,240 m, so
+  its temperatures read about 3 °C low. The squares around it are no closer.
 
 `data/raw/manifest.csv` records, for every place, the point the data comes from (`lat`,
 `lon`), the real city centre (`city_lat`, `city_lon`), the measured `day_night_gap` and a
@@ -75,7 +94,9 @@ Three places are moved this way:
 - **Warm season:** each place's five warmest months in a row, by baseline average daily
   maximum. This is May–September in all 12 UK towns and differs elsewhere (Delhi
   April–August, New York and Los Angeles June–October, Sao Paulo and Johannesburg
-  October–February, Sydney November–March).
+  October–February, Sydney and Cape Town November–March, Lisbon June–October, Bangkok
+  January–May, Singapore February–June, Mexico City March–July, Rio de Janeiro
+  December–April). `thresholds.csv` lists it for every place.
 - **Hot day:** daily maximum at or above the place's 90th percentile of warm-season daily
   maximums in the baseline.
 - **Heatwave:** 3 or more hot days in a row.
@@ -91,8 +112,8 @@ Three places are moved this way:
 - **Winter rain:** December–February total, named after the January's year (from 1982).
 - **Summer sunshine:** June–August mean of `ALLSKY_SFC_SW_DWN`, MJ/m² per day (from 1984).
 - **Heating need:** yearly sum of `HDD18_3` (degree days below 18.3 °C).
-- **Southern-hemisphere year:** for Sydney, Sao Paulo and Johannesburg a year runs July to
-  June and is named after the year it ends in, so one summer is never split across two
+- **Southern-hemisphere year:** for Sydney, Sao Paulo, Johannesburg, Cape Town and Rio de
+  Janeiro a year runs July to June and is named after the year it ends in, so one summer is never split across two
   years. Their series start in 1982.
 
 ### Measures
@@ -133,6 +154,47 @@ in any climate. The season and rain measures are built around UK seasons.
   Mann-Kendall scores it. `share_as_strong` is the share of shuffles with a trend at least as
   strong as the real one.
 
+### Extras for the case file
+
+- **Years until we'd know** (`years_to_know.csv`): for each `leaning` result, the record
+  length at which it would be proven if the trend and the noise stay as they are. The
+  Mann-Kendall score grows in proportion to (years)^1.5, so years needed = years so far ×
+  (1.96 / score today)^(2/3). Tried on records cut to 25, 30 and 35 years (461 cases): when it
+  said "proven by 2025" it was right 85% of the time and within 5 years in 74% of those. It
+  errs on the cautious side.
+- **Luck lines** (`luck_lines.csv`): the real Sen's-slope line (`shuffle_id` 0) and 50 lines
+  from shuffled years, for an animation of the luck test.
+- **Top changes** (`top_changes.csv`): each place's measures ranked by the size of the
+  Mann-Kendall score, strongest first.
+- **Stripes** (`stripes.csv`): yearly mean temperature and its difference from the place's
+  1981–2010 average.
+
+### Outlook for next year
+
+`trip_weeks.csv` gives, for every place and week of the year, the chance of a heatwave that
+week, a hot day, a warm night, a day above 30 °C, a wet day (5 mm or more) and a good day
+(18 to 28 °C, under 1 mm of rain, cloud under 60%).
+
+- A chance is a count: the share of days (or of weeks, for heatwaves) with the label, taken
+  over the week and its two neighbours in a window of years.
+- `then` is 1981–1995 and `now` is 2011–2025, both as recorded.
+- `2027` uses 1996–2025, with each day's temperatures first warmed by the place's trend for
+  that month (Sen's slope) times the years between that day and 2027. Rain and cloud are not
+  shifted.
+- **Back-test:** rebuilt with only data to 2020 and scored on 2021–2025 with the Brier score.
+  Against plain 1981–2010 averages it cuts the error by 16% for warm nights, 10% for heatwave
+  weeks, 8% for days above 30 °C, 6% for hot days, 2% for good days and 1% for wet days. In
+  the UK alone the gain is small (6%, 3%, 0%, 1%, 1%, 0%). `outlook_checks.csv` has the
+  scores.
+- **Neural cross-check:** a small neural network (`src/train_weather_model.py`) was trained on
+  the same warmed days to make up 1,000 versions of the year per place, and scored on the
+  same back-test. Its made-up weather is realistic (heatwaves average 4.9 days against 5.1
+  in the record, dry spells 7.2 against 7.5), but it cut the error by less than the simple
+  count on all six labels (14%, 6%, 8%, 4%, 1%, 0% in the order above). The app therefore
+  uses the simple numbers. `trip_weeks_neural.csv` holds the network's version for comparison.
+- These are chances for a typical year under the current trend. They are not a forecast of
+  the weather in 2027.
+
 ### Verdict rules
 
 Each measure has an expected direction, the one the everyday hunch claims. It is "up" for
@@ -155,15 +217,22 @@ everything except `first_heatwave_doy` and `heating_need`, which are "down".
 | `src/stats.py` | Trend tests and verdict rules (a toolbox, not run directly) |
 | `src/build_results.py` | Runs everything → `results.csv`, `annual.csv`, `results_detail.csv`, `thresholds.csv` |
 | `src/build_extras.py` | Shuffle test and season dates → `luck.csv`, `season_dates.csv` |
+| `src/build_casefile.py` | Extras for the app's case file → `years_to_know.csv`, `luck_lines.csv`, `top_changes.csv`, `stripes.csv` |
+| `src/build_outlook.py` | Weekly chances for the 1980s, recent years and 2027, plus a back-test → `trip_weeks.csv`, `outlook_checks.csv` |
+| `src/weather_model.py` | The neural network that gives the chances for tomorrow's weather (a toolbox, not run directly) |
+| `src/train_weather_model.py` | Optional second method for the outlook: trains the network, makes up 1,000 versions of the year per place and back-tests them → `models/weather_gru.pt`, `trip_weeks_neural.csv`, `neural` rows in `outlook_checks.csv` |
 
 ### How to run it
 
 ```
 pip install -r requirements.txt
-python download_power.py        # about 5 to 8 minutes
+python download_power.py        # about 10 to 15 minutes
 python src/clean.py
 python src/build_results.py
 python src/build_extras.py
+python src/build_casefile.py
+python src/build_outlook.py
+python src/train_weather_model.py   # optional, about 45 minutes on a laptop
 ```
 
 The raw download is also bundled in `power_raw.zip`, so the analysis can be rerun without
@@ -182,10 +251,17 @@ summers of 2018 and 2022).
 
 | File | One row is | Columns |
 |---|---|---|
-| `results.csv` | one place × one measure (240 rows) | `place, region, lat, lon, measure_id, measure_name, unit, season, start_year, end_year, n_years, rate_per_decade, early_mean, late_mean, p_value, test_method, expected_direction, verdict, plain_definition, caveat` |
+| `results.csv` | one place × one measure (310 rows) | `place, region, lat, lon, measure_id, measure_name, unit, season, start_year, end_year, n_years, rate_per_decade, early_mean, late_mean, p_value, test_method, expected_direction, verdict, plain_definition, caveat` |
 | `annual.csv` | one place × one measure × one year | `place, measure_id, year, value` |
 | `luck.csv` | one place × one measure | `place, measure_id, real_trend_per_decade, share_as_strong, n_shuffles, p_value` |
 | `season_dates.csv` | one UK town × one year | `place, year, summer_start_doy, summer_end_doy, first_heatwave_doy` |
+| `years_to_know.csv` | one place × one `leaning` measure | `place, measure_id, years_so_far, score_now, years_needed, extra_years, year_we_would_know, note` |
+| `luck_lines.csv` | one place × one measure × one line | `place, measure_id, shuffle_id, slope_per_decade, start_year, start_value, end_year, end_value` |
+| `top_changes.csv` | one place × one ranked measure | `place, rank, measure_id, measure_name, verdict, strength, rate_per_decade, early_mean, late_mean, unit` |
+| `stripes.csv` | one place × one year | `place, year, mean_temp, anomaly` |
+| `trip_weeks.csv` | one place × one week × one period | `place, week, week_start, period, p_heatwave_week, p_hot_day, p_warm_night, p_above_30, p_wet_day, p_good_day, typ_max_low, typ_max_high, n_years, method` |
+| `outlook_checks.csv` | one region × one label × one method | `region, label, method, cases, brier, brier_guidebook, skill_vs_guidebook` |
+| `trip_weeks_neural.csv` | as `trip_weeks.csv` | same columns; the `2027` rows come from the network (`method = neural`, `n_years` = 1,000 made-up years) |
 | `results_detail.csv` | as `results.csv` | adds the regression cross-check columns |
 | `thresholds.csv` | one place | hot-day and warm-night thresholds, warm season, day-night gap |
 
@@ -196,12 +272,12 @@ chatbot use these files.
 
 ## Results in brief
 
-240 results: 12 UK towns × 15 measures and 12 world cities × 5 measures.
+310 results: 12 UK towns × 15 measures and 26 world cities × 5 measures.
 
 | Region | `real` | `leaning` | `not_backed` | `opposite` |
 |---|---|---|---|---|
 | UK (180) | 77 | 89 | 11 | 3 |
-| World (60) | 39 | 16 | 5 | 0 |
+| World (130) | 79 | 41 | 10 | 0 |
 
 **London, first ten years against the last ten:**
 
@@ -230,7 +306,13 @@ chatbot use these files.
 - Hot-day and warm-night thresholds are relative to each place, so the bar differs by town.
 - Years with no heatwave or no frost have no date and drop out of those trends. Plymouth has
   a first-frost date in only 15 of 45 years.
-- Belfast, Aberdeen and Toronto use a neighbouring inland square (see `manifest.csv`).
+- Belfast, Aberdeen, Toronto, Lisbon and Cape Town use a neighbouring land square (see
+  `manifest.csv`).
+- Singapore's rows are marked `PROVISIONAL`: its square is partly sea, so daytime highs read
+  low. Mexico City's square sits about 400 m higher than the city, so it reads about 3 °C low.
+- In tropical cities temperatures vary little through the year, so a small warming moves many
+  nights over the threshold. Warm-night counts rise very steeply there (Singapore 9 → 72 a
+  year) and are best read as "how often", not "how much hotter".
 - Sunshine and cloud data start in 1984.
 - Rain varies a lot from year to year, so most rain trends are only `leaning`. A 50 km
   average also reads low for local downpours.

@@ -3,3 +3,4 @@ numpy
 scipy
 pymannkendall==1.4.3
 pyarrow
+torch

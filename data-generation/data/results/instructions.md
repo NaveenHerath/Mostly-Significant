@@ -12,10 +12,15 @@ does any maths.
 
 | File | One row is | What the app uses it for |
 |---|---|---|
-| `results.csv` | one place × one measure (240 rows) | the verdict, the size of the change, the map, the chatbot's answers |
+| `results.csv` | one place × one measure (310 rows) | the verdict, the size of the change, the map, the chatbot's answers |
 | `annual.csv` | one place × one measure × one year | trend charts and the time slider |
 | `luck.csv` | one place × one measure | the "could this be luck?" feature |
 | `season_dates.csv` (UK only) | one place × one year | the season-clock feature |
+| `years_to_know.csv` | one place × one `leaning` measure | "when would this be proven?" |
+| `luck_lines.csv` | one place × one measure × one line | the trend line, and the shuffle animation |
+| `top_changes.csv` | one place × one ranked measure | "what's changing here?" |
+| `stripes.csv` | one place × one year | warming stripes behind the chart |
+| `trip_weeks.csv` | one place × one week × one period | next year's outlook, the map's future mode |
 
 The files are UTF-8 (units contain `°C`), so they are read with `encoding="utf-8"`.
 `results_detail.csv` and `thresholds.csv` are working files for the analysis. The app does
@@ -58,6 +63,53 @@ In words: `share_as_strong = 0.002` → "only 2 in 1,000 random orderings looked
 happen that year. `doy` is the day of the year (1 = 1 January). It converts to a date with
 `datetime.date(year, 1, 1) + timedelta(days=doy - 1)`.
 
+### `years_to_know.csv`
+
+`place, measure_id, years_so_far, score_now, years_needed, extra_years, year_we_would_know, note`
+
+Only `leaning` rows are in this file. `note` is a ready sentence ("If this continues, about
+20 more years of data would prove it."). The three number columns are blank when there is no
+estimate, and `note` then says why. It is an "if this continues" estimate, never a promise.
+
+### `luck_lines.csv`
+
+`place, measure_id, shuffle_id, slope_per_decade, start_year, start_value, end_year, end_value`
+
+Each row is one straight line, drawn from (`start_year`, `start_value`) to (`end_year`,
+`end_value`). `shuffle_id = 0` is the real trend line, which is also the line for the main
+chart. Lines 1 to 50 come from the same years in a random order: drawn in grey, they show
+what luck alone produces. In 43 results the real slope is exactly 0 (counts with many equal
+years), so the lines are flat; for those the `luck.csv` share is shown in words instead.
+
+### `top_changes.csv`
+
+`place, rank, measure_id, measure_name, verdict, strength, rate_per_decade, early_mean, late_mean, unit`
+
+`rank` 1 is the measure with the strongest trend in that place. `strength` has no unit and is
+only for ordering; `verdict` says which way the measure went.
+
+### `stripes.csv`
+
+`place, year, mean_temp, anomaly`. `anomaly` is the year's mean temperature minus the place's
+1981–2010 average, in °C. Blue for below zero, red for above, one bar per year.
+
+### `trip_weeks.csv`
+
+`place, week, week_start, period, p_heatwave_week, p_hot_day, p_warm_night, p_above_30, p_wet_day, p_good_day, typ_max_low, typ_max_high, n_years, method`
+
+- `week` runs 1 to 52 from 1 January. A date becomes a week with
+  `min((date.timetuple().tm_yday - 1) // 7 + 1, 52)`. `week_start` is its first day (`07-16`)
+  and is read as text (`dtype={"week_start": str}`).
+- `period` is `then` (1981–1995), `now` (2011–2025) or `2027` (the outlook: the last 30
+  years warmed by each place's trend). The honest comparison is `then` against `2027`.
+- Every `p_` column is a chance from 0 to 1. `p_heatwave_week` is the chance the week holds
+  at least one heatwave day. The others are the chance for any one day in that week: a hot
+  day (for that place), a warm night, a day above 30 °C, a wet day (5 mm or more), a good day
+  (18 to 28 °C, dry, not overcast).
+- `typ_max_low` and `typ_max_high` are the usual range of daytime highs (8 days in 10).
+- Wording: "about a 4 in 10 chance", never "there will be". It is a chance for a typical
+  year under the current trend, not a weather forecast.
+
 ---
 
 ## 2. What the verdicts mean
@@ -82,15 +134,17 @@ The `opposite` rows are the strongest demo moments. The longest summer dry spell
 **UK (12 towns, 15 measures each):** London, Maidstone, Norwich, Plymouth, Bristol, Cardiff,
 Birmingham, Manchester, Newcastle, Belfast, Edinburgh, Aberdeen.
 
-**World (12 cities, 5 measures each):** New York, Los Angeles, Toronto, Sao Paulo, Paris,
-Berlin, Madrid, Cairo, Delhi, Tokyo, Sydney, Johannesburg.
+**World (26 cities, 5 measures each):** New York, Los Angeles, Toronto, Sao Paulo, Paris,
+Berlin, Madrid, Cairo, Delhi, Tokyo, Sydney, Johannesburg, Barcelona, Rome, Lisbon, Athens,
+Amsterdam, Istanbul, Dubai, Marrakech, Cape Town, Bangkok, Singapore, Orlando, Mexico City,
+Rio de Janeiro.
 
 World cities have only `heatwave_events`, `heatwave_days`, `longest_heatwave`, `hottest_day`
 and `warm_nights`. A question about frost, rain, sunshine or heating in a world city has no
 row, so the honest answer is that only heat measures are covered there.
 
-Sydney, Sao Paulo and Johannesburg use July–June years, so their data starts in 1982. Their
-`caveat` says so.
+Sydney, Sao Paulo, Johannesburg, Cape Town and Rio de Janeiro use July–June years, so their
+data starts in 1982. Their `caveat` says so.
 
 ### Measures and the everyday hunches that map to them
 
@@ -172,7 +226,7 @@ def check_hunch(place: str, measure_id: str) -> dict:
     return out
 ```
 
-In the tool's schema, `place` is an enum of the 24 place names and `measure_id` an enum of
+In the tool's schema, `place` is an enum of the 38 place names and `measure_id` an enum of
 the 15 IDs. An enum stops the model inventing a value. A `none` option covers a hunch that
 cannot be mapped.
 
@@ -211,11 +265,16 @@ You are the "hunch fact-checker". The user gives a feeling about weather or clim
 
 | Feature | Data |
 |---|---|
-| Map of 24 places, pin coloured by verdict for the chosen measure | `results.csv` (`lat`, `lon`, `verdict`) |
+| Map of 38 places, pin coloured by verdict for the chosen measure | `results.csv` (`lat`, `lon`, `verdict`) |
 | Answer card for a hunch | the single `results.csv` row |
 | Trend chart with the 1981–1990 and 2016–2025 averages marked | `annual.csv` + `early_mean`/`late_mean` |
 | "Could this be luck?" | `luck.csv` → "X in 1,000 shuffles" |
 | Season clock, summer start and end drawn per year | `season_dates.csv` |
+| "When would we know?" line on `leaning` answers | `years_to_know.csv` (`note`) |
+| "Shuffle the years" animation | `luck_lines.csv` |
+| "Also changing here", and "what's changing in X?" in the chatbot | `top_changes.csv` |
+| Warming stripes behind the chart | `stripes.csv` |
+| "Heatwave in my birthday week?", and the map's future mode | `trip_weeks.csv` |
 | Footer on every page | "NASA POWER (MERRA-2), 1981–2025, ~50 km grid" |
 
 ---
@@ -243,8 +302,12 @@ These are the expected answers. If the app shows different numbers, the lookup i
 - "Unusually hot" is relative to each place (its own top 10% of 1981–2010 summer days), so
   the bar differs between towns.
 - Years with no heatwave or no frost have no date and drop out of those trends.
-- Belfast, Aberdeen and Toronto use a neighbouring inland square, because their own square is
-  mostly sea or lake.
+- Belfast, Aberdeen, Toronto, Lisbon and Cape Town use a neighbouring land square, because
+  their own square is mostly sea or lake.
+- Singapore's `caveat` starts with `PROVISIONAL`: its square is partly sea, so daytime highs
+  read low. Mexico City reads about 3 °C low, because its square sits higher than the city.
+- In tropical cities (Singapore, Bangkok, Mexico City) temperatures vary little, so warm-night
+  counts rise very steeply. They are worded as "how often", not "how much hotter".
 - Rain varies a lot from year to year, so most rain trends are only `leaning`.
 - Sunshine data starts in 1984.
 - **Delhi** shows no heat increase in this data. This has not been checked against station
