@@ -73,7 +73,7 @@ the results files, and a Gemini sentence with a number that isn't on the card is
 fixed template. A question the data can't test (a forecast, snow, or something unrelated to
 weather) gets a short general answer from Gemini, marked as not coming from the NASA data.
 
-`chat-eval/` holds 62 test questions and the script that scores both models; both pick the
+`chat-eval/` holds 68 test questions and the script that scores both models; both pick the
 right test every time on that set.
 
 ## What it can't tell you
@@ -94,7 +94,7 @@ right test every time on that set.
 |---|---|
 | [`data-generation/`](data-generation/) | Python: downloads the NASA data, checks it, builds the yearly measures, tests every trend and writes the results files |
 | [`docs/`](docs/) | The website: plain HTML, CSS and JavaScript that reads the results. It calculates nothing itself |
-| [`chat-eval/`](chat-eval/) | The 62 chat test questions and their scoring script |
+| [`chat-eval/`](chat-eval/) | The 68 chat test questions and their scoring script |
 
 ```
 NASA POWER API → data-generation/ (download, clean, measures, trend tests) → results CSVs

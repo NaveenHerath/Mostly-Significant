@@ -3,7 +3,7 @@
 
 // everyday ways of saying each of the 20 hunches (the site's own wording plus naveen's phrase list)
 const MATCH_PHRASES = {
-  heatwave_days: ["we get more heatwave days", "summers are getting hotter", "more scorching days", "there are more really hot days","summers feel hotter than when i was a kid", "it is boiling every summer now"],
+  heatwave_days: ["we get more heatwave days", "summers are getting hotter", "more scorching days", "there are more really hot days","summers feel hotter than when i was a kid", "it is boiling every summer now", "is it too hot now", "it is so hot these days", "is it hotter now than it used to be"],
   heatwave_events: ["we get more heatwaves", "heatwaves are more frequent", "heatwaves happen more often", "heatwaves keep coming back", "we get a heatwave every summer now", "there is always a heatwave on the news"],
   longest_heatwave: ["heatwaves last longer", "heatwaves drag on for longer", "hot spells go on for more days", "hot spells go on for weeks", "the heat doesn't let up for days", "the heat goes on and on", "the heatwave never ends", "the hot weather goes on forever"],
   hottest_day: ["the hottest days are hotter", "records keep being broken", "the peak temperature is higher", "the hottest day of the year is more extreme", "the peak of summer is hotter", "the hottest day is hotter than ever", "the hottest days are scorching", "it gets to 40 degrees now", "temperatures hit highs we never used to see"],
@@ -36,7 +36,7 @@ const DECOYS = {
   sea: { reply: "The data covers weather over land, so the sea can’t be tested here.", phrases: ["the sea level is rising", "the sea is warmer"] },
   pollen: { try: ["summer_length"], reply: "We don’t have a measure for pollen, so that one can’t be tested here.", phrases: ["hay fever is worse", "the pollen count is higher", "allergies are worse in spring"] },
   air: { reply: "We don’t have a measure for air quality, so that one can’t be tested here.", phrases: ["air pollution is worse", "the air quality is getting worse"] },
-  forecast: { reply: "This checks how the weather has changed since 1981. It isn’t a forecast.", phrases: ["will it rain tomorrow", "what is the weather this weekend", "what will the weather be like next week"] },
+  forecast: { reply: "This checks how the weather has changed since 1981. It isn’t a forecast.", phrases: ["will it rain tomorrow", "what is the weather this weekend", "what will the weather be like next week", "is it hot today", "what is the temperature right now"] },
   cause: { reply: "The data shows what has changed, not why. Try a hunch about heat, seasons, rain, wind or sunshine.", phrases: ["is climate change real", "is global warming caused by humans"] },
 };
 

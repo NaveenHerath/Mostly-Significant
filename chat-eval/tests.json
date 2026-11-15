@@ -60,5 +60,11 @@
   {"question":"my train is always late","expected":["none"],"kind":"off_topic"},
   {"question":"is climate change real","expected":["none"],"kind":"off_topic"},
   {"question":"what should I wear tomorrow","expected":["none"],"kind":"off_topic"},
-  {"question":"will it rain on Saturday","expected":["none"],"kind":"off_topic"}
+  {"question":"will it rain on Saturday","expected":["none"],"kind":"off_topic"},
+  {"question":"is it too hot now in london?","expected":["heatwave_days","hottest_day"],"kind":"testable"},
+  {"question":"it's way too hot these days","expected":["heatwave_days","hottest_day"],"kind":"testable"},
+  {"question":"is it wetter now than it used to be in Cardiff","expected":["heavy_rain_days","winter_rain","wettest_day"],"kind":"testable"},
+  {"question":"winters are so mild now","expected":["heating_need","first_frost_doy"],"kind":"testable"},
+  {"question":"is it hot today in London","expected":["none"],"kind":"off_topic"},
+  {"question":"what's the temperature right now","expected":["none"],"kind":"off_topic"}
 ]

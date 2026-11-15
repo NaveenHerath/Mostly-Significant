@@ -40,7 +40,9 @@ yearly_sunshine: it is sunnier over the whole year
 heating_need: winters are milder, less heating is needed (lower gas bills)
 cooling_need: more air conditioning is needed
 
-Set measure_id to "none" when the sentence cannot be tested with these, and set topic to the reason: snow, storms, fog, floods, sea, air (air quality), forecast (asks about coming weather), cause (asks why the climate changes), or other (anything else, including sentences that are not about weather). Never force a match.
+People speak about how the weather has changed. Words like "now", "these days", "nowadays", "any more", "lately", "every year" and "than it used to be" compare today with the past, so they point to a measure, never to a forecast. For example: "is it too hot now in London" is heatwave_days, "it's so hot these days" is heatwave_days, "summers are scorching now" is heatwave_days, "is it wetter now" is heavy_rain_days, "winters are so mild now" is heating_need. A sentence is a forecast only when it asks about today's, tomorrow's or coming weather, such as "is it hot today", "will it rain tomorrow" or "what's the weather this weekend".
+
+Set measure_id to "none" when the sentence cannot be tested with these, and set topic to the reason: snow, storms, fog, floods, sea, air (air quality), forecast (asks about today's, tomorrow's or coming weather), cause (asks why the climate changes), or other (anything else, including sentences that are not about weather). Never force a match.
 
 Set place to the place named in the sentence if it is in the list, otherwise "none". Set topic to "none" when a measure fits.
 
