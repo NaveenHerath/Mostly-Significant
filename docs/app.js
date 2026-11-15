@@ -467,6 +467,49 @@ const watcher = new IntersectionObserver((entries) => { // the browser tells us 
 }, { rootMargin: "-45% 0px -50% 0px" }); // a thin band just above the middle of the screen
 document.querySelectorAll("main [data-nav]").forEach((s) => watcher.observe(s)); // watch every section that has a bar link
 
+// ---------- hero video ----------
+
+const heroVideo = document.querySelector(".hero-video"); // the background timelapse
+const heroToggle = document.querySelector(".hero-toggle"); // its pause / play button
+const phoneScreen = window.matchMedia("(max-width: 40rem)"); // same breakpoint as the css
+let heroPausedByUser = false; // remembers if they hit pause, so we never restart it behind their back
+let heroOnScreen = true; // is the hero in view, no point playing it when scrolled away
+
+function heroAllowed() { // should the video run at all?
+  const saveData = navigator.connection && navigator.connection.saveData; // data saver turned on
+  return !reduceMotion.matches && !saveData; // not for reduced motion or data saver, they keep the still frame
+}
+
+function updateHeroVideo() { // starts, pauses or unloads the video to match the situation
+  if (!heroVideo) return; // page without a hero
+  if (!heroAllowed()) { // motion not wanted
+    heroVideo.pause(); // stop it
+    heroVideo.classList.remove("is-playing"); // back to the still frame
+    heroToggle.hidden = true; // nothing to pause
+    return; // done
+  }
+  const src = phoneScreen.matches ? heroVideo.dataset.srcPhone : heroVideo.dataset.srcWide; // the right size file for this screen
+  if (heroVideo.getAttribute("src") !== src) heroVideo.setAttribute("src", src); // only swap when it changes, so it doesn't restart
+  if (heroPausedByUser || !heroOnScreen) heroVideo.pause(); // paused by them, or scrolled away
+  else heroVideo.play().catch(() => {}); // play, and quietly keep the still frame if the browser refuses
+}
+
+if (heroVideo) { // wire it all up
+  heroVideo.addEventListener("playing", () => { // first frame is actually moving
+    heroVideo.classList.add("is-playing"); // fade the video in over the still frame
+    heroToggle.hidden = false; // now there's something to pause
+  });
+  heroToggle.addEventListener("click", () => { // pause / play
+    heroPausedByUser = !heroPausedByUser; // flip it
+    heroToggle.setAttribute("aria-pressed", heroPausedByUser ? "true" : "false"); // css swaps the glyph off this
+    heroToggle.querySelector(".visually-hidden").textContent = heroPausedByUser ? "Play background video" : "Pause background video"; // label says what a tap will do
+    updateHeroVideo(); // apply it
+  });
+  new IntersectionObserver(([e]) => { heroOnScreen = e.isIntersecting; updateHeroVideo(); }).observe(heroVideo); // pause when scrolled out of view, saves battery
+  reduceMotion.addEventListener("change", updateHeroVideo); // follow the setting if it changes while the page is open
+  phoneScreen.addEventListener("change", updateHeroVideo); // switch file if the window crosses the phone size
+}
+
 // ---------- start ----------
 
 fetch("data/data.json") // grab the data

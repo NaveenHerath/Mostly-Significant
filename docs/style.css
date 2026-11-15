@@ -46,11 +46,62 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 
 /* ---------- title ---------- */
 
-.intro { padding: var(--space-3xl) 0 var(--space-2xl); text-align: center; } /* centred hero with room to breathe */
+.hero {
+  position: relative; /* the video, shade and panel stack inside it */
+  isolation: isolate; /* keeps their stacking inside the hero */
+  display: grid; place-items: center; /* panel sits dead centre */
+  min-height: var(--hero-height); /* tall, from the tokens */
+  width: 100vw; margin-inline: calc(50% - 50vw); /* breaks out of the page column to go edge to edge */
+  margin-top: calc(-1 * var(--bar-height)); /* slides up under the see-through top bar */
+  padding: calc(var(--bar-height) + var(--space-2xl)) var(--gutter) var(--space-3xl); /* clears the bar, leaves room for the credit */
+  overflow: hidden; /* video never spills out */
+}
+.hero-media { position: absolute; inset: 0; z-index: -2; background: var(--color-paper) var(--hero-poster) center / cover no-repeat; } /* still frame underneath, so there's never a blank box */
+.hero-video { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity var(--dur-long) var(--ease-out); } /* fills the hero, hidden until it's actually playing */
+.hero-video.is-playing { opacity: 1; } /* fades in over the still frame, so no jump */
+.hero-shade {
+  position: absolute; inset: 0; z-index: -1; /* above the video, below the panel */
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 52%, oklch(10% 0.02 258 / 0.45), transparent 75%), /* darker pool behind the panel, for contrast */
+    linear-gradient(to bottom, oklch(10% 0.02 258 / 0.75) 0, oklch(10% 0.02 258 / 0.15) 30%, oklch(10% 0.02 258 / 0.25) 65%, var(--color-paper) 100%); /* dark behind the bar, light in the middle, fades into the page at the bottom */
+}
+
+.intro { width: min(100%, 46rem); padding: var(--space-2xl) var(--space-xl); text-align: center; } /* the centred panel, wide enough for the title on one line */
 .intro h1 { font-size: var(--text-hero); line-height: 0.95; max-width: none; margin: 0 auto; } /* the big question */
 .tagline { margin-top: var(--space-md); font-family: var(--font-display); font-size: var(--text-tagline); letter-spacing: var(--tracking-display); color: var(--color-ink-2); } /* "your weather hunches, fact-checked." */
 .lead { margin: var(--space-md) auto 0; color: var(--color-muted); max-width: 44ch; } /* one-line explainer */
-.intro + noscript .note { margin-inline: auto; text-align: center; } /* the no-js note sits under the hero */
+.hero + noscript .note { margin: var(--space-lg) auto 0; text-align: center; } /* the no-js note sits under the hero */
+
+.hero-foot { position: absolute; right: var(--gutter); bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-xs); } /* bottom right corner: pause button then credit */
+.hero-credit { font-size: var(--text-xs); color: var(--color-ink-2); text-decoration: none; text-shadow: 0 1px 2px oklch(0% 0 0 / 0.8); } /* small and quiet, a shadow keeps it readable over clouds */
+@media (hover: hover) and (pointer: fine) { .hero-credit:hover { color: var(--color-ink); text-decoration: underline; } } /* shows it's a link on hover */
+.hero-toggle {
+  position: relative; /* so the bigger tap area sits round the button */
+  display: inline-grid; place-items: center; /* centres the icon */
+  width: 32px; height: 32px; /* small, it's a secondary control */
+  border: var(--rule-hair) solid var(--glass-border); border-radius: 50%; /* round, hairline like the glass */
+  background: var(--glass-fill); color: var(--color-ink-2); /* smoky, matches the panel */
+  cursor: pointer; -webkit-tap-highlight-color: transparent; /* hand cursor, no grey flash on phones */
+  transition: transform var(--dur-micro) var(--ease-out), color var(--dur-short) var(--ease-out); /* small press, colour eases */
+}
+.hero-toggle::before { content: ""; position: absolute; inset: -6px; } /* bigger invisible tap area, 44px all round */
+.hero-toggle .icon { width: 14px; height: 14px; fill: currentColor; stroke: none; } /* solid little glyphs */
+.hero-toggle .icon-play, .hero-toggle[aria-pressed="true"] .icon-pause { display: none; } /* pause glyph while playing */
+.hero-toggle[aria-pressed="true"] .icon-play { display: block; } /* play glyph once paused */
+.hero-toggle:active { transform: scale(0.94); } /* press */
+@media (hover: hover) and (pointer: fine) { .hero-toggle:hover { color: var(--color-ink); } } /* brighten on hover */
+
+/* ---------- frosted glass ---------- */
+
+.glass {
+  background: var(--glass-fill); /* smoky, half see-through */
+  -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); /* frosts whatever is behind, safari needs the prefix */
+  border: var(--rule-hair) solid var(--glass-border); /* hairline edge all round */
+  border-radius: var(--radius-card); /* soft corners */
+  box-shadow: var(--glass-edge), var(--glass-shadow); /* light top edge and a soft float */
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .glass { background: var(--glass-solid); } } /* no blur support: solid panel so text never sits on raw video */
+@media (prefers-reduced-transparency: reduce) { .glass { background: var(--glass-solid); -webkit-backdrop-filter: none; backdrop-filter: none; } } /* less see-through wanted: solid panel */
 
 /* ---------- steps ---------- */
 
@@ -110,11 +161,19 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 
 /* ---------- result ---------- */
 
-.result { border-top-color: var(--color-rule); } /* slightly stronger line above the answer */
-.result[data-verdict="real"] { --verdict: var(--verdict-real); } /* pick the verdict colour for this card */
-.result[data-verdict="leaning"] { --verdict: var(--verdict-leaning); } /* amber */
-.result[data-verdict="not_backed"] { --verdict: var(--verdict-not_backed); } /* grey */
-.result[data-verdict="opposite"] { --verdict: var(--verdict-opposite); } /* red */
+.result-stage { position: relative; isolation: isolate; margin-top: var(--space-2xl); } /* takes the step's spacing, keeps the glow behind the card */
+.result-stage:has([data-verdict="real"]) { --verdict: var(--verdict-real); } /* pick the verdict colour, for the glow and the card */
+.result-stage:has([data-verdict="leaning"]) { --verdict: var(--verdict-leaning); } /* amber */
+.result-stage:has([data-verdict="not_backed"]) { --verdict: var(--verdict-not_backed); } /* grey */
+.result-stage:has([data-verdict="opposite"]) { --verdict: var(--verdict-opposite); } /* red */
+.result-stage::before {
+  content: ""; position: absolute; inset: 8% 4%; z-index: -1; /* sits just inside the card's edges, behind it */
+  background:
+    radial-gradient(closest-side at 22% 50%, color-mix(in oklab, var(--verdict, var(--color-muted)) 38%, transparent), transparent), /* verdict colour on the left, behind the verdict */
+    radial-gradient(closest-side at 80% 55%, color-mix(in oklab, var(--color-accent) 30%, transparent), transparent); /* hunch colour on the right */
+  filter: blur(48px); /* very soft, so it reads as light, not shapes */
+}
+.result { margin-top: 0; padding: var(--space-xl); border-top: var(--rule-hair) solid var(--glass-border); } /* the glass card: no step hairline, padding all round (border shorthand comes from .glass) */
 
 .result .verdict { display: block; font-family: var(--font-display); font-size: var(--text-3xl); line-height: 1.1; letter-spacing: var(--tracking-display); color: var(--verdict); } /* the verdict in its colour, always with words */
 .verdict-line { margin-top: var(--space-xs); color: var(--color-ink-2); } /* one plain sentence */
@@ -241,17 +300,18 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 @media (hover: hover) and (pointer: fine) { .footer-cols a:hover { color: var(--color-ink); } } /* brighten on hover */
 .nowrap { white-space: nowrap; } /* keeps the last word and its arrow together */
 .icon-out { display: inline-block; width: 0.85em; height: 0.85em; margin-left: 0.25em; vertical-align: -0.1em; } /* small "opens elsewhere" arrow, sits right after the last word */
-.footer-bottom { max-width: var(--page); margin: var(--space-xl) auto 0; padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule-2); font-size: var(--text-xs); color: var(--color-muted); } /* the built-by line */
+.footer-bottom { max-width: var(--page); margin: var(--space-xl) auto 0; padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule-2); font-size: var(--text-xs); color: var(--color-muted); } /* the built-by and credit lines */
+.footer-bottom p + p { margin-top: var(--space-2xs); max-width: 90ch; } /* small gap before the video credit, wraps neatly */
 
 /* ---------- reveal motion ---------- */
 
 /* when the answer appears, each section fades and rises a touch, one after another */
-#reveal:not([hidden]) > .step { animation: rise 360ms var(--ease-out) both; } /* quick and small */
+#reveal:not([hidden]) > .step, #reveal:not([hidden]) > .result-stage { animation: rise 360ms var(--ease-out) both; } /* quick and small, the result card rises inside its glow wrapper */
 #reveal > .step:nth-child(2) { animation-delay: 60ms; } /* chart just after the card */
 #reveal > .step:nth-child(n + 3) { animation-delay: 100ms; } /* the rest together */
 @keyframes rise { from { opacity: 0; transform: translateY(8px); } } /* fade up from 8px below */
 @media (prefers-reduced-motion: reduce) { /* less motion wanted */
-  #reveal:not([hidden]) > .step { animation: fade 200ms ease both !important; animation-duration: 200ms !important; } /* keep the fade, drop the movement */
+  #reveal:not([hidden]) > .step, #reveal:not([hidden]) > .result-stage { animation: fade 200ms ease both !important; animation-duration: 200ms !important; } /* keep the fade, drop the movement */
   @keyframes fade { from { opacity: 0; } } /* just opacity */
 }
 
@@ -284,7 +344,10 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
   html:not(.js) .menu-btn { display: none; } /* no javascript: no menu button */
   html:not(.js) .site-nav { display: flex; position: static; flex-direction: row; padding: 0; background: none; border: 0; } /* just show the links inline */
 
-  .intro { padding: var(--space-2xl) 0 var(--space-xl); } /* less room around the hero */
+  .hero { --hero-poster: var(--hero-poster-phone); --hero-height: min(80svh, 680px); padding-bottom: var(--space-2xl); } /* phones get the taller still frame, a slightly shorter hero and less empty space under it */
+  .hero-foot { bottom: var(--space-md); } /* credit a little closer to the edge */
+  .intro { padding: var(--space-xl) var(--space-lg); } /* tighter panel */
+  .result { padding: var(--space-lg); } /* tighter card */
   .claim { font-size: var(--text-xl); } /* claim a bit smaller */
   .result .verdict { font-size: var(--text-2xl); } /* verdict a bit smaller */
   .then-now { gap: var(--space-md); flex-wrap: nowrap; } /* tighter, and the arrow never dangles */

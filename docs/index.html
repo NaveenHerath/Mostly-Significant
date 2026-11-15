@@ -38,12 +38,26 @@
 
   <main class="page" id="top"> <!-- caps the width and centres everything -->
 
-    <!-- 1. title -->
-    <header class="intro">
-      <h1>Is it just me?</h1> <!-- the big question -->
-      <p class="tagline">Your weather hunches, fact-checked.</p> <!-- short catchy line -->
-      <p class="lead">Pick a place and a weather hunch, make a guess, then see what 45 years of NASA data say.</p> <!-- one-line explainer -->
-    </header>
+    <!-- 1. title, over a slow timelapse of the uk at night from the space station -->
+    <div class="hero"> <!-- full width, slides up under the see-through top bar -->
+      <div class="hero-media" aria-hidden="true"> <!-- the moving picture, decoration only so screen readers skip it -->
+        <video class="hero-video" muted loop playsinline preload="none" disablepictureinpicture data-src-wide="img/hero-earth.mp4" data-src-phone="img/hero-earth-phone.mp4"></video> <!-- silent loop, app.js picks the laptop or phone file and only if motion is ok -->
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div> <!-- dark gradient so the bar and text stay readable, and the video fades into the page -->
+      <header class="intro glass"> <!-- the frosted panel holding the title -->
+        <h1>Is it just me?</h1> <!-- the big question -->
+        <p class="tagline">Your weather hunches, fact-checked.</p> <!-- short catchy line -->
+        <p class="lead">Pick a place and a weather hunch, make a guess, then see what 45 years of NASA data say.</p> <!-- one-line explainer -->
+      </header>
+      <div class="hero-foot"> <!-- bottom corner: pause button and credit -->
+        <button class="hero-toggle" type="button" aria-pressed="false" hidden> <!-- pause or play the video, app.js shows it once the video is running -->
+          <svg class="icon icon-pause" aria-hidden="true"><use href="icons.svg#pause" /></svg> <!-- shown while playing -->
+          <svg class="icon icon-play" aria-hidden="true"><use href="icons.svg#play" /></svg> <!-- shown while paused -->
+          <span class="visually-hidden">Pause background video</span> <!-- what it does, for screen readers -->
+        </button>
+        <a class="hero-credit" href="https://eol.jsc.nasa.gov/BeyondThePhotography/CrewEarthObservationsVideos/WesternEurope.htm#europeaurora_iss_20120405" target="_blank" rel="noopener">Video: NASA<span class="visually-hidden"> (opens in a new tab)</span></a> <!-- small credit, links to the source page -->
+      </div>
+    </div>
 
     <noscript><p class="note">This page needs JavaScript to look up the numbers. The method and sources are below.</p></noscript> <!-- fallback -->
 
@@ -73,8 +87,9 @@
     <!-- everything below stays hidden until you guess -->
     <div id="reveal" hidden>
 
-      <!-- 5. result card -->
-      <section class="step result" id="result" data-nav="try" aria-live="polite" aria-labelledby="verdict"> <!-- aria-live so screen readers hear the answer -->
+      <!-- 5. result card, frosted glass over a soft glow in the verdict and hunch colours -->
+      <div class="result-stage"> <!-- holds the glow behind the card, so the blur has something to frost -->
+      <section class="step result glass" id="result" data-nav="try" aria-live="polite" aria-labelledby="verdict"> <!-- aria-live so screen readers hear the answer -->
         <div class="result-main"> <!-- left on laptops: verdict and the big numbers -->
           <h2 class="verdict" id="verdict"></h2> <!-- verdict label with its colour, the heading of this section -->
           <p class="verdict-line" id="verdict-line"></p> <!-- one plain sentence -->
@@ -100,6 +115,7 @@
           <p class="caveat" id="caveat"></p> <!-- the honest limitation for this row -->
         </div>
       </section>
+      </div> <!-- end of result-stage -->
 
       <!-- 6. chart -->
       <section class="step" id="chart" data-nav="try" aria-labelledby="chart-h">
@@ -196,6 +212,7 @@
             <li><a href="https://power.larc.nasa.gov/" target="_blank" rel="noopener">NASA POWER<svg class="icon icon-out" aria-hidden="true"><use href="icons.svg#arrow-up-right" /></svg><span class="visually-hidden"> (opens in a new tab)</span></a></li> <!-- the data source -->
             <li><a href="https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/" target="_blank" rel="noopener">MERRA-2<svg class="icon icon-out" aria-hidden="true"><use href="icons.svg#arrow-up-right" /></svg><span class="visually-hidden"> (opens in a new tab)</span></a></li> <!-- the model behind it -->
             <li><a href="https://www.spaceappschallenge.org/2026/challenges/earth-system-trend-detective/?tab=details" target="_blank" rel="noopener">NASA Space Apps <span class="nowrap">2026<svg class="icon icon-out" aria-hidden="true"><use href="icons.svg#arrow-up-right" /></svg></span><span class="visually-hidden"> (opens in a new tab)</span></a></li> <!-- the challenge page -->
+            <li><a href="https://eol.jsc.nasa.gov/BeyondThePhotography/CrewEarthObservationsVideos/WesternEurope.htm#europeaurora_iss_20120405" target="_blank" rel="noopener">Earth video (NASA)<svg class="icon icon-out" aria-hidden="true"><use href="icons.svg#arrow-up-right" /></svg><span class="visually-hidden"> (opens in a new tab)</span></a></li> <!-- source of the hero timelapse -->
           </ul>
         </div>
         <div> <!-- the team’s stuff -->
@@ -209,7 +226,10 @@
         </div>
       </nav>
     </div>
-    <p class="footer-bottom">Built by Mostly Significant for NASA Space Apps 2026, London.</p> <!-- bottom line -->
+    <div class="footer-bottom"> <!-- bottom lines -->
+      <p>Built by Mostly Significant for NASA Space Apps 2026, London.</p> <!-- who made it -->
+      <p>Background video courtesy of the Earth Science and Remote Sensing Unit, NASA Johnson Space Center: “Aurora Borealis over Europe”, ISS Expedition 30, 5 April 2012.</p> <!-- the credit wording nasa asks for -->
+    </div>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script> <!-- d3, which plot needs -->
