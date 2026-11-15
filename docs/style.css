@@ -304,6 +304,14 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 .report-row[aria-current="true"] .report-hunch { text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; text-underline-offset: 0.25em; } /* the one you just checked: underlined in its colour (text stays readable even for dark ember) */
 @media (hover: hover) and (pointer: fine) { .report-row:hover .report-hunch { text-decoration: underline; text-decoration-color: var(--color-muted); text-underline-offset: 0.25em; } } /* hint it's tappable */
 
+/* ---------- how to use it ---------- */
+
+.guide-steps { list-style: none; counter-reset: guide; padding: 0; margin: var(--space-lg) 0 0; display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); } /* four across on laptops, two on tablets, stacked on phones */
+.guide-steps li { counter-increment: guide; border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-md); } /* a thin rule over each step instead of another box */
+.guide-steps li::before { content: counter(guide); display: block; font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1; color: var(--color-muted); font-variant-numeric: tabular-nums; } /* the big quiet step number */
+.guide-steps h3 { margin-top: var(--space-sm); font-size: var(--text-lg); color: var(--color-ink); } /* step name */
+.guide-steps p { margin-top: var(--space-2xs); color: var(--color-ink-2); max-width: 32ch; } /* one or two short lines */
+
 /* ---------- how this works ---------- */
 
 .how p, .how li { color: var(--color-ink-2); margin-top: var(--space-sm); } /* reading text */

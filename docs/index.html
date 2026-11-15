@@ -31,6 +31,7 @@
         <span>Menu</span> <!-- the word, so it’s obvious -->
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Sections"> <!-- the section links -->
+        <a href="#guide" data-nav="guide">How to use it</a> <!-- the four-step guide, first thing after the hero -->
         <a href="#chat" data-nav="try" class="needs-js">Try it</a> <!-- the chat box and the pickers -->
         <a href="#map" data-nav="everywhere" class="needs-answer" hidden>Everywhere</a> <!-- map, only once you’ve guessed -->
         <a href="#report" data-nav="hunches" class="needs-answer" hidden>Every hunch</a> <!-- report card, only once you’ve guessed -->
@@ -71,6 +72,17 @@
     </div>
 
     <noscript><p class="note">This page needs JavaScript to look up the numbers. The method and sources are below.</p></noscript> <!-- fallback -->
+
+    <!-- 1a. how to use it: sets expectations so people ask things the data can answer. plain text, works without js -->
+    <section class="step" id="guide" data-nav="guide" aria-labelledby="guide-h">
+      <h2 id="guide-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#list-checks" /></svg>How to use it</h2> <!-- step heading -->
+      <ol class="guide-steps"> <!-- four short steps, a row on laptops, stacked on phones -->
+        <li><h3>What it is</h3><p>Check a weather hunch against 45 years of NASA data, for towns across the UK and cities around the world.</p></li> <!-- the point -->
+        <li><h3>What you can ask</h3><p>Heat, warm nights, when the seasons start and end, frost, rain, dry spells, sunshine and heating need.</p></li> <!-- what's testable -->
+        <li><h3>What it can’t do</h3><p>Snow, fog, forecasts, or your exact street. Each place is a square about 50 km across.</p></li> <!-- what isn't -->
+        <li><h3>How</h3><p>Ask in your own words, or pick one of ours. Make a guess, then see the verdict.</p></li> <!-- the steps -->
+      </ol>
+    </section>
 
     <!-- 1b. say it your own way: a typed sentence gets a small case card, right in the conversation (chat.js) -->
     <section class="step needs-js" id="chat" data-nav="try" aria-labelledby="chat-h">
