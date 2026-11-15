@@ -28,16 +28,18 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 }
 .bar-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); max-width: var(--page); height: 100%; margin: 0 auto; padding: 0 var(--gutter); box-sizing: content-box; } /* same width as the page */
 .brand { display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 44px; color: var(--color-ink); font-weight: 500; font-size: var(--text-sm); text-decoration: none; } /* logo and team name */
-.site-nav { display: flex; align-items: center; gap: var(--space-lg); } /* the section links in a row */
+.site-nav { display: flex; align-items: center; gap: var(--space-3xs); } /* the section links in a row, the pills give the spacing */
 .site-nav a {
-  position: relative; /* so the underline can sit under it */
-  display: inline-flex; align-items: center; min-height: 44px; /* tall enough to tap */
+  display: inline-flex; align-items: center; min-height: 36px; padding: 0 var(--space-sm); /* pill-shaped hit area */
+  border-radius: var(--radius-pill); /* round, so the highlight is a pill */
   color: var(--color-muted); font-size: var(--text-sm); text-decoration: none; /* quiet until current */
-  transition: color var(--dur-short) var(--ease-out); /* colour eases */
+  transition: color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out); /* the pill fades in quickly, base.css turns this off for reduced motion */
 }
-.site-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 10px; height: 2px; border-radius: 2px; background: var(--color-accent); transform: scaleX(0); transform-origin: left; transition: transform var(--dur-short) var(--ease-out); } /* underline, hidden until current */
-.site-nav a[aria-current="true"] { color: var(--color-ink); } /* current section is bright */
-.site-nav a[aria-current="true"]::after { transform: scaleX(1); } /* and gets its underline */
+.site-nav a[aria-current="true"] { /* the section you're in: a filled pill in the hunch colour */
+  color: var(--color-ink); /* bright text */
+  background: color-mix(in oklab, var(--color-accent) 28%, var(--color-paper-3)); /* tinted fill */
+  box-shadow: var(--edge-light), inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 50%, transparent); /* light top edge and a thin coloured ring */
+}
 @media (hover: hover) and (pointer: fine) { .site-nav a:hover { color: var(--color-ink); } } /* hover only for real mice */
 .menu-btn { display: none; } /* only shows on phones */
 
@@ -295,14 +297,6 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 @media (hover: hover) and (pointer: fine) { .actions .pill .icon { transition: transform var(--dur-micro) var(--ease-out); } .actions .pill:hover .icon { transform: translateX(3px); } } /* arrow nudges on hover, same as the hero example */
 
 /* the data in numbers, inside how it works */
-.stats { list-style: none; padding: 0; margin: var(--space-xl) 0 0; display: grid; gap: var(--space-lg); grid-template-columns: repeat(4, minmax(0, 1fr)); } /* four across on laptops, straight on the page, no box */
-.stats li { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: var(--space-sm); --tile: var(--tab-heat); } /* icon beside the number, label under */
-.stats li:nth-child(2) { --tile: var(--tab-seasons); } /* same colour order as the tiles above */
-.stats li:nth-child(3) { --tile: var(--tab-rain); } /* sky blue */
-.stats li:nth-child(4) { --tile: var(--tab-sun); } /* amber */
-.stats .icon { width: 1.25rem; height: 1.25rem; color: var(--tile); } /* small icon in its colour */
-.stats strong { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.25rem, 4.5vw, 3.5rem); line-height: 1; letter-spacing: -0.03em; color: var(--color-ink); font-variant-numeric: tabular-nums lining-nums; } /* the numbers are the hero */
-.stats span { grid-column: 1 / -1; margin-top: var(--space-xs); font-size: var(--text-sm); color: var(--color-muted); } /* what the number counts */
 
 /* ---------- the science ---------- */
 
@@ -341,7 +335,9 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 .sci-legend span { font-size: var(--text-sm); } /* what it means */
 .sci-legend b { font-weight: 500; color: var(--color-ink); } /* verdict name */
 .how .note { margin-top: var(--space-md); } /* the "not a score" line */
-.how .how-cols { margin-top: var(--space-xl); } /* room between the verdicts and the two columns */
+.how .how-cols { display: grid; gap: var(--space-sm); margin-top: var(--space-xl); } /* the two tiles, stacked on phones */
+.sci-tile { padding: var(--space-lg); min-width: 0; } /* same frosted tile as how it works, .glass does the frost */
+.how .sci-tile > h3:first-child { margin-top: 0; } /* heading sits at the top of its tile */
 .cant li { max-width: 60ch; } /* keep lines readable */
 .credit { font-size: var(--text-sm); color: var(--color-muted) !important; margin-top: var(--space-xl) !important; } /* source credit */
 .how a { text-decoration-color: var(--color-muted); } /* quiet underline */
@@ -437,8 +433,7 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
   .then-now { flex-wrap: nowrap; } /* then, arrow and now always stay on one line */
   .luck-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-2xl); align-items: center; } /* dots and words side by side */
   .luck-cols .dots { order: -1; } /* dots on the left */
-  .how-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xl); } /* method left, caveats right */
-  .how-cols > div > h3:first-child { margin-top: var(--space-sm); } /* caveats heading lines up with the first paragraph */
+  .how .how-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } /* chat box left, caveats right */
 }
 
 /* ---------- phones ---------- */
@@ -450,9 +445,8 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
   .menu-btn[aria-expanded="true"] .icon-close { display: block; } /* the cross */
   .site-nav { display: none; position: absolute; top: var(--bar-height); left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: var(--space-xs) var(--gutter) var(--space-md); background: var(--color-paper-2); border-bottom: var(--rule-hair) solid var(--color-rule); } /* the panel under the bar, shut by default */
   .menu-btn[aria-expanded="true"] + .site-nav { display: flex; animation: drop var(--dur-short) var(--ease-out); } /* open */
-  .site-nav a { min-height: 48px; border-top: var(--rule-hair) solid var(--color-rule-2); font-size: var(--text-md); } /* stacked links, easy to tap */
-  .site-nav a:first-child { border-top: 0; } /* no line above the first */
-  .site-nav a::after { bottom: 12px; right: auto; width: 24px; } /* short underline under the current one */
+  .site-nav { gap: var(--space-2xs); } /* small gaps between the stacked pills */
+  .site-nav a { min-height: 48px; padding: 0 var(--space-md); font-size: var(--text-md); } /* stacked links, easy to tap, the current one is a full-width pill */
   html:not(.js) .menu-btn { display: none; } /* no javascript: no menu button */
   html:not(.js) .site-nav { display: flex; position: static; flex-direction: row; padding: 0; background: none; border: 0; } /* just show the links inline */
 
@@ -476,7 +470,6 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
   .map-box { height: 340px; } /* shorter map on phones */
   .actions { flex-direction: column; } /* the two links stack */
   .actions .pill { justify-content: center; } /* words centred in the full-width buttons */
-  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); } /* numbers 2 by 2 */
   .step.bare { padding-top: var(--space-lg); } /* a bit less room above on phones */
   .guide-steps li { padding: var(--space-md); display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-sm); } /* icon left of the words, so each tile stays short */
   .guide-steps li .icon { grid-row: span 2; width: 1.25rem; height: 1.25rem; margin-top: 0.15em; } /* icon spans name and line */

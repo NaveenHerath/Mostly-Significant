@@ -426,27 +426,6 @@ $("gut-share").addEventListener("click", async () => { // share the score
   setTimeout(() => { btn.textContent = "Share"; }, 1600); // back to normal after a moment
 });
 
-// ---------- stats strip count-up (in how it works) ----------
-
-const statsBox = document.querySelector(".stats"); // the four numbers
-if (statsBox && !reduceMotion.matches && "IntersectionObserver" in window) { // skip it when motion is turned down, the real numbers are already in the html
-  const seen = new IntersectionObserver((entries) => { // fires when the strip comes on screen
-    if (!entries[0].isIntersecting) return; // not yet
-    seen.disconnect(); // only ever once
-    statsBox.querySelectorAll("strong").forEach((el) => { // each number
-      const to = Number(el.textContent.replace(/,/g, "")); // e.g. 1142
-      const start = performance.now(); // when it started
-      const tick = (now) => { // every frame
-        const t = Math.min((now - start) / 700, 1); // 0 to 1 over 700ms, same as the result card
-        el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3))).toLocaleString("en-GB"); // ease out, with the comma
-        if (t < 1) requestAnimationFrame(tick); // keep going until it lands
-      };
-      requestAnimationFrame(tick); // go
-    });
-  }, { threshold: 0.6 }); // most of it has to be showing
-  seen.observe(statsBox); // start watching
-}
-
 function setGuess(g) { // tapping a guess button
   const first = state.guess === null; // was the answer hidden until now?
   state.guess = g; // remember it
@@ -501,28 +480,48 @@ document.addEventListener("keydown", (e) => { // escape closes it
 });
 
 const visible = new Map(); // which sections are in the middle band of the screen right now
-const watcher = new IntersectionObserver((entries) => { // the browser tells us when sections cross the band
-  for (const e of entries) visible.set(e.target, e.isIntersecting); // remember each one
-  const current = [...visible].find(([el, on]) => on && el.offsetParent !== null)?.[0]; // first visible one that isn't hidden
-  const key = current?.dataset.nav; // which bar link it belongs to
-  siteNav.querySelectorAll("a").forEach((a) => { // every bar link
-    if (a.dataset.nav === key) a.setAttribute("aria-current", "true"); // highlight the matching one
-    else a.removeAttribute("aria-current"); // and clear the rest
-  });
-}, { rootMargin: "-45% 0px -50% 0px" }); // a thin band just above the middle of the screen
-document.querySelectorAll("main [data-nav]").forEach((s) => watcher.observe(s)); // watch every section that has a bar link
+let navLock = false; // true while a clicked link is scrolling us somewhere, so the pill doesn't flicker through every section on the way
 
-function watchNavTargets() { // sections made later by about.js (test your gut, about) get watched too, once they exist
-  siteNav.querySelectorAll("a[data-nav]").forEach((a) => { // every bar link
-    const target = document.querySelector(a.getAttribute("href")); // the section it jumps to
-    if (!target || target.dataset.nav) return; // not there yet, or already watched
-    target.dataset.nav = a.dataset.nav; // tie it to the link
-    watcher.observe(target); // and watch it
+function setCurrent(key) { // gives the matching bar link the pill, clears the rest
+  siteNav.querySelectorAll("a").forEach((a) => { // every bar link
+    if (key && a.dataset.nav === key) a.setAttribute("aria-current", "true"); // the current one
+    else a.removeAttribute("aria-current"); // the rest
   });
 }
-watchNavTargets(); // anything already on the page
-const aboutRoot = $("about-root"); // T1's block fills this after the page loads
-if (aboutRoot) new MutationObserver(watchNavTargets).observe(aboutRoot, { childList: true, subtree: true }); // catch its sections as they arrive
+function updateCurrent() { // works out which section is in the band right now
+  if (navLock) return; // a click is in charge until its scroll finishes
+  const current = [...visible].find(([el, on]) => on && el.offsetParent !== null)?.[0]; // first visible one that isn't hidden
+  setCurrent(current?.dataset.nav); // light its link
+}
+const watcher = new IntersectionObserver((entries) => { // the browser tells us when sections cross the band
+  for (const e of entries) visible.set(e.target, e.isIntersecting); // remember each one
+  updateCurrent(); // and re-pick the current link
+}, { rootMargin: "-45% 0px -50% 0px" }); // a thin band just above the middle of the screen
+
+const watched = new WeakSet(); // sections we're already watching, so nothing gets watched twice
+function watchNavTargets() { // watches every section with a bar link, including the ones about.js adds after the page loads
+  siteNav.querySelectorAll("a[data-nav]").forEach((a) => { // each bar link's own section gets the link's key, whatever about.js called it
+    const target = document.querySelector(a.getAttribute("href")); // the section it jumps to
+    if (target) target.dataset.nav = a.dataset.nav; // tie it to the link
+  });
+  document.querySelectorAll("main [data-nav]").forEach((el) => { // every section that belongs to a link (try it has several)
+    if (watched.has(el)) return; // already on it
+    watched.add(el); // remember
+    watcher.observe(el); // start watching
+  });
+}
+watchNavTargets(); // everything already on the page
+new MutationObserver(watchNavTargets).observe(document.querySelector("main"), { childList: true, subtree: true }); // about.js puts its panes before "watch it change" and after "the science", this catches them
+
+siteNav.addEventListener("click", (e) => { // clicking a link: it gets the pill straight away
+  const a = e.target.closest("a[data-nav]"); // the link
+  if (!a) return; // clicked the gap
+  setCurrent(a.dataset.nav); // pill on it now
+  navLock = true; // hold it while we scroll there
+  const release = () => { navLock = false; updateCurrent(); }; // then go back to following the scroll
+  addEventListener("scrollend", release, { once: true }); // when the smooth scroll stops (newer browsers)
+  setTimeout(release, 1200); // backup for browsers without scrollend
+});
 
 // ---------- hero video ----------
 

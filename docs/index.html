@@ -89,12 +89,6 @@
         <li class="glass"><svg class="icon" aria-hidden="true"><use href="icons.svg#cloud-snow" /></svg><h3>What it can’t do</h3><p>Snow, fog, forecasts, or your exact street. Each place is a square about 50 km across.</p></li> <!-- what isn't -->
         <li class="glass"><svg class="icon" aria-hidden="true"><use href="icons.svg#circle-help" /></svg><h3>How</h3><p>Ask in your own words, or pick one of ours. Make a guess, then see the verdict.</p></li> <!-- the steps -->
       </ol>
-      <ul class="stats" aria-label="The data in numbers"> <!-- the size of the data, numbers checked against data.json -->
-        <li><svg class="icon" aria-hidden="true"><use href="icons.svg#map-pin" /></svg><strong>75</strong><span>places, 49 in the UK</span></li> <!-- how many places -->
-        <li><svg class="icon" aria-hidden="true"><use href="icons.svg#history" /></svg><strong>45</strong><span>years, 1981 to 2025</span></li> <!-- how far back -->
-        <li><svg class="icon" aria-hidden="true"><use href="icons.svg#chart-line" /></svg><strong>1,142</strong><span>trends tested</span></li> <!-- place and measure pairs -->
-        <li><svg class="icon" aria-hidden="true"><use href="icons.svg#dices" /></svg><strong>1,000</strong><span>luck shuffles for each</span></li> <!-- the luck test -->
-      </ul>
     </section>
 
     <!-- 1b. say it your own way: a typed sentence gets a small case card, right in the conversation (chat.js) -->
@@ -278,8 +272,8 @@
       </ul>
       <p class="note">The verdict is about the trend in the data, not a score for your guess.</p> <!-- per naveen’s notes -->
 
-      <div class="how-cols"> <!-- two columns on laptops -->
-        <div> <!-- left: the chat box -->
+      <div class="how-cols"> <!-- two frosted tiles, side by side on laptops, stacked on phones -->
+        <div class="glass sci-tile"> <!-- left: the chat box -->
           <h3><svg class="icon" aria-hidden="true"><use href="icons.svg#message" /></svg>The chat box</h3> <!-- how a typed sentence is answered -->
           <ul class="icon-list"> <!-- one icon per point -->
             <li><svg class="icon" aria-hidden="true"><use href="icons.svg#cpu" /></svg><span>A language model works out which test you mean: Google’s Gemini, or a small model (MiniLM) in your browser when Gemini can’t be reached.</span></li> <!-- the two models -->
@@ -287,13 +281,13 @@
             <li><svg class="icon" aria-hidden="true"><use href="icons.svg#list-checks" /></svg><span>On 62 test questions, both Gemini and the on-device model picked the right test (or rightly said “can’t test that”) every time. Both were tuned on earlier misses from this set, so brand-new sentences may do a little worse.</span></li> <!-- from chat-eval/results.csv -->
           </ul>
         </div>
-        <div> <!-- right: caveats -->
+        <div class="glass sci-tile"> <!-- right: caveats -->
           <h3 id="cant">What it can’t tell you</h3> <!-- caveats, the footer links here -->
           <ul class="cant icon-list"> <!-- the big limitations from naveen’s notes -->
             <li><svg class="icon" aria-hidden="true"><use href="icons.svg#grid" /></svg><span>Each value is an average over a square about 50 km wide, so peaks read low. London’s hottest day shows about 34.5 °C, where stations hit about 40 °C. Trends still hold.</span></li> <!-- grid size -->
             <li><svg class="icon" aria-hidden="true"><use href="icons.svg#thermometer" /></svg><span>“Unusually hot” means hot for that place, so the bar is different in each town.</span></li> <!-- relative thresholds -->
             <li><svg class="icon" aria-hidden="true"><use href="icons.svg#calendar-x" /></svg><span>Years with no heatwave or no frost have no date, so they drop out of those trends.</span></li> <!-- missing years -->
-            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#cloud-rain" /></svg><span>Rain jumps around a lot from year to year, so most rain trends only reach “leaning”.</span></li> <!-- rain is noisy -->
+            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#cloud-rain" /></svg><span>Rain jumps around a lot from year to year, so most rain trends only reach “signs of it, not proven”.</span></li> <!-- rain is noisy -->
             <li><svg class="icon" aria-hidden="true"><use href="icons.svg#wind" /></svg><span>Humidity, wind and soil come from NASA’s weather model rather than measurements, so those trends are less certain than temperature.</span></li> <!-- muggy nights, windy days, dry soil days -->
             <li><svg class="icon" aria-hidden="true"><use href="icons.svg#map-pin" /></svg><span>Belfast, Aberdeen, Toronto, Lisbon and Cape Town use the square next door, because their own is mostly sea or lake. Singapore’s square is mostly sea with no better one nearby, so its numbers are provisional, and its rain stops in 2020 because the data is faulty after that. Sunshine data starts in 1984. Sydney, Sao Paulo, Johannesburg, Cape Town and Rio de Janeiro count July to June, so they start in 1982.</span></li> <!-- the odd ones out -->
             <li><svg class="icon" aria-hidden="true"><use href="icons.svg#circle-help" /></svg><span>It shows that something changed, not why.</span></li> <!-- no causes -->

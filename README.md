@@ -166,8 +166,7 @@ from the NASA data is described in [data-generation/README.md](data-generation/R
 
 ## Team
 
-Mostly Significant, London, November 2026: Bathila (app and visuals) and Naveen (data and
-stats).
+Mostly Significant, London, November 2026: Bathila Jayasiri and Naveen Herath.
 
 ## Licence
 
