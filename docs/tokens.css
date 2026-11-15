@@ -69,13 +69,22 @@
   --edge-light: inset 0 1px 0 oklch(100% 0 0 / 0.06); /* thin light catch on the top edge */
   --shadow-part: 0 1px 0 oklch(0% 0 0 / 0.4), 0 8px 16px -8px oklch(0% 0 0 / 0.6); /* small shadow under pills */
 
-  /* frosted glass, borrowed from hallmark's dusk theme, only for the hero panel and the result card */
+  /* frosted glass, borrowed from hallmark's dusk theme */
   --glass-fill: oklch(15% 0.025 258 / 0.52); /* smoky blue-black, about half see-through */
   --glass-blur: blur(20px) saturate(150%); /* frosts what's behind and keeps its colour a bit richer */
   --glass-border: oklch(100% 0 0 / 0.14); /* hairline edge, faint white */
   --glass-edge: inset 0 1px 0 oklch(100% 0 0 / 0.10); /* brighter catch along the top edge, like light on a pane */
   --glass-shadow: 0 24px 60px -24px oklch(0% 0 0 / 0.7); /* soft drop shadow so the pane floats */
   --glass-solid: var(--color-paper-2); /* used instead when blur isn't available or transparency is turned down */
+  --glass-fill-hero: oklch(14% 0.025 258 / 0.30); /* the title panel, more see-through so the earth shows */
+  --glass-blur-hero: blur(14px) saturate(140%); /* lighter blur over the video, cheaper to redraw every frame */
+  --panel-fill: oklch(15% 0.025 258 / 0.62); /* every other section, smoky glass over the blurred page photo */
+  --page-glow: /* soft night tones fixed behind the whole page, pure css so it stays smooth at any size */
+    radial-gradient(ellipse 70% 55% at 78% 88%, oklch(22% 0.035 55 / 0.55), transparent 70%), /* faint warm city-light glow, bottom right */
+    radial-gradient(ellipse 60% 50% at 12% 30%, oklch(20% 0.03 265 / 0.5), transparent 70%), /* faint cool sea tone, upper left */
+    radial-gradient(ellipse 50% 45% at 45% 60%, oklch(17% 0.02 300 / 0.45), transparent 70%); /* a touch of dusk purple in the middle */
+  --outro-photo: url("img/outro.webp"); /* sharp frame for the band at the end */
+  --outro-photo-phone: url("img/outro-phone.webp"); /* smaller file for phones */
 
   /* hero */
   --hero-height: min(86svh, 760px); /* tall on laptops but never a whole wall */

@@ -8,6 +8,7 @@
 /* ---------- basics ---------- */
 
 html { scroll-behavior: smooth; } /* section links glide (base.css turns this off for reduced motion) */
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: var(--page-glow), var(--color-paper); pointer-events: none; } /* soft night tones behind the whole page, gradients so there are never any blocky pixels */
 noscript { display: block; } /* so the no-javascript note sits in the column like everything else */
 html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers and links to them, they can't work */
 .icon { width: 1.1em; height: 1.1em; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; } /* every line icon, same size and stroke */
@@ -56,20 +57,37 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
   padding: calc(var(--bar-height) + var(--space-2xl)) var(--gutter) var(--space-3xl); /* clears the bar, leaves room for the credit */
   overflow: hidden; /* video never spills out */
 }
-.hero-media { position: absolute; inset: 0; z-index: -2; background: var(--color-paper) var(--hero-poster) center / cover no-repeat; } /* still frame underneath, so there's never a blank box */
+.hero-media { position: absolute; inset: 0; z-index: -2; background: var(--color-paper) var(--hero-poster) center / cover no-repeat; -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent); mask-image: linear-gradient(to bottom, #000 72%, transparent); } /* still frame underneath, and the bottom edge melts into the page photo */ /* still frame underneath, so there's never a blank box */
 .hero-video { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity var(--dur-long) var(--ease-out); } /* fills the hero, hidden until it's actually playing */
 .hero-video.is-playing { opacity: 1; } /* fades in over the still frame, so no jump */
 .hero-shade {
   position: absolute; inset: 0; z-index: -1; /* above the video, below the panel */
   background:
     radial-gradient(ellipse 60% 55% at 50% 52%, oklch(10% 0.02 258 / 0.45), transparent 75%), /* darker pool behind the panel, for contrast */
-    linear-gradient(to bottom, oklch(10% 0.02 258 / 0.75) 0, oklch(10% 0.02 258 / 0.15) 30%, oklch(10% 0.02 258 / 0.25) 65%, var(--color-paper) 100%); /* dark behind the bar, light in the middle, fades into the page at the bottom */
+    linear-gradient(to bottom, oklch(10% 0.02 258 / 0.75) 0, oklch(10% 0.02 258 / 0.15) 30%, oklch(10% 0.02 258 / 0.25) 65%, transparent 100%); /* dark behind the bar, light in the middle, fades into the page at the bottom */
 }
 
+.intro.glass { background: var(--glass-fill-hero); -webkit-backdrop-filter: var(--glass-blur-hero); backdrop-filter: var(--glass-blur-hero); } /* the title panel is lighter glass than the rest */
 .intro { width: min(100%, 46rem); padding: var(--space-2xl) var(--space-xl); text-align: center; } /* the centred panel, wide enough for the title on one line */
 .intro h1 { font-size: var(--text-hero); line-height: 0.95; max-width: none; margin: 0 auto; } /* the big question */
 .tagline { margin-top: var(--space-md); font-family: var(--font-display); font-size: var(--text-tagline); letter-spacing: var(--tracking-display); color: var(--color-ink-2); } /* "your weather hunches, fact-checked." */
 .lead { margin: var(--space-md) auto 0; color: var(--color-muted); max-width: 44ch; } /* one-line explainer */
+.ask { margin-top: var(--space-lg); } /* the rotating example, a little apart from the explainer */
+.ask-btn {
+  display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 0 0.3em; /* reads as one sentence, wraps neatly on phones */
+  min-height: 44px; padding: var(--space-2xs) var(--space-sm); /* easy to tap */
+  border: 0; border-radius: var(--radius-part); background: none; /* looks like text, not a box */
+  color: var(--color-ink); font-family: var(--font-display); font-size: var(--text-lg); letter-spacing: var(--tracking-display); /* same voice as the tagline */
+  cursor: pointer; -webkit-tap-highlight-color: transparent; /* hand cursor, no grey flash on phones */
+}
+.ask-lead { color: var(--color-ink-2); } /* the bit that stays put is a touch quieter */
+.ask-q { display: inline-block; transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out); text-decoration: underline; text-decoration-color: color-mix(in oklab, var(--color-ink) 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: 0.2em; } /* the changing question, underlined so it reads as a link */
+.ask-q.is-out { opacity: 0; transform: translateY(-4px); } /* leaving: fades and drifts up a touch */
+.ask-q.is-below { opacity: 0; transform: translateY(4px); transition: none; } /* the next one starts just below, then rises in */
+.ask-btn .icon { align-self: center; width: 0.9em; height: 0.9em; color: var(--color-ink-2); transition: transform var(--dur-short) var(--ease-out); } /* small arrow at the end */
+.ask-btn:active { transform: scale(0.98); } /* small press */
+@media (hover: hover) and (pointer: fine) { .ask-btn:hover .ask-q { text-decoration-color: var(--color-ink); } .ask-btn:hover .icon { transform: translateX(3px); } } /* underline firms up and the arrow nudges on hover */
+@media (prefers-reduced-motion: reduce) { .ask-q { transition: none; } } /* no fading when motion is turned down */
 .hero + noscript .note { margin: var(--space-lg) auto 0; text-align: center; } /* the no-js note sits under the hero */
 
 .hero-foot { position: absolute; right: var(--gutter); bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-xs); } /* bottom right corner: pause button then credit */
@@ -100,12 +118,18 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
   border-radius: var(--radius-card); /* soft corners */
   box-shadow: var(--glass-edge), var(--glass-shadow); /* light top edge and a soft float */
 }
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .glass { background: var(--glass-solid); } } /* no blur support: solid panel so text never sits on raw video */
-@media (prefers-reduced-transparency: reduce) { .glass { background: var(--glass-solid); -webkit-backdrop-filter: none; backdrop-filter: none; } } /* less see-through wanted: solid panel */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .glass, .intro.glass { background: var(--glass-solid); } } /* no blur support: solid panel so text never sits on raw video */
+@media (prefers-reduced-transparency: reduce) { .step, .glass, .intro.glass { background: var(--glass-solid); } .glass, .intro.glass { -webkit-backdrop-filter: none; backdrop-filter: none; } } /* less see-through wanted: solid panel */
 
 /* ---------- steps ---------- */
 
-.step { padding-top: var(--space-xl); margin-top: var(--space-2xl); border-top: var(--rule-hair) solid var(--color-rule-2); } /* each step starts with a faint hairline */
+.step { /* every section is a pane of smoky glass over the blurred page photo */
+  margin-top: var(--space-lg); padding: var(--space-xl); /* gap between panes, room inside */
+  background: var(--panel-fill); /* smoky, the photo behind is already blurred so no live blur needed */
+  border: var(--rule-hair) solid var(--glass-border); border-radius: var(--radius-card); /* hairline edge, soft corners */
+  box-shadow: var(--glass-edge), var(--glass-shadow); /* light top edge and a soft float, same as the glass panels */
+}
+.hero + noscript + .step { margin-top: var(--space-md); } /* first pane tucks up under the hero */
 .step h2 { display: flex; align-items: center; gap: 0.45em; max-width: none; color: var(--color-ink); } /* step heading, icon then words */
 .step h2 .icon { opacity: 0.5; width: 0.9em; height: 0.9em; } /* heading icon, same colour as the words but faded so it stays quiet */
 .note { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); max-width: 60ch; } /* small helper text */
@@ -129,7 +153,12 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
   transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); /* only these, never "all" */
 }
 .pill:active:not(:disabled) { transform: scale(0.97); } /* small press so it feels like it heard you */
-.pill[aria-pressed="true"] { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); } /* picked: filled with the hunch colour */
+.pill[aria-pressed="true"] { /* picked: tinted with the hunch colour rather than a loud solid fill */
+  background: color-mix(in oklab, var(--color-accent) 24%, var(--color-paper-2)); /* a wash of the colour over the dark pill */
+  border-color: color-mix(in oklab, var(--color-accent) 55%, transparent); /* edge in the colour, a bit softer */
+  color: var(--color-ink); /* light text, so it's calm against the tint */
+  box-shadow: var(--edge-light), var(--shadow-part), 0 0 48px -14px color-mix(in oklab, var(--color-accent) 22%, transparent); /* faint halo, quieter than before */
+}
 .pill:disabled { opacity: 0.35; cursor: not-allowed; box-shadow: none; } /* greyed out, e.g. rain for world cities */
 @media (hover: hover) and (pointer: fine) { /* hover only for real mice, not phones */
   .pill:hover:not(:disabled):not([aria-pressed="true"]) { border-color: var(--color-muted); color: var(--color-ink); } /* gentle lift on hover */
@@ -148,11 +177,12 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 }
 .switch .pill { min-height: 40px; border-color: transparent; background: transparent; box-shadow: none; color: var(--color-muted); } /* segments are flat until picked */
 .switch .pill[aria-pressed="true"] { background: var(--color-paper-3); border-color: var(--color-rule); box-shadow: var(--edge-light), var(--shadow-part); color: var(--color-ink); } /* picked segment is raised, not filled */
-#topics [data-tab="heat"] { --tab: var(--tab-heat); } /* each topic tab's own colour */
-#topics [data-tab="seasons"] { --tab: var(--tab-seasons); } /* spring green */
-#topics [data-tab="rain"] { --tab: var(--tab-rain); } /* sky blue */
-#topics [data-tab="sun"] { --tab: var(--tab-sun); } /* amber gold */
-#topics .pill[aria-pressed="true"] .icon { color: var(--tab); } /* the picked topic's icon lights up in its colour */
+[data-tab="heat"] { --tab: var(--tab-heat); } /* each topic's own colour, used by the tabs and the report headings */
+[data-tab="seasons"] { --tab: var(--tab-seasons); } /* spring green */
+[data-tab="rain"] { --tab: var(--tab-rain); } /* sky blue */
+[data-tab="sun"] { --tab: var(--tab-sun); } /* amber gold */
+.flag { width: 1.25em; height: 0.94em; flex-shrink: 0; background-size: cover; border-radius: 2px; box-shadow: 0 0 0 1px oklch(100% 0 0 / 0.14); } /* small country flag, lined up with the text, faint edge so white flags don't vanish */
+#topics .pill[aria-pressed="true"] .icon { color: var(--tab); filter: drop-shadow(0 0 6px color-mix(in oklab, var(--tab) 45%, transparent)); } /* the picked topic's icon lights up in its colour, with a faint glow */
 
 /* ---------- guess ---------- */
 
@@ -161,21 +191,24 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 
 /* ---------- result ---------- */
 
-.result-stage { position: relative; isolation: isolate; margin-top: var(--space-2xl); } /* takes the step's spacing, keeps the glow behind the card */
+.result-stage { margin-top: var(--space-lg); } /* takes the step's spacing */
 .result-stage:has([data-verdict="real"]) { --verdict: var(--verdict-real); } /* pick the verdict colour, for the glow and the card */
 .result-stage:has([data-verdict="leaning"]) { --verdict: var(--verdict-leaning); } /* amber */
 .result-stage:has([data-verdict="not_backed"]) { --verdict: var(--verdict-not_backed); } /* grey */
 .result-stage:has([data-verdict="opposite"]) { --verdict: var(--verdict-opposite); } /* red */
-.result-stage::before {
-  content: ""; position: absolute; inset: 8% 4%; z-index: -1; /* sits just inside the card's edges, behind it */
-  background:
-    radial-gradient(closest-side at 22% 50%, color-mix(in oklab, var(--verdict, var(--color-muted)) 38%, transparent), transparent), /* verdict colour on the left, behind the verdict */
-    radial-gradient(closest-side at 80% 55%, color-mix(in oklab, var(--color-accent) 30%, transparent), transparent); /* hunch colour on the right */
-  filter: blur(48px); /* very soft, so it reads as light, not shapes */
+.result { position: relative; margin-top: 0; isolation: isolate; overflow: clip; } /* the glass card, isolate and clip keep the glows inside it */
+.result .verdict, .big.now { position: relative; } /* each glow sits behind its own words */
+.result .verdict::before, .big.now::before {
+  content: ""; position: absolute; z-index: -1; inset: -40% -20%; pointer-events: none; /* an oval a bit bigger than the words */
+  border-radius: 50%; /* round, so the light spreads evenly */
+  background: color-mix(in oklab, var(--glow) 11%, transparent); /* one flat faint colour, no hard core */
+  filter: blur(60px); /* blurs the whole oval into a soft cloud, so there are no edges anywhere */
 }
-.result { margin-top: 0; padding: var(--space-xl); border-top: var(--rule-hair) solid var(--glass-border); } /* the glass card: no step hairline, padding all round (border shorthand comes from .glass) */
+.result .verdict::before { --glow: var(--verdict); } /* verdict colour behind the verdict */
+.big.now::before { --glow: var(--color-accent); } /* hunch colour behind the "now" number */
+@media (prefers-reduced-transparency: reduce) { .result .verdict::before, .big.now::before { display: none; } } /* plain card when transparency is turned down */
 
-.result .verdict { display: block; font-family: var(--font-display); font-size: var(--text-3xl); line-height: 1.1; letter-spacing: var(--tracking-display); color: var(--verdict); } /* the verdict in its colour, always with words */
+.result .verdict { display: block; width: fit-content; font-family: var(--font-display); font-size: var(--text-3xl); line-height: 1.1; letter-spacing: var(--tracking-display); color: var(--verdict); } /* the verdict in its colour, always with words */
 .verdict-line { margin-top: var(--space-xs); color: var(--color-ink-2); } /* one plain sentence */
 .gut { margin-top: var(--space-2xs); color: var(--color-muted); } /* was your gut right */
 
@@ -212,8 +245,8 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 .luck-line { margin-top: var(--space-md); font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.25; letter-spacing: var(--tracking-display); max-width: 30ch; } /* the one-sentence answer */
 .dots { margin-top: var(--space-lg); max-width: 520px; } /* grid of dots, not too wide */
 .dots svg { width: 100%; height: auto; } /* scales to fit */
-.dot { fill: var(--color-rule); } /* shuffles that didn't match, faint */
-.dot.hit { fill: var(--color-accent); } /* shuffles that matched, lit in the hunch colour */
+.dot { fill: color-mix(in oklab, var(--color-rule) 85%, var(--color-ink) 15%); } /* shuffles that didn't match, a touch lighter so the lit ones don't jump out so hard */
+.dot.hit { fill: color-mix(in oklab, var(--color-accent) 62%, var(--color-paper-2)); } /* shuffles that matched, a softer, dimmer take on the hunch colour */
 
 /* ---------- map ---------- */
 
@@ -244,7 +277,8 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 /* ---------- report card ---------- */
 
 .report-group { margin-top: var(--space-xl); min-width: 0; } /* space between topics */
-.report-group h3 { font-size: var(--text-lg); color: var(--color-ink-2); } /* topic name */
+.report-group h3 { display: flex; align-items: center; gap: 0.45em; font-size: var(--text-lg); color: var(--color-ink-2); } /* topic name, icon first */
+.report-group h3 .icon { width: 0.95em; height: 0.95em; color: var(--tab); } /* same icon as the tab, in the topic colour */
 .report-group ul { list-style: none; margin: var(--space-sm) 0 0; padding: 0; } /* plain list, no bullets */
 .report-row {
   display: flex; /* text on the left, verdict on the right */
@@ -288,7 +322,7 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 
 /* ---------- footer ---------- */
 
-.site-footer { margin-top: var(--space-xl); padding: var(--space-2xl) var(--gutter) var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); } /* starts with a hairline */
+.site-footer { background: linear-gradient(to bottom, transparent, color-mix(in oklab, var(--color-paper) 88%, transparent) var(--space-3xl)); padding: var(--space-2xl) var(--gutter) var(--space-xl); } /* no hairline on top, it fades in so the photo above melts into it */
 .footer-inner { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr); gap: var(--space-2xl); max-width: var(--page); margin: 0 auto; } /* brand on the left, link columns on the right */
 .footer-name { display: flex; align-items: center; gap: var(--space-xs); font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-ink); } /* logo and site name */
 .footer-desc { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); max-width: 36ch; } /* one-line description */
@@ -298,10 +332,45 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 .footer-cols li { padding-block: var(--space-2xs); line-height: 1.6; } /* room between links, still easy to tap */
 .footer-cols a { font-size: var(--text-sm); color: var(--color-muted); text-decoration: none; transition: color var(--dur-short) var(--ease-out); } /* quiet links that wrap like normal text */
 @media (hover: hover) and (pointer: fine) { .footer-cols a:hover { color: var(--color-ink); } } /* brighten on hover */
+.person { display: inline-flex; align-items: flex-start; gap: var(--space-xs); } /* linkedin mark then name */
+.li-mark { width: 15px; height: 15px; margin-top: 0.3em; fill: currentColor; flex-shrink: 0; } /* small linkedin mark, lines up with the name */
+.person-role { display: block; font-size: var(--text-xs); color: var(--color-muted); opacity: 0.8; } /* "team member" under the name */
+.footer-cols a.person { color: var(--color-ink-2); } /* names a touch brighter than the other links */
+.repo-link { margin-top: var(--space-xs); } /* small gap between the two of us and the repo */
 .nowrap { white-space: nowrap; } /* keeps the last word and its arrow together */
 .icon-out { display: inline-block; width: 0.85em; height: 0.85em; margin-left: 0.25em; vertical-align: -0.1em; } /* small "opens elsewhere" arrow, sits right after the last word */
 .footer-bottom { max-width: var(--page); margin: var(--space-xl) auto 0; padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule-2); font-size: var(--text-xs); color: var(--color-muted); } /* the built-by and credit lines */
 .footer-bottom p + p { margin-top: var(--space-2xs); max-width: 90ch; } /* small gap before the video credit, wraps neatly */
+
+/* ---------- the photo band at the end ---------- */
+
+.outro {
+  position: relative; isolation: isolate; /* photo and panel stack inside it */
+  display: flex; align-items: flex-end; /* panel sits at the bottom */
+  min-height: min(78svh, 720px); /* tall, but not a whole wall */
+  width: 100vw; margin-inline: calc(50% - 50vw); margin-top: var(--space-2xl); /* edge to edge like the hero */
+  padding: var(--space-4xl) max(var(--gutter), calc((100vw - var(--page)) / 2)) calc(var(--space-4xl) + var(--space-xl)); /* panel lines up with the page column, long fade below it */
+  overflow: hidden; /* photo never spills out */
+}
+.outro-media {
+  position: absolute; inset: 0; z-index: -1; /* behind the panel */
+  background: var(--outro-photo) center 60% / cover no-repeat; /* the sharp night frame */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 40%, #000 62%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0, #000 40%, #000 62%, transparent 100%); /* fades in from the page at the top and back out into the footer at the bottom */
+}
+.outro-panel { max-width: 30rem; padding: var(--space-xl); } /* the frosted panel, like the title one */
+.outro-panel h2 { font-size: var(--text-3xl); } /* big and calm */
+.outro-panel p { margin-top: var(--space-sm); color: var(--color-ink-2); } /* one line under it */
+.outro-link {
+  display: inline-flex; align-items: center; gap: var(--space-xs); /* words then arrow */
+  min-height: 44px; margin-top: var(--space-lg); padding: 0 var(--space-lg); /* proper button size */
+  border-radius: var(--radius-pill); background: var(--color-accent); color: var(--color-accent-ink); /* filled with the hunch colour */
+  font-weight: 500; text-decoration: none; /* button look */
+  transition: transform var(--dur-micro) var(--ease-out); /* small press */
+}
+.outro-link:active { transform: scale(0.97); } /* press */
+.outro-link .icon { width: 1em; height: 1em; } /* small arrow */
+.outro-credit { position: absolute; right: var(--gutter); bottom: var(--space-3xl); font-size: var(--text-xs); color: var(--color-ink-2); text-decoration: none; text-shadow: 0 1px 2px oklch(0% 0 0 / 0.8); } /* small credit in the corner */
+@media (hover: hover) and (pointer: fine) { .outro-credit:hover { text-decoration: underline; } } /* shows it's a link */
 
 /* ---------- reveal motion ---------- */
 
@@ -347,7 +416,11 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
   .hero { --hero-poster: var(--hero-poster-phone); --hero-height: min(80svh, 680px); padding-bottom: var(--space-2xl); } /* phones get the taller still frame, a slightly shorter hero and less empty space under it */
   .hero-foot { bottom: var(--space-md); } /* credit a little closer to the edge */
   .intro { padding: var(--space-xl) var(--space-lg); } /* tighter panel */
+  .step { padding: var(--space-lg) var(--space-md); border-radius: 16px; } /* tighter panes on phones */
   .result { padding: var(--space-lg); } /* tighter card */
+  .outro { --outro-photo: var(--outro-photo-phone); min-height: 70svh; padding-bottom: var(--space-4xl); } /* smaller photo, room for the fade and the credit */
+  .outro-panel { padding: var(--space-lg); } /* tighter panel */
+  .outro-panel h2 { font-size: var(--text-2xl); } /* a bit smaller */
   .claim { font-size: var(--text-xl); } /* claim a bit smaller */
   .result .verdict { font-size: var(--text-2xl); } /* verdict a bit smaller */
   .then-now { gap: var(--space-md); flex-wrap: nowrap; } /* tighter, and the arrow never dangles */

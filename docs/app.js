@@ -132,11 +132,21 @@ function renderRegions() { // the uk / world switch
 
 function renderPlaces() { // the place pills
   fill($("places"), placesIn(state.region).map((p) => // one pill per place in the region
-    pill(p, state.place === p, () => setPlace(p)) // pressed if picked
+    withFlag(pill(p, state.place === p, () => setPlace(p)), p) // pressed if picked, plus a flag for world cities
   ));
   const note = PLACE_NOTES[state.place]; // any warning for this place
   $("place-note").hidden = !note; // only show if there is one
   $("place-note").textContent = note || ""; // the words
+}
+
+function withFlag(b, place) { // puts a small country flag in front of a place name, if it has one
+  const code = PLACE_FLAGS[place]; // e.g. "fr" for paris
+  if (!code) return b; // uk towns have no flag, leave the pill as it is
+  const f = document.createElement("span"); // flag-icons draws the flag as this span's background
+  f.className = `fi fi-${code} flag`; // which flag, plus our own sizing class
+  f.setAttribute("aria-hidden", "true"); // decoration only, the name already says where it is
+  b.prepend(f); // flag before the name
+  return b; // hand it back
 }
 
 function iconSvg(name) { // a small line icon from icons.svg
@@ -166,7 +176,7 @@ function renderHunches() { // the hunch sentence pills
 }
 
 function renderGuess() { // the claim line and the three guess buttons
-  $("claim").textContent = `${HUNCHES[state.measure].text} in ${state.place}.`; // e.g. "Summers are getting hotter in London."
+  $("claim").textContent = `Is it just me, or ${HUNCHES[state.measure].question} in ${state.place}?`; // e.g. "Is it just me, or are downpours heavier in London?"
   fill($("guesses"), GUESSES.map((g) => // three buttons
     pill(g.label, state.guess === g.id, () => setGuess(g.id)) // pressed once chosen
   ));
@@ -318,6 +328,8 @@ function renderReport() { // every hunch for this place, grouped by topic, with 
     sec.className = "report-group"; // styled in css
     const h = document.createElement("h3"); // topic name
     h.textContent = t.label; // e.g. "Heat"
+    h.prepend(iconSvg(t.icon)); // same icon as its topic tab, so they match
+    h.dataset.tab = t.id; // css colours the icon like the tab
     const list = document.createElement("ul"); // the rows
     for (const m of measuresFor(state.place, t.id)) { // each hunch in the topic
       const r = DATA.rows[state.place][m]; // its data
@@ -359,6 +371,7 @@ function render() { // redraws everything from the current state
   renderTopics(); // topic switch
   renderHunches(); // hunch pills
   renderGuess(); // claim and guess buttons
+  updateExamples(); // hero examples that fit this place
   const show = state.guess !== null && !!row(); // only reveal after a guess
   $("reveal").hidden = !show; // hide or show the results
   document.querySelectorAll(".needs-answer").forEach((a) => { a.hidden = !show; }); // bar links to the map and report only once there's an answer
@@ -509,6 +522,67 @@ if (heroVideo) { // wire it all up
   reduceMotion.addEventListener("change", updateHeroVideo); // follow the setting if it changes while the page is open
   phoneScreen.addEventListener("change", updateHeroVideo); // switch file if the window crosses the phone size
 }
+
+// ---------- rotating hero example ----------
+
+const ask = $("ask"); // the "is it just me, or ..." button in the hero
+const askQ = $("ask-q"); // the part of it that changes
+const ASK_HOLD = 3500; // how long each example stays up, in ms
+const ASK_FADE = 260; // how long the fade out takes, matches the css
+let askList = []; // the examples that work for the current place
+let askIndex = 0; // which one is showing
+let askTimer = null; // the next swap, so we can cancel it
+let askPaused = false; // true while the mouse is over it or it has keyboard focus
+
+function examplesFor(place) { // the examples this place actually has data for
+  return EXAMPLES.filter((m) => DATA.rows[place]?.[m]); // world cities only keep the heat ones
+}
+
+function showExample() { // puts the current example into the line
+  const m = askList[askIndex]; // its measure id
+  ask.dataset.measure = m; // remember which one a tap should pick
+  askQ.textContent = `${HUNCHES[m].question}?`; // e.g. "are downpours heavier?"
+}
+
+function queueNext() { // waits, then fades to the next example
+  clearTimeout(askTimer); // never two timers at once
+  if (reduceMotion.matches || askList.length < 2) return; // reduced motion (or only one example): it just stays put
+  askTimer = setTimeout(() => { // after the hold
+    if (askPaused) return queueNext(); // they're hovering or focused, try again later
+    askQ.classList.add("is-out"); // fade it out
+    askTimer = setTimeout(() => { // once it's gone
+      askIndex = (askIndex + 1) % askList.length; // next one, back to the start after the last
+      showExample(); // swap the words while it's invisible
+      askQ.classList.replace("is-out", "is-below"); // jump it just below its spot, no transition
+      void askQ.offsetWidth; // makes the browser take that position in before we move it
+      askQ.classList.remove("is-below"); // now it rises and fades in
+      queueNext(); // and go again
+    }, ASK_FADE);
+  }, ASK_HOLD);
+}
+
+function updateExamples() { // refreshes the list when the place changes
+  const list = examplesFor(state.place); // what this place has
+  if (list.join() === askList.join()) return; // same list, leave the rotation alone
+  askList = list; // use the new list
+  askIndex = 0; // from the top
+  askQ.classList.remove("is-out"); // make sure it's visible
+  showExample(); // show the first one
+  ask.hidden = false; // now there's something to show
+  queueNext(); // start rotating
+}
+
+ask.addEventListener("click", () => { // tapping the example tries that hunch
+  const m = ask.dataset.measure; // which one is showing
+  state.topic = HUNCHES[m].topic; // switch to its topic
+  setMeasure(m); // pick it, for the current place
+  $("guess").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" }); // straight to the guess
+});
+ask.addEventListener("pointerenter", () => { askPaused = true; }); // hold still while the mouse is on it
+ask.addEventListener("pointerleave", () => { askPaused = false; }); // carry on when it leaves
+ask.addEventListener("focus", () => { askPaused = true; }); // hold still while it has keyboard focus
+ask.addEventListener("blur", () => { askPaused = false; }); // carry on when focus moves away
+reduceMotion.addEventListener("change", queueNext); // stop or start rotating if the setting changes
 
 // ---------- start ----------
 
