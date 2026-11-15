@@ -20,3 +20,7 @@ tools/
 # vercel's local link and token files, only for the laptop that deploys
 .vercel
 .env*
+
+# naveen's raw nasa download, too big for github
+power_raw.zip
+
