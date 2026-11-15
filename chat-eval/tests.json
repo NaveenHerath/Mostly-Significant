@@ -66,5 +66,12 @@
   {"question":"is it wetter now than it used to be in Cardiff","expected":["heavy_rain_days","winter_rain","wettest_day"],"kind":"testable"},
   {"question":"winters are so mild now","expected":["heating_need","first_frost_doy"],"kind":"testable"},
   {"question":"is it hot today in London","expected":["none"],"kind":"off_topic"},
-  {"question":"what's the temperature right now","expected":["none"],"kind":"off_topic"}
+  {"question":"what's the temperature right now","expected":["none"],"kind":"off_topic"},
+  {"question":"is it too cold in birmingham now?","expected":["heating_need","heatwave_days","hottest_day"],"kind":"testable","reversed":true},
+  {"question":"is it colder now in London","expected":["heating_need","heatwave_days","hottest_day"],"kind":"testable","reversed":true},
+  {"question":"winters are harsher these days","expected":["heating_need","first_frost_doy"],"kind":"testable","reversed":true},
+  {"question":"nights are colder now","expected":["warm_nights"],"kind":"testable","reversed":true},
+  {"question":"summers are shorter now","expected":["summer_length"],"kind":"testable","reversed":true},
+  {"question":"winters aren't as cold any more","expected":["heating_need","first_frost_doy"],"kind":"testable","reversed":false},
+  {"question":"is it too hot in birmingham now?","expected":["heatwave_days","hottest_day"],"kind":"testable","reversed":false}
 ]

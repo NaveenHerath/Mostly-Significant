@@ -72,9 +72,14 @@ async function route(text, say) { // sentence in, {measure, topic, place, revers
   if (!matcherLoaded) say("Loading the on-device model. The first time takes a few seconds.");
   const m = await matchHunch(found.rest || text);
   matcherLoaded = true;
-  return { ...m, place: found.place, reversed: false, source: "device" };
+  return { ...m, place: found.place, reversed: m.measure && typeof reversedByWords === "function" ? reversedByWords(text, m.measure) : false, source: "device" }; // reversedByWords lives in matcher.js
 }
 let matcherLoaded = false; // so the "loading" line only shows the first time
+
+// When a person claims the reverse of the hunch that was tested ("is it too cold now?" tested as
+// "we need less heating"), the answer to their own claim is the tested verdict turned round.
+const FLIP_VERDICT = { real: "opposite", opposite: "real", leaning: "not_backed", not_backed: "not_backed" };
+const claimVerdict = (verdict, reversed) => (reversed ? FLIP_VERDICT[verdict] : verdict);
 
 // ---------- wording the answer ----------
 
@@ -224,7 +229,8 @@ function openFullCase(c, guess) { // the same answer in the full view further do
   state.region = DATA.places[c.place].region;
   state.topic = HUNCHES[c.measure].topic;
   state.measure = c.measure;
-  state.guess = guess;
+  // the guess was about the person's own claim; the full case shows the tested hunch, so a reversed guess is turned round too
+  state.guess = c.reversed && guess !== "unsure" ? (guess === "yes" ? "no" : "yes") : guess;
   render();
   goToSection("result"); // the full answer, on the check a hunch page
 }
@@ -239,7 +245,7 @@ function startCase(turn, c) { // says what is being tested and asks for a guess.
   const row = el("div", "pills chat-guess");
   row.append(...GUESSES.map((g) => pill(g.label, false, async () => {
     row.querySelectorAll("button").forEach((b) => { b.disabled = true; });
-    recordGuess(gutRight(g.id, DATA.rows[c.place][c.measure].verdict)); // counts towards the gut score in the corner
+    recordGuess(gutRight(g.id, claimVerdict(DATA.rows[c.place][c.measure].verdict, c.reversed))); // counts towards the gut score, judged on what the person actually claimed
     row.replaceWith(await card(c, g.id, await wording));
     turn.say(`${c.reversed ? "You put it the other way round, so I" : "I"} tested “${hunch}” in ${c.place}.`); // the question has been answered, so it's dropped from the line
     turn.bot.querySelector(".chat-alts")?.remove(); // the "did you mean" row has done its job
@@ -260,10 +266,11 @@ async function card(c, guess, worded) { // the whole answer, small: verdict, wor
   const r = DATA.rows[c.place][c.measure];
   const f = facts(c);
   const box = el("div", "chat-card");
-  box.dataset.verdict = r.verdict; // css colours the stamp, the trend line and the meter
+  const shown = claimVerdict(r.verdict, c.reversed); // the answer to what the person actually claimed
+  box.dataset.verdict = shown; // css colours the stamp, the trend line and the meter
 
   const head = el("div", "chat-head");
-  head.append(el("span", "chat-stamp", VERDICTS[r.verdict].label), el("span", "chat-gut", GUT[guess][r.verdict]));
+  head.append(el("span", "chat-stamp", VERDICTS[shown].label), el("span", "chat-gut", GUT[guess][shown]));
 
   const nums = el("p", "chat-nums");
   nums.append(el("span", "chat-then", f.then), el("span", "chat-arrow", "→"), el("span", "chat-now", f.now), el("span", "chat-noun", `${f.noun}, 1980s to now`));

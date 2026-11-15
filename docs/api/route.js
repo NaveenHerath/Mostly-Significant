@@ -8,6 +8,12 @@
 const MEASURES = ["heatwave_days", "heatwave_events", "longest_heatwave", "hottest_day", "warm_nights", "muggy_nights", "first_heatwave_doy", "summer_length", "autumn_onset_doy", "first_frost_doy", "wettest_day", "heavy_rain_days", "summer_dry_spell", "winter_rain", "windy_days", "dry_soil_days", "summer_sunshine", "heating_need", "yearly_sunshine", "cooling_need"];
 const TOPICS = ["snow", "storms", "fog", "floods", "sea", "air", "forecast", "cause", "other"]; // why a hunch can't be tested
 const PLACES = ["London", "Maidstone", "Norwich", "Plymouth", "Bristol", "Cardiff", "Birmingham", "Manchester", "Newcastle", "Belfast", "Edinburgh", "Aberdeen", "Leeds", "Sheffield", "Liverpool", "Leicester", "Nottingham", "Hull", "Stoke-on-Trent", "Southampton", "Milton Keynes", "Brighton", "Reading", "Preston", "Bournemouth", "Peterborough", "Middlesbrough", "Ipswich", "Oxford", "Cambridge", "Gloucester", "Exeter", "Lincoln", "Carlisle", "Glasgow", "Dundee", "Inverness", "Stirling", "Ayr", "Dumfries", "Fort William", "Swansea", "Bangor", "Aberystwyth", "Llandrindod Wells", "Carmarthen", "Derry", "Omagh", "Newry", "New York", "Los Angeles", "Toronto", "Sao Paulo", "Paris", "Berlin", "Madrid", "Cairo", "Delhi", "Tokyo", "Sydney", "Johannesburg", "Barcelona", "Rome", "Lisbon", "Athens", "Amsterdam", "Istanbul", "Dubai", "Marrakech", "Cape Town", "Bangkok", "Singapore", "Orlando", "Mexico City", "Rio de Janeiro"]; // all 75, same names as data.json
+const FLIP = { real: "opposite", opposite: "real", leaning: "not_backed", not_backed: "not_backed" }; // the verdict for a claim that is the reverse of the tested hunch
+const CLAIM_VERDICTS = { // the answer to the person's own claim, when it was the reverse
+  real: "the data backs what they said",
+  opposite: "the data shows the reverse of what they said",
+  not_backed: "the data doesn't support what they said",
+};
 const VERDICTS = { // what each verdict means, in the words the site uses
   real: "the data backs the tested hunch",
   leaning: "the data points that way, but luck can't be ruled out yet",
@@ -116,6 +122,7 @@ async function word(key, body) { // one looked-up result in, two plain sentences
     `Hunch tested: "${f.hunch}" in ${f.place}`,
     f.reversed === true ? "The person claimed the reverse of the tested hunch." : "",
     `Verdict: ${VERDICTS[f.verdict]}`,
+    f.reversed === true ? `So for what the person said: ${CLAIM_VERDICTS[FLIP[f.verdict]]}` : "",
     `1981 to 1990 average: ${f.then} (${f.noun})`,
     `2016 to 2025 average: ${f.now} (${f.noun})`,
     `Change per decade: ${f.rate}`,

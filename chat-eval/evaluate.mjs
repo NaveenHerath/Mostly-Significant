@@ -11,7 +11,7 @@ const docs = new URL("../docs/", import.meta.url);
 const read = (name) => fs.readFileSync(new URL(name, docs), "utf8");
 
 // The site's phrase list and decision rules, loaded from the same files the browser loads.
-const site = vm.runInNewContext(`${read("phrases.js")}\n${read("matcher.js")}\n({ MATCH_PHRASES, DECOYS, MATCHER_MODEL, scoreAgainst, decide })`);
+const site = vm.runInNewContext(`${read("phrases.js")}\n${read("matcher.js")}\n({ MATCH_PHRASES, DECOYS, MATCHER_MODEL, scoreAgainst, decide, reversedByWords })`);
 const tests = JSON.parse(fs.readFileSync(new URL("tests.json", import.meta.url), "utf8"));
 
 // The same model file the site serves, read from docs/models.
@@ -35,13 +35,13 @@ async function askGemini(text) {
     if (!out.error) break;
     await new Promise((r) => setTimeout(r, 15000));
   }
-  return out.error ? `error: ${out.error}` : out.measure || "none";
+  return out.error ? { measure: `error: ${out.error}`, reversed: false } : { measure: out.measure || "none", reversed: out.reversed === true };
 }
 const useGemini = !!process.env.GEMINI_API_KEY;
 
 // One of four outcomes per answer. "wrong" is the costly one: a confident match to the wrong measure.
-function grade(expected, got) {
-  if (expected.includes(got)) return "right";
+function grade(expected, got, wantReversed, gotReversed) {
+  if (expected.includes(got)) return wantReversed === undefined || wantReversed === gotReversed ? "right" : "wrong_direction"; // right hunch, and the right way round when the test says
   if (got.startsWith("error")) return "error";
   if (expected[0] === "none") return "false_accept"; // untestable, but given a measure
   if (got === "none") return "missed"; // testable, but called untestable
@@ -52,9 +52,11 @@ const rows = [];
 for (const [i, t] of tests.entries()) {
   const d = site.decide(site.scoreAgainst(questionVectors[i], refs, refVectors));
   const device = d.measure || "none";
-  const gemini = useGemini ? await askGemini(t.question) : "";
+  const deviceReversed = d.measure ? site.reversedByWords(t.question, d.measure) : false;
+  const g = useGemini ? await askGemini(t.question) : { measure: "", reversed: false };
+  const gemini = g.measure;
   if (useGemini) await new Promise((r) => setTimeout(r, 4500)); // stays inside the free tier's requests-per-minute limit
-  rows.push({ ...t, device, device_score: d.score.toFixed(2), device_grade: grade(t.expected, device), gemini, gemini_grade: useGemini ? grade(t.expected, gemini) : "" });
+  rows.push({ ...t, device, device_score: d.score.toFixed(2), device_grade: grade(t.expected, device, t.reversed, deviceReversed), gemini, gemini_grade: useGemini ? grade(t.expected, gemini, t.reversed, g.reversed) : "" });
 }
 
 const csv = (v) => (/[",]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v);

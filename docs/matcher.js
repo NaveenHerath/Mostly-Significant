@@ -47,6 +47,18 @@ function decide(ranked) { // turns the ranked scores into an answer: a measure, 
   return { measure: top.id, topic: null, score: top.score, alternatives };
 }
 
+// The on-device model only finds the hunch, not which way the person claims it goes. This catches
+// the common case: a colder claim against a heat or heating hunch. A negation ("winters aren't cold
+// any more") means the person agrees with the hunch, so it is not counted as reversed.
+const WARMER_HUNCHES = new Set(["heatwave_days", "heatwave_events", "longest_heatwave", "hottest_day", "warm_nights", "muggy_nights", "summer_length", "cooling_need", "heating_need"]);
+function reversedByWords(text, measure) {
+  const t = String(text).toLowerCase();
+  if (!WARMER_HUNCHES.has(measure)) return false;
+  if (/\b(not|never|no longer|isn't|aren't|isnt|arent|don't|doesn't|any ?more|less)\b/.test(t)) return false;
+  if (measure === "summer_length" && /\bshorter\b/.test(t)) return true;
+  return /\b(cold|colder|coldest|cooler|chilly|chillier|freezing|harsh|harsher|bitter)\b/.test(t);
+}
+
 async function matchHunch(text) { // the one function the chat box calls
   const { toVectors, refs, vectors } = await loadMatcher();
   const [q] = await toVectors([text]); // the question's vector

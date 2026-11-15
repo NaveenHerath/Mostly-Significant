@@ -1,69 +1,76 @@
 question,kind,expected,device,device_score,device_grade,gemini,gemini_grade
-nights are unbearable,testable,warm_nights,warm_nights,0.64,right,warm_nights,right
+nights are unbearable,testable,warm_nights,warm_nights,0.66,right,warm_nights,right
 I can't sleep in summer because it's so hot at night,testable,warm_nights,warm_nights,0.90,right,warm_nights,right
-bedrooms are stuffy all night now,testable,warm_nights,warm_nights,0.67,right,warm_nights,right
-are summers getting shorter,testable,summer_length,summer_length,0.84,right,summer_length,right
-summer seems to go on forever these days,testable,summer_length,summer_length,0.80,right,summer_length,right
-it feels like summer weather starts in May now,testable,summer_length|first_heatwave_doy,first_heatwave_doy,0.66,right,summer_length,right
+bedrooms are stuffy all night now,testable,warm_nights,warm_nights,0.68,right,warm_nights,right
+are summers getting shorter,testable,summer_length,summer_length,0.83,right,summer_length,right
+summer seems to go on forever these days,testable,summer_length,summer_length,0.81,right,summer_length,right
+it feels like summer weather starts in May now,testable,summer_length|first_heatwave_doy,first_heatwave_doy,0.65,right,summer_length,right
 we get way more hot days than when I was a kid,testable,heatwave_days,heatwave_days,0.76,right,heatwave_days,right
 is it getting hotter,testable,heatwave_days|hottest_day,heatwave_days,0.85,right,heatwave_days,right
 there seem to be loads of heatwaves now,testable,heatwave_events|heatwave_days,heatwave_events,0.84,right,heatwave_events,right
 heatwaves never seem to end,testable,longest_heatwave,longest_heatwave,0.92,right,longest_heatwave,right
-hot spells used to be over in a couple of days,testable,longest_heatwave,longest_heatwave,0.84,right,longest_heatwave,right
+hot spells used to be over in a couple of days,testable,longest_heatwave,longest_heatwave,0.87,right,longest_heatwave,right
 "it hit 40 degrees, that never used to happen",testable,hottest_day,hottest_day,0.79,right,hottest_day,right
 the temperature records keep tumbling,testable,hottest_day,hottest_day,0.60,right,hottest_day,right
-the first hot spell of the year comes sooner,testable,first_heatwave_doy,first_heatwave_doy,0.91,right,first_heatwave_doy,right
-it's boiling by June already,testable,first_heatwave_doy|heatwave_days,heatwave_days,0.82,right,first_heatwave_doy,right
-the leaves fall later,testable,autumn_onset_doy,autumn_onset_doy,0.82,right,autumn_onset_doy,right
-October feels like September used to,testable,autumn_onset_doy,autumn_onset_doy,0.68,right,autumn_onset_doy,right
-I'm still in a t-shirt in October,testable,autumn_onset_doy,autumn_onset_doy,0.53,right,autumn_onset_doy,right
+the first hot spell of the year comes sooner,testable,first_heatwave_doy,first_heatwave_doy,0.90,right,first_heatwave_doy,right
+it's boiling by June already,testable,first_heatwave_doy|heatwave_days,heatwave_days,0.84,right,first_heatwave_doy,right
+the leaves fall later,testable,autumn_onset_doy,autumn_onset_doy,0.83,right,autumn_onset_doy,right
+October feels like September used to,testable,autumn_onset_doy,autumn_onset_doy,0.69,right,autumn_onset_doy,right
+I'm still in a t-shirt in October,testable,autumn_onset_doy,autumn_onset_doy,0.56,right,autumn_onset_doy,right
 I never have to scrape ice off my car anymore,testable,first_frost_doy,first_frost_doy,0.94,right,first_frost_doy,right
 my garden doesn't freeze until December now,testable,first_frost_doy,first_frost_doy,0.85,right,first_frost_doy,right
 frosty mornings are rare,testable,first_frost_doy,first_frost_doy,0.62,right,first_frost_doy,right
 the rain is more intense,testable,wettest_day|heavy_rain_days,wettest_day,0.81,right,wettest_day,right
-we get these crazy cloudbursts now,testable,wettest_day|heavy_rain_days,wettest_day,0.70,right,heavy_rain_days,right
-it buckets down more than it used to,testable,heavy_rain_days|wettest_day,heavy_rain_days,0.86,right,heavy_rain_days,right
-there are more really wet days,testable,heavy_rain_days,heavy_rain_days,0.79,right,heavy_rain_days,right
-my lawn goes brown every summer now,testable,summer_dry_spell,summer_dry_spell,0.85,right,summer_dry_spell,right
-we get weeks without rain in July,testable,summer_dry_spell,summer_dry_spell,0.86,right,summer_dry_spell,right
+we get these crazy cloudbursts now,testable,wettest_day|heavy_rain_days,wettest_day,0.69,right,heavy_rain_days,right
+it buckets down more than it used to,testable,heavy_rain_days|wettest_day,heavy_rain_days,0.85,right,heavy_rain_days,right
+there are more really wet days,testable,heavy_rain_days,heavy_rain_days,0.78,right,heavy_rain_days,right
+my lawn goes brown every summer now,testable,summer_dry_spell,summer_dry_spell,0.84,right,summer_dry_spell,right
+we get weeks without rain in July,testable,summer_dry_spell,summer_dry_spell,0.85,right,summer_dry_spell,right
 hosepipe bans are more common,testable,summer_dry_spell,summer_dry_spell,0.89,right,summer_dry_spell,right
 winter is just rain now,testable,winter_rain,winter_rain,0.83,right,winter_rain,right
-January is soggier than ever,testable,winter_rain,winter_rain,0.73,right,winter_rain,right
+January is soggier than ever,testable,winter_rain,winter_rain,0.72,right,winter_rain,right
 there's more sun in summer,testable,summer_sunshine|yearly_sunshine,summer_sunshine,0.89,right,summer_sunshine,right
-we get more clear blue skies,testable,summer_sunshine|yearly_sunshine,summer_sunshine,0.62,right,yearly_sunshine,right
-it's brighter than it was in the eighties,testable,yearly_sunshine|summer_sunshine,summer_sunshine,0.62,right,yearly_sunshine,right
-my gas bill should be going down,testable,heating_need,heating_need,0.69,right,heating_need,right
-I hardly turn the radiators on,testable,heating_need,heating_need,0.64,right,heating_need,right
+we get more clear blue skies,testable,summer_sunshine|yearly_sunshine,summer_sunshine,0.63,right,yearly_sunshine,right
+it's brighter than it was in the eighties,testable,yearly_sunshine|summer_sunshine,summer_sunshine,0.60,right,yearly_sunshine,right
+my gas bill should be going down,testable,heating_need,heating_need,0.67,right,heating_need,right
+I hardly turn the radiators on,testable,heating_need,heating_need,0.65,right,heating_need,right
 winters aren't as cold as they were,testable,heating_need|first_frost_doy,heating_need,0.83,right,heating_need,right
-everyone is buying air conditioners,testable,cooling_need,cooling_need,0.61,right,cooling_need,right
-the AC is running all the time,testable,cooling_need,cooling_need,0.51,right,cooling_need,right
-it's hotter than when I was young,testable,heatwave_days|hottest_day,heatwave_days,0.69,right,heatwave_days,right
-does it rain more,testable,heavy_rain_days|winter_rain|wettest_day,heavy_rain_days,0.78,right,heavy_rain_days,right
-the earth in my garden is rock hard and dry every summer,testable,dry_soil_days,dry_soil_days,0.69,right,dry_soil_days,right
+everyone is buying air conditioners,testable,cooling_need,cooling_need,0.62,right,cooling_need,right
+the AC is running all the time,testable,cooling_need,cooling_need,0.53,right,cooling_need,right
+it's hotter than when I was young,testable,heatwave_days|hottest_day,heatwave_days,0.68,right,heatwave_days,right
+does it rain more,testable,heavy_rain_days|winter_rain|wettest_day,heavy_rain_days,0.79,right,heavy_rain_days,right
+the earth in my garden is rock hard and dry every summer,testable,dry_soil_days,dry_soil_days,0.68,right,dry_soil_days,right
 the air feels heavy and damp on summer nights,testable,muggy_nights,muggy_nights,0.81,right,muggy_nights,right
-it's snowing less,untestable,none,none,0.82,right,none,right
+it's snowing less,untestable,none,none,0.83,right,none,right
 we never get a white christmas,untestable,none,none,0.79,right,none,right
-it's much windier these days,testable,windy_days,windy_days,0.85,right,windy_days,right
+it's much windier these days,testable,windy_days,windy_days,0.86,right,windy_days,right
 storms are getting stronger,untestable,none,none,0.88,right,none,right
-there's less fog than there used to be,untestable,none,none,0.87,right,none,right
+there's less fog than there used to be,untestable,none,none,0.88,right,none,right
 it feels more humid,testable,muggy_nights,muggy_nights,0.89,right,muggy_nights,right
 flooding is getting worse,untestable,none,none,0.77,right,none,right
-the sea is getting warmer,untestable,none,none,0.96,right,none,right
-hay fever season is worse,untestable,none,none,0.87,right,none,right
-there are fewer insects,untestable,none,none,0.49,right,none,right
+the sea is getting warmer,untestable,none,none,0.97,right,none,right
+hay fever season is worse,untestable,none,none,0.88,right,none,right
+there are fewer insects,untestable,none,none,0.50,right,none,right
 wildfires are more common,untestable,none,none,0.63,right,none,right
-who won the world cup,off_topic,none,none,0.11,right,none,right
-what's the capital of France,off_topic,none,none,0.14,right,none,right
+who won the world cup,off_topic,none,none,0.10,right,none,right
+what's the capital of France,off_topic,none,none,0.13,right,none,right
 hello,off_topic,none,none,0.29,right,none,right
 tell me a joke,off_topic,none,none,0.19,right,none,right
-house prices keep going up,off_topic,none,none,0.35,right,none,right
+house prices keep going up,off_topic,none,none,0.36,right,none,right
 my train is always late,off_topic,none,none,0.37,right,none,right
 is climate change real,off_topic,none,none,0.99,right,none,right
-what should I wear tomorrow,off_topic,none,none,0.40,right,none,right
+what should I wear tomorrow,off_topic,none,none,0.41,right,none,right
 will it rain on Saturday,off_topic,none,none,0.85,right,none,right
-is it too hot now in london?,testable,heatwave_days|hottest_day,heatwave_days,0.77,right,heatwave_days,right
+is it too hot now in london?,testable,heatwave_days|hottest_day,heatwave_days,0.78,right,heatwave_days,right
 it's way too hot these days,testable,heatwave_days|hottest_day,heatwave_days,0.87,right,heatwave_days,right
-is it wetter now than it used to be in Cardiff,testable,heavy_rain_days|winter_rain|wettest_day,heavy_rain_days,0.59,right,heavy_rain_days,right
-winters are so mild now,testable,heating_need|first_frost_doy,heating_need,0.87,right,heating_need,right
-is it hot today in London,off_topic,none,none,0.79,right,none,right
+is it wetter now than it used to be in Cardiff,testable,heavy_rain_days|winter_rain|wettest_day,heavy_rain_days,0.58,right,heavy_rain_days,right
+winters are so mild now,testable,heating_need|first_frost_doy,heating_need,0.88,right,heating_need,right
+is it hot today in London,off_topic,none,none,0.78,right,none,right
 what's the temperature right now,off_topic,none,none,0.98,right,none,right
+is it too cold in birmingham now?,testable,heating_need|heatwave_days|hottest_day,heatwave_days,0.61,right,heating_need,right
+is it colder now in London,testable,heating_need|heatwave_days|hottest_day,heatwave_days,0.62,right,heatwave_days,right
+winters are harsher these days,testable,heating_need|first_frost_doy,heating_need,0.84,right,heating_need,right
+nights are colder now,testable,warm_nights,warm_nights,0.73,right,warm_nights,right
+summers are shorter now,testable,summer_length,summer_length,0.84,right,summer_length,right
+winters aren't as cold any more,testable,heating_need|first_frost_doy,heating_need,0.83,right,heating_need,right
+is it too hot in birmingham now?,testable,heatwave_days|hottest_day,heatwave_days,0.72,right,heatwave_days,right
