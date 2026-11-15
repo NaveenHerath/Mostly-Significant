@@ -42,6 +42,10 @@ function unitFor(numText, unit) { // "1 day" not "1 days"
   return numText === "1" && SINGULAR[unit] ? SINGULAR[unit] : unit; // only swap when it shows as exactly 1
 }
 
+// measures where sen's slope is 0 everywhere (most years are 0, so the middle slope is flat).
+// for these we show the 1980s-to-now change instead of a per-decade rate, and skip the trend line
+const NO_RATE = new Set(["dry_soil_days"]); // add more ids here if another measure does the same
+
 function fmtRate(rate, unit) { // the change per decade, in words
   if (isDate(unit)) { // dates: say earlier or later
     const n = fmtNum(Math.abs(rate)); // size of the shift, formatted
@@ -194,7 +198,9 @@ function renderResult() { // fills the result card (styling comes later)
   $("then").textContent = fmtValue(r.early, unit); // 1980s average
   countUp($("now"), r.early, r.late, unit); // recent average, ticking up (or down) from the 80s number
   $("noun").textContent = HUNCHES[state.measure].noun; // what the numbers mean
-  $("rate").textContent = fmtRate(r.rate, unit); // change per decade
+  const noRate = NO_RATE.has(state.measure); // dry soil days and the like have no usable rate
+  $("rate-label").textContent = noRate ? "Change since the 1980s" : "Change per decade"; // say which kind of change it is
+  $("rate").textContent = fmtRate(noRate ? r.late - r.early : r.rate, unit); // recent minus 1980s, or sen's slope per decade
   $("luck-short").textContent = fmtLuck(r.share, r.shuffles); // e.g. "692 of 1,000"
   $("caveat").textContent = r.caveat; // honest limitation
 }
@@ -208,6 +214,7 @@ function renderChart() { // yearly values, the trend line and the two decade ave
   const date = isDate(unit); // date measures get date labels on the side
   const end = r.start + r.values.length - 1; // last year (2025)
   const series = r.values.map((v, i) => ({ year: r.start + i, value: v ?? NaN })); // one point per year, NaN makes a gap (plot reads null as 0)
+  const noRate = NO_RATE.has(state.measure); // no trend line for these, it would just sit flat at 0
   const slope = r.rate / 10; // sen's slope per year
   const trendAt = (y) => r.intercept + slope * y; // trend line height for a year (intercept came from make_data.py)
   const width = box.clientWidth || 680; // fill the box
@@ -230,14 +237,14 @@ function renderChart() { // yearly values, the trend line and the two decade ave
       Plot.ruleY([r.late], { x1: 2016, x2: end, className: "avg", strokeDasharray: "4 4", strokeWidth: 1.5 }), // recent average, dashed
       Plot.text([r.early], { x: r.start, y: (d) => d, text: () => `1980s: ${fmt(r.early)}`, dy: -9, textAnchor: "start", className: "avg-label" }), // label it
       Plot.text([r.late], { x: end, y: (d) => d, text: () => `Recent: ${fmt(r.late)}`, dy: -9, textAnchor: "end", className: "avg-label" }), // label it
-      Plot.link([0], { x1: r.start, y1: trendAt(r.start), x2: end, y2: trendAt(end), className: "trend", strokeWidth: 2.5 }), // the trend, straight from sen's slope
+      noRate ? null : Plot.link([0], { x1: r.start, y1: trendAt(r.start), x2: end, y2: trendAt(end), className: "trend", strokeWidth: 2.5 }), // the trend, straight from sen's slope (none when the slope is meaningless)
       Plot.tip(series.filter((d) => !isNaN(d.value)), Plot.pointerX({ x: "year", y: "value", title: (d) => `${d.year}: ${fmt(d.value)}` })), // hover or tap a year
     ],
   });
   box.replaceChildren(chart); // swap in the new chart
 
   const gaps = r.values.some((v) => v === null); // any missing years?
-  $("chart-note").textContent = "Dots are single years. The coloured line is the trend, the dashed lines are the averages." + (gaps ? " Gaps are years when it didn’t happen." : ""); // short key
+  $("chart-note").textContent = (noRate ? "Dots are single years, the dashed lines are the averages." : "Dots are single years. The coloured line is the trend, the dashed lines are the averages.") + (gaps ? " Gaps are years when it didn’t happen." : ""); // short key
 }
 
 // ---------- luck dots (step 6) ----------

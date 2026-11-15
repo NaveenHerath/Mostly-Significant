@@ -101,7 +101,7 @@ function facts(c) { // one result, formatted exactly as the card shows it
     place: c.place, measure: c.measure, verdict: r.verdict, reversed: !!c.reversed,
     hunch: HUNCHES[c.measure].text, noun: HUNCHES[c.measure].noun,
     then: fmtValue(r.early, unit), now: fmtValue(r.late, unit),
-    rate: `${fmtRate(r.rate, unit)} per decade`, luck: fmtLuck(r.share, r.shuffles),
+    rate: NO_RATE.has(c.measure) ? `${fmtRate(r.late - r.early, unit)} since the 1980s` : `${fmtRate(r.rate, unit)} per decade`, luck: fmtLuck(r.share, r.shuffles), // dry soil days has no usable rate, so it gets the then-vs-now change
   };
 }
 
@@ -158,11 +158,11 @@ function addTurn(text) { // a new question in the thread, with an empty space fo
   return { bot, say };
 }
 
-function sparkline(r) { // every year as a faint dot, with the trend line drawn across in the verdict's colour
+function sparkline(r, noRate) { // every year as a faint dot, with the trend line drawn across in the verdict's colour (left off when noRate)
   const W = 320, H = 64, pad = 5;
   const end = r.start + r.values.length - 1;
   const trend = (y) => r.intercept + (r.rate / 10) * y; // the same line the big chart draws
-  const all = [...r.values.filter((v) => v !== null), trend(r.start), trend(end)];
+  const all = [...r.values.filter((v) => v !== null), ...(noRate ? [] : [trend(r.start), trend(end)])]; // only fit the trend into the box if we draw it
   const lo = Math.min(...all), hi = Math.max(...all);
   const x = (y) => pad + ((y - r.start) / (end - r.start)) * (W - 2 * pad);
   const yy = (v) => (hi === lo ? H / 2 : H - pad - ((v - lo) / (hi - lo)) * (H - 2 * pad));
@@ -170,7 +170,7 @@ function sparkline(r) { // every year as a faint dot, with the trend line drawn 
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
   svg.setAttribute("class", "chat-spark");
   svg.setAttribute("role", "img");
-  svg.setAttribute("aria-label", `Each year from ${r.start} to ${end}, with the trend line`);
+  svg.setAttribute("aria-label", `Each year from ${r.start} to ${end}${noRate ? "" : ", with the trend line"}`);
   r.values.forEach((v, i) => { // a missing year (no frost, no heatwave) is simply left out
     if (v === null) return;
     const c = document.createElementNS(SVG_NS, "circle");
@@ -181,7 +181,7 @@ function sparkline(r) { // every year as a faint dot, with the trend line drawn 
   line.setAttribute("x1", x(r.start)); line.setAttribute("y1", yy(trend(r.start)));
   line.setAttribute("x2", x(end)); line.setAttribute("y2", yy(trend(end)));
   line.setAttribute("pathLength", 1); // lets css draw it in from left to right
-  svg.append(line);
+  if (!noRate) svg.append(line); // no flat line at 0 for measures without a usable slope
   const wrap = el("div", "chat-spark-wrap");
   const years = el("div", "chat-years");
   years.append(el("span", null, r.start), el("span", null, end));
@@ -278,7 +278,7 @@ async function card(c, guess, worded) { // the whole answer, small: verdict, wor
     head,
     el("p", "chat-words", worded.text),
     nums,
-    sparkline(r),
+    sparkline(r, NO_RATE.has(c.measure)),
     el("p", "chat-rate", f.rate),
     luckMeter(r),
     el("p", "chat-caveat", r.caveat),
