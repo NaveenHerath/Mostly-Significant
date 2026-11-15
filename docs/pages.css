@@ -1,0 +1,50 @@
+/* one page at a time (pages.js), the page headings, and the home cards. colours and sizes come from tokens.css */
+
+/* only the blocks of the current page show. without javascript there is no data-page on body, so everything shows */
+body[data-page="home"] main > [data-page]:not([data-page="home"]),
+body[data-page="check"] main > [data-page]:not([data-page="check"]),
+body[data-page="change"] main > [data-page]:not([data-page="change"]),
+body[data-page="games"] main > [data-page]:not([data-page="games"]),
+body[data-page="how"] main > [data-page]:not([data-page="how"]),
+body[data-page="about"] main > [data-page]:not([data-page="about"]) { display: none !important; }
+
+/* every page except home opens on a title and one line under it */
+.page-head { padding: var(--space-2xl) 0 var(--space-xs); max-width: 46rem; }
+.page-head h1 { font-size: var(--text-3xl); line-height: 1.05; max-width: none; }
+.page-head .lead { margin: var(--space-sm) 0 0; color: var(--color-ink-2); max-width: 60ch; } /* left-aligned, unlike the centred hero line */
+.page-head + .step, .page-head + .step.bare { margin-top: var(--space-md); } /* the first pane sits close under the title */
+
+/* home: the four ways in, as the same frosted tiles the guide uses, each one a link */
+.home-cards li { padding: 0; } /* the link fills the tile and carries the padding */
+.home-cards a {
+  display: block; height: 100%; padding: var(--space-lg); border-radius: inherit; /* the whole tile is the link */
+  color: inherit; text-decoration: none;
+  transition: transform var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
+}
+.home-cards a::after { content: "→"; display: block; margin-top: var(--space-sm); color: var(--tile); font-size: var(--text-lg); transition: transform var(--dur-short) var(--ease-out); } /* a small arrow in the tile's colour */
+@media (hover: hover) and (pointer: fine) {
+  .home-cards a:hover { background: oklch(100% 0 0 / 0.03); transform: translateY(-2px); } /* lifts a touch */
+  .home-cards a:hover::after { transform: translateX(4px); } /* the arrow nudges on */
+}
+.home-cards a:active { transform: scale(0.99); } /* small press */
+
+/* panes whose heading is hidden (the page title says it) start their content at the top */
+.about-pane > h2.visually-hidden + * { margin-top: 0 !important; }
+
+/* the plain sentence under the result's numbers */
+.definition { margin-top: var(--space-2xs); font-size: var(--text-sm); color: var(--color-muted); max-width: 52ch; }
+
+/* the general answer from gemini in the chat is marked as such */
+.chat-general { margin-top: var(--space-xs); font-size: var(--text-xs); color: var(--color-muted); }
+.chat-bot:has(.chat-general) .chat-say { font-family: var(--font-body); font-size: var(--text-md); line-height: 1.6; letter-spacing: 0; color: var(--color-ink-2); max-width: 62ch; } /* a paragraph reads as body text, not a headline */
+
+/* the model switch now sits in the chat box tile on the how it works page */
+.sci-tile .chat-tools { margin-top: var(--space-lg); }
+
+@media (max-width: 40rem) {
+  .page-head { padding-top: var(--space-xl); }
+  .page-head h1 { font-size: var(--text-2xl); }
+  .home-cards a { padding: var(--space-md); display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-sm); } /* icon left, same as the guide on phones */
+  .home-cards a .icon { grid-row: span 2; }
+  .home-cards a::after { display: none; } /* the whole row is clearly tappable, no arrow needed */
+}

@@ -40,8 +40,8 @@ const QUIZ = [
   { icon: "moon", where: "Toronto", figure: "1.0 °C", claim: "How fast nights seemed to warm per decade, in sudden jumps. Squares nearby: 0.3 to 0.4 °C.", answer: "error", why: "Toronto’s grid square is mostly Lake Ontario, and the lake threw the numbers off. We moved it to a land square 39 km north." }, // README, one place per grid square
   { icon: "mountain", where: "Mexico City", figure: "3 °C", claim: "How much colder our data reads than the city itself.", answer: "grid", why: "The 50 km square shifts it: the square sits about 400 m higher than the city, and higher ground is cooler. The trends still hold." }, // README limitations
 ];
-const QUIZ_CHOICES = [["real", "Real"], ["error", "Error"], ["grid", "Grid effect"]]; // value and button word
-const QUIZ_SAY = { real: "Real.", error: "Data error.", grid: "Grid effect." }; // how the answer is said on reveal
+const QUIZ_CHOICES = [["real", "Real"], ["error", "Data error"], ["grid", "Grid blur"]]; // value and button word
+const QUIZ_SAY = { real: "Real.", error: "Data error.", grid: "Grid blur." }; // how the answer is said on reveal
 
 // naveen first, same order and links as the footer
 const TEAM = [
@@ -53,13 +53,16 @@ const TEAM = [
 const LINKEDIN = '<svg class="li-logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>';
 
 const FAQ = [
-  { icon: "database", q: "Where does the data come from?", a: "NASA POWER, built on MERRA-2: satellite and ground observations combined in a weather model. Each place is a square about 50 km wide, with daily values from 1981 to 2025." },
-  { icon: "thermometer", q: "Why doesn’t London show 40 °C in 2022?", a: "A 50 km square averages parks, fields and rivers with the city, so peaks read low. Our London shows 34.5 °C that day. The trends still hold." },
-  { icon: "check", q: "What makes a trend “real”?", a: "A Mann-Kendall test (with the Hamed-Rao fix, since one year tends to be like the next) says it’s very unlikely to be chance, and it goes the way the hunch says. Sen’s slope gives the change per decade." },
-  { icon: "dice", q: "What is the luck test?", a: "We shuffle the 45 years into random order 1,000 times and count how often a trend this strong shows up anyway. Fewer means less likely to be luck." },
-  { icon: "trend", q: "What does “signs of it, not proven” mean?", a: "It points the way the hunch says, but it could still be luck. Rain often lands here because it jumps around a lot." },
-  { icon: "help", q: "Does this prove climate change?", a: "It shows what changed in each place, not why. It’s a fact-check for hunches, not an attribution study." },
-  { icon: "code", q: "Can I see how it works?", a: "Yes, all the code and data steps are on GitHub.", link: "https://github.com/NaveenHerath/Mostly-Significant" },
+  { icon: "database", q: "Where does the data come from?", a: "NASA POWER, which is built on MERRA-2: satellite and ground observations combined in a weather model. Each place is a square about 50 km wide, with a value for every day from 1981 to 2025." },
+  { icon: "pin", q: "Why isn’t my town here, and why 50 km?", a: "We picked 49 UK towns and 26 world cities to cover a wide spread of climates. NASA’s grid is made of squares about 50 km across, so a town’s number is the average over its whole square, not one street." },
+  { icon: "check", q: "What makes a trend “real”?", a: "Two things: later years beat earlier ones far more often than chance would allow, and the change goes the way the hunch says. The size is the typical change every 10 years. For the record, these are a Mann-Kendall test (Hamed-Rao version, which allows for one year being like the next) and Sen’s slope." },
+  { icon: "dice", q: "What is the luck test?", a: "We shuffle the 45 years into a random order 1,000 times and count how often a trend this strong shows up anyway. “About 3 in 1,000” means luck alone rarely does it." },
+  { icon: "trend", q: "What does “signs of it, not proven” mean?", a: "It points the way the hunch says, but it could still be luck. Rain often lands here because it jumps around a lot from year to year." },
+  { icon: "thermometer", q: "What does “normal” mean?", a: "A place’s own average over 1981 to 2010. Each place is compared with itself, so a warm year in Aberdeen and a warm year in Dubai mean different temperatures." },
+  { icon: "thermometer", q: "Why doesn’t London show 40 °C in 2022?", a: "A 50 km square averages parks, fields and rivers in with the city, so peaks read low. Our London shows 34.5 °C that day. The trends still hold." },
+  { icon: "message", q: "Can the chat box make up numbers?", a: "No. A language model only works out which test you mean. Every number on a card comes from the NASA results, and a sentence with a number that isn’t on the card is thrown away. Questions the data can’t test get a general answer, marked as not coming from the NASA data." },
+  { icon: "help", q: "Is this a forecast? Does it prove climate change?", a: "Neither. It shows what changed in each place from 1981 to 2025, not what will happen next or why it changed. It’s a fact-check for hunches." },
+  { icon: "code", q: "Can I see how it works?", a: "Yes, all the code and every data step are on GitHub.", link: "https://github.com/NaveenHerath/Mostly-Significant" },
 ];
 
 // small line icons, drawn inline so we don't touch icons.svg (T2's file). 24x24, stroke only
@@ -285,11 +288,11 @@ function buildOddOneOut(data) {
   return g; // hand it back
 }
 
-// ---------- game 2: real, error or grid effect? ----------
+// ---------- game 2: real, data error or grid blur? ----------
 
 function buildQuiz(data) {
-  const g = part("real-error-grid", "Real, error or grid effect?", "help", "rain"); // the sub-part
-  g.append(el("p", "game-hint", "Real happened. Error means the data broke. Grid effect means the 50 km square blurred or shifted it.")); // the three words, once
+  const g = part("real-error-grid", "Real, data error or grid blur?", "help", "rain"); // the sub-part
+  g.append(el("p", "game-hint", "Real: it really happened. Data error: the record broke. Grid blur: the 50 km square smoothed or shifted it.")); // the three words, once
   const meta = el("p", "game-meta"); // card 2 of 6
   const where = el("p", "quiz-where"); // icon and place
   const figure = el("p", "quiz-figure"); // the big number
@@ -314,7 +317,7 @@ function buildQuiz(data) {
     reveal.textContent = ""; // no answer yet
     msg.textContent = ""; // no score yet
     next.classList.add("is-waiting"); // hide next till they answer
-    choices.setAttribute("aria-label", `Real, error or grid effect: ${item.where}`); // what the group is for
+    choices.setAttribute("aria-label", `Real, data error or grid blur: ${item.where}`); // what the group is for
     choices.replaceChildren(); // clear last card's buttons
     QUIZ_CHOICES.forEach(([value, word]) => {
       const b = el("button", "pill quiz-choice", word); // same pill as everywhere else
@@ -359,7 +362,6 @@ function buildQuiz(data) {
 
 function buildGut(data) {
   const s = pane("test-your-gut", "Test your gut", "target", "gut"); // the pane
-  s.append(el("p", "note", "Two quick games. Every pick counts towards your gut score.")); // one line
   const games = el("div", "games"); // side by side on laptops
   [buildOddOneOut(data), buildQuiz(data)].forEach(g => g && games.append(g)); // both games
   s.append(games); // into the pane
@@ -397,16 +399,7 @@ function buildAboutPane(data) {
   });
   stats.append(ul); // into the tile
 
-  // features (was "what you can do")
-  const can = part("features", "Features", "lightbulb", "rain"); // tile
-  can.append(list([
-    { icon: "lightbulb", title: "Check a hunch", text: "Pick a place and a hunch, guess, see 45 years.", href: "#where" }, // main flow
-    { icon: "message", title: "Say it your way", text: "Type a hunch and we find the right test.", href: "#chat" }, // chat box
-    { icon: "map", title: "Compare places", text: "Every place coloured by its verdict.", href: "#map" }, // map
-    { icon: "history", title: "Watch it change", text: "Slide through the years.", href: "#timeline" }, // timeline
-    { icon: "target", title: "Test your gut", text: "Two quick games.", href: "#test-your-gut" }, // games
-    { icon: "share", title: "Share your score", text: "It sits in the corner after your first guess." }, // gut bar
-  ]));
+  /* features list dropped: the top bar and the home cards already list every page */
 
   // future scope (was "where it could go next")
   const road = part("future-scope", "Future scope", "flag", "sun"); // tile
@@ -438,16 +431,24 @@ function buildAboutPane(data) {
   });
   team.append(people); // under the line
 
-  // demo video and slides
+  // demo video and slides, only once at least one link is set
   const media = part("watch", "Demo and slides", "play", "seasons"); // tile
   media.append(list([
     { icon: "play", title: "Demo video", text: "A quick walk through the site.", href: VIDEO_URL || null, tag: VIDEO_URL ? "Watch" : "Coming soon", soon: !VIDEO_URL }, // video
     { icon: "slides", title: "Slides", text: "The problem, the data and what we found.", href: SLIDES_URL || null, tag: SLIDES_URL ? "Open" : "Coming soon", soon: !SLIDES_URL }, // slides
   ]));
 
-  // faqs (was "questions"), full width
-  const faq = part("faq", "FAQs", "help", "rain"); // tile
-  faq.classList.add("part-wide"); // spans both columns
+  grid.append(why, stats, road, team); // reading order: story and numbers, what's next, who
+  if (VIDEO_URL || SLIDES_URL) grid.append(media); // no "coming soon" tiles on the live site
+  s.append(grid); // into the pane
+  return s; // hand it back
+}
+
+// ---------- section: common questions, on the how it works page ----------
+
+function buildFaq() {
+  const s = pane("questions", "Common questions", "help", "how"); // its own pane
+  const faq = el("div", "faq-pane"); // holds the list
   const qs = el("div", "faq-list"); // the questions
   FAQ.forEach(f => {
     const d = el("details", "faq-item"); // native open and close, works with keyboards
@@ -461,24 +462,28 @@ function buildAboutPane(data) {
     qs.append(d); // into the list
   });
   faq.append(qs); // under the heading
-
-  grid.append(why, stats, can, road, team, media, faq); // reading order: story and numbers, what it does, what's next, who, watch, questions
-  s.append(grid); // into the pane
+  s.append(faq); // into the pane
   return s; // hand it back
 }
 
 // ---------- put it on the page ----------
 
 function build(data) {
-  const root = document.getElementById("about-root"); // T2's slot, the fallback spot
-  const timeline = document.getElementById("timeline"); // games go just before "watch it change"
-  const how = document.getElementById("how"); // about goes just after "the science"
-  if (!root && !timeline && !how) return; // not the main page
+  const main = document.querySelector("main");
+  if (!main) return; // not the main page
+  // each pane goes straight after its page heading, and carries its page name for pages.js
+  const place = (pane, afterId, page) => {
+    pane.dataset.page = page;
+    const anchor = document.getElementById(afterId);
+    if (anchor) anchor.after(pane); else main.append(pane);
+  };
   const gut = buildGut(data); // games pane
   const about = buildAboutPane(data); // about pane
-  const spare = root || document.querySelector("main"); // where things go if their anchor is missing
-  if (timeline) timeline.before(gut); else spare.append(gut); // nav order: try it, test your gut, watch it change
-  if (how) how.after(about); else spare.append(about); // nav order: the science, about
+  gut.querySelector("h2").classList.add("visually-hidden"); // the page heading already says it
+  about.querySelector("h2").classList.add("visually-hidden"); // same
+  place(gut, "games", "games");
+  place(about, "about-top", "about");
+  place(buildFaq(), "how", "how"); // the questions close the how it works page
 }
 
 fetch("data/data.json") // same file app.js uses, the browser caches it

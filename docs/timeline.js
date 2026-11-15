@@ -224,6 +224,7 @@
     let trend = "";
     if (r && r.change === "no_clear_change") trend = `Across ${r.n_years} years there is no clear trend here. The ups and downs could be chance.`;
     else if (r) trend = `Across ${r.n_years} years ${words().subject} ${r.change === "rising" ? "risen" : "fallen"} by ${fmtNum(Math.abs(r.rate), words().rateDigits)} ${info().unit} per decade here, and that is very unlikely to be chance.`;
+    if (PLACE_NOTES[tl.place]) trend += ` ${PLACE_NOTES[tl.place]}`; // e.g. delhi, not yet checked against station records
     $("tl-trend").textContent = trend;
     renderChart(r, now);
   }
@@ -308,7 +309,7 @@
     const nowA = at(a, tl.year), nowB = at(b, tl.year);
     $("tl-pair-when").textContent = tl.mode === "year" ? `In ${tl.year}` : `${period(tl.year)} average`;
     fill($("tl-pair-cards"), [pairCard(tl.place, a, nowA, "a"), pairCard(tl.other, b, nowB, "b")]);
-    $("tl-trend").textContent = pairTrend(a, b);
+    $("tl-trend").textContent = [pairTrend(a, b), PLACE_NOTES[tl.place], PLACE_NOTES[tl.other]].filter(Boolean).join(" "); // with any warning for either place
     $("tl-chart-note").textContent = "Each bold line is a place’s 10-year average, shown as its gap from its own normal (the dashed line). Thin lines are single years. Click the chart to jump to a year.";
 
     // One chart, one axis: both places as their gap from normal, so they share a scale.
@@ -398,7 +399,7 @@
     play(false);
     state.region = DATA.places[tl.place].region;
     setPlace(tl.place);
-    $("hunch").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
+    goToSection("hunch"); // the hunch pickers, on the check a hunch page
   });
 
   // The other way round: picking a place in the hunch pickers moves this section to it too.

@@ -134,10 +134,26 @@ function renderRegions() { // the uk / world switch
   ));
 }
 
-function renderPlaces() { // the place pills
-  fill($("places"), placesIn(state.region).map((p) => // one pill per place in the region
+const SHORT_LIST = 12; // places shown before "more places", the first ones listed are the best known
+let showAllPlaces = false; // the full list stays folded away until it is asked for
+
+function renderPlaces() { // the place pills: the best-known places first, the rest behind a toggle
+  const all = placesIn(state.region); // every place in the region, in the order they were added
+  const long = all.length > SHORT_LIST + 2; // folding away only one or two would be silly
+  const open = !long || showAllPlaces || all.indexOf(state.place) >= SHORT_LIST; // the picked place is never hidden
+  const pills = (open ? all : all.slice(0, SHORT_LIST)).map((p) => // one pill per place shown
     withFlag(pill(p, state.place === p, () => setPlace(p)), p) // pressed if picked, plus a flag for world cities
-  ));
+  );
+  if (long) { // the "more places" switch, last in the row
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "pill pill-more"; // the same quiet style as "more ways to say it"
+    toggle.textContent = open ? "Fewer places" : `${all.length - SHORT_LIST} more places`;
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.addEventListener("click", () => { showAllPlaces = !open; renderPlaces(); $("places").querySelector(".pill-more").focus(); });
+    pills.push(toggle);
+  }
+  fill($("places"), pills);
   const note = PLACE_NOTES[state.place]; // any warning for this place
   $("place-note").hidden = !note; // only show if there is one
   $("place-note").textContent = note || ""; // the words
@@ -210,10 +226,12 @@ function renderResult() { // fills the result card (styling comes later)
   $("then").textContent = fmtValue(r.early, unit); // 1980s average
   countUp($("now"), r.early, r.late, unit); // recent average, ticking up (or down) from the 80s number
   $("noun").textContent = HUNCHES[state.measure].noun; // what the numbers mean
+  $("definition").textContent = DATA.measures[state.measure].definition; // what the measure is, in one plain sentence
   const noRate = NO_RATE.has(state.measure); // dry soil days and the like have no usable rate
-  $("rate-label").textContent = noRate ? "Change since the 1980s" : "Change per decade"; // say which kind of change it is
+  $("rate-label").textContent = noRate ? "Change since the 1980s" : "Every 10 years"; // say which kind of change it is
   $("rate").textContent = fmtRate(noRate ? r.late - r.early : r.rate, unit); // recent minus 1980s, or sen's slope per decade
-  $("luck-short").textContent = fmtLuck(r.share, r.shuffles); // e.g. "692 of 1,000"
+  const lucky = luckCount(r.share, r.shuffles); // shuffles of the years that matched the real trend, out of 1,000
+  $("luck-short").textContent = lucky === 0 ? "Under 1 in 1,000" : `About ${lucky.toLocaleString("en-GB")} in 1,000`; // the share of shuffles, read as odds
   $("caveat").textContent = r.caveat; // honest limitation
 }
 
@@ -445,7 +463,7 @@ function fixTopicAndMeasure() { // keeps topic and hunch valid for the current p
 function saveToUrl() { // puts the picks in the url so links can be shared
   const q = new URLSearchParams({ place: state.place, hunch: state.measure }); // always save these
   if (state.guess) q.set("guess", state.guess); // only save the guess once there is one
-  history.replaceState(null, "", `?${q}`); // update the address without reloading
+  history.replaceState(null, "", `?${q}${location.hash}`); // update the address without reloading, keeping the page (#check)
 }
 
 function loadFromUrl() { // reads the picks back from a shared link
@@ -489,6 +507,7 @@ function setCurrent(key) { // gives the matching bar link the pill, clears the r
   });
 }
 function updateCurrent() { // works out which section is in the band right now
+  if (document.body.dataset.page) return setCurrent(document.body.dataset.page); // with pages (pages.js), the pill follows the page
   if (navLock) return; // a click is in charge until its scroll finishes
   const current = [...visible].find(([el, on]) => on && el.offsetParent !== null)?.[0]; // first visible one that isn't hidden
   setCurrent(current?.dataset.nav); // light its link
@@ -619,7 +638,7 @@ ask.addEventListener("click", () => { // tapping the example tries that hunch
   const m = ask.dataset.measure; // which one is showing
   state.topic = HUNCHES[m].topic; // switch to its topic
   setMeasure(m); // pick it, for the current place
-  $("guess").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" }); // straight to the guess
+  goToSection("guess"); // straight to the guess, on the check a hunch page
 });
 ask.addEventListener("pointerenter", () => { askPaused = true; }); // hold still while the mouse is on it
 ask.addEventListener("pointerleave", () => { askPaused = false; }); // carry on when it leaves
