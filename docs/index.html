@@ -31,12 +31,12 @@
         <span>Menu</span> <!-- the word, so it’s obvious -->
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Sections"> <!-- the section links -->
-        <a href="#guide" data-nav="guide">How to use it</a> <!-- the four-step guide, first thing after the hero -->
+        <a href="#guide" data-nav="guide">How it works</a> <!-- the four-step guide, first thing after the hero -->
         <a href="#chat" data-nav="try" class="needs-js">Try it</a> <!-- the chat box and the pickers -->
         <a href="#map" data-nav="everywhere" class="needs-answer" hidden>Everywhere</a> <!-- map, only once you’ve guessed -->
         <a href="#report" data-nav="hunches" class="needs-answer" hidden>Every hunch</a> <!-- report card, only once you’ve guessed -->
         <a href="#timeline" data-nav="timeline" class="needs-js">Watch it change</a> <!-- the map with the year slider -->
-        <a href="#how" data-nav="how">How it works</a> <!-- method and caveats -->
+        <a href="#how" data-nav="how">The science</a> <!-- method and caveats -->
       </nav>
     </div>
   </header>
@@ -73,15 +73,27 @@
 
     <noscript><p class="note">This page needs JavaScript to look up the numbers. The method and sources are below.</p></noscript> <!-- fallback -->
 
-    <!-- 1a. how to use it: sets expectations so people ask things the data can answer. plain text, works without js -->
+    <!-- 1a. two ways in, right under the hero: read how it works first, or jump straight to asking -->
+    <nav class="actions" aria-label="Get started">
+      <a class="pill" href="#guide">See how it works</a> <!-- the quieter one, scrolls to the guide -->
+      <a class="pill pill-primary needs-js" href="#chat">Try it yourself<svg class="icon" aria-hidden="true"><use href="icons.svg#arrow-right" /></svg></a> <!-- the main one, scrolls to the chat box. hidden without js since the chat can't work -->
+    </nav>
+
+    <!-- 1b. how it works: sets expectations so people ask things the data can answer. plain text, works without js -->
     <section class="step" id="guide" data-nav="guide" aria-labelledby="guide-h">
-      <h2 id="guide-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#list-checks" /></svg>How to use it</h2> <!-- step heading -->
+      <h2 id="guide-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#list-checks" /></svg>How it works</h2> <!-- step heading -->
       <ol class="guide-steps"> <!-- four short steps, a row on laptops, stacked on phones -->
         <li><h3>What it is</h3><p>Check a weather hunch against 45 years of NASA data, for towns across the UK and cities around the world.</p></li> <!-- the point -->
         <li><h3>What you can ask</h3><p>Heat, warm nights, when the seasons start and end, frost, rain, dry spells, sunshine and heating need.</p></li> <!-- what's testable -->
         <li><h3>What it can’t do</h3><p>Snow, fog, forecasts, or your exact street. Each place is a square about 50 km across.</p></li> <!-- what isn't -->
         <li><h3>How</h3><p>Ask in your own words, or pick one of ours. Make a guess, then see the verdict.</p></li> <!-- the steps -->
       </ol>
+      <ul class="stats" aria-label="The data in numbers"> <!-- the size of the data, numbers checked against data.json -->
+        <li><svg class="icon" aria-hidden="true"><use href="icons.svg#map-pin" /></svg><strong>75</strong><span>places, 49 in the UK</span></li> <!-- how many places -->
+        <li><svg class="icon" aria-hidden="true"><use href="icons.svg#history" /></svg><strong>45</strong><span>years, 1981 to 2025</span></li> <!-- how far back -->
+        <li><svg class="icon" aria-hidden="true"><use href="icons.svg#chart-line" /></svg><strong>1,142</strong><span>trends tested</span></li> <!-- place and measure pairs -->
+        <li><svg class="icon" aria-hidden="true"><use href="icons.svg#dices" /></svg><strong>1,000</strong><span>luck shuffles for each</span></li> <!-- the luck test -->
+      </ul>
     </section>
 
     <!-- 1b. say it your own way: a typed sentence gets a small case card, right in the conversation (chat.js) -->

@@ -129,7 +129,7 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
   border: var(--rule-hair) solid var(--glass-border); border-radius: var(--radius-card); /* hairline edge, soft corners */
   box-shadow: var(--glass-edge), var(--glass-shadow); /* light top edge and a soft float, same as the glass panels */
 }
-.hero + noscript + .step { margin-top: var(--space-md); } /* first pane tucks up under the hero */
+.actions + .step { margin-top: var(--space-lg); } /* first pane sits a normal gap under the action links */
 .step h2 { display: flex; align-items: center; gap: 0.45em; max-width: none; color: var(--color-ink); } /* step heading, icon then words */
 .step h2 .icon { opacity: 0.5; width: 0.9em; height: 0.9em; } /* heading icon, same colour as the words but faded so it stays quiet */
 .note { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); max-width: 60ch; } /* small helper text */
@@ -153,7 +153,8 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
   transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); /* only these, never "all" */
 }
 .pill:active:not(:disabled) { transform: scale(0.97); } /* small press so it feels like it heard you */
-.pill[aria-pressed="true"] { /* picked: tinted with the hunch colour rather than a loud solid fill */
+a.pill { text-decoration: none; } /* pills that are links don't get underlined */
+.pill[aria-pressed="true"], .pill-primary { /* picked (or the main action): tinted with the hunch colour rather than a loud solid fill */
   background: color-mix(in oklab, var(--color-accent) 24%, var(--color-paper-2)); /* a wash of the colour over the dark pill */
   border-color: color-mix(in oklab, var(--color-accent) 55%, transparent); /* edge in the colour, a bit softer */
   color: var(--color-ink); /* light text, so it's calm against the tint */
@@ -312,6 +313,18 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 .guide-steps h3 { margin-top: var(--space-sm); font-size: var(--text-lg); color: var(--color-ink); } /* step name */
 .guide-steps p { margin-top: var(--space-2xs); color: var(--color-ink-2); max-width: 32ch; } /* one or two short lines */
 
+/* the two links under the hero */
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm); margin-top: var(--space-lg); } /* side by side in the middle */
+.actions .pill { min-height: 52px; padding: 0 var(--space-lg); } /* same size as the guess buttons, they're main actions too */
+@media (hover: hover) and (pointer: fine) { .actions .pill .icon { transition: transform var(--dur-micro) var(--ease-out); } .actions .pill:hover .icon { transform: translateX(3px); } } /* arrow nudges on hover, same as the hero example */
+
+/* the data in numbers, inside how it works */
+.stats { list-style: none; padding: 0; margin: var(--space-xl) 0 0; display: grid; gap: var(--space-lg); grid-template-columns: repeat(4, minmax(0, 1fr)); } /* four across on laptops */
+.stats li { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline; column-gap: var(--space-xs); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); } /* icon beside the number, label under, hairline on top like the steps */
+.stats .icon { width: 1.1rem; height: 1.1rem; color: var(--color-muted); align-self: center; } /* small quiet icon */
+.stats strong { font-family: var(--font-display); font-weight: 400; font-size: var(--text-3xl); line-height: 1; letter-spacing: var(--tracking-display); color: var(--color-ink); font-variant-numeric: tabular-nums lining-nums; } /* the number is the hero */
+.stats span { grid-column: 1 / -1; margin-top: var(--space-2xs); font-size: var(--text-sm); color: var(--color-muted); } /* what the number counts */
+
 /* ---------- how this works ---------- */
 
 .how p, .how li { color: var(--color-ink-2); margin-top: var(--space-sm); } /* reading text */
@@ -439,6 +452,9 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
   #topics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } /* four topics as a neat 2 by 2 grid instead of a ragged wrap */
   .pill { text-align: left; } /* long hunch sentences wrap neatly from the left */
   .map-box { height: 340px; } /* shorter map on phones */
+  .actions { flex-direction: column; } /* the two links stack */
+  .actions .pill { justify-content: center; } /* words centred in the full-width buttons */
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); } /* numbers 2 by 2 */
   .footer-inner { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); } /* footer stacks */
   .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } /* two link columns */
 }
