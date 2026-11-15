@@ -5,7 +5,7 @@
 // gemini picks places and measures from fixed lists only. the key lives in vercel's settings (GEMINI_API_KEY), never in the page
 
 const MEASURES = ["heatwave_days", "heatwave_events", "longest_heatwave", "hottest_day", "warm_nights", "muggy_nights", "first_heatwave_doy", "summer_length", "autumn_onset_doy", "first_frost_doy", "wettest_day", "heavy_rain_days", "summer_dry_spell", "winter_rain", "windy_days", "dry_soil_days", "summer_sunshine", "heating_need", "yearly_sunshine", "cooling_need"];
-const TOPICS = ["snow", "storms", "fog", "humidity", "floods", "sea", "air", "forecast", "cause", "other"]; // why a hunch can't be tested
+const TOPICS = ["snow", "storms", "fog", "floods", "sea", "air", "forecast", "cause", "other"]; // why a hunch can't be tested
 const PLACES = ["London", "Maidstone", "Norwich", "Plymouth", "Bristol", "Cardiff", "Birmingham", "Manchester", "Newcastle", "Belfast", "Edinburgh", "Aberdeen", "Leeds", "Sheffield", "Liverpool", "Leicester", "Nottingham", "Hull", "Stoke-on-Trent", "Southampton", "Milton Keynes", "Brighton", "Reading", "Preston", "Bournemouth", "Peterborough", "Middlesbrough", "Ipswich", "Oxford", "Cambridge", "Gloucester", "Exeter", "Lincoln", "Carlisle", "Glasgow", "Dundee", "Inverness", "Stirling", "Ayr", "Dumfries", "Fort William", "Swansea", "Bangor", "Aberystwyth", "Llandrindod Wells", "Carmarthen", "Derry", "Omagh", "Newry", "New York", "Los Angeles", "Toronto", "Sao Paulo", "Paris", "Berlin", "Madrid", "Cairo", "Delhi", "Tokyo", "Sydney", "Johannesburg", "Barcelona", "Rome", "Lisbon", "Athens", "Amsterdam", "Istanbul", "Dubai", "Marrakech", "Cape Town", "Bangkok", "Singapore", "Orlando", "Mexico City", "Rio de Janeiro"]; // all 75, same names as data.json
 const VERDICTS = { // what each verdict means, in the words the site uses
   real: "the data backs the tested hunch",
@@ -18,12 +18,12 @@ const VERDICTS = { // what each verdict means, in the words the site uses
 const ROUTE_PROMPT = `You route a person's feeling about the weather to one measure in a climate dataset. You do not answer the question.
 
 Measures (pick the one the sentence is about, whichever direction the person claims):
-heatwave_days: more hot days, summers are hotter, it is hotter than it used to be
+heatwave_days: more hot days, summers are hotter, it is getting hotter, it is hotter than it used to be
 heatwave_events: heatwaves happen more often
 longest_heatwave: heatwaves last longer
 hottest_day: the hottest day of the year is hotter, records are broken
 warm_nights: nights are too warm to sleep
-muggy_nights: summer nights are muggier, more humid or sticky
+muggy_nights: it feels more humid, the air is sticky, summer nights are muggier
 first_heatwave_doy: the first heat of the year arrives earlier
 summer_length: summers last longer or start earlier
 autumn_onset_doy: autumn arrives later, it stays warm into autumn
@@ -31,7 +31,7 @@ first_frost_doy: frosts come later or are rarer (ice on cars, frozen gardens)
 wettest_day: the heaviest downpours are heavier
 heavy_rain_days: heavy rain happens more often, it rains more
 summer_dry_spell: summers are drier, longer spells without rain (brown lawns, hosepipe bans)
-winter_rain: winters are wetter
+winter_rain: winters are wetter or soggier, including December, January or February on its own
 windy_days: it is windier, more gales, stronger wind
 dry_soil_days: the ground or soil dries out more in summer (parched or cracked ground)
 summer_sunshine: summers are sunnier
@@ -39,7 +39,7 @@ yearly_sunshine: it is sunnier over the whole year
 heating_need: winters are milder, less heating is needed (lower gas bills)
 cooling_need: more air conditioning is needed
 
-Set measure_id to "none" when the sentence cannot be tested with these, and set topic to the reason: snow, storms, fog, humidity, floods, sea, air (air quality), forecast (asks about coming weather), cause (asks why the climate changes), or other (anything else, including sentences that are not about weather). Never force a match.
+Set measure_id to "none" when the sentence cannot be tested with these, and set topic to the reason: snow, storms, fog, floods, sea, air (air quality), forecast (asks about coming weather), cause (asks why the climate changes), or other (anything else, including sentences that are not about weather). Never force a match.
 
 Set place to the place named in the sentence if it is in the list, otherwise "none". Set topic to "none" when a measure fits.
 
