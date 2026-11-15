@@ -39,7 +39,7 @@ const EXAMPLES = ["warm_nights", "summer_length", "wettest_day", "heating_need",
 // what each verdict says, straight from CLAUDE.md and naveen’s notes
 const VERDICTS = {
   real: { label: "Yes, it’s real", line: "The data backs your hunch." }, // green
-  leaning: { label: "Leaning that way", line: "It points that way, but we can’t rule out luck yet." }, // amber
+  leaning: { label: "Signs of it, not proven", line: "It points that way, but it could still be luck." }, // amber
   not_backed: { label: "Not backed by the data", line: "The data doesn’t support this hunch." }, // grey
   opposite: { label: "It’s actually the opposite", line: "Surprise: the data shows the reverse." }, // red
 };
