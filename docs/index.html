@@ -279,22 +279,24 @@
 
       <div class="how-cols"> <!-- two columns on laptops -->
         <div> <!-- left: the chat box -->
-          <h3>The chat box</h3> <!-- how a typed sentence is answered -->
-          <p>A language model works out which test you mean: Google’s Gemini, or a small model (MiniLM) in your browser when Gemini can’t be reached.</p> <!-- the two models -->
-          <p>Neither one supplies a number. Every figure comes from the NASA results, and a Gemini sentence with a number that isn’t on the card is thrown away.</p> <!-- why it can’t make a number up -->
-          <p>On 60 test questions, Gemini picked the right test (or rightly said “can’t test that”) for 60 and the on-device model for 51.</p> <!-- from chat-eval/results.csv -->
+          <h3><svg class="icon" aria-hidden="true"><use href="icons.svg#message" /></svg>The chat box</h3> <!-- how a typed sentence is answered -->
+          <ul class="icon-list"> <!-- one icon per point -->
+            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#cpu" /></svg><span>A language model works out which test you mean: Google’s Gemini, or a small model (MiniLM) in your browser when Gemini can’t be reached.</span></li> <!-- the two models -->
+            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#shield-check" /></svg><span>Neither one supplies a number. Every figure comes from the NASA results, and a Gemini sentence with a number that isn’t on the card is thrown away.</span></li> <!-- why it can’t make a number up -->
+            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#list-checks" /></svg><span>On 60 test questions, Gemini picked the right test (or rightly said “can’t test that”) for 60 and the on-device model for 51.</span></li> <!-- from chat-eval/results.csv -->
+          </ul>
         </div>
         <div> <!-- right: caveats -->
           <h3 id="cant">What it can’t tell you</h3> <!-- caveats, the footer links here -->
-          <ul class="cant"> <!-- the big limitations from naveen’s notes -->
-            <li>Each value is an average over a square about 50 km wide, so peaks read low. London’s hottest day shows about 34.5 °C, where stations hit about 40 °C. Trends still hold.</li> <!-- grid size -->
-            <li>“Unusually hot” means hot for that place, so the bar is different in each town.</li> <!-- relative thresholds -->
-            <li>Years with no heatwave or no frost have no date, so they drop out of those trends.</li> <!-- missing years -->
-            <li>Rain jumps around a lot from year to year, so most rain trends only reach “leaning”.</li> <!-- rain is noisy -->
-            <li>Humidity, wind and soil come from NASA’s weather model rather than measurements, so those trends are less certain than temperature.</li> <!-- muggy nights, windy days, dry soil days -->
-            <li>Belfast, Aberdeen, Toronto, Lisbon and Cape Town use the square next door, because their own is mostly sea or lake. Singapore’s square is mostly sea with no better one nearby, so its numbers are provisional, and its rain stops in 2020 because the data is faulty after that. Sunshine data starts in 1984. Sydney, Sao Paulo, Johannesburg, Cape Town and Rio de Janeiro count July to June, so they start in 1982.</li> <!-- the odd ones out -->
-            <li>It shows that something changed, not why.</li> <!-- no causes -->
-            <li>Snow, fog and storms aren’t covered.</li> <!-- untestable hunches -->
+          <ul class="cant icon-list"> <!-- the big limitations from naveen’s notes -->
+            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#grid" /></svg><span>Each value is an average over a square about 50 km wide, so peaks read low. London’s hottest day shows about 34.5 °C, where stations hit about 40 °C. Trends still hold.</span></li> <!-- grid size -->
+            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#thermometer" /></svg><span>“Unusually hot” means hot for that place, so the bar is different in each town.</span></li> <!-- relative thresholds -->
+            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#calendar-x" /></svg><span>Years with no heatwave or no frost have no date, so they drop out of those trends.</span></li> <!-- missing years -->
+            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#cloud-rain" /></svg><span>Rain jumps around a lot from year to year, so most rain trends only reach “leaning”.</span></li> <!-- rain is noisy -->
+            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#wind" /></svg><span>Humidity, wind and soil come from NASA’s weather model rather than measurements, so those trends are less certain than temperature.</span></li> <!-- muggy nights, windy days, dry soil days -->
+            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#map-pin" /></svg><span>Belfast, Aberdeen, Toronto, Lisbon and Cape Town use the square next door, because their own is mostly sea or lake. Singapore’s square is mostly sea with no better one nearby, so its numbers are provisional, and its rain stops in 2020 because the data is faulty after that. Sunshine data starts in 1984. Sydney, Sao Paulo, Johannesburg, Cape Town and Rio de Janeiro count July to June, so they start in 1982.</span></li> <!-- the odd ones out -->
+            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#circle-help" /></svg><span>It shows that something changed, not why.</span></li> <!-- no causes -->
+            <li><svg class="icon" aria-hidden="true"><use href="icons.svg#cloud-snow" /></svg><span>Snow, fog and storms aren’t covered.</span></li> <!-- untestable hunches -->
           </ul>
         </div>
       </div>

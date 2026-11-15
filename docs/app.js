@@ -174,15 +174,21 @@ function renderTopics() { // the topic switch
 }
 
 let pressedPill = { measure: null, i: 0 }; // which wording of a hunch was tapped (0 = the main sentence, 1+ = a preset)
+let showPresets = false; // the extra everyday wordings stay folded away until "more ways to say it" is tapped
 
-function renderHunches() { // the hunch sentence pills: every main sentence first, then the extra everyday presets
+function renderHunches() { // the hunch sentence pills: every main sentence first, then the extra everyday presets behind a toggle
   const ms = measuresFor(state.place, state.topic); // only hunches this place has
   const isPressed = (m, i) => state.measure === m && (pressedPill.measure === m ? pressedPill.i === i : i === 0); // only the tapped wording looks picked, the main one if picked some other way
   const make = (m, label, i) => pill(label, isPressed(m, i), () => { pressedPill = { measure: m, i }; setMeasure(m); }); // every wording picks the same hunch
-  fill($("hunches"), [
-    ...ms.map((m) => make(m, HUNCHES[m].text, 0)), // main sentences
-    ...ms.flatMap((m) => (HUNCHES[m].presets || []).map((p, j) => make(m, p, j + 1))), // presets, after them
-  ]);
+  const presets = ms.flatMap((m) => (HUNCHES[m].presets || []).map((p, j) => make(m, p, j + 1))); // all the extra wordings
+  const open = showPresets || presets.some((b) => b.getAttribute("aria-pressed") === "true"); // never hide the one that's picked
+  const toggle = document.createElement("button"); // the "more ways to say it" switch
+  toggle.type = "button"; // not a form submit
+  toggle.className = "pill pill-more"; // quieter than the hunch pills
+  toggle.textContent = open ? "Fewer" : "More ways to say it"; // says what tapping does
+  toggle.setAttribute("aria-expanded", open ? "true" : "false"); // tells screen readers whether the extras are showing
+  toggle.addEventListener("click", () => { showPresets = !open; renderHunches(); $("hunches").querySelector(".pill-more").focus(); }); // flip it, redraw, keep keyboard focus on the switch
+  fill($("hunches"), [...ms.map((m) => make(m, HUNCHES[m].text, 0)), ...(open ? presets : []), ...(presets.length ? [toggle] : [])]); // main sentences, extras if open, switch last
 }
 
 function renderGuess() { // the claim line and the three guess buttons
@@ -419,6 +425,27 @@ $("gut-share").addEventListener("click", async () => { // share the score
   catch { btn.textContent = "Couldn’t copy"; } // clipboard blocked
   setTimeout(() => { btn.textContent = "Share"; }, 1600); // back to normal after a moment
 });
+
+// ---------- stats strip count-up (in how it works) ----------
+
+const statsBox = document.querySelector(".stats"); // the four numbers
+if (statsBox && !reduceMotion.matches && "IntersectionObserver" in window) { // skip it when motion is turned down, the real numbers are already in the html
+  const seen = new IntersectionObserver((entries) => { // fires when the strip comes on screen
+    if (!entries[0].isIntersecting) return; // not yet
+    seen.disconnect(); // only ever once
+    statsBox.querySelectorAll("strong").forEach((el) => { // each number
+      const to = Number(el.textContent.replace(/,/g, "")); // e.g. 1142
+      const start = performance.now(); // when it started
+      const tick = (now) => { // every frame
+        const t = Math.min((now - start) / 700, 1); // 0 to 1 over 700ms, same as the result card
+        el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3))).toLocaleString("en-GB"); // ease out, with the comma
+        if (t < 1) requestAnimationFrame(tick); // keep going until it lands
+      };
+      requestAnimationFrame(tick); // go
+    });
+  }, { threshold: 0.6 }); // most of it has to be showing
+  seen.observe(statsBox); // start watching
+}
 
 function setGuess(g) { // tapping a guess button
   const first = state.guess === null; // was the answer hidden until now?

@@ -154,6 +154,7 @@ html:not(.js) .needs-js { display: none; } /* no javascript: hide the pickers an
 }
 .pill:active:not(:disabled) { transform: scale(0.97); } /* small press so it feels like it heard you */
 a.pill { text-decoration: none; } /* pills that are links don't get underlined */
+.pill-more { background: transparent; border-style: dashed; box-shadow: none; color: var(--color-muted); } /* "more ways to say it": an outline, so it reads as a switch rather than a hunch */
 .pill[aria-pressed="true"], .pill-primary { /* picked (or the main action): tinted with the hunch colour rather than a loud solid fill */
   background: color-mix(in oklab, var(--color-accent) 24%, var(--color-paper-2)); /* a wash of the colour over the dark pill */
   border-color: color-mix(in oklab, var(--color-accent) 55%, transparent); /* edge in the colour, a bit softer */
@@ -300,7 +301,10 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 
 .how p, .how li { color: var(--color-ink-2); margin-top: var(--space-sm); } /* reading text */
 .how h3 { margin-top: var(--space-xl); font-size: var(--text-lg); } /* "what it can't tell you" */
-.cant { padding-left: 1.1em; margin: 0; } /* small indent for the list */
+.icon-list { list-style: none; padding: 0; margin: 0; } /* icons replace the bullets */
+.icon-list li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); column-gap: var(--space-sm); align-items: start; } /* icon in a narrow column, words beside it */
+.icon-list .icon { width: 1.1rem; height: 1.1rem; margin-top: 0.2em; color: var(--color-muted); } /* quiet icon, lined up with the first line of text */
+.how h3 .icon { display: inline-block; width: 0.95em; height: 0.95em; margin-right: 0.4em; vertical-align: -0.12em; color: var(--color-muted); } /* small icon before "the chat box", inline so it sits on the same line */
 .how [data-verdict="real"], .how .v-real { --verdict: var(--verdict-real); } /* green */
 .how [data-verdict="leaning"], .how .v-leaning { --verdict: var(--verdict-leaning); } /* amber */
 .how [data-verdict="not_backed"], .how .v-not_backed { --verdict: var(--verdict-not_backed); } /* grey */
