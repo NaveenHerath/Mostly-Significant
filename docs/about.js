@@ -1,5 +1,7 @@
 // the bottom block: odd one out game, quiz, team and the rest
 // it draws itself into <div id="about-root"></div> and reads its numbers from data.json
+// wrapped in its own scope so names like el or countUp can't clash with app.js
+(() => {
 
 const VIDEO_URL = ""; // paste the demo video link here when it's up
 const SLIDES_URL = ""; // paste the slides link here when they're up
@@ -244,3 +246,4 @@ fetch("data/data.json") // same file app.js uses, the browser caches it
   .then(r => r.json()) // read it as json
   .then(buildAbout) // draw everything
   .catch(err => console.error("about block couldn't load data", err)); // quiet fail, the rest of the page still works
+})();
