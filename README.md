@@ -6,6 +6,15 @@ Team Mostly Significant · NASA Space Apps Challenge 2026 · "Be an Earth System
 
 **Live site: [mostly-significant.vercel.app](https://mostly-significant.vercel.app)**
 
+**Where to look**
+
+| To see | Open |
+|---|---|
+| The product | the [live site](https://mostly-significant.vercel.app) |
+| The method, definitions and data checks | [data-generation/README.md](data-generation/README.md) |
+| The analysis code | [data-generation/src/](data-generation/src/) |
+| Every verdict, in one table | [data-generation/data/results/results.csv](data-generation/data/results/results.csv) |
+
 ![The answer for "summers last longer" in London: yes, it's real, 77 to 108 days of summer](docs/img/readme-result.webp)
 
 Everyone has a feeling about how the weather is changing: "summers are getting hotter", "we
