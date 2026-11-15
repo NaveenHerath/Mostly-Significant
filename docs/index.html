@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css"> <!-- small svg country flags for the world city pills -->
   <link rel="stylesheet" href="style.css"> <!-- our styles (pulls in tokens.css and base.css), after leaflet so ours win -->
   <link rel="stylesheet" href="timeline.css"> <!-- styles for the "watch it change" map and slider -->
+  <link rel="stylesheet" href="chat.css"> <!-- styles for the "say it your own way" box -->
 </head>
 <body>
 
@@ -30,7 +31,7 @@
         <span>Menu</span> <!-- the word, so it’s obvious -->
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Sections"> <!-- the section links -->
-        <a href="#where" data-nav="try" class="needs-js">Try it</a> <!-- the pickers -->
+        <a href="#chat" data-nav="try" class="needs-js">Try it</a> <!-- the chat box and the pickers -->
         <a href="#map" data-nav="everywhere" class="needs-answer" hidden>Everywhere</a> <!-- map, only once you’ve guessed -->
         <a href="#report" data-nav="hunches" class="needs-answer" hidden>Every hunch</a> <!-- report card, only once you’ve guessed -->
         <a href="#timeline" data-nav="timeline" class="needs-js">Watch it change</a> <!-- the map with the year slider -->
@@ -70,6 +71,24 @@
     </div>
 
     <noscript><p class="note">This page needs JavaScript to look up the numbers. The method and sources are below.</p></noscript> <!-- fallback -->
+
+    <!-- 1b. say it your own way: a typed sentence gets a small case card, right in the conversation (chat.js) -->
+    <section class="step needs-js" id="chat" data-nav="try" aria-labelledby="chat-h">
+      <h2 id="chat-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#message" /></svg>Say it your own way</h2> <!-- step heading -->
+      <p class="note">Type a feeling about the weather and get the short answer here. Or pick a place and a hunch below for the full one.</p> <!-- what the box does -->
+      <form class="chat-form" id="chat-form"> <!-- the input and its button -->
+        <label class="visually-hidden" for="chat-input">Your weather hunch</label> <!-- names the input for screen readers -->
+        <input class="chat-input" id="chat-input" type="text" maxlength="200" autocomplete="off" placeholder="e.g. nights are unbearable in Manchester"> <!-- the sentence -->
+        <button class="pill chat-send" type="submit">Check it<svg class="icon" aria-hidden="true"><use href="icons.svg#arrow-right" /></svg></button> <!-- sends it -->
+      </form>
+      <div class="chat-tools"> <!-- which model reads the sentence -->
+        <span class="chat-tools-label" id="chat-models-label">Answered by</span> <!-- names the switch -->
+        <div class="switch" id="chat-models" role="group" aria-labelledby="chat-models-label"></div> <!-- auto / gemini / on-device, filled by chat.js -->
+      </div>
+      <p class="note chat-model-note" id="chat-model-note"></p> <!-- one line on the model that is picked -->
+      <div class="pills chat-starters" id="chat-starters"></div> <!-- example sentences to tap, gone once the conversation starts -->
+      <ol class="chat-thread" id="chat-thread" aria-live="polite"></ol> <!-- questions and their case cards, newest last -->
+    </section>
 
     <!-- 2. where -->
     <section class="step needs-js" id="where" data-nav="try" aria-labelledby="where-h">
@@ -224,6 +243,10 @@
             <li data-verdict="opposite"><span>It’s actually the opposite.</span> A clear trend, the other way round.</li> <!-- red -->
           </ul>
           <p>The verdict is about the trend in the data, not a score for your guess.</p> <!-- per naveen’s notes -->
+          <h3>The chat box</h3> <!-- how a typed sentence is answered -->
+          <p>Type a hunch in your own words and a language model works out which test you mean: Google’s Gemini, or a small model (MiniLM) that runs in your browser when Gemini can’t be reached. You can pick either.</p> <!-- the two models -->
+          <p>Neither one supplies a number. They only choose which result to show, and every figure comes from the NASA results. When Gemini words an answer, a sentence with a number that isn’t on the card is thrown away.</p> <!-- why it can’t make a number up -->
+          <p>On 60 test questions, Gemini picked the right test (or rightly said “can’t test that”) for 60 and the on-device model for 51.</p> <!-- from chat-eval/results.csv -->
         </div>
         <div> <!-- right: caveats -->
           <h3 id="cant">What it can’t tell you</h3> <!-- caveats, the footer links here -->
@@ -316,5 +339,8 @@
   <script src="hunches.js"></script> <!-- wording first, app.js uses it -->
   <script src="app.js"></script> <!-- the logic -->
   <script src="timeline.js"></script> <!-- the "watch it change" map, uses app.js's helpers -->
+  <script src="phrases.js"></script> <!-- example sentences for each hunch, and the topics that can't be tested -->
+  <script src="matcher.js"></script> <!-- the on-device language model, loaded only when the chat box is used -->
+  <script src="chat.js"></script> <!-- the "say it your own way" box: gemini first, the on-device model as backup -->
 </body>
 </html>

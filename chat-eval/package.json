@@ -1,0 +1,8 @@
+{
+  "name": "chat-eval",
+  "private": true,
+  "type": "module",
+  "description": "Scores the chat box's two matchers (Gemini and the on-device MiniLM model) on a fixed set of test questions.",
+  "scripts": { "eval": "node evaluate.mjs" },
+  "dependencies": { "@huggingface/transformers": "4.3.2" }
+}

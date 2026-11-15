@@ -26,6 +26,31 @@ There are four verdicts:
 The app covers 12 UK towns in depth (15 hunches each: heat, seasons, rain, sunshine and
 heating) and 12 world cities on the five heat hunches that mean the same in any climate.
 
+## The chat box
+
+On the site, a visitor can also type a hunch in their own words ("nights are unbearable in
+Manchester"). The sentence becomes a small case card in the conversation: a guess first, then
+the verdict, the 1980s and recent averages, the trend, the luck test and the caveat. It is the
+same answer as the pickers give, in a smaller form, with a link to the full one.
+
+Two models can read the sentence, and the visitor chooses between them:
+
+| Model | Where it runs | What it does |
+|---|---|---|
+| **Gemini** | A small server function (`docs/api/route.js`) | Picks the place and the measure from fixed lists, and words the result in two sentences |
+| **MiniLM** (all-MiniLM-L12-v2, 34 MB) | In the visitor's browser, with transformers.js (`docs/matcher.js`) | Matches the sentence to the closest example phrase (`docs/phrases.js`). The backup when Gemini cannot be reached |
+
+Neither model supplies a number. They choose which row of the results to show, and every
+figure on the card comes from the results files. A Gemini sentence that contains a number
+not on the card is thrown away and a fixed template is used instead. A sentence about
+something the data cannot test (snow, wind, fog, a forecast) gets "can't test that" and the
+reason.
+
+`chat-eval/` holds 60 test questions and the script that scores both models on them
+(`node evaluate.mjs`, results in `chat-eval/results.csv`). `node chat-eval/serve.mjs` runs
+the site with the chat box on a laptop. The Gemini key is read from `.env.local`, which git
+ignores; the live site reads it from Vercel's environment variables.
+
 ## The data
 
 All numbers come from **NASA POWER (MERRA-2)**: daily weather from 1 January 1981 to

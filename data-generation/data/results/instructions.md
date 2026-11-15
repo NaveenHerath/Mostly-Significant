@@ -185,83 +185,79 @@ honest answer is "we don't have a measure for that". A forced match would mislea
 
 ## 4. The chatbot: lookup, not fine-tuning
 
-The chatbot is a general language model with **tool calling** (also called function
-calling). It is not fine-tuned: a fine-tuned model could still invent a number, and there
-would be no way to prove that it never does.
+The chat box on the site ("Say it your own way") turns a typed sentence into a small case
+card. Two language models can read the sentence, and the visitor chooses between them. Neither
+is fine-tuned, because a fine-tuned model could still invent a number and there would be no
+way to prove that it never does.
 
-The model has two jobs only:
+A model has two jobs only:
 
-1. **Understand** the user's sentence and pick a `place` and a `measure_id`, or say that it
-   can't.
-2. **Word** the row it gets back in plain English.
+1. **Understand** the sentence: pick a `place` and a `measure_id`, or say that it can't.
+2. **Word** the row in plain English (Gemini only; the on-device model uses a fixed sentence).
 
-Every number comes from a Python function that reads `results.csv`.
+Every number comes from the results files, through the site's `data.json`.
 
 ### Flow
 
 ```
-user types a hunch
-   → the model extracts {place, measure_id}        (tool call)
-   → Python looks up the row in results.csv         (pandas)
-   → the row goes back to the model
-   → the model writes the answer using ONLY that row
-   → the app shows the answer, a chart from annual.csv and the luck line from luck.csv
+visitor types a hunch
+   → place: found by name in the sentence (38 places), else the place already picked
+   → measure: chosen by Gemini, or by the on-device model if Gemini can't be reached
+   → the page looks the row up in data.json (built from results.csv, annual.csv, luck.csv)
+   → the visitor guesses first
+   → the card shows the verdict, then and now, the trend, the luck share and the caveat
+   → "See the full case" opens the same answer in the main view
 ```
 
-### The lookup function (the tool)
+### The two models
 
-```python
-import pandas as pd
+| | Gemini | On-device (MiniLM) |
+|---|---|---|
+| Where it runs | A Vercel server function, `docs/api/route.js` | The visitor's browser, `docs/matcher.js` (transformers.js) |
+| How it picks the measure | Reads the sentence and chooses from a fixed list of the 17 IDs, or `none` with a reason | Turns the sentence into a vector and takes the closest of about 70 example phrases (`docs/phrases.js`). A best score under 0.40 means "can't test that" |
+| Untestable topics | Returns `none` and a topic (snow, wind, storms, fog, humidity, floods, sea, air quality, forecast, cause) | Decoy phrases for the same topics sit beside the real ones; landing on one gives the reason |
+| Wording | Two sentences, from the row only | A fixed template |
+| Needs | `GEMINI_API_KEY` in Vercel's environment variables | Nothing: no key and no server. The 34 MB model is served from `docs/models/` |
 
-RESULTS_DIR = "data-generation/data/results"     # as seen from app.py at the top of the repo
-R = pd.read_csv(f"{RESULTS_DIR}/results.csv", encoding="utf-8")
-L = pd.read_csv(f"{RESULTS_DIR}/luck.csv", encoding="utf-8")
-
-def check_hunch(place: str, measure_id: str) -> dict:
-    """Returns the results row (and luck share) for one place and measure, or a clear error."""
-    row = R[(R.place == place) & (R.measure_id == measure_id)]
-    if row.empty:
-        return {"error": f"No data for {place} / {measure_id}. "
-                         "Measure may not exist for this region."}
-    out = row.iloc[0].to_dict()
-    luck = L[(L.place == place) & (L.measure_id == measure_id)]
-    if not luck.empty:
-        out["share_as_strong"] = float(luck.iloc[0].share_as_strong)
-    return out
-```
-
-In the tool's schema, `place` is an enum of the 38 place names and `measure_id` an enum of
-the 17 IDs. An enum stops the model inventing a value. A `none` option covers a hunch that
-cannot be mapped.
-
-### System prompt for the chatbot
-
-This is the prompt the app gives its language model. It is written as instructions because
-that is how the model reads it.
-
-```
-You are the "hunch fact-checker". The user gives a feeling about weather or climate.
-1. Call check_hunch with the place and measure_id that best match it. If the hunch
-   cannot be tested with the measures available, say so honestly and do not guess.
-2. Answer using ONLY the fields returned. Never use numbers from your own memory.
-3. Structure: (a) verdict in one plain sentence, (b) the size of the change using
-   early_mean vs late_mean ("7 days a year in the 1980s, 19 now"), (c) one sentence
-   on whether luck could explain it (use share_as_strong if given), (d) the caveat.
-4. Verdict wording: real = "the data backs your hunch"; leaning = "points that way but
-   we can't rule out luck"; not_backed = "the data doesn't support it"; opposite =
-   "surprise, the data shows the reverse".
-5. Always name the source: NASA POWER (MERRA-2), 1981-2025.
-6. Say "the data shows", never "this proves". Keep it under 120 words.
-7. If the place has no data for the measure, say which measures are available.
-```
+The switch above the chat box has three settings: **Auto** (Gemini, and the on-device model if
+Gemini fails or takes over 7 seconds), **Gemini** and **On-device**. The line under each card
+says which model understood the question and which worded the answer.
 
 ### What keeps the chatbot honest
 
-- The verdict word comes from the `verdict` column. The model does not decide it.
-- A place that is not in the data gets the nearest available place, and the answer says so.
+- Gemini's place and measure are restricted to fixed lists (an enum), so it cannot invent
+  either. The prompts are in `docs/api/route.js`.
+- The verdict word comes from the `verdict` column. No model decides it.
+- Gemini's sentences are checked before they are shown: if they contain a number that is not
+  on the card, or a number spelled out in words, they are replaced by the fixed template.
+- The reply always names what was tested ("I'm testing that as 'Summers last longer' in
+  London"), so the verdict is read against that. When someone claims the reverse ("summers
+  are getting shorter"), Gemini flags it and the reply says so.
+- A hunch the place has no row for (frost in Cairo) gets "only measured for the UK towns" and
+  a list of what can be tested there.
 - The answer never states a cause such as "because of climate change". The data shows a
   change, not the reason for it.
-- The cases in section 6 are the check that the wiring is right.
+
+### How well each model picks the test
+
+`chat-eval/tests.json` holds 60 questions that are not among the example phrases: 40 that
+can be tested, 11 on untestable topics and 9 that are not about weather trends.
+`chat-eval/evaluate.mjs` runs both models on them and writes `chat-eval/results.csv`.
+
+| | Gemini | On-device (MiniLM) |
+|---|---|---|
+| Right, all 60 | 60 | 51 |
+| Testable questions | 40 of 40 | 32 of 40 |
+| Untestable topics | 11 of 11 | 10 of 11 |
+| Not about weather trends | 9 of 9 | 9 of 9 |
+| Matched to the wrong measure | 0 | 3 |
+
+The on-device model handles plain rewordings ("nights are unbearable") and misses ones that
+need a step of reasoning ("I never have to scrape ice off my car" is about frost). The
+questions were written by the team, who also wrote Gemini's prompt and the example phrases
+with these questions in view (three of the prompt's hints echo test questions, and one example
+phrase was removed after a first run). Both scores are therefore flattering, and 60 questions
+is a small set. The gap between the two models is the part to trust.
 
 ---
 

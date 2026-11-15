@@ -1,0 +1,79 @@
+/* styles for the "say it your own way" box and its small case cards. colours and sizes come from tokens.css */
+
+/* ---------- asking ---------- */
+
+.chat-form { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-top: var(--space-md); } /* input then button, the button drops below on phones */
+.chat-input {
+  flex: 1 1 16rem; min-width: 0; min-height: 52px; padding: 0 var(--space-md); /* fills the row, easy to tap */
+  border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-pill); /* same shape as the pills */
+  background: var(--color-paper-2); color: var(--color-ink); font-size: var(--text-md);
+}
+.chat-input::placeholder { color: var(--color-muted); } /* the example sentence, quieter than typed text */
+.chat-send { min-height: 52px; padding: 0 var(--space-lg); } /* same size as the guess buttons */
+.chat-form[aria-busy="true"] .chat-send { opacity: 0.5; pointer-events: none; } /* dimmed while a question is being checked */
+
+.chat-tools { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-xs) var(--space-sm); margin-top: var(--space-sm); } /* "answered by" and its switch on one line */
+.chat-tools-label { font-size: var(--text-sm); color: var(--color-muted); }
+.chat-tools .switch { margin-top: 0; }
+.chat-tools .switch .pill { min-height: 32px; padding: 0 var(--space-sm); font-size: var(--text-sm); } /* a small switch, it's a secondary choice */
+.chat-model-note { margin-top: var(--space-xs); }
+.chat-starters .pill { font-size: var(--text-sm); min-height: 36px; } /* example sentences, lighter than the main pills */
+
+/* ---------- the conversation ---------- */
+
+.chat-thread { list-style: none; margin: 0; padding: 0; }
+.chat-turn { margin-top: var(--space-lg); scroll-margin-top: calc(var(--bar-height) + var(--space-md)); } /* stops under the sticky bar when scrolled to */
+.chat-you { /* the person's own words, on the right like a sent message */
+  width: fit-content; max-width: min(100%, 44ch); margin-left: auto; padding: var(--space-xs) var(--space-md);
+  border-radius: 18px 18px 4px 18px; background: var(--color-paper-3); color: var(--color-ink);
+}
+.chat-bot { margin-top: var(--space-sm); }
+.chat-say { font-family: var(--font-display); font-size: var(--text-lg); letter-spacing: var(--tracking-display); color: var(--color-ink); max-width: 46ch; } /* the reply, in the same voice as the big claim line */
+.chat-guess, .chat-alts { margin-top: var(--space-sm); align-items: center; }
+.chat-or { font-size: var(--text-sm); color: var(--color-muted); } /* the words before the "did you mean" buttons */
+
+/* ---------- the case card ---------- */
+
+.chat-card { /* the whole answer in one small pane, edged in the verdict's colour */
+  --v: var(--color-muted);
+  margin-top: var(--space-sm); padding: var(--space-md) var(--space-lg); max-width: 34rem;
+  border: var(--rule-hair) solid color-mix(in oklab, var(--v) 40%, var(--color-rule)); border-radius: var(--radius-card);
+  background: color-mix(in oklab, var(--v) 5%, var(--color-paper-2));
+  animation: chat-in var(--dur-long) var(--ease-out);
+}
+.chat-card[data-verdict="real"] { --v: var(--verdict-real); }
+.chat-card[data-verdict="leaning"] { --v: var(--verdict-leaning); }
+.chat-card[data-verdict="opposite"] { --v: var(--verdict-opposite); }
+@keyframes chat-in { from { opacity: 0; transform: translateY(6px); } } /* the card rises in when the guess is made */
+
+.chat-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2xs) var(--space-sm); }
+.chat-stamp { /* the verdict, like a rubber stamp */
+  padding: 2px var(--space-xs); border: 1.5px solid var(--v); border-radius: var(--radius-part);
+  color: var(--v); font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.chat-gut { font-size: var(--text-sm); color: var(--color-muted); } /* was your guess right */
+.chat-words { margin-top: var(--space-sm); color: var(--color-ink); max-width: 52ch; } /* the answer in a sentence or two */
+
+.chat-nums { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--space-xs); margin-top: var(--space-md); font-family: var(--font-display); letter-spacing: var(--tracking-display); }
+.chat-then { font-size: var(--text-2xl); color: var(--color-muted); } /* the 1980s figure, quieter */
+.chat-arrow { color: var(--color-muted); }
+.chat-now { font-size: var(--text-3xl); color: var(--color-ink); } /* the recent figure, the one to read */
+.chat-noun { flex-basis: 100%; font-family: var(--font-body); font-size: var(--text-sm); letter-spacing: 0; color: var(--color-muted); } /* what the two numbers are */
+
+.chat-spark-wrap { margin-top: var(--space-sm); }
+.chat-spark { display: block; width: 100%; height: auto; overflow: visible; } /* fills the card and keeps its shape, so the dots stay round */
+.chat-spark circle { fill: var(--color-muted); opacity: 0.55; } /* one faint dot per year */
+.chat-spark line { stroke: var(--v); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: chat-draw 900ms var(--ease-out) 200ms forwards; } /* the trend line draws itself across */
+@keyframes chat-draw { to { stroke-dashoffset: 0; } }
+.chat-years { display: flex; justify-content: space-between; font-size: var(--text-xs); color: var(--color-muted); } /* first and last year under the line */
+.chat-rate { margin-top: var(--space-xs); font-size: var(--text-sm); color: var(--color-ink-2); } /* change per decade */
+
+.chat-luck { margin-top: var(--space-sm); }
+.chat-meter { height: 6px; border-radius: var(--radius-pill); background: var(--color-rule); overflow: hidden; } /* the full bar is all 1,000 shuffles */
+.chat-meter span { display: block; height: 100%; background: var(--color-ink-2); border-radius: var(--radius-pill); } /* the lit part is the share that matched */
+.chat-luck p, .chat-caveat, .chat-by { margin-top: var(--space-xs); font-size: var(--text-sm); color: var(--color-muted); max-width: 60ch; }
+.chat-by { font-size: var(--text-xs); }
+.chat-next { margin-top: var(--space-sm); }
+.chat-next .pill { min-height: 36px; padding: 0 var(--space-sm); font-size: var(--text-sm); } /* follow-ups, smaller than the main pills */
+
+@media (prefers-reduced-motion: reduce) { .chat-card { animation: none; } .chat-spark line { animation: none; stroke-dashoffset: 0; } } /* no motion: everything is simply there */

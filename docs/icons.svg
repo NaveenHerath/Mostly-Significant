@@ -92,6 +92,9 @@
     <path d="M5 12h14" />
     <path d="m12 5 7 7-7 7" />
   </symbol>
+  <symbol id="message" viewBox="0 0 24 24"> <!-- speech bubble, for the "say it your own way" heading -->
+    <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+  </symbol>
   <symbol id="history" viewBox="0 0 24 24"> <!-- history, for the "watch it change" heading -->
     <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
     <path d="M3 3v5h5" />

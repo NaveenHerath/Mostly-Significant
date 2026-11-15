@@ -6,3 +6,9 @@ data-generation/power_raw.zip
 data-generation/models
 app.py
 .streamlit
+
+# secrets never go up with a deploy
+.env*
+
+# the chat test tools are for laptops only
+chat-eval
