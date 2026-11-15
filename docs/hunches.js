@@ -58,9 +58,12 @@ const GUT = {
 // country flag codes for the world city pills (flag-icons uses the two-letter iso codes), uk towns get none
 const PLACE_FLAGS = {
   "New York": "us", "Los Angeles": "us", Toronto: "ca", "Sao Paulo": "br", // the americas
+  Orlando: "us", "Mexico City": "mx", "Rio de Janeiro": "br", // more of the americas
   Paris: "fr", Berlin: "de", Madrid: "es", // europe
-  Cairo: "eg", Johannesburg: "za", // africa
+  Barcelona: "es", Rome: "it", Lisbon: "pt", Athens: "gr", Amsterdam: "nl", Istanbul: "tr", // more of europe
+  Cairo: "eg", Johannesburg: "za", Marrakech: "ma", "Cape Town": "za", // africa
   Delhi: "in", Tokyo: "jp", Sydney: "au", // asia and australia
+  Dubai: "ae", Bangkok: "th", Singapore: "sg", // more of asia
 };
 
 // extra notes for places that need one
