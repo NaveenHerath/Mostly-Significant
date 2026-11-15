@@ -45,20 +45,25 @@ hunches, windy days, yearly sunshine and air conditioning.
 
 ### What is on the page
 
-From top to bottom:
+From top to bottom. The top menu jumps to How it works, Try it, Everywhere, Watch it change
+and The science.
 
 | Section | What it does |
 |---|---|
-| **How it works** | Three steps and the headline numbers |
+| **Is it just me?** | The title over a night-time timelapse of the UK from the space station, with two buttons: "See how it works" and "Try it yourself" |
+| **How it works** | The steps, and a strip with the size of the data |
 | **Say it your own way** | The chat box (below) |
-| **Where? / What's your hunch?** | Place and hunch pills, then the guess |
-| **Result, Year by year, Could it be luck?** | The verdict card, the chart with its trend line and 1980s and 2016–2025 averages, and a grid of 1,000 shuffles |
+| **Where? / What's your hunch?** | Place pills, hunch pills, then the guess |
+| **The result** | The verdict, whether your gut was right, then against now, change per decade and luck as "N in 1,000" |
+| **Year by year** | Every year from 1981 to 2025, the trend line, and dashed lines for the 1980s and 2016–2025 averages |
+| **Could it be luck?** | A grid of 1,000 dots, one per shuffle of the years, lit if it beat the real trend |
 | **Everywhere else** | Every place on a map, coloured by its verdict for the chosen hunch |
 | **Watch it change** | The map with a year slider, 1981 to 2025 |
 | **Odd one out** | A game: three places, one hunch, which one went the other way? |
-| **Real, error or quirk?** | A quiz on odd things in the data: a real change, a data fault or a quirk of the grid |
-| **What you can do, why we built it, roadmap, meet the team, FAQ** | The project around the data |
-| **The science** | The method, the stats and what the data can't tell you |
+| **Real, error or quirk?** | A quiz on six odd things in the data: a real change, a data fault or a quirk of the grid |
+| **What you can do, why we built it, roadmap, meet the team, FAQ, demo video and slides** | The project around the data |
+| **The science** | The data pipeline in five steps, all 1,142 verdicts in one bar, how the chat box works, and what the data can't tell you |
+| **Got another hunch?** | A nudge to go again, then the footer with the project, data and team links |
 
 A **gut score** sits in a small bar in the corner after the first guess ("3 of 4 right"). It
 counts guesses from the pickers, the chat and the games, and it resets when the page reloads.
@@ -88,8 +93,11 @@ Neither model supplies a number. They choose which row of the results to show, a
 figure on the card comes from the results files. A Gemini sentence that contains a number
 not on the card is thrown away and a fixed template is used instead.
 
-`chat-eval/` holds 60 test questions and the script that scores both models on them
-(`node evaluate.mjs`, results in `chat-eval/results.csv`). `node chat-eval/serve.mjs` runs
+`chat-eval/` holds 62 test questions and the script that scores both models on them
+(`node evaluate.mjs`, results in `chat-eval/results.csv`). The on-device model scores 62 of
+62, but only after its phrase list was tuned on these questions, so new sentences will do a
+little worse. Gemini scored 59 of 62 on the last run; its three misses have been fixed in
+`docs/api/route.js` and it is to be rerun. `node chat-eval/serve.mjs` runs
 the site with the chat box on a laptop. The Gemini key is read from `.env.local`, which git
 ignores; the live site reads it from Vercel's environment variables.
 
