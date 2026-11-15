@@ -4,7 +4,7 @@
 const TOPICS = [
   { id: "heat", label: "Heat", icon: "thermometer" }, // heatwaves, hot days, warm nights
   { id: "seasons", label: "Seasons", icon: "leaf" }, // when summer, autumn and frost turn up
-  { id: "rain", label: "Rain", icon: "cloud-rain" }, // downpours, wet days, dry spells
+  { id: "rain", label: "Rain and wind", icon: "cloud-rain" }, // downpours, wet days, dry spells, wind, dry ground
   { id: "sun", label: "Sun and energy", icon: "sun" }, // sunshine, and how much heating (uk) or cooling (world) we need
 ];
 
@@ -15,7 +15,8 @@ const HUNCHES = {
   heatwave_events: { topic: "heat", accent: "heat", text: "We get more heatwaves", question: "do we get more heatwaves", noun: "heatwaves a year" }, // count of heatwaves
   longest_heatwave: { topic: "heat", accent: "heat", text: "Heatwaves last longer", question: "do heatwaves drag on longer", noun: "days, longest heatwave" }, // longest run
   hottest_day: { topic: "heat", accent: "heat", text: "The hottest days are hotter", question: "are the hottest days getting hotter", noun: "hottest day of the year" }, // peak temp
-  warm_nights: { topic: "heat", accent: "heat", text: "Nights are too warm to sleep", question: "are nights too warm to sleep", noun: "warm nights a year" }, // muggy nights
+  warm_nights: { topic: "heat", accent: "heat", text: "Nights are too warm to sleep", question: "are nights too warm to sleep", noun: "warm nights a year" }, // nights that stay warm
+  muggy_nights: { topic: "heat", accent: "heat", text: "Summer nights feel muggier", question: "are summer nights muggier", noun: "muggy nights a summer" }, // uk only, dew point 16 C or more
   first_heatwave_doy: { topic: "seasons", accent: "summer", text: "Heat arrives earlier in the year", question: "does the heat turn up earlier in the year", noun: "first heatwave, on average" }, // a date
   summer_length: { topic: "seasons", accent: "summer", text: "Summers last longer", question: "do summers last longer", noun: "days of summer" }, // length of summer
   autumn_onset_doy: { topic: "seasons", accent: "autumn", text: "Autumn turns up later", question: "does autumn turn up later", noun: "autumn starts, on average" }, // a date
@@ -24,6 +25,8 @@ const HUNCHES = {
   heavy_rain_days: { topic: "rain", accent: "rain", text: "It rains harder more often", question: "does it chuck it down more often", noun: "heavy rain days a year" }, // count of days
   summer_dry_spell: { topic: "rain", accent: "rain", text: "Summer dry spells are longer", question: "do summer dry spells go on longer", noun: "days, longest dry spell" }, // plymouth test case
   winter_rain: { topic: "rain", accent: "rain", text: "Winters are wetter", question: "are winters wetter", noun: "mm of winter rain" }, // winter total
+  windy_days: { topic: "rain", accent: "rain", text: "It’s windier than it used to be", question: "is it windier than it used to be", noun: "windy days a year" }, // uk and world, days in the windiest 5%
+  dry_soil_days: { topic: "rain", accent: "rain", text: "The ground dries out more in summer", question: "does the ground dry out more in summer", noun: "dry soil days a summer" }, // uk only, rate is 0 everywhere so show then vs now
   summer_sunshine: { topic: "sun", accent: "sun", text: "Summers are sunnier", question: "are summers sunnier", noun: "MJ/m² of sun a day" }, // solar energy
   heating_need: { topic: "sun", accent: "sun", text: "We need less heating", question: "do we need less heating", noun: "heating degree days" }, // milder winters
   yearly_sunshine: { topic: "sun", accent: "sun", text: "It’s sunnier than it used to be", question: "is it sunnier than it used to be", noun: "MJ/m² of sun a day" }, // world cities only, whole year
