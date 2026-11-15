@@ -6,7 +6,7 @@ are summers getting shorter,testable,summer_length,summer_length,0.83,right,summ
 summer seems to go on forever these days,testable,summer_length,summer_length,0.81,right,summer_length,right
 it feels like summer weather starts in May now,testable,summer_length|first_heatwave_doy,first_heatwave_doy,0.65,right,summer_length,right
 we get way more hot days than when I was a kid,testable,heatwave_days,heatwave_days,0.75,right,heatwave_days,right
-is it getting hotter,testable,heatwave_days|hottest_day,heatwave_days,0.75,right,none,missed
+is it getting hotter,testable,heatwave_days|hottest_day,heatwave_days,0.75,right,heatwave_days,right
 there seem to be loads of heatwaves now,testable,heatwave_events|heatwave_days,heatwave_events,0.84,right,heatwave_events,right
 heatwaves never seem to end,testable,longest_heatwave,longest_heatwave,0.93,right,longest_heatwave,right
 hot spells used to be over in a couple of days,testable,longest_heatwave,longest_heatwave,0.85,right,longest_heatwave,right
@@ -28,7 +28,7 @@ my lawn goes brown every summer now,testable,summer_dry_spell,summer_dry_spell,0
 we get weeks without rain in July,testable,summer_dry_spell,summer_dry_spell,0.86,right,summer_dry_spell,right
 hosepipe bans are more common,testable,summer_dry_spell,summer_dry_spell,0.89,right,summer_dry_spell,right
 winter is just rain now,testable,winter_rain,winter_rain,0.83,right,winter_rain,right
-January is soggier than ever,testable,winter_rain,winter_rain,0.71,right,none,missed
+January is soggier than ever,testable,winter_rain,winter_rain,0.71,right,winter_rain,right
 there's more sun in summer,testable,summer_sunshine|yearly_sunshine,summer_sunshine,0.89,right,summer_sunshine,right
 we get more clear blue skies,testable,summer_sunshine|yearly_sunshine,summer_sunshine,0.62,right,yearly_sunshine,right
 it's brighter than it was in the eighties,testable,yearly_sunshine|summer_sunshine,summer_sunshine,0.62,right,yearly_sunshine,right
@@ -46,7 +46,7 @@ we never get a white christmas,untestable,none,none,0.79,right,none,right
 it's much windier these days,testable,windy_days,windy_days,0.86,right,windy_days,right
 storms are getting stronger,untestable,none,none,0.88,right,none,right
 there's less fog than there used to be,untestable,none,none,0.86,right,none,right
-it feels more humid,testable,muggy_nights,muggy_nights,0.89,right,none,missed
+it feels more humid,testable,muggy_nights,muggy_nights,0.89,right,muggy_nights,right
 flooding is getting worse,untestable,none,none,0.76,right,none,right
 the sea is getting warmer,untestable,none,none,0.96,right,none,right
 hay fever season is worse,untestable,none,none,0.87,right,none,right
