@@ -21,7 +21,7 @@ The phase runs as seven scripts, each feeding the next:
 
 ```
 NASA POWER API
-   → download_power.py     raw daily data for 38 places        data/raw
+   → download_power.py     raw daily data for 75 places        data/raw
    → src/clean.py          one checked daily table             data/clean
    → src/build_results.py  yearly measures, trends, verdicts   data/results
    → src/build_extras.py   luck test and season dates          data/results
@@ -41,15 +41,29 @@ NASA POWER API
   `WS10M_MAX`, `ALLSKY_SFC_SW_DWN`, `CLOUD_AMT`, `HDD18_3`, `CDD18_3`, `GWETROOT`, `GWETTOP`,
   `EVPTRNS`. Missing values are `-999`. Sunshine and cloud start in 1984.
 
-## Places (38)
+## Places (75)
 
-- **UK, analysed in depth (12):** London, Maidstone, Norwich, Plymouth, Bristol, Cardiff,
-  Birmingham, Manchester, Newcastle, Belfast, Edinburgh, Aberdeen.
+- **UK, analysed in depth (49):**
+  - England (30): London, Maidstone, Norwich, Plymouth, Bristol, Birmingham, Manchester,
+    Newcastle, Leeds, Sheffield, Liverpool, Leicester, Nottingham, Hull, Stoke-on-Trent,
+    Southampton, Milton Keynes, Brighton, Reading, Preston, Bournemouth, Peterborough,
+    Middlesbrough, Ipswich, Oxford, Cambridge, Gloucester, Exeter, Lincoln, Carlisle.
+  - Scotland (9): Edinburgh, Aberdeen, Glasgow, Dundee, Inverness, Stirling, Ayr, Dumfries,
+    Fort William.
+  - Wales (6): Cardiff, Swansea, Bangor, Aberystwyth, Llandrindod Wells, Carmarthen.
+  - Northern Ireland (4): Belfast, Derry, Omagh, Newry.
 - **World, big cities (12):** New York, Los Angeles, Toronto, Sao Paulo, Paris, Berlin,
   Madrid, Cairo, Delhi, Tokyo, Sydney, Johannesburg.
 - **World, popular trip destinations (14):** Barcelona, Rome, Lisbon, Athens,
   Amsterdam, Istanbul, Dubai, Marrakech, Cape Town, Bangkok, Singapore, Orlando, Mexico City,
   Rio de Janeiro.
+
+### One place per grid square
+
+Every place has its own grid square, so no two places share the same data. Five more UK
+towns were tried and dropped: Canterbury landed in Maidstone's square, Truro in Plymouth's,
+Ballymena in Belfast's and Haverfordwest in Carmarthen's once the sea test had moved them,
+and Wick had no land square near it. That leaves 75 places in 75 squares.
 
 ### The sea problem
 
@@ -61,12 +75,15 @@ In a first download Aberdeen and Belfast showed almost no frost and no real heat
 gap is only 2 to 4 °C; over land it is usually 5 °C or more. If the gap is under 4.5 °C, the
 eight neighbouring squares are tried, nearest first, and the first land square is used.
 
-Five places are moved this way:
+Eight places are moved this way:
 
 | Place | Moved | Reason |
 |---|---|---|
 | Belfast | 23 km | City square failed the sea test (gap 4.2 °C) |
 | Aberdeen | 30 km | City square failed the sea test (gap 2.4 °C) |
+| Bournemouth | 31 km | City square failed the sea test (gap 2.7 °C) |
+| Bangor | 36 km | City square failed the sea test (gap 3.4 °C) |
+| Aberystwyth | 24 km | City square failed the sea test (gap 2.9 °C) |
 | Toronto | 39 km north, by hand | City square is mostly Lake Ontario. It passed the sea test, but its nights appeared to warm 1.0 °C per decade with sudden jumps, while the land squares around it show 0.3 to 0.4 °C |
 | Lisbon | 42 km south-east, by hand | City square failed the sea test (gap 4.4 °C). The nearest square that passes is an ocean-cooled coastal strip: August afternoons average 25 °C against Lisbon's 28 °C, and its days warm only 0.1 °C per decade. The square across the Tagus is all land and starts 7 km from the city centre. It lies inland of the city, so its August afternoons read about 3 °C higher than Lisbon's |
 | Cape Town | 32 km | City square failed the sea test (gap 3.0 °C). The square used starts 2 km east of the city centre and holds most of the metropolitan area |
@@ -93,7 +110,7 @@ out of that check:
 
 - **Baseline:** 1981–2010. Only complete years 1981–2025 are used.
 - **Warm season:** each place's five warmest months in a row, by baseline average daily
-  maximum. This is May–September in all 12 UK towns and differs elsewhere (Delhi
+  maximum. This is May–September in all 49 UK towns and differs elsewhere (Delhi
   April–August, New York and Los Angeles June–October, Sao Paulo and Johannesburg
   October–February, Sydney and Cape Town November–March, Lisbon June–October, Bangkok
   January–May, Singapore February–June, Mexico City March–July, Rio de Janeiro
@@ -116,6 +133,12 @@ out of that check:
 - **Yearly sunshine (world cities):** whole-year mean of `ALLSKY_SFC_SW_DWN`, MJ/m² per day
   (from 1984). A year with fewer than 330 days of readings is left blank.
 - **Cooling need (world cities):** yearly sum of `CDD18_3` (degree days above 18.3 °C).
+- **Muggy night (UK):** a June–August day with a dew point (`T2MDEW`) of 16 °C or more, air
+  humid enough that nights feel sticky.
+- **Windy day:** a day whose strongest wind (`WS10M_MAX`) is above the place's 95th
+  percentile in the baseline, so the top 5% of 1981–2010 days.
+- **Dry soil day (UK):** a June–August day with topsoil wetness (`GWETTOP`) below the place's
+  10th percentile of baseline June–August days.
 - **Southern-hemisphere year:** for Sydney, Sao Paulo, Johannesburg, Cape Town and Rio de
   Janeiro a year runs July to June and is named after the year it ends in, so one summer is never split across two
   years. Their series start in 1982.
@@ -129,6 +152,7 @@ out of that check:
 | `longest_heatwave` | Longest heatwave of the year (days) | UK + World |
 | `hottest_day` | Hottest day of the year (°C) | UK + World |
 | `warm_nights` | Warm nights per year | UK + World |
+| `muggy_nights` | Muggy nights per summer (June–August) | UK |
 | `first_heatwave_doy` | Day of year the first heatwave starts | UK |
 | `summer_length` | Days of summer-like warmth | UK |
 | `autumn_onset_doy` | Day of year autumn chill arrives | UK |
@@ -137,13 +161,16 @@ out of that check:
 | `heavy_rain_days` | Days with 10 mm of rain or more | UK + World |
 | `summer_dry_spell` | Longest summer dry spell (days) | UK |
 | `winter_rain` | Winter rainfall (mm) | UK |
+| `windy_days` | Days in the windiest 5% for that place, per year | UK + World |
+| `dry_soil_days` | Dry soil days per summer (June–August) | UK |
 | `summer_sunshine` | Summer sunshine (MJ/m² per day) | UK |
 | `heating_need` | Heating degree days per year | UK |
 | `yearly_sunshine` | Sunshine over the whole year (MJ/m² per day) | World |
 | `cooling_need` | Cooling degree days per year | World |
 
-World cities are compared on nine measures that mean the same thing in any climate: the
-five heat measures, the two whole-year rain measures, and yearly sunshine and cooling need.
+World cities are compared on ten measures that mean the same thing in any climate: the
+five heat measures, the two whole-year rain measures, windy days, and yearly sunshine and
+cooling need. UK towns get the other eighteen.
 The other measures are built around UK seasons (June–August, December–February, frost).
 
 ### Statistics
@@ -166,8 +193,8 @@ The other measures are built around UK seasons (June–August, December–Februa
 - **Years until we'd know** (`years_to_know.csv`): for each `leaning` result, the record
   length at which it would be proven if the trend and the noise stay as they are. The
   Mann-Kendall score grows in proportion to (years)^1.5, so years needed = years so far ×
-  (1.96 / score today)^(2/3). Tried on records cut to 25, 30 and 35 years (461 cases): when it
-  said "proven by 2025" it was right 85% of the time and within 5 years in 74% of those. It
+  (1.96 / score today)^(2/3). Tried on records cut to 25, 30 and 35 years (461 cases, on
+  the earlier 38-place data): when it said "proven by 2025" it was right 85% of the time and within 5 years in 74% of those. It
   errs on the cautious side.
 - **Luck lines** (`luck_lines.csv`): the real Sen's-slope line (`shuffle_id` 0) and 50 lines
   from shuffled years, for an animation of the luck test.
@@ -189,16 +216,19 @@ week, a hot day, a warm night, a day above 30 °C, a wet day (5 mm or more) and 
   that month (Sen's slope) times the years between that day and 2027. Rain and cloud are not
   shifted.
 - **Back-test:** rebuilt with only data to 2020 and scored on 2021–2025 with the Brier score.
-  Against plain 1981–2010 averages it cuts the error by 16% for warm nights, 10% for heatwave
-  weeks, 8% for days above 30 °C, 6% for hot days, 2% for good days and 0% for wet days. In
-  the UK alone the gain is small (6%, 3%, 0%, 1%, 1%, 0%). `outlook_checks.csv` has the
-  scores.
+  Against plain 1981–2010 averages it cuts the error by 11% for warm nights, 6% for heatwave
+  weeks, 7% for days above 30 °C, 3% for hot days, 1% for good days and 0% for wet days. In
+  the UK alone the gain is small (6%, 3%, 6%, 1%, 1%, 0%; days above 30 °C are so rare in the
+  UK that the 6% is a tiny error made tinier). `outlook_checks.csv` has the scores.
 - **Neural cross-check:** a small neural network (`src/train_weather_model.py`) was trained on
   the same warmed days to make up 1,000 versions of the year per place, and scored on the
   same back-test. Its made-up weather is realistic (heatwaves average 4.9 days against 5.1
   in the record, dry spells 7.2 against 7.5), but it cut the error by less than the simple
-  count on all six labels (14%, 6%, 8%, 4%, 1%, 0% in the order above). The app therefore
-  uses the simple numbers. `trip_weeks_neural.csv` holds the network's version for comparison.
+  count on all six labels (14%, 6%, 8%, 4%, 1%, 0% in the order above, against 16%, 10%,
+  8%, 6%, 2%, 0% for the simple count on the same places). The app therefore uses the simple
+  numbers. The network was run on the earlier 38 places and not rerun for 75, so its rows in
+  `outlook_checks.csv` cover fewer cases and should be compared with each other, not with the
+  75-place simple rows. `trip_weeks_neural.csv` holds the network's version for comparison.
 - These are chances for a typical year under the current trend. They are not a forecast of
   the weather in 2027.
 - Singapore's wet-day and good-day chances use rain up to 2020 only, because its rain data
@@ -217,7 +247,7 @@ temperature, daytime highs, night-time lows, rain and sunshine.
 - `timeline_trends.csv` tests each series with the same Mann-Kendall test and Sen's slope as
   the hunches. These variables carry no hunch, so there is no verdict: `change` is `rising`
   or `falling` when p < 0.05, and `no_clear_change` otherwise.
-- Average temperature is rising in 36 of the 38 places. Rain shows no clear change in 22 of 38.
+- Average temperature is rising in 73 of the 75 places. Rain shows no clear change in 45 of 75.
 
 ### Verdict rules
 
@@ -277,7 +307,7 @@ summers of 2018 and 2022).
 
 | File | One row is | Columns |
 |---|---|---|
-| `results.csv` | one place × one measure (414 rows) | `place, region, lat, lon, measure_id, measure_name, unit, season, start_year, end_year, n_years, rate_per_decade, early_mean, late_mean, p_value, test_method, expected_direction, verdict, plain_definition, caveat` |
+| `results.csv` | one place × one measure (1,142 rows) | `place, region, lat, lon, measure_id, measure_name, unit, season, start_year, end_year, n_years, rate_per_decade, early_mean, late_mean, p_value, test_method, expected_direction, verdict, plain_definition, caveat` |
 | `annual.csv` | one place × one measure × one year | `place, measure_id, year, value` |
 | `luck.csv` | one place × one measure | `place, measure_id, real_trend_per_decade, share_as_strong, n_shuffles, p_value` |
 | `season_dates.csv` | one UK town × one year | `place, year, summer_start_doy, summer_end_doy, first_heatwave_doy` |
@@ -300,12 +330,13 @@ chatbot use these files.
 
 ## Results in brief
 
-414 results: 12 UK towns × 15 measures and 26 world cities × 9 measures.
+1,142 results: 49 UK towns × 18 measures and 26 world cities × 10 measures.
 
 | Region | `real` | `leaning` | `not_backed` | `opposite` |
 |---|---|---|---|---|
-| UK (180) | 77 | 89 | 11 | 3 |
-| World (234) | 125 | 76 | 27 | 6 |
+| UK (882) | 322 | 413 | 127 | 20 |
+| World (260) | 126 | 83 | 37 | 14 |
+| All (1,142) | 448 | 496 | 164 | 34 |
 
 **London, first ten years against the last ten:**
 
@@ -317,15 +348,26 @@ chatbot use these files.
 | Hottest day (°C) | 28.1 | 31.5 | <0.0001 | real |
 | Autumn onset (day of year) | 285 | 294 | 0.028 | real |
 | First frost (day of year) | 322 | 327 | 0.25 | leaning |
+| Muggy nights per summer | 5.3 | 7.2 | 0.20 | leaning |
+| Windy days per year | 18.9 | 17.2 | 0.19 | not_backed |
+| Dry soil days per summer | 7.8 | 14.8 | 0.38 | leaning |
 
 **Findings worth a second look:**
 
-- Warm nights have increased in all 12 UK towns (`real` everywhere).
-- The longest summer dry spell has got *shorter* in Plymouth (15.3 → 11.7 days), Cardiff
-  (15.2 → 11.5) and Edinburgh (12.2 → 9.8). These are the three `opposite` verdicts: the
-  feeling that summers have longer dry spells is not what the data shows there.
-- First frost is later in most towns, but only proven in five of twelve. "We barely get
-  frosts anymore" is mostly a `leaning`, not a `real`.
+- Warm nights have increased in 47 of the 49 UK towns (`real`). The other two, Derry and
+  Omagh, are `leaning`.
+- The longest summer dry spell has got *shorter* in eight UK towns, among them Plymouth
+  (15.3 → 11.7 days), Cardiff (15.2 → 11.5), Exeter (17.6 → 12.7) and Edinburgh
+  (12.2 → 9.8). The feeling that summers have longer dry spells is not what the data shows
+  there.
+- First frost is later in 47 of 49 towns and proven (`real`) in 27 of them.
+- **Windy days** have gone the other way: `opposite` in 18 places (10 UK towns, 8 world
+  cities) and `real` only in Sao Paulo. This fits the "wind stilling" seen in many
+  model and station records, but model wind is less certain than temperature (see
+  Limitations).
+- **Muggy nights** are up in most UK towns (16 `real`, 29 `leaning` of 49), but most summers
+  have only a handful of them, so a few nights either way moves the trend.
+- **Dry soil days** are `leaning` in 19 towns and `real` in none.
 
 ## Limitations
 
@@ -334,8 +376,16 @@ chatbot use these files.
 - Hot-day and warm-night thresholds are relative to each place, so the bar differs by town.
 - Years with no heatwave or no frost have no date and drop out of those trends. Plymouth has
   a first-frost date in only 15 of 45 years.
-- Belfast, Aberdeen, Toronto, Lisbon and Cape Town use a neighbouring land square (see
-  `manifest.csv`).
+- Belfast, Aberdeen, Bournemouth, Bangor, Aberystwyth, Toronto, Lisbon and Cape Town use a
+  neighbouring land square (see `manifest.csv`).
+- **Muggy nights, windy days and dry soil days** come from the MERRA-2 model (dew point,
+  wind and soil wetness), not from direct measurements, so their trends are less certain
+  than temperature. Wind is averaged over the 50 km square, so gusts read low.
+- **Sen's slope of 0:** these three are counts of a few days a year, and many years tie. Sen's
+  slope is then often exactly 0 even when the counts have moved: it is 0 for dry soil days
+  in all 49 towns, for muggy nights in 21 and for windy days in 10. In those rows the verdict
+  direction comes from late minus early average (see Verdict rules), and the app shows the
+  then-vs-now numbers instead of a change per decade.
 - Singapore's rows are marked `PROVISIONAL`: its square is partly sea, so daytime highs read
   low. Mexico City's square sits about 400 m higher than the city, so it reads about 3 °C low.
 - In tropical cities temperatures vary little through the year, so a small warming moves many
@@ -350,14 +400,16 @@ chatbot use these files.
   this fix, so their wet-day and good-day case counts are slightly higher.
 - Rain varies a lot from year to year, so most rain trends are only `leaning`. A 50 km
   average also reads low for local downpours.
-- World cities are compared on nine measures (heat, rain, yearly sunshine, cooling need); the
-  season measures are UK-only.
+- World cities are compared on ten measures (heat, rain, windy days, yearly sunshine, cooling
+  need); the season, muggy-night and dry-soil measures are UK-only.
 - Southern-hemisphere years run July to June, so they cover 1982–2025.
-- **Hamed-Rao correction:** in six results the corrected test says significant while the
-  plain Mann-Kendall test and the shuffle test both say not significant (Birmingham
-  `longest_heatwave` and `autumn_onset_doy`, Cardiff `heavy_rain_days`, Manchester
-  `winter_rain`, Edinburgh `summer_dry_spell`, Los Angeles `longest_heatwave`). These six
-  verdicts are weaker than they look. `luck.csv` shows both numbers side by side.
+- **Hamed-Rao correction:** in 41 of the 478 results the corrected test calls significant,
+  the plain Mann-Kendall test and the shuffle test both say not significant. Among them are
+  Birmingham `longest_heatwave` and `autumn_onset_doy`, Cardiff `heavy_rain_days`, Manchester
+  `winter_rain`, Edinburgh `summer_dry_spell` and Los Angeles `longest_heatwave`, plus 7 of
+  the 18 `opposite` windy-day results (Leeds among them) and 4 of the 16 `real` muggy-night
+  results. These verdicts are weaker than they look. `luck.csv` shows both numbers side by
+  side: a `p_value` under 0.05 with a `share_as_strong` of 0.05 or more.
 - **Delhi** shows no increase in any heat measure in this data. Haze and irrigation are known
   to hold daytime heat down there, but this has not been checked against station records, so
   it is not presented as a finding.
