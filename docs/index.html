@@ -122,19 +122,16 @@
       <p class="note" id="place-note" hidden></p> <!-- e.g. the delhi warning -->
     </section>
 
-    <!-- 3. hunch -->
+    <!-- 3. hunch and guess in one pane: pick a hunch, then say what you think right under it -->
     <section class="step needs-js" id="hunch" data-nav="try" aria-labelledby="hunch-h">
       <h2 id="hunch-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#lightbulb" /></svg>What’s your hunch?</h2> <!-- step heading -->
       <div class="switch" id="topics" role="group" aria-label="Topic"></div> <!-- heat / seasons / rain / sun, filled by app.js -->
       <div class="pills" id="hunches" role="group" aria-label="Hunch"></div> <!-- hunch sentences, filled by app.js -->
       <p class="note" id="topic-note" hidden>The season hunches are built around UK seasons, so world cities don’t have them.</p> <!-- shown for world -->
-    </section>
-
-    <!-- 4. guess -->
-    <section class="step needs-js" id="guess" data-nav="try" aria-labelledby="guess-h">
-      <h2 id="guess-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#circle-help" /></svg>Your guess</h2> <!-- step heading -->
-      <p class="claim" id="claim">Loading the data.</p> <!-- the hunch as a question once data’s in, e.g. "Is it just me, or are downpours heavier in London?" -->
-      <div class="guesses" id="guesses" role="group" aria-label="Your guess"></div> <!-- the three buttons, filled by app.js -->
+      <div class="guess" id="guess"> <!-- the guess, under a hairline. keeps the id so app.js and chat.js can still scroll here -->
+        <p class="claim" id="claim">Loading the data.</p> <!-- the hunch as a question once data’s in, e.g. "Is it just me, or are downpours heavier in London?" -->
+        <div class="guesses" id="guesses" role="group" aria-label="Your guess"></div> <!-- the three buttons, filled by app.js -->
+      </div>
     </section>
 
     <!-- everything below stays hidden until you guess -->

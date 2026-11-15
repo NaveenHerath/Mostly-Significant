@@ -187,7 +187,8 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 
 /* ---------- guess ---------- */
 
-.claim { margin-top: var(--space-md); font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1.2; letter-spacing: var(--tracking-display); color: var(--color-ink); max-width: 32ch; } /* the hunch, said back in big type */
+.guess { margin-top: var(--space-xl); padding-top: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); } /* the guess sits under the hunches, split off by a hairline instead of its own pane */
+.claim { margin-top: 0; font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1.2; letter-spacing: var(--tracking-display); color: var(--color-ink); max-width: 32ch; } /* the hunch, said back in big type */
 .guesses .pill { min-height: 52px; padding: 0 var(--space-lg); } /* guess buttons are a bit bigger, they're the main action */
 
 /* ---------- result ---------- */
