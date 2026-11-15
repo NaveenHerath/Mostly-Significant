@@ -42,6 +42,10 @@ function unitFor(numText, unit) { // "1 day" not "1 days"
   return numText === "1" && SINGULAR[unit] ? SINGULAR[unit] : unit; // only swap when it shows as exactly 1
 }
 
+// measures where sen's slope is 0 everywhere (most years are 0, so the middle slope is flat).
+// for these we show the 1980s-to-now change instead of a per-decade rate, and skip the trend line
+const NO_RATE = new Set(["dry_soil_days"]); // add more ids here if another measure does the same
+
 function fmtRate(rate, unit) { // the change per decade, in words
   if (isDate(unit)) { // dates: say earlier or later
     const n = fmtNum(Math.abs(rate)); // size of the shift, formatted
@@ -169,10 +173,22 @@ function renderTopics() { // the topic switch
   $("topic-note").hidden = state.region === "UK"; // only explain the greyed ones for world
 }
 
-function renderHunches() { // the hunch sentence pills
-  fill($("hunches"), measuresFor(state.place, state.topic).map((m) => // only hunches this place has
-    pill(HUNCHES[m].text, state.measure === m, () => setMeasure(m)) // pressed if picked
-  ));
+let pressedPill = { measure: null, i: 0 }; // which wording of a hunch was tapped (0 = the main sentence, 1+ = a preset)
+let showPresets = false; // the extra everyday wordings stay folded away until "more ways to say it" is tapped
+
+function renderHunches() { // the hunch sentence pills: every main sentence first, then the extra everyday presets behind a toggle
+  const ms = measuresFor(state.place, state.topic); // only hunches this place has
+  const isPressed = (m, i) => state.measure === m && (pressedPill.measure === m ? pressedPill.i === i : i === 0); // only the tapped wording looks picked, the main one if picked some other way
+  const make = (m, label, i) => pill(label, isPressed(m, i), () => { pressedPill = { measure: m, i }; setMeasure(m); }); // every wording picks the same hunch
+  const presets = ms.flatMap((m) => (HUNCHES[m].presets || []).map((p, j) => make(m, p, j + 1))); // all the extra wordings
+  const open = showPresets || presets.some((b) => b.getAttribute("aria-pressed") === "true"); // never hide the one that's picked
+  const toggle = document.createElement("button"); // the "more ways to say it" switch
+  toggle.type = "button"; // not a form submit
+  toggle.className = "pill pill-more"; // quieter than the hunch pills
+  toggle.textContent = open ? "Fewer" : "More ways to say it"; // says what tapping does
+  toggle.setAttribute("aria-expanded", open ? "true" : "false"); // tells screen readers whether the extras are showing
+  toggle.addEventListener("click", () => { showPresets = !open; renderHunches(); $("hunches").querySelector(".pill-more").focus(); }); // flip it, redraw, keep keyboard focus on the switch
+  fill($("hunches"), [...ms.map((m) => make(m, HUNCHES[m].text, 0)), ...(open ? presets : []), ...(presets.length ? [toggle] : [])]); // main sentences, extras if open, switch last
 }
 
 function renderGuess() { // the claim line and the three guess buttons
@@ -194,10 +210,11 @@ function renderResult() { // fills the result card (styling comes later)
   $("then").textContent = fmtValue(r.early, unit); // 1980s average
   countUp($("now"), r.early, r.late, unit); // recent average, ticking up (or down) from the 80s number
   $("noun").textContent = HUNCHES[state.measure].noun; // what the numbers mean
-  $("rate").textContent = fmtRate(r.rate, unit); // change per decade
+  const noRate = NO_RATE.has(state.measure); // dry soil days and the like have no usable rate
+  $("rate-label").textContent = noRate ? "Change since the 1980s" : "Change per decade"; // say which kind of change it is
+  $("rate").textContent = fmtRate(noRate ? r.late - r.early : r.rate, unit); // recent minus 1980s, or sen's slope per decade
   $("luck-short").textContent = fmtLuck(r.share, r.shuffles); // e.g. "692 of 1,000"
   $("caveat").textContent = r.caveat; // honest limitation
-  $("report-place").textContent = state.place; // heading for the report card
 }
 
 // ---------- chart (step 5) ----------
@@ -209,6 +226,7 @@ function renderChart() { // yearly values, the trend line and the two decade ave
   const date = isDate(unit); // date measures get date labels on the side
   const end = r.start + r.values.length - 1; // last year (2025)
   const series = r.values.map((v, i) => ({ year: r.start + i, value: v ?? NaN })); // one point per year, NaN makes a gap (plot reads null as 0)
+  const noRate = NO_RATE.has(state.measure); // no trend line for these, it would just sit flat at 0
   const slope = r.rate / 10; // sen's slope per year
   const trendAt = (y) => r.intercept + slope * y; // trend line height for a year (intercept came from make_data.py)
   const width = box.clientWidth || 680; // fill the box
@@ -231,14 +249,14 @@ function renderChart() { // yearly values, the trend line and the two decade ave
       Plot.ruleY([r.late], { x1: 2016, x2: end, className: "avg", strokeDasharray: "4 4", strokeWidth: 1.5 }), // recent average, dashed
       Plot.text([r.early], { x: r.start, y: (d) => d, text: () => `1980s: ${fmt(r.early)}`, dy: -9, textAnchor: "start", className: "avg-label" }), // label it
       Plot.text([r.late], { x: end, y: (d) => d, text: () => `Recent: ${fmt(r.late)}`, dy: -9, textAnchor: "end", className: "avg-label" }), // label it
-      Plot.link([0], { x1: r.start, y1: trendAt(r.start), x2: end, y2: trendAt(end), className: "trend", strokeWidth: 2.5 }), // the trend, straight from sen's slope
+      noRate ? null : Plot.link([0], { x1: r.start, y1: trendAt(r.start), x2: end, y2: trendAt(end), className: "trend", strokeWidth: 2.5 }), // the trend, straight from sen's slope (none when the slope is meaningless)
       Plot.tip(series.filter((d) => !isNaN(d.value)), Plot.pointerX({ x: "year", y: "value", title: (d) => `${d.year}: ${fmt(d.value)}` })), // hover or tap a year
     ],
   });
   box.replaceChildren(chart); // swap in the new chart
 
   const gaps = r.values.some((v) => v === null); // any missing years?
-  $("chart-note").textContent = "Dots are single years. The coloured line is the trend, the dashed lines are the averages." + (gaps ? " Gaps are years when it didn’t happen." : ""); // short key
+  $("chart-note").textContent = (noRate ? "Dots are single years, the dashed lines are the averages." : "Dots are single years. The coloured line is the trend, the dashed lines are the averages.") + (gaps ? " Gaps are years when it didn’t happen." : ""); // short key
 }
 
 // ---------- luck dots (step 6) ----------
@@ -320,44 +338,6 @@ function renderMap() { // every place coloured by its verdict for the current hu
   $("map-note").textContent = `Every place we have, coloured by its verdict for “${HUNCHES[state.measure].text}”.`; // which hunch the colours are for
 }
 
-// ---------- report card (step 8) ----------
-
-function renderReport() { // every hunch for this place, grouped by topic, with its verdict
-  const groups = TOPICS.filter((t) => topicHasData(state.place, t.id)).map((t) => { // only topics this place has
-    const sec = document.createElement("div"); // one group
-    sec.className = "report-group"; // styled in css
-    const h = document.createElement("h3"); // topic name
-    h.textContent = t.label; // e.g. "Heat"
-    h.prepend(iconSvg(t.icon)); // same icon as its topic tab, so they match
-    h.dataset.tab = t.id; // css colours the icon like the tab
-    const list = document.createElement("ul"); // the rows
-    for (const m of measuresFor(state.place, t.id)) { // each hunch in the topic
-      const r = DATA.rows[state.place][m]; // its data
-      const unit = DATA.measures[m].unit; // its unit
-      const li = document.createElement("li"); // list item
-      const b = document.createElement("button"); // the row is a button so it works with a keyboard
-      b.type = "button"; // not a form submit
-      b.className = "report-row"; // styled in css
-      b.dataset.verdict = r.verdict; // css colours the verdict
-      if (m === state.measure) b.setAttribute("aria-current", "true"); // marks the one you just checked
-      b.innerHTML = `<span class="report-text"><span class="report-hunch"></span><span class="report-nums"></span></span><span class="report-verdict"></span>`; // empty slots, filled safely below
-      b.querySelector(".report-hunch").textContent = HUNCHES[m].text; // the hunch sentence
-      b.querySelector(".report-nums").textContent = `${fmtValue(r.early, unit)} → ${fmtValue(r.late, unit)} ${HUNCHES[m].noun}`; // then vs now, small
-      b.querySelector(".report-verdict").textContent = VERDICTS[r.verdict].label; // verdict words
-      b.addEventListener("click", () => { // tap a row
-        state.topic = t.id; // switch to its topic
-        setMeasure(m); // pick the hunch (hides the answer for a fresh guess)
-        $("guess").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" }); // take them back up to guess
-      });
-      li.appendChild(b); // button into the list item
-      list.appendChild(li); // list item into the list
-    }
-    sec.append(h, list); // heading then rows
-    return sec; // hand the group back
-  });
-  fill($("report-list"), groups); // swap them in
-}
-
 let resizeTimer = null; // so we don't redraw the chart on every pixel of a resize
 window.addEventListener("resize", () => { // window changed size
   clearTimeout(resizeTimer); // cancel the last one
@@ -374,13 +354,12 @@ function render() { // redraws everything from the current state
   updateExamples(); // hero examples that fit this place
   const show = state.guess !== null && !!row(); // only reveal after a guess
   $("reveal").hidden = !show; // hide or show the results
-  document.querySelectorAll(".needs-answer").forEach((a) => { a.hidden = !show; }); // bar links to the map and report only once there's an answer
+  document.querySelectorAll(".needs-answer").forEach((a) => { a.hidden = !show; }); // bar link to the map only once there's an answer
   if (show) { // answer is showing
     renderResult(); // the card
     renderChart(); // year by year
     renderLuck(); // the 1,000 dots
     renderMap(); // every place
-    renderReport(); // every hunch for this place
   }
   saveToUrl(); // keep the address bar in sync
 }
@@ -416,9 +395,62 @@ function setMeasure(m) { // tapping a hunch
   render(); // redraw
 }
 
+// ---------- gut score (the bar in the corner) ----------
+
+const gutScore = { right: 0, total: 0 }; // this visit only, resets on refresh
+
+function gutRight(guess, verdict) { // was this guess right? true / false, or null for "no idea"
+  if (guess === "unsure") return null; // no guess, doesn't count
+  return (guess === "yes") === (verdict === "real" || verdict === "leaning"); // "true" wins on real or leaning, "not so" wins on the other two
+}
+
+function recordGuess(correct) { // add one guess to the score. the chat and the games at the bottom call this too
+  if (typeof correct !== "boolean") return; // ignore "no idea" and anything odd
+  gutScore.total += 1; // one more guess
+  if (correct) gutScore.right += 1; // and one more right
+  $("gut-score").textContent = `${gutScore.right} of ${gutScore.total} right`; // e.g. "3 of 4 right"
+  $("gutbar").hidden = false; // show the bar (first time it fades up)
+}
+window.recordGuess = recordGuess; // so about.js can call window.recordGuess(true)
+
+$("gut-share").addEventListener("click", async () => { // share the score
+  const btn = $("gut-share"); // the button
+  const text = `My gut was right ${gutScore.right} of ${gutScore.total} times on Is it just me?`; // what gets shared
+  const url = location.origin + location.pathname; // the site, without whatever hunch is in the address
+  if (navigator.share) { // phones (and some laptops) have a share sheet
+    try { await navigator.share({ text, url }); } catch { /* they closed it, fine */ } // open it
+    return; // done
+  }
+  try { await navigator.clipboard.writeText(`${text} ${url}`); btn.textContent = "Copied"; } // no share sheet: copy it instead
+  catch { btn.textContent = "Couldn’t copy"; } // clipboard blocked
+  setTimeout(() => { btn.textContent = "Share"; }, 1600); // back to normal after a moment
+});
+
+// ---------- stats strip count-up (in how it works) ----------
+
+const statsBox = document.querySelector(".stats"); // the four numbers
+if (statsBox && !reduceMotion.matches && "IntersectionObserver" in window) { // skip it when motion is turned down, the real numbers are already in the html
+  const seen = new IntersectionObserver((entries) => { // fires when the strip comes on screen
+    if (!entries[0].isIntersecting) return; // not yet
+    seen.disconnect(); // only ever once
+    statsBox.querySelectorAll("strong").forEach((el) => { // each number
+      const to = Number(el.textContent.replace(/,/g, "")); // e.g. 1142
+      const start = performance.now(); // when it started
+      const tick = (now) => { // every frame
+        const t = Math.min((now - start) / 700, 1); // 0 to 1 over 700ms, same as the result card
+        el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3))).toLocaleString("en-GB"); // ease out, with the comma
+        if (t < 1) requestAnimationFrame(tick); // keep going until it lands
+      };
+      requestAnimationFrame(tick); // go
+    });
+  }, { threshold: 0.6 }); // most of it has to be showing
+  seen.observe(statsBox); // start watching
+}
+
 function setGuess(g) { // tapping a guess button
   const first = state.guess === null; // was the answer hidden until now?
   state.guess = g; // remember it
+  if (first && row()) recordGuess(gutRight(g, row().verdict)); // only the first guess on a question counts, changing your mind doesn't
   render(); // redraw, which reveals the answer
   if (first) $("result").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" }); // bring the answer into view
 }

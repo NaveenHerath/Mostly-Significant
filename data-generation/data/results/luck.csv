@@ -14,402 +14,1130 @@ London,summer_dry_spell,0.5,0.343,1000,0.3214
 London,winter_rain,5.12,0.383,1000,0.4126
 London,summer_sunshine,0.2,0.143,1000,0.1464
 London,heating_need,-130.34,0.0,1000,0.0
-Maidstone,heatwave_events,0.53,0.0,1000,0.0
+London,muggy_nights,0.45,0.301,1000,0.2004
+London,windy_days,-0.56,0.34,1000,0.1873
+London,dry_soil_days,0.0,0.25,1000,0.3807
+Maidstone,heatwave_events,0.53,0.002,1000,0.0
 Maidstone,heatwave_days,3.12,0.0,1000,0.0002
 Maidstone,longest_heatwave,1.11,0.002,1000,0.0005
-Maidstone,first_heatwave_doy,-5.31,0.058,1000,0.0511
+Maidstone,first_heatwave_doy,-5.31,0.054,1000,0.0511
 Maidstone,hottest_day,0.76,0.0,1000,0.0
 Maidstone,warm_nights,4.62,0.0,1000,0.0
 Maidstone,summer_length,7.96,0.0,1000,0.0
-Maidstone,autumn_onset_doy,1.16,0.297,1000,0.3782
-Maidstone,first_frost_doy,-1.0,0.478,1000,0.4542
-Maidstone,wettest_day,1.12,0.058,1000,0.059
-Maidstone,heavy_rain_days,0.73,0.044,1000,0.002
-Maidstone,summer_dry_spell,0.51,0.227,1000,0.2065
-Maidstone,winter_rain,7.63,0.241,1000,0.2448
+Maidstone,autumn_onset_doy,1.16,0.286,1000,0.3782
+Maidstone,first_frost_doy,-1.0,0.489,1000,0.4542
+Maidstone,wettest_day,1.12,0.056,1000,0.059
+Maidstone,heavy_rain_days,0.73,0.04,1000,0.002
+Maidstone,summer_dry_spell,0.51,0.203,1000,0.2065
+Maidstone,winter_rain,7.63,0.225,1000,0.2448
 Maidstone,summer_sunshine,0.39,0.005,1000,0.0067
 Maidstone,heating_need,-132.49,0.0,1000,0.0
-Norwich,heatwave_events,0.32,0.017,1000,0.015
-Norwich,heatwave_days,1.94,0.004,1000,0.0095
-Norwich,longest_heatwave,0.67,0.033,1000,0.0049
-Norwich,first_heatwave_doy,-3.57,0.216,1000,0.1951
-Norwich,hottest_day,0.32,0.079,1000,0.0799
-Norwich,warm_nights,3.55,0.002,1000,0.0008
+Maidstone,muggy_nights,1.38,0.029,1000,0.0952
+Maidstone,windy_days,0.0,0.763,1000,0.7532
+Maidstone,dry_soil_days,0.0,0.459,1000,0.44
+Norwich,heatwave_events,0.32,0.013,1000,0.015
+Norwich,heatwave_days,1.94,0.008,1000,0.0095
+Norwich,longest_heatwave,0.67,0.028,1000,0.0049
+Norwich,first_heatwave_doy,-3.57,0.214,1000,0.1951
+Norwich,hottest_day,0.32,0.091,1000,0.0799
+Norwich,warm_nights,3.55,0.0,1000,0.0008
 Norwich,summer_length,8.89,0.0,1000,0.0
 Norwich,autumn_onset_doy,4.29,0.001,1000,0.0019
-Norwich,first_frost_doy,5.09,0.013,1000,0.0
+Norwich,first_frost_doy,5.09,0.015,1000,0.0
 Norwich,wettest_day,3.82,0.0,1000,0.0
-Norwich,heavy_rain_days,1.53,0.005,1000,0.0073
-Norwich,summer_dry_spell,0.71,0.113,1000,0.1123
-Norwich,winter_rain,12.14,0.021,1000,0.0217
-Norwich,summer_sunshine,0.28,0.012,1000,0.0216
+Norwich,heavy_rain_days,1.53,0.01,1000,0.0073
+Norwich,summer_dry_spell,0.71,0.123,1000,0.1123
+Norwich,winter_rain,12.14,0.023,1000,0.0217
+Norwich,summer_sunshine,0.28,0.018,1000,0.0216
 Norwich,heating_need,-126.94,0.0,1000,0.0
-Plymouth,heatwave_events,0.0,0.809,1000,0.8331
-Plymouth,heatwave_days,0.0,0.632,1000,0.6207
-Plymouth,longest_heatwave,0.0,0.612,1000,0.6195
-Plymouth,first_heatwave_doy,-2.65,0.379,1000,0.3936
-Plymouth,hottest_day,0.25,0.212,1000,0.1965
-Plymouth,warm_nights,3.68,0.008,1000,0.0069
-Plymouth,summer_length,5.06,0.016,1000,0.0198
-Plymouth,autumn_onset_doy,4.0,0.001,1000,0.0041
+Norwich,muggy_nights,1.15,0.029,1000,0.04
+Norwich,windy_days,-0.39,0.496,1000,0.4141
+Norwich,dry_soil_days,0.0,0.226,1000,0.5122
+Plymouth,heatwave_events,0.0,0.837,1000,0.8331
+Plymouth,heatwave_days,0.0,0.652,1000,0.6207
+Plymouth,longest_heatwave,0.0,0.633,1000,0.6195
+Plymouth,first_heatwave_doy,-2.65,0.373,1000,0.3936
+Plymouth,hottest_day,0.25,0.174,1000,0.1965
+Plymouth,warm_nights,3.68,0.005,1000,0.0069
+Plymouth,summer_length,5.06,0.019,1000,0.0198
+Plymouth,autumn_onset_doy,4.0,0.004,1000,0.0041
 Plymouth,first_frost_doy,5.5,0.193,1000,0.275
-Plymouth,wettest_day,1.09,0.039,1000,0.0372
-Plymouth,heavy_rain_days,2.05,0.04,1000,0.0343
-Plymouth,summer_dry_spell,-1.29,0.008,1000,0.0132
-Plymouth,winter_rain,12.15,0.317,1000,0.307
-Plymouth,summer_sunshine,0.13,0.278,1000,0.2597
+Plymouth,wettest_day,1.09,0.035,1000,0.0372
+Plymouth,heavy_rain_days,2.05,0.041,1000,0.0343
+Plymouth,summer_dry_spell,-1.29,0.016,1000,0.0132
+Plymouth,winter_rain,12.15,0.311,1000,0.307
+Plymouth,summer_sunshine,0.13,0.254,1000,0.2597
 Plymouth,heating_need,-100.17,0.0,1000,0.0
-Bristol,heatwave_events,0.0,0.48,1000,0.4364
-Bristol,heatwave_days,0.49,0.405,1000,0.398
-Bristol,longest_heatwave,0.0,0.622,1000,0.6
-Bristol,first_heatwave_doy,-3.75,0.16,1000,0.1426
-Bristol,hottest_day,0.49,0.059,1000,0.0539
-Bristol,warm_nights,3.0,0.011,1000,0.0089
-Bristol,summer_length,5.74,0.001,1000,0.0023
-Bristol,autumn_onset_doy,2.5,0.037,1000,0.0
-Bristol,first_frost_doy,1.11,0.573,1000,0.4033
-Bristol,wettest_day,0.42,0.472,1000,0.425
-Bristol,heavy_rain_days,1.18,0.053,1000,0.0543
-Bristol,summer_dry_spell,-0.91,0.071,1000,0.0623
-Bristol,winter_rain,11.76,0.131,1000,0.1371
-Bristol,summer_sunshine,0.12,0.448,1000,0.1392
+Plymouth,muggy_nights,0.96,0.002,1000,0.0044
+Plymouth,windy_days,-0.26,0.699,1000,0.4634
+Plymouth,dry_soil_days,0.0,0.387,1000,0.3637
+Bristol,heatwave_events,0.0,0.44,1000,0.4364
+Bristol,heatwave_days,0.49,0.454,1000,0.398
+Bristol,longest_heatwave,0.0,0.597,1000,0.6
+Bristol,first_heatwave_doy,-3.75,0.151,1000,0.1426
+Bristol,hottest_day,0.49,0.04,1000,0.0539
+Bristol,warm_nights,3.0,0.009,1000,0.0089
+Bristol,summer_length,5.74,0.0,1000,0.0023
+Bristol,autumn_onset_doy,2.5,0.033,1000,0.0
+Bristol,first_frost_doy,1.11,0.601,1000,0.4033
+Bristol,wettest_day,0.42,0.489,1000,0.425
+Bristol,heavy_rain_days,1.18,0.047,1000,0.0543
+Bristol,summer_dry_spell,-0.91,0.075,1000,0.0623
+Bristol,winter_rain,11.76,0.15,1000,0.1371
+Bristol,summer_sunshine,0.12,0.404,1000,0.1392
 Bristol,heating_need,-106.22,0.0,1000,0.0
-Cardiff,heatwave_events,0.0,0.886,1000,0.8725
-Cardiff,heatwave_days,0.0,0.7,1000,0.6868
-Cardiff,longest_heatwave,0.0,0.767,1000,0.7448
-Cardiff,first_heatwave_doy,-2.86,0.273,1000,0.2716
-Cardiff,hottest_day,0.42,0.049,1000,0.0527
-Cardiff,warm_nights,3.57,0.001,1000,0.0025
-Cardiff,summer_length,5.74,0.003,1000,0.0005
-Cardiff,autumn_onset_doy,1.7,0.14,1000,0.1468
-Cardiff,first_frost_doy,1.33,0.486,1000,0.4839
-Cardiff,wettest_day,-0.17,0.759,1000,0.7383
-Cardiff,heavy_rain_days,1.28,0.061,1000,0.0311
-Cardiff,summer_dry_spell,-1.0,0.013,1000,0.0195
-Cardiff,winter_rain,10.48,0.223,1000,0.2135
-Cardiff,summer_sunshine,0.12,0.391,1000,0.1392
+Bristol,muggy_nights,0.74,0.035,1000,0.0132
+Bristol,windy_days,-0.53,0.362,1000,0.3663
+Bristol,dry_soil_days,0.0,0.548,1000,0.5077
+Cardiff,heatwave_events,0.0,0.882,1000,0.8725
+Cardiff,heatwave_days,0.0,0.693,1000,0.6868
+Cardiff,longest_heatwave,0.0,0.762,1000,0.7448
+Cardiff,first_heatwave_doy,-2.86,0.264,1000,0.2716
+Cardiff,hottest_day,0.42,0.055,1000,0.0527
+Cardiff,warm_nights,3.57,0.004,1000,0.0025
+Cardiff,summer_length,5.74,0.004,1000,0.0005
+Cardiff,autumn_onset_doy,1.7,0.149,1000,0.1468
+Cardiff,first_frost_doy,1.33,0.503,1000,0.4839
+Cardiff,wettest_day,-0.17,0.776,1000,0.7383
+Cardiff,heavy_rain_days,1.28,0.07,1000,0.0311
+Cardiff,summer_dry_spell,-1.0,0.027,1000,0.0195
+Cardiff,winter_rain,10.48,0.201,1000,0.2135
+Cardiff,summer_sunshine,0.12,0.402,1000,0.1392
 Cardiff,heating_need,-104.15,0.0,1000,0.0
-Birmingham,heatwave_events,0.0,0.051,1000,0.0485
-Birmingham,heatwave_days,1.91,0.05,1000,0.0325
-Birmingham,longest_heatwave,0.43,0.093,1000,0.0221
-Birmingham,first_heatwave_doy,-3.04,0.271,1000,0.285
-Birmingham,hottest_day,0.68,0.001,1000,0.0024
-Birmingham,warm_nights,3.16,0.003,1000,0.015
-Birmingham,summer_length,6.96,0.001,1000,0.0007
-Birmingham,autumn_onset_doy,2.07,0.088,1000,0.0158
-Birmingham,first_frost_doy,4.62,0.037,1000,0.0312
-Birmingham,wettest_day,0.47,0.599,1000,0.5572
-Birmingham,heavy_rain_days,0.49,0.267,1000,0.072
-Birmingham,summer_dry_spell,-0.48,0.237,1000,0.2455
-Birmingham,winter_rain,5.93,0.389,1000,0.4126
-Birmingham,summer_sunshine,0.18,0.158,1000,0.1526
+Cardiff,muggy_nights,1.0,0.023,1000,0.0058
+Cardiff,windy_days,-0.37,0.443,1000,0.4735
+Cardiff,dry_soil_days,0.0,0.231,1000,0.242
+Birmingham,heatwave_events,0.0,0.052,1000,0.0485
+Birmingham,heatwave_days,1.91,0.038,1000,0.0325
+Birmingham,longest_heatwave,0.43,0.119,1000,0.0221
+Birmingham,first_heatwave_doy,-3.04,0.307,1000,0.285
+Birmingham,hottest_day,0.68,0.002,1000,0.0024
+Birmingham,warm_nights,3.16,0.004,1000,0.015
+Birmingham,summer_length,6.96,0.0,1000,0.0007
+Birmingham,autumn_onset_doy,2.07,0.093,1000,0.0158
+Birmingham,first_frost_doy,4.62,0.023,1000,0.0312
+Birmingham,wettest_day,0.47,0.574,1000,0.5572
+Birmingham,heavy_rain_days,0.49,0.255,1000,0.072
+Birmingham,summer_dry_spell,-0.48,0.231,1000,0.2455
+Birmingham,winter_rain,5.93,0.416,1000,0.4126
+Birmingham,summer_sunshine,0.18,0.164,1000,0.1526
 Birmingham,heating_need,-124.77,0.0,1000,0.0
-Manchester,heatwave_events,0.0,0.104,1000,0.1019
-Manchester,heatwave_days,1.43,0.07,1000,0.0502
-Manchester,longest_heatwave,0.77,0.045,1000,0.0518
-Manchester,first_heatwave_doy,1.0,0.692,1000,0.6804
-Manchester,hottest_day,0.5,0.005,1000,0.0093
-Manchester,warm_nights,3.75,0.0,1000,0.0009
+Birmingham,muggy_nights,0.53,0.158,1000,0.1708
+Birmingham,windy_days,-1.02,0.151,1000,0.1381
+Birmingham,dry_soil_days,0.0,0.811,1000,0.8157
+Manchester,heatwave_events,0.0,0.109,1000,0.1019
+Manchester,heatwave_days,1.43,0.061,1000,0.0502
+Manchester,longest_heatwave,0.77,0.051,1000,0.0518
+Manchester,first_heatwave_doy,1.0,0.689,1000,0.6804
+Manchester,hottest_day,0.5,0.007,1000,0.0093
+Manchester,warm_nights,3.75,0.001,1000,0.0009
 Manchester,summer_length,5.42,0.006,1000,0.0092
-Manchester,autumn_onset_doy,0.75,0.642,1000,0.6314
-Manchester,first_frost_doy,0.91,0.657,1000,0.6314
-Manchester,wettest_day,2.13,0.002,1000,0.0005
-Manchester,heavy_rain_days,0.0,0.75,1000,0.7529
-Manchester,summer_dry_spell,0.0,0.904,1000,0.7535
-Manchester,winter_rain,12.18,0.171,1000,0.0062
-Manchester,summer_sunshine,0.09,0.69,1000,0.5076
+Manchester,autumn_onset_doy,0.75,0.623,1000,0.6314
+Manchester,first_frost_doy,0.91,0.625,1000,0.6314
+Manchester,wettest_day,2.13,0.004,1000,0.0005
+Manchester,heavy_rain_days,0.0,0.752,1000,0.7529
+Manchester,summer_dry_spell,0.0,0.917,1000,0.7535
+Manchester,winter_rain,12.18,0.189,1000,0.0062
+Manchester,summer_sunshine,0.09,0.684,1000,0.5076
 Manchester,heating_need,-124.63,0.0,1000,0.0
-Newcastle,heatwave_events,0.25,0.038,1000,0.0439
-Newcastle,heatwave_days,1.0,0.176,1000,0.1649
-Newcastle,longest_heatwave,0.0,0.85,1000,0.8335
-Newcastle,first_heatwave_doy,-3.33,0.252,1000,0.2358
-Newcastle,hottest_day,0.38,0.035,1000,0.0399
-Newcastle,warm_nights,3.33,0.001,1000,0.0007
-Newcastle,summer_length,4.29,0.027,1000,0.0327
-Newcastle,autumn_onset_doy,2.54,0.026,1000,0.035
-Newcastle,first_frost_doy,5.36,0.021,1000,0.0238
+Manchester,muggy_nights,0.44,0.139,1000,0.1382
+Manchester,windy_days,-1.11,0.159,1000,0.0072
+Manchester,dry_soil_days,0.0,0.624,1000,0.6393
+Newcastle,heatwave_events,0.25,0.039,1000,0.0439
+Newcastle,heatwave_days,1.0,0.161,1000,0.1649
+Newcastle,longest_heatwave,0.0,0.861,1000,0.8335
+Newcastle,first_heatwave_doy,-3.33,0.224,1000,0.2358
+Newcastle,hottest_day,0.38,0.042,1000,0.0399
+Newcastle,warm_nights,3.33,0.0,1000,0.0007
+Newcastle,summer_length,4.29,0.03,1000,0.0327
+Newcastle,autumn_onset_doy,2.54,0.038,1000,0.035
+Newcastle,first_frost_doy,5.36,0.019,1000,0.0238
 Newcastle,wettest_day,1.41,0.182,1000,0.177
-Newcastle,heavy_rain_days,0.38,0.37,1000,0.3497
-Newcastle,summer_dry_spell,-0.61,0.293,1000,0.2887
-Newcastle,winter_rain,4.06,0.44,1000,0.214
-Newcastle,summer_sunshine,0.22,0.077,1000,0.0791
+Newcastle,heavy_rain_days,0.38,0.35,1000,0.3497
+Newcastle,summer_dry_spell,-0.61,0.306,1000,0.2887
+Newcastle,winter_rain,4.06,0.428,1000,0.214
+Newcastle,summer_sunshine,0.22,0.078,1000,0.0791
 Newcastle,heating_need,-115.46,0.0,1000,0.0001
-Belfast,heatwave_events,0.0,0.704,1000,0.571
-Belfast,heatwave_days,0.29,0.504,1000,0.3598
-Belfast,longest_heatwave,0.0,0.435,1000,0.4182
-Belfast,first_heatwave_doy,0.91,0.709,1000,0.7057
-Belfast,hottest_day,0.27,0.172,1000,0.1728
+Newcastle,muggy_nights,0.0,0.125,1000,0.1153
+Newcastle,windy_days,-1.54,0.124,1000,0.0655
+Newcastle,dry_soil_days,0.0,0.241,1000,0.3648
+Belfast,heatwave_events,0.0,0.696,1000,0.571
+Belfast,heatwave_days,0.29,0.511,1000,0.3598
+Belfast,longest_heatwave,0.0,0.407,1000,0.4182
+Belfast,first_heatwave_doy,0.91,0.708,1000,0.7057
+Belfast,hottest_day,0.27,0.168,1000,0.1728
 Belfast,warm_nights,2.5,0.018,1000,0.0069
-Belfast,summer_length,3.33,0.076,1000,0.0764
-Belfast,autumn_onset_doy,3.71,0.012,1000,0.0097
-Belfast,first_frost_doy,2.71,0.203,1000,0.1435
-Belfast,wettest_day,0.43,0.58,1000,0.5507
-Belfast,heavy_rain_days,0.33,0.483,1000,0.3438
-Belfast,summer_dry_spell,-0.59,0.158,1000,0.1561
-Belfast,winter_rain,5.38,0.457,1000,0.32
-Belfast,summer_sunshine,0.13,0.229,1000,0.1174
+Belfast,summer_length,3.33,0.083,1000,0.0764
+Belfast,autumn_onset_doy,3.71,0.016,1000,0.0097
+Belfast,first_frost_doy,2.71,0.179,1000,0.1435
+Belfast,wettest_day,0.43,0.54,1000,0.5507
+Belfast,heavy_rain_days,0.33,0.531,1000,0.3438
+Belfast,summer_dry_spell,-0.59,0.176,1000,0.1561
+Belfast,winter_rain,5.38,0.481,1000,0.32
+Belfast,summer_sunshine,0.13,0.212,1000,0.1174
 Belfast,heating_need,-94.85,0.0,1000,0.0
-Edinburgh,heatwave_events,0.0,0.83,1000,0.8181
-Edinburgh,heatwave_days,0.0,0.927,1000,0.8914
-Edinburgh,longest_heatwave,0.0,0.913,1000,0.921
-Edinburgh,first_heatwave_doy,-3.81,0.208,1000,0.2162
-Edinburgh,hottest_day,0.16,0.378,1000,0.3248
-Edinburgh,warm_nights,3.04,0.009,1000,0.0063
-Edinburgh,summer_length,2.83,0.131,1000,0.1171
-Edinburgh,autumn_onset_doy,2.33,0.065,1000,0.0642
-Edinburgh,first_frost_doy,4.62,0.037,1000,0.037
-Edinburgh,wettest_day,0.17,0.824,1000,0.8372
-Edinburgh,heavy_rain_days,0.89,0.124,1000,0.1325
-Edinburgh,summer_dry_spell,-0.91,0.075,1000,0.0489
-Edinburgh,winter_rain,0.09,0.978,1000,0.9636
-Edinburgh,summer_sunshine,0.15,0.376,1000,0.2587
+Belfast,muggy_nights,0.0,0.913,1000,0.9192
+Belfast,windy_days,-1.8,0.034,1000,0.0317
+Belfast,dry_soil_days,0.0,0.161,1000,0.2653
+Edinburgh,heatwave_events,0.0,0.823,1000,0.8181
+Edinburgh,heatwave_days,0.0,0.918,1000,0.8914
+Edinburgh,longest_heatwave,0.0,0.92,1000,0.921
+Edinburgh,first_heatwave_doy,-3.81,0.225,1000,0.2162
+Edinburgh,hottest_day,0.16,0.349,1000,0.3248
+Edinburgh,warm_nights,3.04,0.004,1000,0.0063
+Edinburgh,summer_length,2.83,0.114,1000,0.1171
+Edinburgh,autumn_onset_doy,2.33,0.067,1000,0.0642
+Edinburgh,first_frost_doy,4.62,0.036,1000,0.037
+Edinburgh,wettest_day,0.17,0.863,1000,0.8372
+Edinburgh,heavy_rain_days,0.89,0.137,1000,0.1325
+Edinburgh,summer_dry_spell,-0.91,0.076,1000,0.0489
+Edinburgh,winter_rain,0.09,0.976,1000,0.9636
+Edinburgh,summer_sunshine,0.15,0.373,1000,0.2587
 Edinburgh,heating_need,-111.59,0.0,1000,0.0003
-Aberdeen,heatwave_events,0.0,0.683,1000,0.6873
-Aberdeen,heatwave_days,0.0,0.955,1000,0.9348
-Aberdeen,longest_heatwave,0.0,0.787,1000,0.7526
-Aberdeen,first_heatwave_doy,-1.47,0.646,1000,0.6348
-Aberdeen,hottest_day,0.11,0.464,1000,0.4631
-Aberdeen,warm_nights,4.38,0.001,1000,0.0002
-Aberdeen,summer_length,0.73,0.305,1000,0.3237
-Aberdeen,autumn_onset_doy,4.29,0.019,1000,0.0193
-Aberdeen,first_frost_doy,4.11,0.032,1000,0.044
-Aberdeen,wettest_day,0.6,0.713,1000,0.5426
-Aberdeen,heavy_rain_days,0.0,0.666,1000,0.5947
+Edinburgh,muggy_nights,0.0,0.119,1000,0.121
+Edinburgh,windy_days,-1.15,0.134,1000,0.1359
+Edinburgh,dry_soil_days,0.0,0.123,1000,0.1314
+Aberdeen,heatwave_events,0.0,0.703,1000,0.6873
+Aberdeen,heatwave_days,0.0,0.944,1000,0.9348
+Aberdeen,longest_heatwave,0.0,0.798,1000,0.7526
+Aberdeen,first_heatwave_doy,-1.47,0.608,1000,0.6348
+Aberdeen,hottest_day,0.11,0.453,1000,0.4631
+Aberdeen,warm_nights,4.38,0.0,1000,0.0002
+Aberdeen,summer_length,0.73,0.328,1000,0.3237
+Aberdeen,autumn_onset_doy,4.29,0.017,1000,0.0193
+Aberdeen,first_frost_doy,4.11,0.043,1000,0.044
+Aberdeen,wettest_day,0.6,0.703,1000,0.5426
+Aberdeen,heavy_rain_days,0.0,0.697,1000,0.5947
 Aberdeen,summer_dry_spell,-0.67,0.21,1000,0.2012
-Aberdeen,winter_rain,-4.73,0.634,1000,0.6345
-Aberdeen,summer_sunshine,0.13,0.12,1000,0.1186
+Aberdeen,winter_rain,-4.73,0.635,1000,0.6345
+Aberdeen,summer_sunshine,0.13,0.15,1000,0.1186
 Aberdeen,heating_need,-111.21,0.0,1000,0.0
-New York,heatwave_events,0.45,0.013,1000,0.0055
-New York,heatwave_days,2.22,0.021,1000,0.0007
-New York,longest_heatwave,0.62,0.096,1000,0.092
-New York,hottest_day,0.26,0.141,1000,0.1396
+Aberdeen,muggy_nights,0.0,0.43,1000,0.5789
+Aberdeen,windy_days,-1.1,0.132,1000,0.1336
+Aberdeen,dry_soil_days,0.0,0.157,1000,0.1501
+Leeds,heatwave_events,0.24,0.053,1000,0.0407
+Leeds,heatwave_days,1.19,0.16,1000,0.133
+Leeds,longest_heatwave,0.0,0.563,1000,0.5393
+Leeds,first_heatwave_doy,0.48,0.922,1000,0.924
+Leeds,hottest_day,0.44,0.004,1000,0.0024
+Leeds,warm_nights,2.96,0.001,1000,0.0046
+Leeds,summer_length,6.15,0.003,1000,0.0045
+Leeds,autumn_onset_doy,0.65,0.59,1000,0.5764
+Leeds,first_frost_doy,5.3,0.01,1000,0.0015
+Leeds,wettest_day,0.29,0.519,1000,0.5377
+Leeds,heavy_rain_days,1.11,0.021,1000,0.0198
+Leeds,summer_dry_spell,0.0,0.616,1000,0.5942
+Leeds,winter_rain,11.46,0.116,1000,0.0402
+Leeds,summer_sunshine,0.19,0.15,1000,0.1464
+Leeds,heating_need,-121.38,0.0,1000,0.0
+Leeds,muggy_nights,0.6,0.081,1000,0.0366
+Leeds,windy_days,-1.35,0.108,1000,0.0122
+Leeds,dry_soil_days,0.0,0.16,1000,0.4819
+Sheffield,heatwave_events,0.0,0.148,1000,0.1083
+Sheffield,heatwave_days,0.79,0.305,1000,0.2609
+Sheffield,longest_heatwave,0.0,0.54,1000,0.5334
+Sheffield,first_heatwave_doy,1.89,0.531,1000,0.5211
+Sheffield,hottest_day,0.59,0.0,1000,0.0002
+Sheffield,warm_nights,3.25,0.004,1000,0.0029
+Sheffield,summer_length,7.27,0.0,1000,0.0004
+Sheffield,autumn_onset_doy,1.45,0.307,1000,0.3128
+Sheffield,first_frost_doy,6.0,0.0,1000,0.0
+Sheffield,wettest_day,0.7,0.317,1000,0.2952
+Sheffield,heavy_rain_days,0.85,0.051,1000,0.0425
+Sheffield,summer_dry_spell,0.0,0.682,1000,0.6701
+Sheffield,winter_rain,10.66,0.1,1000,0.0316
+Sheffield,summer_sunshine,0.19,0.137,1000,0.1464
+Sheffield,heating_need,-126.93,0.0,1000,0.0
+Sheffield,muggy_nights,0.71,0.069,1000,0.0266
+Sheffield,windy_days,-1.15,0.153,1000,0.0049
+Sheffield,dry_soil_days,0.0,0.478,1000,0.6408
+Liverpool,heatwave_events,0.0,0.116,1000,0.1191
+Liverpool,heatwave_days,1.25,0.184,1000,0.1743
+Liverpool,longest_heatwave,0.3,0.303,1000,0.3088
+Liverpool,first_heatwave_doy,-4.64,0.162,1000,0.2333
+Liverpool,hottest_day,0.41,0.029,1000,0.0291
+Liverpool,warm_nights,4.79,0.0,1000,0.0002
+Liverpool,summer_length,8.09,0.0,1000,0.0004
+Liverpool,autumn_onset_doy,2.88,0.015,1000,0.0173
+Liverpool,first_frost_doy,0.36,0.864,1000,0.8441
+Liverpool,wettest_day,1.95,0.011,1000,0.0116
+Liverpool,heavy_rain_days,0.59,0.297,1000,0.2586
+Liverpool,summer_dry_spell,0.0,0.676,1000,0.4552
+Liverpool,winter_rain,13.42,0.086,1000,0.0001
+Liverpool,summer_sunshine,0.09,0.644,1000,0.5076
+Liverpool,heating_need,-124.5,0.0,1000,0.0
+Liverpool,muggy_nights,0.42,0.163,1000,0.1585
+Liverpool,windy_days,-1.3,0.165,1000,0.0039
+Liverpool,dry_soil_days,0.0,0.938,1000,0.9428
+Leicester,heatwave_events,0.0,0.207,1000,0.1894
+Leicester,heatwave_days,1.43,0.078,1000,0.066
+Leicester,longest_heatwave,0.45,0.109,1000,0.0271
+Leicester,first_heatwave_doy,-2.0,0.488,1000,0.306
+Leicester,hottest_day,0.73,0.001,1000,0.0007
+Leicester,warm_nights,3.33,0.003,1000,0.0029
+Leicester,summer_length,8.02,0.0,1000,0.0
+Leicester,autumn_onset_doy,2.7,0.038,1000,0.0468
+Leicester,first_frost_doy,4.63,0.025,1000,0.0243
+Leicester,wettest_day,0.46,0.489,1000,0.4935
+Leicester,heavy_rain_days,0.53,0.294,1000,0.1874
+Leicester,summer_dry_spell,0.0,0.837,1000,0.8287
+Leicester,winter_rain,5.09,0.369,1000,0.368
+Leicester,summer_sunshine,0.18,0.158,1000,0.1526
+Leicester,heating_need,-128.9,0.0,1000,0.0
+Leicester,muggy_nights,0.42,0.304,1000,0.1147
+Leicester,windy_days,-0.86,0.245,1000,0.2314
+Leicester,dry_soil_days,0.0,0.857,1000,0.8499
+Nottingham,heatwave_events,0.0,0.189,1000,0.2002
+Nottingham,heatwave_days,1.25,0.081,1000,0.1009
+Nottingham,longest_heatwave,0.38,0.17,1000,0.0368
+Nottingham,first_heatwave_doy,-1.0,0.766,1000,0.6644
+Nottingham,hottest_day,0.68,0.0,1000,0.0
+Nottingham,warm_nights,3.39,0.0,1000,0.0015
+Nottingham,summer_length,7.06,0.0,1000,0.0005
+Nottingham,autumn_onset_doy,2.67,0.047,1000,0.0467
+Nottingham,first_frost_doy,5.83,0.001,1000,0.0
+Nottingham,wettest_day,1.16,0.092,1000,0.0944
+Nottingham,heavy_rain_days,0.83,0.104,1000,0.1008
+Nottingham,summer_dry_spell,-0.34,0.27,1000,0.1705
+Nottingham,winter_rain,6.61,0.314,1000,0.1071
+Nottingham,summer_sunshine,0.18,0.118,1000,0.1526
+Nottingham,heating_need,-129.47,0.0,1000,0.0
+Nottingham,muggy_nights,0.71,0.091,1000,0.0346
+Nottingham,windy_days,-0.83,0.236,1000,0.2275
+Nottingham,dry_soil_days,0.0,0.981,1000,0.9828
+Hull,heatwave_events,0.26,0.05,1000,0.0495
+Hull,heatwave_days,1.76,0.052,1000,0.0409
+Hull,longest_heatwave,0.53,0.05,1000,0.0559
+Hull,first_heatwave_doy,-1.43,0.544,1000,0.5543
+Hull,hottest_day,0.53,0.0,1000,0.0
+Hull,warm_nights,3.33,0.007,1000,0.0051
+Hull,summer_length,8.44,0.0,1000,0.0
+Hull,autumn_onset_doy,3.04,0.019,1000,0.0207
+Hull,first_frost_doy,6.07,0.006,1000,0.0004
+Hull,wettest_day,0.62,0.447,1000,0.5371
+Hull,heavy_rain_days,0.71,0.063,1000,0.0629
+Hull,summer_dry_spell,0.0,0.555,1000,0.5596
+Hull,winter_rain,7.95,0.19,1000,0.0447
+Hull,summer_sunshine,0.19,0.169,1000,0.1464
+Hull,heating_need,-128.99,0.0,1000,0.0
+Hull,muggy_nights,0.64,0.113,1000,0.1104
+Hull,windy_days,-0.96,0.203,1000,0.0327
+Hull,dry_soil_days,0.0,0.566,1000,0.7213
+Stoke-on-Trent,heatwave_events,0.0,0.095,1000,0.1083
+Stoke-on-Trent,heatwave_days,1.18,0.085,1000,0.0875
+Stoke-on-Trent,longest_heatwave,0.42,0.113,1000,0.1138
+Stoke-on-Trent,first_heatwave_doy,0.0,0.989,1000,0.9789
+Stoke-on-Trent,hottest_day,0.57,0.0,1000,0.0007
+Stoke-on-Trent,warm_nights,3.25,0.005,1000,0.0019
+Stoke-on-Trent,summer_length,5.97,0.005,1000,0.0033
+Stoke-on-Trent,autumn_onset_doy,1.48,0.336,1000,0.1493
+Stoke-on-Trent,first_frost_doy,6.06,0.004,1000,0.0
+Stoke-on-Trent,wettest_day,1.74,0.022,1000,0.0299
+Stoke-on-Trent,heavy_rain_days,0.59,0.298,1000,0.3121
+Stoke-on-Trent,summer_dry_spell,0.0,0.537,1000,0.5482
+Stoke-on-Trent,winter_rain,7.33,0.324,1000,0.1102
+Stoke-on-Trent,summer_sunshine,0.09,0.682,1000,0.5076
+Stoke-on-Trent,heating_need,-127.1,0.0,1000,0.0
+Stoke-on-Trent,muggy_nights,0.67,0.057,1000,0.0614
+Stoke-on-Trent,windy_days,-0.99,0.278,1000,0.263
+Stoke-on-Trent,dry_soil_days,0.0,0.82,1000,0.8106
+Southampton,heatwave_events,0.0,0.495,1000,0.454
+Southampton,heatwave_days,1.15,0.191,1000,0.182
+Southampton,longest_heatwave,0.5,0.128,1000,0.1337
+Southampton,first_heatwave_doy,-4.14,0.101,1000,0.1025
+Southampton,hottest_day,0.75,0.002,1000,0.0
+Southampton,warm_nights,3.33,0.0,1000,0.0009
+Southampton,summer_length,6.45,0.0,1000,0.0001
+Southampton,autumn_onset_doy,2.82,0.034,1000,0.0282
+Southampton,first_frost_doy,1.58,0.437,1000,0.3381
+Southampton,wettest_day,0.94,0.078,1000,0.0799
+Southampton,heavy_rain_days,1.14,0.075,1000,0.0645
+Southampton,summer_dry_spell,0.0,0.78,1000,0.7759
+Southampton,winter_rain,5.46,0.463,1000,0.4603
+Southampton,summer_sunshine,0.45,0.01,1000,0.0271
+Southampton,heating_need,-114.16,0.0,1000,0.0
+Southampton,muggy_nights,0.33,0.233,1000,0.22
+Southampton,windy_days,0.0,0.857,1000,0.8597
+Southampton,dry_soil_days,0.0,0.557,1000,0.5349
+Milton Keynes,heatwave_events,0.32,0.045,1000,0.0353
+Milton Keynes,heatwave_days,2.25,0.03,1000,0.0306
+Milton Keynes,longest_heatwave,0.71,0.035,1000,0.0303
+Milton Keynes,first_heatwave_doy,-4.0,0.09,1000,0.0773
+Milton Keynes,hottest_day,0.93,0.0,1000,0.0001
+Milton Keynes,warm_nights,3.21,0.0,1000,0.0018
+Milton Keynes,summer_length,8.0,0.0,1000,0.0
+Milton Keynes,autumn_onset_doy,3.93,0.0,1000,0.0
+Milton Keynes,first_frost_doy,4.8,0.038,1000,0.0362
+Milton Keynes,wettest_day,1.33,0.045,1000,0.0209
+Milton Keynes,heavy_rain_days,0.91,0.041,1000,0.0207
+Milton Keynes,summer_dry_spell,0.0,0.871,1000,0.875
+Milton Keynes,winter_rain,6.13,0.322,1000,0.3266
+Milton Keynes,summer_sunshine,0.18,0.155,1000,0.1526
+Milton Keynes,heating_need,-131.23,0.0,1000,0.0
+Milton Keynes,muggy_nights,0.0,0.639,1000,0.4642
+Milton Keynes,windy_days,-0.61,0.274,1000,0.284
+Milton Keynes,dry_soil_days,0.0,0.764,1000,0.7558
+Brighton,heatwave_events,0.28,0.054,1000,0.0403
+Brighton,heatwave_days,1.9,0.025,1000,0.019
+Brighton,longest_heatwave,0.71,0.021,1000,0.0243
+Brighton,first_heatwave_doy,-3.33,0.225,1000,0.2134
+Brighton,hottest_day,0.58,0.004,1000,0.005
+Brighton,warm_nights,5.0,0.0,1000,0.0001
+Brighton,summer_length,7.89,0.0,1000,0.0
+Brighton,autumn_onset_doy,2.86,0.02,1000,0.0219
+Brighton,first_frost_doy,-0.42,0.733,1000,0.7528
+Brighton,wettest_day,1.09,0.05,1000,0.0038
+Brighton,heavy_rain_days,0.62,0.184,1000,0.1721
+Brighton,summer_dry_spell,0.0,0.965,1000,0.9608
+Brighton,winter_rain,7.93,0.324,1000,0.3266
+Brighton,summer_sunshine,0.45,0.005,1000,0.0271
+Brighton,heating_need,-129.94,0.0,1000,0.0
+Brighton,muggy_nights,1.15,0.027,1000,0.0538
+Brighton,windy_days,0.0,0.84,1000,0.8365
+Brighton,dry_soil_days,0.0,0.396,1000,0.4124
+Reading,heatwave_events,0.0,0.326,1000,0.2595
+Reading,heatwave_days,1.19,0.228,1000,0.1869
+Reading,longest_heatwave,0.48,0.254,1000,0.2413
+Reading,first_heatwave_doy,-3.85,0.255,1000,0.2452
+Reading,hottest_day,0.78,0.002,1000,0.0018
+Reading,warm_nights,2.5,0.023,1000,0.0213
+Reading,summer_length,6.67,0.001,1000,0.0001
+Reading,autumn_onset_doy,3.1,0.036,1000,0.0335
+Reading,first_frost_doy,4.39,0.044,1000,0.0408
+Reading,wettest_day,0.34,0.65,1000,0.4495
+Reading,heavy_rain_days,1.1,0.031,1000,0.0277
+Reading,summer_dry_spell,0.0,0.993,1000,0.9922
+Reading,winter_rain,7.96,0.254,1000,0.0927
+Reading,summer_sunshine,0.2,0.161,1000,0.1464
+Reading,heating_need,-117.28,0.0,1000,0.0
+Reading,muggy_nights,0.0,0.887,1000,0.8472
+Reading,windy_days,-0.53,0.346,1000,0.3562
+Reading,dry_soil_days,0.0,0.695,1000,0.6272
+Preston,heatwave_events,0.0,0.081,1000,0.0838
+Preston,heatwave_days,1.58,0.049,1000,0.0541
+Preston,longest_heatwave,0.83,0.055,1000,0.0664
+Preston,first_heatwave_doy,-1.51,0.666,1000,0.6855
+Preston,hottest_day,0.52,0.002,1000,0.0071
+Preston,warm_nights,3.98,0.0,1000,0.0003
+Preston,summer_length,4.72,0.013,1000,0.0139
+Preston,autumn_onset_doy,1.11,0.393,1000,0.3831
+Preston,first_frost_doy,4.06,0.041,1000,0.0458
+Preston,wettest_day,1.92,0.048,1000,0.0471
+Preston,heavy_rain_days,0.66,0.374,1000,0.399
+Preston,summer_dry_spell,0.0,0.77,1000,0.7529
+Preston,winter_rain,10.55,0.326,1000,0.2601
+Preston,summer_sunshine,0.09,0.674,1000,0.5076
+Preston,heating_need,-124.01,0.0,1000,0.0
+Preston,muggy_nights,0.3,0.158,1000,0.0773
+Preston,windy_days,-1.31,0.193,1000,0.0405
+Preston,dry_soil_days,0.0,0.369,1000,0.357
+Bournemouth,heatwave_events,0.0,0.561,1000,0.5093
+Bournemouth,heatwave_days,0.7,0.328,1000,0.2918
+Bournemouth,longest_heatwave,0.4,0.225,1000,0.2326
+Bournemouth,first_heatwave_doy,-6.05,0.053,1000,0.0573
+Bournemouth,hottest_day,0.52,0.093,1000,0.0983
+Bournemouth,warm_nights,2.91,0.012,1000,0.0105
+Bournemouth,summer_length,6.12,0.0,1000,0.0
+Bournemouth,autumn_onset_doy,1.61,0.151,1000,0.0
+Bournemouth,first_frost_doy,2.58,0.24,1000,0.248
+Bournemouth,wettest_day,0.52,0.393,1000,0.1051
+Bournemouth,heavy_rain_days,1.0,0.064,1000,0.0582
+Bournemouth,summer_dry_spell,0.0,0.835,1000,0.878
+Bournemouth,winter_rain,4.52,0.693,1000,0.6932
+Bournemouth,summer_sunshine,0.2,0.143,1000,0.1464
+Bournemouth,heating_need,-109.51,0.0,1000,0.0
+Bournemouth,muggy_nights,0.0,0.243,1000,0.17
+Bournemouth,windy_days,0.0,0.718,1000,0.5197
+Bournemouth,dry_soil_days,0.0,0.752,1000,0.6912
+Peterborough,heatwave_events,0.53,0.003,1000,0.0009
+Peterborough,heatwave_days,2.5,0.005,1000,0.0026
+Peterborough,longest_heatwave,0.75,0.049,1000,0.0
+Peterborough,first_heatwave_doy,-3.89,0.14,1000,0.141
+Peterborough,hottest_day,0.72,0.001,1000,0.0008
+Peterborough,warm_nights,3.09,0.001,1000,0.0027
+Peterborough,summer_length,9.18,0.0,1000,0.0
+Peterborough,autumn_onset_doy,3.29,0.014,1000,0.0043
+Peterborough,first_frost_doy,6.03,0.002,1000,0.0037
+Peterborough,wettest_day,1.49,0.042,1000,0.009
+Peterborough,heavy_rain_days,0.95,0.061,1000,0.0256
+Peterborough,summer_dry_spell,0.0,0.761,1000,0.7602
+Peterborough,winter_rain,5.84,0.297,1000,0.307
+Peterborough,summer_sunshine,0.18,0.141,1000,0.1526
+Peterborough,heating_need,-131.07,0.0,1000,0.0
+Peterborough,muggy_nights,0.12,0.46,1000,0.3286
+Peterborough,windy_days,-0.47,0.507,1000,0.4305
+Peterborough,dry_soil_days,0.0,0.864,1000,0.8758
+Middlesbrough,heatwave_events,0.24,0.05,1000,0.0484
+Middlesbrough,heatwave_days,1.11,0.145,1000,0.1475
+Middlesbrough,longest_heatwave,0.0,0.503,1000,0.4007
+Middlesbrough,first_heatwave_doy,-2.94,0.287,1000,0.3226
+Middlesbrough,hottest_day,0.42,0.008,1000,0.0067
+Middlesbrough,warm_nights,3.38,0.001,1000,0.001
+Middlesbrough,summer_length,5.0,0.019,1000,0.0203
+Middlesbrough,autumn_onset_doy,3.33,0.011,1000,0.016
+Middlesbrough,first_frost_doy,3.18,0.197,1000,0.1961
+Middlesbrough,wettest_day,2.24,0.031,1000,0.0257
+Middlesbrough,heavy_rain_days,0.82,0.145,1000,0.1656
+Middlesbrough,summer_dry_spell,-0.49,0.33,1000,0.3456
+Middlesbrough,winter_rain,8.56,0.25,1000,0.0498
+Middlesbrough,summer_sunshine,0.22,0.085,1000,0.0791
+Middlesbrough,heating_need,-114.96,0.0,1000,0.0
+Middlesbrough,muggy_nights,0.36,0.04,1000,0.0423
+Middlesbrough,windy_days,-1.54,0.107,1000,0.117
+Middlesbrough,dry_soil_days,0.0,0.271,1000,0.381
+Ipswich,heatwave_events,0.58,0.001,1000,0.0011
+Ipswich,heatwave_days,3.03,0.004,1000,0.0026
+Ipswich,longest_heatwave,1.08,0.012,1000,0.004
+Ipswich,first_heatwave_doy,-7.54,0.001,1000,0.0008
+Ipswich,hottest_day,0.5,0.008,1000,0.0038
+Ipswich,warm_nights,5.47,0.0,1000,0.0
+Ipswich,summer_length,8.17,0.0,1000,0.0
+Ipswich,autumn_onset_doy,1.43,0.354,1000,0.1788
+Ipswich,first_frost_doy,0.0,0.894,1000,0.8869
+Ipswich,wettest_day,1.96,0.001,1000,0.0006
+Ipswich,heavy_rain_days,1.43,0.002,1000,0.0033
+Ipswich,summer_dry_spell,0.71,0.121,1000,0.1402
+Ipswich,winter_rain,10.76,0.072,1000,0.0767
+Ipswich,summer_sunshine,0.28,0.021,1000,0.0216
+Ipswich,heating_need,-132.39,0.0,1000,0.0
+Ipswich,muggy_nights,2.0,0.008,1000,0.0267
+Ipswich,windy_days,0.0,0.794,1000,0.791
+Ipswich,dry_soil_days,0.0,0.385,1000,0.5428
+Oxford,heatwave_events,0.0,0.123,1000,0.1258
+Oxford,heatwave_days,1.58,0.071,1000,0.066
+Oxford,longest_heatwave,0.59,0.114,1000,0.108
+Oxford,first_heatwave_doy,-5.26,0.032,1000,0.0318
+Oxford,hottest_day,0.89,0.0,1000,0.0012
+Oxford,warm_nights,2.96,0.006,1000,0.0047
+Oxford,summer_length,7.5,0.0,1000,0.0001
+Oxford,autumn_onset_doy,3.78,0.009,1000,0.001
+Oxford,first_frost_doy,4.62,0.035,1000,0.0016
+Oxford,wettest_day,0.39,0.486,1000,0.4996
+Oxford,heavy_rain_days,0.73,0.172,1000,0.1149
+Oxford,summer_dry_spell,0.0,0.72,1000,0.7306
+Oxford,winter_rain,6.07,0.376,1000,0.1948
+Oxford,summer_sunshine,0.2,0.145,1000,0.1464
+Oxford,heating_need,-124.76,0.0,1000,0.0
+Oxford,muggy_nights,0.0,0.98,1000,0.9716
+Oxford,windy_days,-0.67,0.267,1000,0.2807
+Oxford,dry_soil_days,0.0,0.825,1000,0.8482
+Cambridge,heatwave_events,0.53,0.004,1000,0.0048
+Cambridge,heatwave_days,2.64,0.005,1000,0.0029
+Cambridge,longest_heatwave,1.08,0.006,1000,0.0043
+Cambridge,first_heatwave_doy,-4.71,0.04,1000,0.0466
+Cambridge,hottest_day,0.82,0.0,1000,0.0002
+Cambridge,warm_nights,3.19,0.003,1000,0.0014
+Cambridge,summer_length,9.07,0.0,1000,0.0
+Cambridge,autumn_onset_doy,2.94,0.027,1000,0.0249
+Cambridge,first_frost_doy,4.58,0.077,1000,0.0615
+Cambridge,wettest_day,1.4,0.018,1000,0.0052
+Cambridge,heavy_rain_days,0.33,0.343,1000,0.3807
+Cambridge,summer_dry_spell,0.32,0.529,1000,0.5491
+Cambridge,winter_rain,5.62,0.297,1000,0.2882
+Cambridge,summer_sunshine,0.28,0.016,1000,0.0216
+Cambridge,heating_need,-135.98,0.0,1000,0.0
+Cambridge,muggy_nights,0.0,0.552,1000,0.3372
+Cambridge,windy_days,-0.32,0.627,1000,0.6376
+Cambridge,dry_soil_days,0.0,0.581,1000,0.668
+Gloucester,heatwave_events,0.0,0.651,1000,0.6295
+Gloucester,heatwave_days,0.67,0.364,1000,0.3357
+Gloucester,longest_heatwave,0.0,0.41,1000,0.3949
+Gloucester,first_heatwave_doy,-4.0,0.114,1000,0.1575
+Gloucester,hottest_day,0.41,0.1,1000,0.0983
+Gloucester,warm_nights,2.62,0.04,1000,0.0326
+Gloucester,summer_length,5.48,0.006,1000,0.0003
+Gloucester,autumn_onset_doy,2.29,0.098,1000,0.0111
+Gloucester,first_frost_doy,4.06,0.04,1000,0.0003
+Gloucester,wettest_day,0.44,0.424,1000,0.4224
+Gloucester,heavy_rain_days,1.11,0.049,1000,0.0508
+Gloucester,summer_dry_spell,-0.91,0.097,1000,0.0928
+Gloucester,winter_rain,12.51,0.083,1000,0.0767
+Gloucester,summer_sunshine,0.12,0.407,1000,0.1392
+Gloucester,heating_need,-107.5,0.0,1000,0.0
+Gloucester,muggy_nights,0.77,0.035,1000,0.05
+Gloucester,windy_days,-0.93,0.183,1000,0.2057
+Gloucester,dry_soil_days,0.0,0.294,1000,0.2803
+Exeter,heatwave_events,0.0,0.661,1000,0.636
+Exeter,heatwave_days,0.31,0.353,1000,0.3472
+Exeter,longest_heatwave,0.12,0.31,1000,0.298
+Exeter,first_heatwave_doy,-2.46,0.338,1000,0.3209
+Exeter,hottest_day,0.19,0.418,1000,0.4112
+Exeter,warm_nights,3.64,0.009,1000,0.0057
+Exeter,summer_length,5.09,0.031,1000,0.0244
+Exeter,autumn_onset_doy,3.46,0.003,1000,0.0071
+Exeter,first_frost_doy,2.31,0.602,1000,0.5829
+Exeter,wettest_day,1.95,0.003,1000,0.005
+Exeter,heavy_rain_days,3.0,0.001,1000,0.0
+Exeter,summer_dry_spell,-1.2,0.005,1000,0.007
+Exeter,winter_rain,18.0,0.108,1000,0.1267
+Exeter,summer_sunshine,0.52,0.0,1000,0.0
+Exeter,heating_need,-98.86,0.0,1000,0.0
+Exeter,muggy_nights,1.11,0.001,1000,0.0043
+Exeter,windy_days,0.0,0.982,1000,0.9338
+Exeter,dry_soil_days,0.0,0.298,1000,0.3086
+Lincoln,heatwave_events,0.34,0.022,1000,0.0128
+Lincoln,heatwave_days,2.24,0.006,1000,0.0109
+Lincoln,longest_heatwave,0.77,0.038,1000,0.0036
+Lincoln,first_heatwave_doy,-1.82,0.463,1000,0.307
+Lincoln,hottest_day,0.64,0.0,1000,0.0001
+Lincoln,warm_nights,3.33,0.0,1000,0.0013
+Lincoln,summer_length,8.82,0.0,1000,0.0
+Lincoln,autumn_onset_doy,2.22,0.098,1000,0.0903
+Lincoln,first_frost_doy,5.61,0.005,1000,0.0061
+Lincoln,wettest_day,0.54,0.47,1000,0.4812
+Lincoln,heavy_rain_days,0.67,0.13,1000,0.0811
+Lincoln,summer_dry_spell,-0.31,0.274,1000,0.2681
+Lincoln,winter_rain,5.02,0.436,1000,0.2194
+Lincoln,summer_sunshine,0.19,0.12,1000,0.1464
+Lincoln,heating_need,-128.09,0.0,1000,0.0
+Lincoln,muggy_nights,0.71,0.129,1000,0.0104
+Lincoln,windy_days,-0.91,0.249,1000,0.2271
+Lincoln,dry_soil_days,0.0,0.775,1000,0.7808
+Carlisle,heatwave_events,0.0,0.484,1000,0.4872
+Carlisle,heatwave_days,0.38,0.428,1000,0.0626
+Carlisle,longest_heatwave,0.0,0.407,1000,0.2002
+Carlisle,first_heatwave_doy,0.0,0.953,1000,0.9478
+Carlisle,hottest_day,0.2,0.238,1000,0.2443
+Carlisle,warm_nights,3.38,0.003,1000,0.0016
+Carlisle,summer_length,2.86,0.109,1000,0.1061
+Carlisle,autumn_onset_doy,2.22,0.075,1000,0.0901
+Carlisle,first_frost_doy,5.0,0.009,1000,0.0011
+Carlisle,wettest_day,0.7,0.544,1000,0.5249
+Carlisle,heavy_rain_days,2.0,0.001,1000,0.0
+Carlisle,summer_dry_spell,-0.62,0.131,1000,0.1429
+Carlisle,winter_rain,7.54,0.361,1000,0.3321
+Carlisle,summer_sunshine,0.07,0.585,1000,0.5879
+Carlisle,heating_need,-118.07,0.0,1000,0.0
+Carlisle,muggy_nights,0.0,0.162,1000,0.1598
+Carlisle,windy_days,-1.43,0.1,1000,0.0574
+Carlisle,dry_soil_days,0.0,0.037,1000,0.1863
+Glasgow,heatwave_events,0.0,0.668,1000,0.6053
+Glasgow,heatwave_days,0.0,0.802,1000,0.1602
+Glasgow,longest_heatwave,0.0,0.783,1000,0.6758
+Glasgow,first_heatwave_doy,-1.25,0.72,1000,0.7247
+Glasgow,hottest_day,0.34,0.139,1000,0.1319
+Glasgow,warm_nights,2.94,0.002,1000,0.0005
+Glasgow,summer_length,1.58,0.244,1000,0.2478
+Glasgow,autumn_onset_doy,2.0,0.123,1000,0.129
+Glasgow,first_frost_doy,3.97,0.022,1000,0.0004
+Glasgow,wettest_day,-0.51,0.328,1000,0.3328
+Glasgow,heavy_rain_days,-1.13,0.174,1000,0.1728
+Glasgow,summer_dry_spell,-0.71,0.113,1000,0.0792
+Glasgow,winter_rain,-3.78,0.684,1000,0.6784
+Glasgow,summer_sunshine,0.02,0.776,1000,0.7059
+Glasgow,heating_need,-110.42,0.0,1000,0.0001
+Glasgow,muggy_nights,0.0,0.905,1000,0.9036
+Glasgow,windy_days,-1.52,0.086,1000,0.0808
+Glasgow,dry_soil_days,0.0,0.584,1000,0.5888
+Dundee,heatwave_events,0.0,0.558,1000,0.5732
+Dundee,heatwave_days,0.0,0.601,1000,0.5997
+Dundee,longest_heatwave,0.0,0.725,1000,0.7429
+Dundee,first_heatwave_doy,-1.56,0.631,1000,0.6455
+Dundee,hottest_day,0.05,0.784,1000,0.7765
+Dundee,warm_nights,3.59,0.0,1000,0.0015
+Dundee,summer_length,2.38,0.14,1000,0.1367
+Dundee,autumn_onset_doy,3.08,0.01,1000,0.0168
+Dundee,first_frost_doy,5.0,0.01,1000,0.0106
+Dundee,wettest_day,0.11,0.912,1000,0.8436
+Dundee,heavy_rain_days,1.67,0.005,1000,0.0037
+Dundee,summer_dry_spell,-0.73,0.106,1000,0.0248
+Dundee,winter_rain,-0.08,0.979,1000,0.9758
+Dundee,summer_sunshine,0.11,0.423,1000,0.3979
+Dundee,heating_need,-110.72,0.0,1000,0.0002
+Dundee,muggy_nights,0.0,0.046,1000,0.0497
+Dundee,windy_days,-1.5,0.086,1000,0.0845
+Dundee,dry_soil_days,0.0,0.054,1000,0.1485
+Inverness,heatwave_events,0.0,0.292,1000,0.2295
+Inverness,heatwave_days,0.67,0.43,1000,0.4317
+Inverness,longest_heatwave,0.38,0.244,1000,0.2565
+Inverness,first_heatwave_doy,1.67,0.727,1000,0.7648
+Inverness,hottest_day,0.24,0.287,1000,0.2819
+Inverness,warm_nights,2.76,0.026,1000,0.007
+Inverness,summer_length,1.0,0.271,1000,0.2783
+Inverness,autumn_onset_doy,5.0,0.061,1000,0.0469
+Inverness,first_frost_doy,5.68,0.002,1000,0.0
+Inverness,wettest_day,0.3,0.778,1000,0.7841
+Inverness,heavy_rain_days,0.0,0.826,1000,0.8211
+Inverness,summer_dry_spell,-0.38,0.251,1000,0.2296
+Inverness,winter_rain,4.89,0.377,1000,0.3789
+Inverness,summer_sunshine,0.04,0.595,1000,0.4597
+Inverness,heating_need,-106.89,0.0,1000,0.0
+Inverness,muggy_nights,0.0,0.822,1000,0.8341
+Inverness,windy_days,-0.75,0.296,1000,0.2939
+Inverness,dry_soil_days,0.0,0.247,1000,0.3612
+Stirling,heatwave_events,0.0,0.75,1000,0.6777
+Stirling,heatwave_days,0.0,1.0,1000,1.0
+Stirling,longest_heatwave,0.0,0.842,1000,0.5609
+Stirling,first_heatwave_doy,-3.47,0.498,1000,0.4871
+Stirling,hottest_day,0.33,0.156,1000,0.1589
+Stirling,warm_nights,3.08,0.008,1000,0.0012
+Stirling,summer_length,2.03,0.139,1000,0.1341
+Stirling,autumn_onset_doy,2.14,0.126,1000,0.134
+Stirling,first_frost_doy,5.0,0.033,1000,0.0015
+Stirling,wettest_day,-0.0,0.992,1000,0.9876
+Stirling,heavy_rain_days,0.67,0.214,1000,0.2086
+Stirling,summer_dry_spell,-0.91,0.07,1000,0.0816
+Stirling,winter_rain,-0.04,0.993,1000,0.9919
+Stirling,summer_sunshine,0.11,0.405,1000,0.3979
+Stirling,heating_need,-112.23,0.0,1000,0.0004
+Stirling,muggy_nights,0.0,0.553,1000,0.5634
+Stirling,windy_days,-1.43,0.127,1000,0.1212
+Stirling,dry_soil_days,0.0,0.246,1000,0.2557
+Ayr,heatwave_events,0.0,0.843,1000,0.8315
+Ayr,heatwave_days,0.0,0.779,1000,0.7753
+Ayr,longest_heatwave,0.0,0.383,1000,0.2082
+Ayr,first_heatwave_doy,0.56,0.839,1000,0.8179
+Ayr,hottest_day,0.41,0.074,1000,0.0703
+Ayr,warm_nights,3.51,0.002,1000,0.0005
+Ayr,summer_length,2.93,0.091,1000,0.096
+Ayr,autumn_onset_doy,2.31,0.104,1000,0.0712
+Ayr,first_frost_doy,2.5,0.151,1000,0.1802
+Ayr,wettest_day,-0.06,0.958,1000,0.9454
+Ayr,heavy_rain_days,0.0,0.968,1000,0.9686
+Ayr,summer_dry_spell,-0.81,0.118,1000,0.1202
+Ayr,winter_rain,-0.74,0.943,1000,0.9436
+Ayr,summer_sunshine,0.02,0.78,1000,0.7059
+Ayr,heating_need,-113.5,0.0,1000,0.0
+Ayr,muggy_nights,0.0,0.871,1000,0.8849
+Ayr,windy_days,-1.67,0.044,1000,0.0392
+Ayr,dry_soil_days,0.0,0.797,1000,0.8062
+Dumfries,heatwave_events,0.0,0.312,1000,0.3367
+Dumfries,heatwave_days,0.67,0.286,1000,0.3035
+Dumfries,longest_heatwave,0.38,0.207,1000,0.1969
+Dumfries,first_heatwave_doy,-2.0,0.674,1000,0.6151
+Dumfries,hottest_day,0.39,0.077,1000,0.0674
+Dumfries,warm_nights,3.85,0.0,1000,0.0006
+Dumfries,summer_length,3.75,0.028,1000,0.0344
+Dumfries,autumn_onset_doy,2.39,0.049,1000,0.0524
+Dumfries,first_frost_doy,2.33,0.253,1000,0.1232
+Dumfries,wettest_day,1.11,0.276,1000,0.3712
+Dumfries,heavy_rain_days,0.93,0.26,1000,0.0486
+Dumfries,summer_dry_spell,-0.64,0.141,1000,0.1508
+Dumfries,winter_rain,4.08,0.787,1000,0.7848
+Dumfries,summer_sunshine,0.15,0.373,1000,0.2587
+Dumfries,heating_need,-116.14,0.0,1000,0.0
+Dumfries,muggy_nights,0.0,0.256,1000,0.2649
+Dumfries,windy_days,-1.81,0.041,1000,0.0946
+Dumfries,dry_soil_days,0.0,0.111,1000,0.2144
+Fort William,heatwave_events,0.0,0.729,1000,0.7185
+Fort William,heatwave_days,0.33,0.567,1000,0.5422
+Fort William,longest_heatwave,0.0,0.485,1000,0.3039
+Fort William,first_heatwave_doy,-0.59,0.891,1000,0.9024
+Fort William,hottest_day,0.21,0.274,1000,0.2606
+Fort William,warm_nights,2.96,0.012,1000,0.0019
+Fort William,summer_length,0.29,0.294,1000,0.2882
+Fort William,autumn_onset_doy,6.36,0.015,1000,0.0013
+Fort William,first_frost_doy,4.61,0.004,1000,0.0
+Fort William,wettest_day,-1.65,0.037,1000,0.0284
+Fort William,heavy_rain_days,-0.26,0.815,1000,0.8065
+Fort William,summer_dry_spell,0.0,0.341,1000,0.2959
+Fort William,winter_rain,-1.57,0.899,1000,0.9114
+Fort William,summer_sunshine,-0.01,0.963,1000,0.9521
+Fort William,heating_need,-112.11,0.0,1000,0.0001
+Fort William,muggy_nights,0.0,0.901,1000,0.9031
+Fort William,windy_days,-1.48,0.045,1000,0.0454
+Fort William,dry_soil_days,0.0,0.05,1000,0.0626
+Swansea,heatwave_events,0.0,0.847,1000,0.824
+Swansea,heatwave_days,0.0,0.588,1000,0.5955
+Swansea,longest_heatwave,0.0,0.624,1000,0.6279
+Swansea,first_heatwave_doy,-1.41,0.707,1000,0.7539
+Swansea,hottest_day,0.4,0.034,1000,0.0459
+Swansea,warm_nights,5.0,0.002,1000,0.0013
+Swansea,summer_length,6.43,0.0,1000,0.0
+Swansea,autumn_onset_doy,3.33,0.01,1000,0.0115
+Swansea,first_frost_doy,1.55,0.708,1000,0.7184
+Swansea,wettest_day,0.25,0.623,1000,0.4852
+Swansea,heavy_rain_days,2.86,0.0,1000,0.0001
+Swansea,summer_dry_spell,-0.59,0.215,1000,0.2158
+Swansea,winter_rain,18.0,0.073,1000,0.0767
+Swansea,summer_sunshine,0.12,0.401,1000,0.1392
+Swansea,heating_need,-103.93,0.0,1000,0.0
+Swansea,muggy_nights,1.18,0.009,1000,0.0094
+Swansea,windy_days,-0.53,0.431,1000,0.2444
+Swansea,dry_soil_days,0.0,0.085,1000,0.0871
+Bangor,heatwave_events,0.0,0.592,1000,0.5858
+Bangor,heatwave_days,0.71,0.345,1000,0.3262
+Bangor,longest_heatwave,0.0,0.472,1000,0.228
+Bangor,first_heatwave_doy,-2.97,0.279,1000,0.263
+Bangor,hottest_day,0.48,0.02,1000,0.021
+Bangor,warm_nights,3.83,0.001,1000,0.001
+Bangor,summer_length,3.47,0.06,1000,0.0615
+Bangor,autumn_onset_doy,1.98,0.246,1000,0.2361
+Bangor,first_frost_doy,3.64,0.04,1000,0.0044
+Bangor,wettest_day,2.03,0.01,1000,0.0101
+Bangor,heavy_rain_days,3.1,0.002,1000,0.0025
+Bangor,summer_dry_spell,-0.57,0.321,1000,0.1334
+Bangor,winter_rain,25.14,0.025,1000,0.0006
+Bangor,summer_sunshine,0.09,0.662,1000,0.5076
+Bangor,heating_need,-122.09,0.0,1000,0.0
+Bangor,muggy_nights,0.0,0.321,1000,0.3241
+Bangor,windy_days,-1.46,0.078,1000,0.0757
+Bangor,dry_soil_days,0.0,0.304,1000,0.3036
+Aberystwyth,heatwave_events,0.0,0.709,1000,0.7378
+Aberystwyth,heatwave_days,0.14,0.591,1000,0.5683
+Aberystwyth,longest_heatwave,0.0,0.646,1000,0.528
+Aberystwyth,first_heatwave_doy,-2.03,0.631,1000,0.4706
+Aberystwyth,hottest_day,0.39,0.122,1000,0.1319
+Aberystwyth,warm_nights,3.09,0.01,1000,0.0079
+Aberystwyth,summer_length,2.7,0.142,1000,0.1268
+Aberystwyth,autumn_onset_doy,0.87,0.563,1000,0.5902
+Aberystwyth,first_frost_doy,2.92,0.139,1000,0.1341
+Aberystwyth,wettest_day,0.36,0.598,1000,0.5906
+Aberystwyth,heavy_rain_days,2.77,0.003,1000,0.004
+Aberystwyth,summer_dry_spell,-0.43,0.308,1000,0.3255
+Aberystwyth,winter_rain,26.38,0.041,1000,0.0421
+Aberystwyth,summer_sunshine,0.06,0.539,1000,0.3675
+Aberystwyth,heating_need,-110.12,0.0,1000,0.0
+Aberystwyth,muggy_nights,0.3,0.029,1000,0.0043
+Aberystwyth,windy_days,-0.74,0.31,1000,0.2064
+Aberystwyth,dry_soil_days,0.0,0.262,1000,0.2557
+Llandrindod Wells,heatwave_events,0.0,0.379,1000,0.3969
+Llandrindod Wells,heatwave_days,0.98,0.256,1000,0.2352
+Llandrindod Wells,longest_heatwave,0.3,0.288,1000,0.3142
+Llandrindod Wells,first_heatwave_doy,-3.12,0.342,1000,0.3391
+Llandrindod Wells,hottest_day,0.41,0.066,1000,0.075
+Llandrindod Wells,warm_nights,2.96,0.005,1000,0.0035
+Llandrindod Wells,summer_length,3.73,0.092,1000,0.0814
+Llandrindod Wells,autumn_onset_doy,-0.29,0.842,1000,0.8097
+Llandrindod Wells,first_frost_doy,4.63,0.01,1000,0.0
+Llandrindod Wells,wettest_day,0.58,0.369,1000,0.363
+Llandrindod Wells,heavy_rain_days,2.5,0.002,1000,0.0035
+Llandrindod Wells,summer_dry_spell,-0.83,0.023,1000,0.0299
+Llandrindod Wells,winter_rain,18.53,0.061,1000,0.0671
+Llandrindod Wells,summer_sunshine,0.06,0.568,1000,0.3675
+Llandrindod Wells,heating_need,-110.11,0.0,1000,0.0
+Llandrindod Wells,muggy_nights,0.36,0.14,1000,0.0137
+Llandrindod Wells,windy_days,-0.99,0.24,1000,0.2473
+Llandrindod Wells,dry_soil_days,0.0,0.422,1000,0.4195
+Carmarthen,heatwave_events,0.0,0.716,1000,0.7073
+Carmarthen,heatwave_days,0.0,0.751,1000,0.7306
+Carmarthen,longest_heatwave,0.0,0.718,1000,0.7289
+Carmarthen,first_heatwave_doy,-2.4,0.613,1000,0.6163
+Carmarthen,hottest_day,0.44,0.059,1000,0.0481
+Carmarthen,warm_nights,2.5,0.022,1000,0.0009
+Carmarthen,summer_length,4.35,0.052,1000,0.0563
+Carmarthen,autumn_onset_doy,1.88,0.262,1000,0.0986
+Carmarthen,first_frost_doy,2.4,0.247,1000,0.0019
+Carmarthen,wettest_day,-0.15,0.931,1000,0.9298
+Carmarthen,heavy_rain_days,3.64,0.0,1000,0.0002
+Carmarthen,summer_dry_spell,-0.71,0.257,1000,0.0
+Carmarthen,winter_rain,22.66,0.058,1000,0.0391
+Carmarthen,summer_sunshine,0.22,0.098,1000,0.0
+Carmarthen,heating_need,-105.45,0.0,1000,0.0
+Carmarthen,muggy_nights,0.56,0.023,1000,0.0252
+Carmarthen,windy_days,-0.68,0.362,1000,0.3934
+Carmarthen,dry_soil_days,0.0,0.151,1000,0.1512
+Derry,heatwave_events,0.0,0.473,1000,0.4955
+Derry,heatwave_days,0.0,0.645,1000,0.6215
+Derry,longest_heatwave,0.0,0.838,1000,0.8349
+Derry,first_heatwave_doy,2.5,0.672,1000,0.4975
+Derry,hottest_day,0.41,0.028,1000,0.0291
+Derry,warm_nights,2.22,0.103,1000,0.0998
+Derry,summer_length,1.58,0.31,1000,0.2139
+Derry,autumn_onset_doy,4.03,0.002,1000,0.0044
+Derry,first_frost_doy,4.8,0.21,1000,0.1939
+Derry,wettest_day,-1.08,0.172,1000,0.0
+Derry,heavy_rain_days,0.96,0.159,1000,0.158
+Derry,summer_dry_spell,0.0,0.68,1000,0.5491
+Derry,winter_rain,0.99,0.923,1000,0.9275
+Derry,summer_sunshine,0.1,0.209,1000,0.2167
+Derry,heating_need,-88.42,0.0,1000,0.0
+Derry,muggy_nights,0.0,0.454,1000,0.463
+Derry,windy_days,-1.45,0.087,1000,0.0828
+Derry,dry_soil_days,0.0,0.258,1000,0.2488
+Omagh,heatwave_events,0.0,0.664,1000,0.6876
+Omagh,heatwave_days,0.0,0.769,1000,0.7653
+Omagh,longest_heatwave,0.0,0.851,1000,0.7755
+Omagh,first_heatwave_doy,-1.79,0.733,1000,0.6223
+Omagh,hottest_day,0.42,0.027,1000,0.0215
+Omagh,warm_nights,1.69,0.151,1000,0.1312
+Omagh,summer_length,1.52,0.39,1000,0.4107
+Omagh,autumn_onset_doy,1.43,0.286,1000,0.2068
+Omagh,first_frost_doy,4.62,0.058,1000,0.0655
+Omagh,wettest_day,0.28,0.713,1000,0.7005
+Omagh,heavy_rain_days,0.89,0.176,1000,0.176
+Omagh,summer_dry_spell,-0.71,0.122,1000,0.1157
+Omagh,winter_rain,1.91,0.792,1000,0.7128
+Omagh,summer_sunshine,0.13,0.218,1000,0.1174
+Omagh,heating_need,-88.36,0.0,1000,0.0001
+Omagh,muggy_nights,0.0,0.412,1000,0.4095
+Omagh,windy_days,-2.0,0.027,1000,0.0294
+Omagh,dry_soil_days,0.0,0.281,1000,0.2608
+Newry,heatwave_events,0.0,0.304,1000,0.3071
+Newry,heatwave_days,0.71,0.201,1000,0.1386
+Newry,longest_heatwave,0.0,0.296,1000,0.284
+Newry,first_heatwave_doy,-2.69,0.432,1000,0.4315
+Newry,hottest_day,0.17,0.224,1000,0.2177
+Newry,warm_nights,3.58,0.007,1000,0.0022
+Newry,summer_length,4.42,0.051,1000,0.0551
+Newry,autumn_onset_doy,3.11,0.037,1000,0.0447
+Newry,first_frost_doy,3.33,0.867,1000,0.858
+Newry,wettest_day,1.81,0.046,1000,0.0504
+Newry,heavy_rain_days,1.55,0.009,1000,0.0449
+Newry,summer_dry_spell,-0.69,0.133,1000,0.0276
+Newry,winter_rain,11.84,0.206,1000,0.2502
+Newry,summer_sunshine,0.13,0.219,1000,0.1174
+Newry,heating_need,-91.96,0.0,1000,0.0
+Newry,muggy_nights,0.0,0.424,1000,0.416
+Newry,windy_days,-1.5,0.129,1000,0.1387
+Newry,dry_soil_days,0.0,0.253,1000,0.2573
+New York,heatwave_events,0.45,0.01,1000,0.0055
+New York,heatwave_days,2.22,0.025,1000,0.0007
+New York,longest_heatwave,0.62,0.112,1000,0.092
+New York,hottest_day,0.26,0.144,1000,0.1396
 New York,warm_nights,7.11,0.0,1000,0.0
-New York,wettest_day,5.69,0.005,1000,0.0001
-New York,heavy_rain_days,1.11,0.139,1000,0.1556
-New York,yearly_sunshine,0.04,0.357,1000,0.3513
+New York,wettest_day,5.69,0.01,1000,0.0001
+New York,heavy_rain_days,1.11,0.145,1000,0.1556
+New York,windy_days,0.0,0.648,1000,0.6658
+New York,yearly_sunshine,0.04,0.365,1000,0.3513
 New York,cooling_need,44.59,0.0,1000,0.0
-Los Angeles,heatwave_events,0.0,0.422,1000,0.2415
-Los Angeles,heatwave_days,0.66,0.353,1000,0.3264
-Los Angeles,longest_heatwave,0.0,0.281,1000,0.0227
-Los Angeles,hottest_day,0.03,0.816,1000,0.8537
-Los Angeles,warm_nights,1.25,0.089,1000,0.0734
-Los Angeles,wettest_day,3.66,0.106,1000,0.0696
-Los Angeles,heavy_rain_days,0.0,0.852,1000,0.8521
-Los Angeles,yearly_sunshine,0.22,0.001,1000,0.0008
-Los Angeles,cooling_need,24.49,0.085,1000,0.0869
-Toronto,heatwave_events,0.37,0.084,1000,0.0881
-Toronto,heatwave_days,1.82,0.086,1000,0.0836
-Toronto,longest_heatwave,0.34,0.095,1000,0.1245
-Toronto,hottest_day,0.39,0.067,1000,0.063
+Los Angeles,heatwave_events,0.0,0.443,1000,0.2415
+Los Angeles,heatwave_days,0.66,0.323,1000,0.3264
+Los Angeles,longest_heatwave,0.0,0.285,1000,0.0227
+Los Angeles,hottest_day,0.03,0.832,1000,0.8537
+Los Angeles,warm_nights,1.25,0.069,1000,0.0734
+Los Angeles,wettest_day,3.66,0.118,1000,0.0696
+Los Angeles,heavy_rain_days,0.0,0.845,1000,0.8521
+Los Angeles,windy_days,-3.33,0.0,1000,0.0
+Los Angeles,yearly_sunshine,0.22,0.0,1000,0.0008
+Los Angeles,cooling_need,24.49,0.087,1000,0.0869
+Toronto,heatwave_events,0.37,0.089,1000,0.0881
+Toronto,heatwave_days,1.82,0.087,1000,0.0836
+Toronto,longest_heatwave,0.34,0.09,1000,0.1245
+Toronto,hottest_day,0.39,0.063,1000,0.063
 Toronto,warm_nights,4.44,0.0,1000,0.0007
-Toronto,wettest_day,-1.33,0.075,1000,0.0734
-Toronto,heavy_rain_days,-1.2,0.039,1000,0.1552
-Toronto,yearly_sunshine,0.07,0.212,1000,0.2167
-Toronto,cooling_need,40.52,0.0,1000,0.0017
+Toronto,wettest_day,-1.33,0.063,1000,0.0734
+Toronto,heavy_rain_days,-1.2,0.043,1000,0.1552
+Toronto,windy_days,-0.37,0.535,1000,0.5232
+Toronto,yearly_sunshine,0.07,0.203,1000,0.2167
+Toronto,cooling_need,40.52,0.002,1000,0.0017
 Sao Paulo,heatwave_events,1.79,0.0,1000,0.0001
-Sao Paulo,heatwave_days,9.39,0.001,1000,0.0002
-Sao Paulo,longest_heatwave,1.76,0.002,1000,0.0012
+Sao Paulo,heatwave_days,9.39,0.0,1000,0.0002
+Sao Paulo,longest_heatwave,1.76,0.0,1000,0.0012
 Sao Paulo,hottest_day,1.12,0.0,1000,0.0001
-Sao Paulo,warm_nights,5.36,0.002,1000,0.0003
-Sao Paulo,wettest_day,-2.75,0.078,1000,0.0734
+Sao Paulo,warm_nights,5.36,0.0,1000,0.0003
+Sao Paulo,wettest_day,-2.75,0.076,1000,0.0734
 Sao Paulo,heavy_rain_days,-5.91,0.0,1000,0.0001
-Sao Paulo,yearly_sunshine,0.12,0.083,1000,0.0419
+Sao Paulo,windy_days,1.27,0.018,1000,0.0121
+Sao Paulo,yearly_sunshine,0.12,0.098,1000,0.0419
 Sao Paulo,cooling_need,100.06,0.0,1000,0.0
-Paris,heatwave_events,0.51,0.002,1000,0.0045
-Paris,heatwave_days,2.77,0.004,1000,0.0052
-Paris,longest_heatwave,0.77,0.013,1000,0.0367
-Paris,hottest_day,1.08,0.0,1000,0.0
-Paris,warm_nights,3.0,0.003,1000,0.0059
-Paris,wettest_day,1.2,0.041,1000,0.0449
-Paris,heavy_rain_days,0.0,0.982,1000,0.9765
+Paris,heatwave_events,0.51,0.003,1000,0.0045
+Paris,heatwave_days,2.77,0.003,1000,0.0052
+Paris,longest_heatwave,0.77,0.015,1000,0.0367
+Paris,hottest_day,1.08,0.001,1000,0.0
+Paris,warm_nights,3.0,0.006,1000,0.0059
+Paris,wettest_day,1.2,0.036,1000,0.0449
+Paris,heavy_rain_days,0.0,0.976,1000,0.9765
+Paris,windy_days,-0.39,0.621,1000,0.61
 Paris,yearly_sunshine,0.24,0.001,1000,0.0006
-Paris,cooling_need,21.76,0.001,1000,0.0014
-Berlin,heatwave_events,0.48,0.006,1000,0.0074
-Berlin,heatwave_days,2.95,0.005,1000,0.0073
+Paris,cooling_need,21.76,0.002,1000,0.0014
+Berlin,heatwave_events,0.48,0.009,1000,0.0074
+Berlin,heatwave_days,2.95,0.007,1000,0.0073
 Berlin,longest_heatwave,0.95,0.022,1000,0.0244
 Berlin,hottest_day,0.69,0.014,1000,0.0133
 Berlin,warm_nights,5.0,0.0,1000,0.0
-Berlin,wettest_day,1.79,0.174,1000,0.1561
-Berlin,heavy_rain_days,0.0,0.792,1000,0.8151
+Berlin,wettest_day,1.79,0.171,1000,0.1561
+Berlin,heavy_rain_days,0.0,0.773,1000,0.8151
+Berlin,windy_days,-0.87,0.266,1000,0.2311
 Berlin,yearly_sunshine,0.3,0.0,1000,0.0
 Berlin,cooling_need,36.3,0.0,1000,0.0001
-Madrid,heatwave_events,0.43,0.002,1000,0.0006
+Madrid,heatwave_events,0.43,0.007,1000,0.0006
 Madrid,heatwave_days,4.53,0.0,1000,0.0
 Madrid,longest_heatwave,1.11,0.0,1000,0.0001
 Madrid,hottest_day,0.45,0.003,1000,0.0003
 Madrid,warm_nights,5.0,0.0,1000,0.0
-Madrid,wettest_day,2.33,0.007,1000,0.0106
-Madrid,heavy_rain_days,0.93,0.024,1000,0.0282
+Madrid,wettest_day,2.33,0.003,1000,0.0106
+Madrid,heavy_rain_days,0.93,0.03,1000,0.0282
+Madrid,windy_days,0.43,0.368,1000,0.3713
 Madrid,yearly_sunshine,0.27,0.001,1000,0.0001
 Madrid,cooling_need,52.88,0.0,1000,0.0
-Cairo,heatwave_events,0.27,0.024,1000,0.0446
-Cairo,heatwave_days,1.25,0.088,1000,0.0817
+Cairo,heatwave_events,0.27,0.039,1000,0.0446
+Cairo,heatwave_days,1.25,0.085,1000,0.0817
 Cairo,longest_heatwave,0.0,0.387,1000,0.3713
-Cairo,hottest_day,0.39,0.006,1000,0.0048
+Cairo,hottest_day,0.39,0.004,1000,0.0048
 Cairo,warm_nights,8.69,0.0,1000,0.0
-Cairo,wettest_day,1.12,0.318,1000,0.6142
-Cairo,heavy_rain_days,0.0,0.032,1000,0.342
+Cairo,wettest_day,1.12,0.302,1000,0.6142
+Cairo,heavy_rain_days,0.0,0.024,1000,0.342
+Cairo,windy_days,-1.29,0.092,1000,0.0209
 Cairo,yearly_sunshine,0.14,0.0,1000,0.0002
 Cairo,cooling_need,79.17,0.0,1000,0.0
-Delhi,heatwave_events,0.0,0.711,1000,0.7009
-Delhi,heatwave_days,-1.3,0.226,1000,0.209
-Delhi,longest_heatwave,-0.78,0.176,1000,0.1707
-Delhi,hottest_day,-0.16,0.331,1000,0.0637
-Delhi,warm_nights,-1.03,0.354,1000,0.2277
-Delhi,wettest_day,-2.81,0.126,1000,0.1319
-Delhi,heavy_rain_days,1.88,0.052,1000,0.061
+Delhi,heatwave_events,0.0,0.691,1000,0.7009
+Delhi,heatwave_days,-1.3,0.205,1000,0.209
+Delhi,longest_heatwave,-0.78,0.161,1000,0.1707
+Delhi,hottest_day,-0.16,0.316,1000,0.0637
+Delhi,warm_nights,-1.03,0.37,1000,0.2277
+Delhi,wettest_day,-2.81,0.111,1000,0.1319
+Delhi,heavy_rain_days,1.88,0.075,1000,0.061
+Delhi,windy_days,-2.22,0.002,1000,0.0028
 Delhi,yearly_sunshine,-0.61,0.0,1000,0.0
-Delhi,cooling_need,-32.98,0.23,1000,0.2374
-Tokyo,heatwave_events,0.36,0.03,1000,0.0332
-Tokyo,heatwave_days,2.93,0.018,1000,0.0128
-Tokyo,longest_heatwave,1.13,0.023,1000,0.0274
-Tokyo,hottest_day,0.35,0.019,1000,0.0001
+Delhi,cooling_need,-32.98,0.202,1000,0.2374
+Tokyo,heatwave_events,0.36,0.042,1000,0.0332
+Tokyo,heatwave_days,2.93,0.011,1000,0.0128
+Tokyo,longest_heatwave,1.13,0.027,1000,0.0274
+Tokyo,hottest_day,0.35,0.016,1000,0.0001
 Tokyo,warm_nights,7.04,0.0,1000,0.0
-Tokyo,wettest_day,4.33,0.232,1000,0.2
-Tokyo,heavy_rain_days,2.35,0.01,1000,0.005
-Tokyo,yearly_sunshine,0.11,0.149,1000,0.1464
+Tokyo,wettest_day,4.33,0.218,1000,0.2
+Tokyo,heavy_rain_days,2.35,0.02,1000,0.005
+Tokyo,windy_days,0.0,0.658,1000,0.6658
+Tokyo,yearly_sunshine,0.11,0.16,1000,0.1464
 Tokyo,cooling_need,57.32,0.0,1000,0.0
-Sydney,heatwave_events,0.0,0.309,1000,0.3235
-Sydney,heatwave_days,0.0,0.299,1000,0.3566
-Sydney,longest_heatwave,0.0,0.123,1000,0.1294
-Sydney,hottest_day,0.17,0.605,1000,0.5919
+Sydney,heatwave_events,0.0,0.333,1000,0.3235
+Sydney,heatwave_days,0.0,0.285,1000,0.3566
+Sydney,longest_heatwave,0.0,0.14,1000,0.1294
+Sydney,hottest_day,0.17,0.598,1000,0.5919
 Sydney,warm_nights,5.56,0.0,1000,0.0002
-Sydney,wettest_day,-2.53,0.5,1000,0.498
-Sydney,heavy_rain_days,-1.0,0.266,1000,0.1764
+Sydney,wettest_day,-2.53,0.469,1000,0.498
+Sydney,heavy_rain_days,-1.0,0.24,1000,0.1764
+Sydney,windy_days,0.65,0.102,1000,0.0847
 Sydney,yearly_sunshine,0.03,0.7,1000,0.7413
 Sydney,cooling_need,59.67,0.0,1000,0.0001
-Johannesburg,heatwave_events,0.67,0.002,1000,0.0023
+Johannesburg,heatwave_events,0.67,0.0,1000,0.0023
 Johannesburg,heatwave_days,3.15,0.0,1000,0.0
-Johannesburg,longest_heatwave,0.96,0.001,1000,0.0022
+Johannesburg,longest_heatwave,0.96,0.0,1000,0.0022
 Johannesburg,hottest_day,0.52,0.002,1000,0.0048
-Johannesburg,warm_nights,2.6,0.025,1000,0.0259
-Johannesburg,wettest_day,1.02,0.504,1000,0.3871
-Johannesburg,heavy_rain_days,-0.67,0.355,1000,0.3457
-Johannesburg,yearly_sunshine,0.05,0.546,1000,0.5367
+Johannesburg,warm_nights,2.6,0.028,1000,0.0259
+Johannesburg,wettest_day,1.02,0.517,1000,0.3871
+Johannesburg,heavy_rain_days,-0.67,0.36,1000,0.3457
+Johannesburg,windy_days,0.9,0.091,1000,0.0932
+Johannesburg,yearly_sunshine,0.05,0.524,1000,0.5367
 Johannesburg,cooling_need,56.38,0.002,1000,0.0045
-Barcelona,heatwave_events,0.36,0.025,1000,0.0262
-Barcelona,heatwave_days,3.33,0.004,1000,0.0053
-Barcelona,longest_heatwave,1.11,0.015,1000,0.0156
-Barcelona,hottest_day,0.46,0.039,1000,0.0338
+Barcelona,heatwave_events,0.36,0.023,1000,0.0262
+Barcelona,heatwave_days,3.33,0.007,1000,0.0053
+Barcelona,longest_heatwave,1.11,0.012,1000,0.0156
+Barcelona,hottest_day,0.46,0.033,1000,0.0338
 Barcelona,warm_nights,6.67,0.0,1000,0.0
-Barcelona,wettest_day,-2.36,0.109,1000,0.1153
-Barcelona,heavy_rain_days,-0.43,0.444,1000,0.1526
+Barcelona,wettest_day,-2.36,0.117,1000,0.1153
+Barcelona,heavy_rain_days,-0.43,0.429,1000,0.1526
+Barcelona,windy_days,-0.13,0.638,1000,0.5844
 Barcelona,yearly_sunshine,0.41,0.0,1000,0.0
 Barcelona,cooling_need,54.38,0.0,1000,0.0
-Rome,heatwave_events,0.29,0.023,1000,0.029
-Rome,heatwave_days,3.33,0.011,1000,0.0089
-Rome,longest_heatwave,1.3,0.023,1000,0.0192
+Rome,heatwave_events,0.29,0.028,1000,0.029
+Rome,heatwave_days,3.33,0.014,1000,0.0089
+Rome,longest_heatwave,1.3,0.015,1000,0.0192
 Rome,hottest_day,0.56,0.003,1000,0.0036
 Rome,warm_nights,6.23,0.0,1000,0.0
-Rome,wettest_day,-1.56,0.243,1000,0.2483
-Rome,heavy_rain_days,0.98,0.288,1000,0.2942
+Rome,wettest_day,-1.56,0.266,1000,0.2483
+Rome,heavy_rain_days,0.98,0.303,1000,0.2942
+Rome,windy_days,0.0,0.855,1000,0.8442
 Rome,yearly_sunshine,0.33,0.0,1000,0.0
 Rome,cooling_need,64.9,0.0,1000,0.0
-Lisbon,heatwave_events,0.3,0.073,1000,0.0705
-Lisbon,heatwave_days,0.83,0.356,1000,0.3661
-Lisbon,longest_heatwave,0.0,0.985,1000,0.9842
-Lisbon,hottest_day,0.22,0.264,1000,0.2565
-Lisbon,warm_nights,0.0,0.882,1000,0.8986
-Lisbon,wettest_day,-2.01,0.018,1000,0.0184
-Lisbon,heavy_rain_days,-1.0,0.2,1000,0.2023
+Lisbon,heatwave_events,0.3,0.064,1000,0.0705
+Lisbon,heatwave_days,0.83,0.344,1000,0.3661
+Lisbon,longest_heatwave,0.0,0.99,1000,0.9842
+Lisbon,hottest_day,0.22,0.247,1000,0.2565
+Lisbon,warm_nights,0.0,0.891,1000,0.8986
+Lisbon,wettest_day,-2.01,0.016,1000,0.0184
+Lisbon,heavy_rain_days,-1.0,0.204,1000,0.2023
+Lisbon,windy_days,-0.29,0.597,1000,0.603
 Lisbon,yearly_sunshine,0.21,0.001,1000,0.0011
-Lisbon,cooling_need,35.15,0.001,1000,0.0
+Lisbon,cooling_need,35.15,0.0,1000,0.0
 Athens,heatwave_events,0.53,0.0,1000,0.0
 Athens,heatwave_days,3.19,0.0,1000,0.0001
-Athens,longest_heatwave,0.86,0.006,1000,0.0051
-Athens,hottest_day,0.23,0.295,1000,0.3043
+Athens,longest_heatwave,0.86,0.005,1000,0.0051
+Athens,hottest_day,0.23,0.312,1000,0.3043
 Athens,warm_nights,10.0,0.0,1000,0.0
-Athens,wettest_day,1.64,0.411,1000,0.4396
-Athens,heavy_rain_days,0.31,0.389,1000,0.3803
+Athens,wettest_day,1.64,0.47,1000,0.4396
+Athens,heavy_rain_days,0.31,0.397,1000,0.3803
+Athens,windy_days,0.53,0.419,1000,0.3091
 Athens,yearly_sunshine,0.38,0.0,1000,0.0
 Athens,cooling_need,73.26,0.0,1000,0.0
-Amsterdam,heatwave_events,0.34,0.06,1000,0.0504
-Amsterdam,heatwave_days,2.16,0.02,1000,0.0246
-Amsterdam,longest_heatwave,0.62,0.059,1000,0.0615
+Amsterdam,heatwave_events,0.34,0.062,1000,0.0504
+Amsterdam,heatwave_days,2.16,0.022,1000,0.0246
+Amsterdam,longest_heatwave,0.62,0.066,1000,0.0615
 Amsterdam,hottest_day,0.88,0.0,1000,0.0
 Amsterdam,warm_nights,6.9,0.0,1000,0.0
-Amsterdam,wettest_day,-0.09,0.848,1000,0.8526
-Amsterdam,heavy_rain_days,0.38,0.415,1000,0.4204
+Amsterdam,wettest_day,-0.09,0.846,1000,0.8526
+Amsterdam,heavy_rain_days,0.38,0.408,1000,0.4204
+Amsterdam,windy_days,-1.25,0.161,1000,0.0613
 Amsterdam,yearly_sunshine,0.2,0.0,1000,0.0001
 Amsterdam,cooling_need,13.12,0.0,1000,0.0001
 Istanbul,heatwave_events,1.18,0.0,1000,0.0
 Istanbul,heatwave_days,6.67,0.0,1000,0.0001
 Istanbul,longest_heatwave,2.0,0.0,1000,0.0008
-Istanbul,hottest_day,0.38,0.075,1000,0.075
+Istanbul,hottest_day,0.38,0.069,1000,0.075
 Istanbul,warm_nights,10.77,0.0,1000,0.0
-Istanbul,wettest_day,0.18,0.807,1000,0.7992
-Istanbul,heavy_rain_days,-0.76,0.12,1000,0.0218
+Istanbul,wettest_day,0.18,0.785,1000,0.7992
+Istanbul,heavy_rain_days,-0.76,0.112,1000,0.0218
+Istanbul,windy_days,-0.43,0.44,1000,0.4441
 Istanbul,yearly_sunshine,0.33,0.0,1000,0.0
 Istanbul,cooling_need,79.32,0.0,1000,0.0
-Dubai,heatwave_events,0.56,0.001,1000,0.0045
-Dubai,heatwave_days,2.5,0.011,1000,0.011
-Dubai,longest_heatwave,0.0,0.347,1000,0.332
-Dubai,hottest_day,0.37,0.002,1000,0.0012
+Dubai,heatwave_events,0.56,0.003,1000,0.0045
+Dubai,heatwave_days,2.5,0.019,1000,0.011
+Dubai,longest_heatwave,0.0,0.332,1000,0.332
+Dubai,hottest_day,0.37,0.0,1000,0.0012
 Dubai,warm_nights,7.5,0.0,1000,0.0
-Dubai,wettest_day,1.29,0.536,1000,0.5507
-Dubai,heavy_rain_days,0.0,0.442,1000,0.4106
-Dubai,yearly_sunshine,0.1,0.343,1000,0.605
+Dubai,wettest_day,1.29,0.542,1000,0.5507
+Dubai,heavy_rain_days,0.0,0.411,1000,0.4106
+Dubai,windy_days,0.0,0.795,1000,0.7535
+Dubai,yearly_sunshine,0.1,0.327,1000,0.605
 Dubai,cooling_need,139.54,0.0,1000,0.0
-Marrakech,heatwave_events,0.53,0.006,1000,0.0038
-Marrakech,heatwave_days,3.33,0.0,1000,0.0006
-Marrakech,longest_heatwave,0.8,0.017,1000,0.0135
+Marrakech,heatwave_events,0.53,0.002,1000,0.0038
+Marrakech,heatwave_days,3.33,0.001,1000,0.0006
+Marrakech,longest_heatwave,0.8,0.025,1000,0.0135
 Marrakech,hottest_day,0.44,0.0,1000,0.0
 Marrakech,warm_nights,3.64,0.001,1000,0.0
-Marrakech,wettest_day,1.57,0.256,1000,0.1984
-Marrakech,heavy_rain_days,0.0,0.628,1000,0.6283
+Marrakech,wettest_day,1.57,0.295,1000,0.1984
+Marrakech,heavy_rain_days,0.0,0.635,1000,0.6283
+Marrakech,windy_days,-1.45,0.078,1000,0.1446
 Marrakech,yearly_sunshine,0.35,0.0,1000,0.0
 Marrakech,cooling_need,82.93,0.0,1000,0.0
-Cape Town,heatwave_events,0.0,0.55,1000,0.5537
-Cape Town,heatwave_days,0.0,0.782,1000,0.7941
-Cape Town,longest_heatwave,0.0,0.899,1000,0.8827
-Cape Town,hottest_day,0.08,0.636,1000,0.6005
-Cape Town,warm_nights,1.74,0.075,1000,0.0761
-Cape Town,wettest_day,7.12,0.021,1000,0.0239
-Cape Town,heavy_rain_days,1.5,0.048,1000,0.0516
+Cape Town,heatwave_events,0.0,0.547,1000,0.5537
+Cape Town,heatwave_days,0.0,0.793,1000,0.7941
+Cape Town,longest_heatwave,0.0,0.887,1000,0.8827
+Cape Town,hottest_day,0.08,0.634,1000,0.6005
+Cape Town,warm_nights,1.74,0.076,1000,0.0761
+Cape Town,wettest_day,7.12,0.009,1000,0.0239
+Cape Town,heavy_rain_days,1.5,0.055,1000,0.0516
+Cape Town,windy_days,-1.82,0.005,1000,0.0074
 Cape Town,yearly_sunshine,0.15,0.0,1000,0.0003
-Cape Town,cooling_need,0.54,0.993,1000,0.9914
-Bangkok,heatwave_events,0.0,0.337,1000,0.3977
-Bangkok,heatwave_days,-0.94,0.268,1000,0.3541
-Bangkok,longest_heatwave,-0.83,0.084,1000,0.1419
-Bangkok,hottest_day,-0.18,0.259,1000,0.2689
-Bangkok,warm_nights,1.54,0.309,1000,0.3272
-Bangkok,wettest_day,0.38,0.794,1000,0.8068
-Bangkok,heavy_rain_days,3.15,0.001,1000,0.0075
+Cape Town,cooling_need,0.54,0.99,1000,0.9914
+Bangkok,heatwave_events,0.0,0.321,1000,0.3977
+Bangkok,heatwave_days,-0.94,0.239,1000,0.3541
+Bangkok,longest_heatwave,-0.83,0.087,1000,0.1419
+Bangkok,hottest_day,-0.18,0.264,1000,0.2689
+Bangkok,warm_nights,1.54,0.345,1000,0.3272
+Bangkok,wettest_day,0.38,0.817,1000,0.8068
+Bangkok,heavy_rain_days,3.15,0.008,1000,0.0075
+Bangkok,windy_days,-1.18,0.23,1000,0.2839
 Bangkok,yearly_sunshine,-0.45,0.0,1000,0.0
-Bangkok,cooling_need,34.03,0.213,1000,0.0505
-Singapore,heatwave_events,0.0,0.139,1000,0.1464
-Singapore,heatwave_days,0.0,0.207,1000,0.2105
-Singapore,longest_heatwave,0.0,0.312,1000,0.3012
-Singapore,hottest_day,0.16,0.165,1000,0.1588
+Bangkok,cooling_need,34.03,0.21,1000,0.0505
+Singapore,heatwave_events,0.0,0.132,1000,0.1464
+Singapore,heatwave_days,0.0,0.199,1000,0.2105
+Singapore,longest_heatwave,0.0,0.323,1000,0.3012
+Singapore,hottest_day,0.16,0.169,1000,0.1588
 Singapore,warm_nights,12.5,0.0,1000,0.0
-Singapore,wettest_day,-5.48,0.151,1000,0.1453
-Singapore,heavy_rain_days,6.06,0.008,1000,0.0049
+Singapore,wettest_day,-5.48,0.153,1000,0.1453
+Singapore,heavy_rain_days,6.06,0.003,1000,0.0049
+Singapore,windy_days,-2.3,0.012,1000,0.0453
 Singapore,yearly_sunshine,-0.21,0.002,1000,0.0001
 Singapore,cooling_need,59.55,0.0,1000,0.0001
-Orlando,heatwave_events,0.45,0.054,1000,0.0457
-Orlando,heatwave_days,1.85,0.125,1000,0.1099
-Orlando,longest_heatwave,0.0,0.35,1000,0.3418
-Orlando,hottest_day,0.19,0.342,1000,0.3426
+Orlando,heatwave_events,0.45,0.048,1000,0.0457
+Orlando,heatwave_days,1.85,0.118,1000,0.1099
+Orlando,longest_heatwave,0.0,0.353,1000,0.3418
+Orlando,hottest_day,0.19,0.353,1000,0.3426
 Orlando,warm_nights,7.42,0.0,1000,0.0
-Orlando,wettest_day,5.38,0.031,1000,0.0023
-Orlando,heavy_rain_days,-0.43,0.541,1000,0.5496
-Orlando,yearly_sunshine,0.18,0.001,1000,0.0005
+Orlando,wettest_day,5.38,0.032,1000,0.0023
+Orlando,heavy_rain_days,-0.43,0.552,1000,0.5496
+Orlando,windy_days,-1.14,0.047,1000,0.0001
+Orlando,yearly_sunshine,0.18,0.003,1000,0.0005
 Orlando,cooling_need,108.06,0.0,1000,0.0001
-Mexico City,heatwave_events,0.45,0.013,1000,0.015
-Mexico City,heatwave_days,4.29,0.002,1000,0.0025
-Mexico City,longest_heatwave,2.0,0.002,1000,0.0007
-Mexico City,hottest_day,0.4,0.001,1000,0.0022
+Mexico City,heatwave_events,0.45,0.014,1000,0.015
+Mexico City,heatwave_days,4.29,0.003,1000,0.0025
+Mexico City,longest_heatwave,2.0,0.0,1000,0.0007
+Mexico City,hottest_day,0.4,0.003,1000,0.0022
 Mexico City,warm_nights,9.24,0.0,1000,0.0
-Mexico City,wettest_day,0.18,0.843,1000,0.6805
+Mexico City,wettest_day,0.18,0.814,1000,0.6805
 Mexico City,heavy_rain_days,0.0,0.865,1000,0.8675
-Mexico City,yearly_sunshine,0.14,0.073,1000,0.0654
-Mexico City,cooling_need,6.75,0.002,1000,0.0021
-Rio de Janeiro,heatwave_events,0.0,0.593,1000,0.5846
-Rio de Janeiro,heatwave_days,0.0,0.555,1000,0.5543
-Rio de Janeiro,longest_heatwave,0.0,0.245,1000,0.2379
-Rio de Janeiro,hottest_day,0.51,0.003,1000,0.0038
-Rio de Janeiro,warm_nights,4.73,0.006,1000,0.004
-Rio de Janeiro,wettest_day,3.58,0.119,1000,0.2233
-Rio de Janeiro,heavy_rain_days,0.67,0.469,1000,0.4655
-Rio de Janeiro,yearly_sunshine,0.02,0.81,1000,0.7961
-Rio de Janeiro,cooling_need,70.32,0.0,1000,0.0002
+Mexico City,windy_days,-1.76,0.015,1000,0.0146
+Mexico City,yearly_sunshine,0.14,0.05,1000,0.0654
+Mexico City,cooling_need,6.75,0.001,1000,0.0021
+Rio de Janeiro,heatwave_events,0.0,0.596,1000,0.5846
+Rio de Janeiro,heatwave_days,0.0,0.554,1000,0.5543
+Rio de Janeiro,longest_heatwave,0.0,0.256,1000,0.2379
+Rio de Janeiro,hottest_day,0.51,0.005,1000,0.0038
+Rio de Janeiro,warm_nights,4.73,0.005,1000,0.004
+Rio de Janeiro,wettest_day,3.58,0.103,1000,0.2233
+Rio de Janeiro,heavy_rain_days,0.67,0.465,1000,0.4655
+Rio de Janeiro,windy_days,-1.34,0.044,1000,0.0454
+Rio de Janeiro,yearly_sunshine,0.02,0.808,1000,0.7961
+Rio de Janeiro,cooling_need,70.32,0.001,1000,0.0002

@@ -20,3 +20,11 @@ tools/
 # vercel's local link and token files, only for the laptop that deploys
 .vercel
 .env*
+
+# naveen's raw nasa download, too big for github
+power_raw.zip
+
+
+# the chat test script's installed packages, npm install rebuilds them
+chat-eval/node_modules/
+*.log

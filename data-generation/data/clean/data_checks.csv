@@ -1,7 +1,7 @@
 check,passed,detail
 full date coverage,True,16436 to 16436 days per place
-"missing values only in sunshine/cloud, almost all before 1984 (apart from blanked faults)",True,"blank counts: {'ALLSKY_SFC_SW_DWN': 41614, 'CLOUD_AMT': 41610}; days with a gap from 1984 on: 4 {'Toronto': 4}"
-UK temperature between -20 and 45 C,True,"coldest -12.8, hottest 34.5"
+"missing values only in sunshine/cloud, almost all before 1984 (apart from blanked faults)",True,"blank counts: {'ALLSKY_SFC_SW_DWN': 82130, 'CLOUD_AMT': 82125}; days with a gap from 1984 on: 5 {'Toronto': 4, 'Carlisle': 1}"
+UK temperature between -20 and 45 C,True,"coldest -17.6, hottest 36.7"
 rainfall never negative,True,minimum 0.0
 humidity between 0 and 100,True,3.7 to 100.0
 soil wetness between 0 and 1,True,root 0.09 to 1.0
