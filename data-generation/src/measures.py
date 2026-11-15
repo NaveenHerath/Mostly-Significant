@@ -23,6 +23,11 @@ DEFINITIONS (the same wording is used in the app and on the project page)
   Heating need    : NASA's heating degree days (degrees below 18.3 C), added up over the year.
   Yearly sunshine : average daily sunlight energy at the ground over the whole year (from 1984).
   Cooling need    : NASA's cooling degree days (degrees above 18.3 C), added up over the year.
+  Muggy night     : a June-August day whose average dew point is 16 C or more.
+  Windy day       : strongest wind of the day above that place's 95th percentile of
+                    daily maximum winds in the baseline years.
+  Dry soil day    : a June-August day whose topsoil is drier than that place's 10th
+                    percentile of June-August topsoil wetness in the baseline years.
   Year            : January-December. South of the equator it is July-June, named after the
                     year it ends in, so that one summer is never split across two years.
 """
@@ -38,7 +43,7 @@ FIRST_YEAR, LAST_YEAR = 1981, 2025
 # world cities, so UK towns keep their own summer sunshine and heating need instead.
 WORLD_ONLY_MEASURES = ["yearly_sunshine", "cooling_need"]
 WORLD_MEASURES = ["heatwave_events", "heatwave_days", "longest_heatwave", "hottest_day", "warm_nights",
-                  "wettest_day", "heavy_rain_days"] + WORLD_ONLY_MEASURES
+                  "wettest_day", "heavy_rain_days", "windy_days"] + WORLD_ONLY_MEASURES
 # A year of sunshine needs at least this many days with a reading to count.
 MIN_SUN_DAYS = 330
 # A year of rain needs nearly every day. Rain is only ever blank where clean.py removed a
@@ -117,6 +122,18 @@ MEASURES = {
         name="Cooling need", unit="degree days", season="year", expected="up",
         definition="How much cooling a home needs over the year: for each day warmer than 18.3 °C, the number of degrees above it is added up. A bigger number means more need for fans or air conditioning.",
         caveat="This counts warm weather only. Real cooling use also depends on humidity, buildings and who has air conditioning."),
+    "muggy_nights": dict(
+        name="Muggy nights per year", unit="nights", season="summer", expected="up",
+        definition="Number of June-August days with a dew point of 16 °C or more, air so humid that nights feel sticky and sleep is hard.",
+        caveat="Humidity comes from NASA's MERRA-2 weather model, not from measurements, so its trend is less certain than temperature. Most UK summers have only a handful of these nights."),
+    "windy_days": dict(
+        name="Windy days per year", unit="days", season="year", expected="up",
+        definition="Number of days a year whose strongest wind is in the top 5% for that place in 1981-2010.",
+        caveat="Wind comes from NASA's MERRA-2 weather model averaged over a roughly 50 km square, so gusts read low and the bar is set per place. Model wind trends are less certain than temperature and can differ from local stations."),
+    "dry_soil_days": dict(
+        name="Dry soil days in summer", unit="days", season="summer", expected="up",
+        definition="Number of June-August days the topsoil is drier than all but the driest 10% of 1981-2010 summer days for that place.",
+        caveat="Soil wetness comes from NASA's MERRA-2 land model, worked out from rain and temperature rather than measured, so its trend is less certain than temperature."),
 }
 
 # UK towns get every measure except the whole-year ones made for the world cities.
@@ -177,6 +194,11 @@ def yearly_measures(place_daily):
     d["year"] = d["date"].dt.year
     d["doy"] = d["date"].dt.dayofyear
     d["hot"] = d["T2M_MAX"] >= limit["hot_day"]
+    # The wind and soil bars are set per place from the baseline years, like the heat ones,
+    # because 50 km model averages read low next to a local weather station.
+    in_baseline = d["date"].dt.year.between(*BASELINE)
+    windy_bar = d.loc[in_baseline, "WS10M_MAX"].quantile(0.95)
+    dry_soil_bar = d.loc[in_baseline & d["date"].dt.month.isin([6, 7, 8]), "GWETTOP"].quantile(0.10)
 
     # South of the equator July-December is counted towards the next year, so the year
     # "2020" there means July 2019 to June 2020 and holds one whole summer. The first such
@@ -240,5 +262,8 @@ def yearly_measures(place_daily):
             "yearly_sunshine": (y["ALLSKY_SFC_SW_DWN"].mean()
                                 if y["ALLSKY_SFC_SW_DWN"].notna().sum() >= MIN_SUN_DAYS else np.nan),
             "cooling_need": y["CDD18_3"].sum(),
+            "muggy_nights": int((june_to_august["T2MDEW"] >= 16).sum()),
+            "windy_days": int((y["WS10M_MAX"] > windy_bar).sum()),
+            "dry_soil_days": int((june_to_august["GWETTOP"] < dry_soil_bar).sum()),
         })
     return pd.DataFrame(rows)
