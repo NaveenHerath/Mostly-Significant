@@ -218,6 +218,7 @@ function buildQuiz(data) {
         reveal.innerHTML = `<strong>${QUIZ_SAY[item.answer]}</strong> ${item.why}`; // answer then why
         card.classList.add("revealed"); // lets the css fade the answer in
         done++; if (ok) right++; // keep count
+        if (typeof window.recordGuess === "function") window.recordGuess(ok); // tell the gut score bar, if it's on the page
         if (done === QUIZ.length) score.textContent = `You got ${right} of ${QUIZ.length}.`; // all done
       });
       choices.append(b); // into the row
