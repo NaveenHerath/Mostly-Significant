@@ -77,6 +77,13 @@
   <symbol id="thermometer" viewBox="0 0 24 24"> <!-- thermometer -->
     <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" />
   </symbol>
+  <symbol id="pause" viewBox="0 0 24 24"> <!-- pause, for the hero video button -->
+    <rect x="14" y="4" width="4" height="16" rx="1" /> <!-- right bar -->
+    <rect x="6" y="4" width="4" height="16" rx="1" /> <!-- left bar -->
+  </symbol>
+  <symbol id="play" viewBox="0 0 24 24"> <!-- play, for the hero video button -->
+    <path d="M6 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L7.5 3.64A1 1 0 0 0 6 4.5Z" /> <!-- the triangle -->
+  </symbol>
   <symbol id="x" viewBox="0 0 24 24"> <!-- x -->
     <path d="M18 6 6 18" />
     <path d="m6 6 12 12" />

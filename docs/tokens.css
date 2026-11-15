@@ -69,6 +69,19 @@
   --edge-light: inset 0 1px 0 oklch(100% 0 0 / 0.06); /* thin light catch on the top edge */
   --shadow-part: 0 1px 0 oklch(0% 0 0 / 0.4), 0 8px 16px -8px oklch(0% 0 0 / 0.6); /* small shadow under pills */
 
+  /* frosted glass, borrowed from hallmark's dusk theme, only for the hero panel and the result card */
+  --glass-fill: oklch(15% 0.025 258 / 0.52); /* smoky blue-black, about half see-through */
+  --glass-blur: blur(20px) saturate(150%); /* frosts what's behind and keeps its colour a bit richer */
+  --glass-border: oklch(100% 0 0 / 0.14); /* hairline edge, faint white */
+  --glass-edge: inset 0 1px 0 oklch(100% 0 0 / 0.10); /* brighter catch along the top edge, like light on a pane */
+  --glass-shadow: 0 24px 60px -24px oklch(0% 0 0 / 0.7); /* soft drop shadow so the pane floats */
+  --glass-solid: var(--color-paper-2); /* used instead when blur isn't available or transparency is turned down */
+
+  /* hero */
+  --hero-height: min(86svh, 760px); /* tall on laptops but never a whole wall */
+  --hero-poster: url("img/hero-earth-poster.webp"); /* still frame shown before the video starts, and instead of it */
+  --hero-poster-phone: url("img/hero-earth-phone-poster.webp"); /* taller crop for phones */
+
   /* fonts */
   --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; /* headings and big numbers */
   --font-body: "Figtree", ui-sans-serif, system-ui, sans-serif; /* everything else */
