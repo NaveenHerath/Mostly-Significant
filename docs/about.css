@@ -1,0 +1,49 @@
+/* the bottom block: odd one out, quiz, team and the rest. only uses tokens.css values */
+
+/* ---------- 1. odd one out ---------- */
+
+.odd-progress { margin-top: var(--space-lg); font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); } /* small round counter */
+.odd-hunch { margin-top: var(--space-xs); color: var(--color-muted); } /* "is it just me, or ..." small and quiet */
+.odd-q { margin-top: var(--space-2xs); font-family: var(--font-display); font-size: var(--text-2xl); letter-spacing: var(--tracking-display); line-height: 1.2; color: var(--color-ink); max-width: 34ch; } /* the real question, big */
+
+.odd-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); margin-top: var(--space-lg); } /* three across on laptops */
+@media (max-width: 40rem) { .odd-cards { grid-template-columns: 1fr; } } /* stacked on phones */
+
+.odd-card {
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2xs); /* name, numbers, label stacked */
+  min-height: 176px; padding: var(--space-md) var(--space-lg); /* tall enough for the answer, so nothing jumps on reveal */
+  text-align: left; font: inherit; color: var(--color-ink-2); /* plain text, not button styling */
+  background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); /* same feel as the pills, card shaped */
+  box-shadow: var(--edge-light), var(--shadow-part); /* tiny light edge and shadow */
+  cursor: pointer; -webkit-tap-highlight-color: transparent; /* hand cursor, no grey flash on phones */
+  transition: transform var(--dur-micro) var(--ease-out), border-color var(--dur-short) var(--ease-out), opacity var(--dur-short) var(--ease-out); /* only these */
+}
+.odd-card:active:not(:disabled) { transform: scale(0.98); } /* small press */
+.odd-card:disabled { cursor: default; } /* after picking, nothing more to click */
+@media (hover: hover) and (pointer: fine) { .odd-card:hover:not(:disabled) { border-color: var(--color-muted); color: var(--color-ink); } } /* mice only */
+
+.odd-place { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-ink); } /* town name */
+
+.odd-result { display: none; grid-template-columns: auto 1fr; align-items: center; column-gap: var(--space-sm); margin-top: auto; padding-top: var(--space-sm); } /* the answer, hidden till they pick */
+.odd-card.revealed .odd-result { display: grid; animation: odd-in var(--dur-short) var(--ease-out); } /* answer slides in */
+.odd-dir { grid-row: span 3; width: 2.25rem; height: 2.25rem; stroke-width: 2; color: var(--color-ink-2); } /* big up or down arrow on the left */
+.odd-word { font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; } /* verdict label over the numbers */
+.odd-word[data-verdict="real"] { color: var(--verdict-real); } /* each verdict in its own colour */
+.odd-word[data-verdict="leaning"] { color: var(--verdict-leaning); } /* amber */
+.odd-word[data-verdict="opposite"] { color: var(--verdict-opposite); } /* red */
+.odd-caveat { margin-top: var(--space-md); } /* the wind warning, under the cards */
+.odd-nums { display: flex; align-items: center; gap: var(--space-xs); font-family: var(--font-display); font-size: var(--text-2xl); font-variant-numeric: tabular-nums; color: var(--color-ink); } /* then -> now */
+.odd-nums .icon { width: 0.6em; height: 0.6em; color: var(--color-muted); } /* little arrow between then and now */
+.odd-noun { font-size: var(--text-sm); color: var(--color-muted); } /* what the numbers mean */
+@keyframes odd-in { from { opacity: 0; transform: translateY(4px); } } /* small rise, quick */
+
+.odd-card.revealed { opacity: 0.7; } /* after the reveal the two normal ones step back */
+.odd-card.is-right { opacity: 1; border-color: var(--verdict-real); box-shadow: var(--edge-light), 0 0 40px -16px var(--verdict-real); } /* the real odd one goes green */
+.odd-card.is-right .odd-dir { color: var(--verdict-real); } /* its arrow too */
+.odd-card.is-wrong { opacity: 1; border-color: var(--verdict-opposite); } /* a wrong pick goes red */
+
+.odd-foot { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-sm); margin-top: var(--space-lg); } /* next button, then the message under it */
+.odd-msg { min-height: 1.5em; color: var(--color-ink-2); } /* short feedback, keeps its line so the panel doesn't jump */
+.odd-next.is-waiting { visibility: hidden; } /* invisible before the pick but keeps its spot, so it never moves */
+
+@media (prefers-reduced-motion: reduce) { .odd-card { transition: none; } .odd-card.revealed .odd-result { animation: none; } .odd-card:active:not(:disabled) { transform: none; } } /* no movement if asked */
