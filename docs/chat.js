@@ -226,7 +226,7 @@ function openFullCase(c, guess) { // the same answer in the full view further do
   state.measure = c.measure;
   state.guess = guess;
   render();
-  $("result").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
+  goToSection("result"); // the full answer, on the check a hunch page
 }
 
 // ---------- the case card ----------
@@ -313,8 +313,12 @@ async function ask(text) { // one typed sentence, from start to guess buttons
   }
   if (r.failed) { turn.say("Gemini isn’t answering right now. Switch to On-device and ask again."); return; }
   const place = r.place || state.place; // no place in the sentence: the one already picked below
-  if (!r.measure) { // can't be tested: say why, then offer related things we can test
-    turn.say((r.topic && DECOYS[r.topic]?.reply) || CANT_TEST);
+  if (!r.measure) { // can't be tested: a general answer from gemini if it is reachable, else why not; then related things we can test
+    const general = r.source === "gemini" ? await callGemini({ mode: "answer", text, topic: r.topic || "other" }) : null; // never on-device only
+    if (general && general.text) {
+      turn.say(general.text);
+      turn.bot.append(el("p", "chat-general", "A general answer from Gemini. It doesn’t come from our NASA data."));
+    } else turn.say((r.topic && DECOYS[r.topic]?.reply) || CANT_TEST);
     const ids = [...(DECOYS[r.topic]?.try || []), ...TRY_INSTEAD] // the topic's own picks first, then the general ones
       .map((id) => forPlace(place, id)).filter(Boolean) // only what this place actually has
       .filter((id, i, all) => all.indexOf(id) === i).slice(0, 3); // no repeats, three at most

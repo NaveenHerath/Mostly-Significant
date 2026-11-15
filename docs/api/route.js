@@ -1,7 +1,8 @@
 // the gemini side of the chat box, run by vercel as a small server function at /api/route
-// it does two jobs, and calculates nothing in either:
-//   "route": reads the typed sentence and says which place and measure it is about, or why it can't be tested
-//   "word":  takes one finished result (already looked up by the page) and says it in two plain sentences
+// it does three jobs, and calculates nothing in any of them:
+//   "route":  reads the typed sentence and says which place and measure it is about, or why it can't be tested
+//   "word":   takes one finished result (already looked up by the page) and says it in two plain sentences
+//   "answer": gives a short general answer to a question the data can't test, which the page marks as such
 // gemini picks places and measures from fixed lists only. the key lives in vercel's settings (GEMINI_API_KEY), never in the page
 
 const MEASURES = ["heatwave_days", "heatwave_events", "longest_heatwave", "hottest_day", "warm_nights", "muggy_nights", "first_heatwave_doy", "summer_length", "autumn_onset_doy", "first_frost_doy", "wettest_day", "heavy_rain_days", "summer_dry_spell", "winter_rain", "windy_days", "dry_soil_days", "summer_sunshine", "heating_need", "yearly_sunshine", "cooling_need"];
@@ -123,13 +124,38 @@ async function word(key, body) { // one looked-up result in, two plain sentences
   return [200, { text }];
 }
 
+// what gemini is told when a question can't be tested with the data
+const ANSWER_PROMPT = `You are the assistant on "Is it just me?", a website that fact-checks everyday weather hunches against NASA POWER (MERRA-2) daily data from 1981 to 2025, for 75 places: 49 UK towns and 26 world cities. Each hunch, such as "summers are getting hotter" or "frosts come later", becomes one number a year and is tested for a trend. The verdicts are "Yes, it's real", "Signs of it, not proven", "Not backed by the data" and "It's actually the opposite". The site can test heat, warm and muggy nights, when the seasons start and end, frost, rain, dry spells, wind, dry soil, sunshine, and heating or cooling need. It cannot test snow, fog, storms, floods, the sea, air quality or forecasts, and it shows what changed, not why.
+
+The person asked something that the site's data cannot test. Answer it helpfully and honestly from general knowledge.
+
+Rules:
+- If it is about weather or climate, give a short, accurate general answer, then say plainly that this site's NASA data can't test it, and why in a few words.
+- Never present a figure as coming from this site's data, and never state a trend for a specific place. For a place's own trend, suggest asking a hunch such as "are summers getting hotter in Leeds?".
+- If it is not about weather, answer it briefly and kindly, then add one short sentence on what this site is for. Never say you can't help with something you have just answered.
+- If it asks about the site itself, explain it from the description above.
+- No medical, legal or financial advice beyond general safety pointers, and nothing harmful.
+- When you mention the site's own figures, use them exactly as given above, in digits (49 UK towns, 26 world cities, 1981 to 2025).
+- At most 80 words in one paragraph. Plain, friendly UK English. No markdown, no lists, no headings.`;
+
+async function answer(key, body) { // a question the data can't test in, a short general answer out
+  const text = String(body.text || "").slice(0, 200).trim(); // short questions only, which also caps the cost
+  if (!text) return [400, { error: "no text" }];
+  const topic = TOPICS.includes(body.topic) ? body.topic : "other";
+  const prompt = `Why the data can't test it: ${topic === "other" ? "not one of the site's measures" : topic}.\nThe person asked: "${text}"`;
+  const out = (await gemini(key, ANSWER_PROMPT, prompt, { temperature: 0.3 })).replace(/[*#_`]/g, "").trim(); // any markdown is stripped
+  if (!out || out.length > 900) return [502, { error: "bad answer" }];
+  return [200, { text: out }];
+}
+
 module.exports = async (req, res) => {
   if (req.method !== "POST") return res.status(405).json({ error: "POST only" });
   const key = process.env.GEMINI_API_KEY;
   if (!key) return res.status(503).json({ error: "no key set" }); // the page falls back to the on-device model
   const body = req.body || {};
   try {
-    const [code, out] = body.mode === "word" ? await word(key, body) : await route(key, body);
+    const job = body.mode === "word" ? word : body.mode === "answer" ? answer : route; // route is the default
+    const [code, out] = await job(key, body);
     return res.status(code).json(out);
   } catch (e) {
     return res.status(502).json({ error: "gemini failed" }); // timeout, bad json, quota, network
