@@ -31,6 +31,7 @@
 .chat-say { font-family: var(--font-display); font-size: var(--text-lg); letter-spacing: var(--tracking-display); color: var(--color-ink); max-width: 46ch; } /* the reply, in the same voice as the big claim line */
 .chat-guess, .chat-alts { margin-top: var(--space-sm); align-items: center; }
 .chat-or { font-size: var(--text-sm); color: var(--color-muted); } /* the words before the "did you mean" buttons */
+.chat-try .pill { min-height: 36px; padding: var(--space-xs) var(--space-sm); font-size: var(--text-sm); text-align: left; text-wrap: balance; } /* full questions, balanced so no word sits alone on line two,, so a bit of top and bottom room in case they wrap */
 
 /* ---------- the case card ---------- */
 

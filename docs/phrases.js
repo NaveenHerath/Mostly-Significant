@@ -23,18 +23,23 @@ const MATCH_PHRASES = {
 };
 
 // topics the data cannot test: a question that lands here gets an honest "can't test that" with the reason
+// "try" lists the related measures offered as tappable suggestions afterwards (fixed here, so it works the same for gemini and on-device)
 const DECOYS = {
-  snow: { reply: "We don’t have a measure for snow, so that one can’t be tested here.", phrases: ["it snows less than it used to", "we don't get snow anymore", "no more white christmases"] },
-  wind: { reply: "We don’t have a measure for wind, so that one can’t be tested here.", phrases: ["it is windier", "more gales", "the wind is stronger"] },
-  storms: { reply: "We don’t have a measure for storms, so that one can’t be tested here.", phrases: ["storms are getting worse", "more thunderstorms", "more hurricanes"] },
-  fog: { reply: "We don’t have a measure for fog, so that one can’t be tested here.", phrases: ["there is less fog", "it is foggier"] },
-  humidity: { reply: "We don’t have a measure for humidity, so that one can’t be tested here.", phrases: ["it is more humid", "the air feels stickier"] },
-  floods: { reply: "We don’t have a measure for floods. The closest we can test is heavy rain.", phrases: ["floods are more common", "rivers flood more often"] },
+  snow: { try: ["first_frost_doy", "heating_need"], reply: "We don’t have a measure for snow, so that one can’t be tested here.", phrases: ["it snows less than it used to", "we don't get snow anymore", "no more white christmases"] },
+  wind: { try: ["heavy_rain_days", "wettest_day"], reply: "We don’t have a measure for wind, so that one can’t be tested here.", phrases: ["it is windier", "more gales", "the wind is stronger"] },
+  storms: { try: ["wettest_day", "heavy_rain_days"], reply: "We don’t have a measure for storms, so that one can’t be tested here.", phrases: ["storms are getting worse", "more thunderstorms", "more hurricanes"] },
+  fog: { try: ["first_frost_doy", "autumn_onset_doy"], reply: "We don’t have a measure for fog, so that one can’t be tested here.", phrases: ["there is less fog", "it is foggier"] },
+  // humidity: swap warm_nights for muggy_nights once that measure lands
+  humidity: { try: ["warm_nights", "summer_dry_spell"], reply: "We don’t have a measure for humidity, so that one can’t be tested here.", phrases: ["it is more humid", "the air feels stickier"] },
+  floods: { try: ["heavy_rain_days", "wettest_day", "winter_rain"], reply: "We don’t have a measure for floods. The closest we can test is heavy rain.", phrases: ["floods are more common", "rivers flood more often"] },
   sea: { reply: "The data covers weather over land, so the sea can’t be tested here.", phrases: ["the sea level is rising", "the sea is warmer"] },
   air: { reply: "We don’t have a measure for air quality, so that one can’t be tested here.", phrases: ["air pollution is worse", "the air quality is getting worse"] },
   forecast: { reply: "This checks how the weather has changed since 1981. It isn’t a forecast.", phrases: ["will it rain tomorrow", "what is the weather this weekend", "what will the weather be like next week"] },
   cause: { reply: "The data shows what has changed, not why. Try a hunch about heat, seasons, rain or sunshine.", phrases: ["is climate change real", "is global warming caused by humans"] },
 };
+
+// what to offer instead when a topic has no "try" list of its own, or its picks are missing for that place
+const TRY_INSTEAD = ["heatwave_days", "summer_length", "heavy_rain_days"];
 
 // the generic reply when nothing is close enough
 const CANT_TEST = "I can’t test that one. Try a hunch about heat, seasons, rain or sunshine.";

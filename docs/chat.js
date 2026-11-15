@@ -78,6 +78,15 @@ let matcherLoaded = false; // so the "loading" line only shows the first time
 
 // ---------- wording the answer ----------
 
+const asQuestion = (id, place) => `Is it just me? or... ${HUNCHES[id].question}${place ? ` in ${place}` : ""}?`; // the one way the chat words a hunch, e.g. "Is it just me? or... are downpours heavier?"
+
+const CLAIM_LINE = { // sentence one on the chat card. talks about the claim, not "your hunch", so it never clashes with "your gut was off"
+  real: "The data backs it up.",
+  leaning: "It points that way, but we can’t rule out luck yet.",
+  not_backed: "The data doesn’t back it up.",
+  opposite: "Surprise: the data shows the reverse.",
+};
+
 const REVERSED_LINE = { // sentence one when the person claimed the opposite of the hunch that was tested
   real: "The data points the other way from what you said.",
   leaning: "If anything, the data leans the other way from what you said.",
@@ -97,7 +106,7 @@ function facts(c) { // one result, formatted exactly as the card shows it
 }
 
 function templateWords(f) { // the fixed sentence used on-device, and whenever gemini's wording is refused
-  const first = f.reversed ? REVERSED_LINE[f.verdict] : VERDICTS[f.verdict].line;
+  const first = f.reversed ? REVERSED_LINE[f.verdict] : CLAIM_LINE[f.verdict];
   return `${first} In ${f.place} it went from ${f.then} in the 1980s to ${f.now} recently (${f.noun}).`;
 }
 
@@ -223,22 +232,22 @@ function openFullCase(c, guess) { // the same answer in the full view further do
 // ---------- the case card ----------
 
 function startCase(turn, c) { // says what is being tested and asks for a guess. the answer stays hidden until then
-  const hunch = HUNCHES[c.measure].text;
+  const hunch = asQuestion(c.measure); // e.g. "Is it just me? or... do summers last longer?"
   turn.say(c.reversed ? `You’ve put it the other way round, so I’m testing “${hunch}” in ${c.place}. What’s your guess?`
-    : `I’m testing that as “${hunch}” in ${c.place}. What’s your guess?`);
+    : `I’m testing “${hunch}” in ${c.place}. What’s your guess?`);
   const wording = words(c); // gemini writes its two sentences while the person decides
   const row = el("div", "pills chat-guess");
   row.append(...GUESSES.map((g) => pill(g.label, false, async () => {
     row.querySelectorAll("button").forEach((b) => { b.disabled = true; });
     row.replaceWith(await card(c, g.id, await wording));
-    turn.say(`${c.reversed ? "You put it the other way round, so I" : "I"} tested that as “${hunch}” in ${c.place}.`); // the question has been answered, so it's dropped from the line
+    turn.say(`${c.reversed ? "You put it the other way round, so I" : "I"} tested “${hunch}” in ${c.place}.`); // the question has been answered, so it's dropped from the line
     turn.bot.querySelector(".chat-alts")?.remove(); // the "did you mean" row has done its job
   })));
   turn.bot.append(row);
   const alts = (c.alternatives || []).filter((id) => id !== c.measure && DATA.rows[c.place][id]); // near misses from the on-device model
   if (alts.length) {
     const more = el("div", "pills chat-alts");
-    more.append(el("span", "chat-or", "Or did you mean:"), ...alts.map((id) => pill(HUNCHES[id].text, false, () => {
+    more.append(el("span", "chat-or", "Or did you mean:"), ...alts.map((id) => pill(asQuestion(id), false, () => {
       turn.bot.replaceChildren();
       startCase(turn, { ...c, measure: id, alternatives: [] });
     })));
@@ -261,9 +270,9 @@ async function card(c, guess, worded) { // the whole answer, small: verdict, wor
   const next = el("div", "pills chat-next");
   next.append(pill("See the full case", false, () => openFullCase(c, guess)));
   const other = differentPlace(c, r.verdict);
-  if (other) next.append(pill(`It’s a different story in ${other}`, false, () => followUp(`Same hunch in ${other}?`, { place: other, measure: c.measure })));
-  const big = biggestChange(c);
-  if (big) next.append(pill(`Biggest change in ${c.place}`, false, () => followUp(`What’s changed most in ${c.place}?`, { place: c.place, measure: big })));
+  if (other) next.append(pill(`Is it just me? or... is it different in ${other}?`, false, () => followUp(asQuestion(c.measure, other), { place: other, measure: c.measure })));
+  const big = biggestChange(c); // the clearest other change here, offered as its own question
+  if (big) next.append(pill(asQuestion(big), false, () => followUp(asQuestion(big, c.place), { place: c.place, measure: big })));
 
   box.append(
     head,
@@ -281,10 +290,13 @@ async function card(c, guess, worded) { // the whole answer, small: verdict, wor
 
 function followUp(label, pick) { // a tapped follow-up becomes the next question in the thread
   const turn = addTurn(label);
-  startCase(turn, { ...pick, text: `Is it just me, or ${HUNCHES[pick.measure].question} in ${pick.place}?`, source: "pick", reversed: false });
+  startCase(turn, { ...pick, text: asQuestion(pick.measure, pick.place), source: "pick", reversed: false });
 }
 
 // ---------- asking ----------
+
+const SWAP = { summer_sunshine: "yearly_sunshine", yearly_sunshine: "summer_sunshine" }; // the same hunch, measured over summer in the uk and the whole year elsewhere
+const forPlace = (place, id) => (DATA.rows[place][id] ? id : DATA.rows[place][SWAP[id]] ? SWAP[id] : null); // the measure this place has for that hunch, or null
 
 async function ask(text) { // one typed sentence, from start to guess buttons
   const turn = addTurn(text);
@@ -298,17 +310,21 @@ async function ask(text) { // one typed sentence, from start to guess buttons
   }
   if (r.failed) { turn.say("Gemini isn’t answering right now. Switch to On-device and ask again."); return; }
   const place = r.place || state.place; // no place in the sentence: the one already picked below
-  if (!r.measure) { // can't be tested: say why
+  if (!r.measure) { // can't be tested: say why, then offer related things we can test
     turn.say((r.topic && DECOYS[r.topic]?.reply) || CANT_TEST);
+    const ids = [...(DECOYS[r.topic]?.try || []), ...TRY_INSTEAD] // the topic's own picks first, then the general ones
+      .map((id) => forPlace(place, id)).filter(Boolean) // only what this place actually has
+      .filter((id, i, all) => all.indexOf(id) === i).slice(0, 3); // no repeats, three at most
+    const row = el("div", "pills chat-alts chat-try");
+    row.append(el("span", "chat-or", "Try instead:"), ...ids.map((id) => pill(asQuestion(id), false, () => followUp(asQuestion(id, place), { place, measure: id })))); // asked in the site's own voice
+    turn.bot.append(row);
     return;
   }
-  let m = r.measure;
-  const SWAP = { summer_sunshine: "yearly_sunshine", yearly_sunshine: "summer_sunshine" }; // the same hunch, measured over summer in the uk and the whole year elsewhere
-  if (!DATA.rows[place][m] && DATA.rows[place][SWAP[m]]) m = SWAP[m];
+  const m = forPlace(place, r.measure) || r.measure; // falls through to the "only measured for the uk" message below
   if (!DATA.rows[place][m]) { // e.g. frost in cairo
-    turn.say(`“${HUNCHES[m].text}” is only measured for the UK towns. Here is what can be tested in ${place}:`);
+    turn.say(`“${asQuestion(m)}” can only be tested for the UK towns. Here is what can be tested in ${place}:`);
     const row = el("div", "pills");
-    row.append(...Object.keys(HUNCHES).filter((id) => DATA.rows[place][id]).map((id) => pill(HUNCHES[id].text, false, () => {
+    row.append(...Object.keys(HUNCHES).filter((id) => DATA.rows[place][id]).map((id) => pill(asQuestion(id), false, () => {
       turn.bot.replaceChildren();
       startCase(turn, { place, measure: id, text, source: "pick", reversed: false });
     })));

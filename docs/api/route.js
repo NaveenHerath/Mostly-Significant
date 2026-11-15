@@ -51,6 +51,7 @@ Rules:
 - Sentence one answers the person's own question directly, using the verdict. If they claimed the reverse of the tested hunch, say plainly which way the data actually points.
 - Sentence two gives the size of the change: the 1980s average against the recent one.
 - Two sentences, 45 words at most. Plain, friendly UK English. No jargon, no lists, no markdown.
+- Talk about the claim itself ("the data backs it up"), never "your hunch": the card already tells the person whether their guess was right.
 - Say "the data shows" or "the data suggests". Never say "proves", and never say why it changed.
 - Speak only about the weather measure that was tested. Do not draw conclusions about things it does not measure, such as bills, health, gardens or travel.`;
 
