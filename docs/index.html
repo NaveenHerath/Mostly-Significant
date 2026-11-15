@@ -185,7 +185,7 @@
     <!-- 9b. watch it change: every place on a map with a year slider, filled by timeline.js -->
     <section class="step needs-js" id="timeline" data-nav="timeline" aria-labelledby="timeline-h">
       <h2 id="timeline-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#history" /></svg>Watch it change</h2> <!-- heading -->
-      <p class="note">Drag the year or press play. Each dot is a place, coloured by how that year compares with its own normal, the 1981 to 2010 average. Tap a dot to follow that place.</p> <!-- how to use it -->
+      <p class="note">Drag the year or press play. Each dot is a place, coloured by how that year compares with its own normal, the 1981 to 2010 average. Tap a dot to follow that place, or pick a second place to compare the two.</p> <!-- how to use it -->
       <p class="note" id="tl-status">Loading the map.</p> <!-- shown until the data is in, or if it fails -->
       <div id="tl-body" hidden> <!-- everything below appears once the data has loaded -->
         <div class="tl-controls"> <!-- the three switches -->
@@ -214,10 +214,20 @@
           </div>
           <div> <!-- the followed place -->
             <label class="visually-hidden" for="tl-place">Place</label> <!-- names the menu for screen readers -->
-            <select class="tl-place" id="tl-place"></select> <!-- every place, for keyboards and small screens -->
-            <p class="figure-label" id="tl-when"></p> <!-- e.g. "London in 2022" -->
-            <p class="tl-figure figure" id="tl-figure"></p> <!-- the figure for that year -->
-            <p class="tl-gap"><span class="tl-swatch" id="tl-swatch" aria-hidden="true"></span><span id="tl-gap-text"></span></p> <!-- how far from normal, with the pin's colour -->
+            <div class="tl-picks"> <!-- the followed place, and an optional second one to set beside it -->
+              <select class="tl-place" id="tl-place"></select> <!-- every place, for keyboards and small screens -->
+              <label class="visually-hidden" for="tl-other">Compare with</label> <!-- names the second menu for screen readers -->
+              <select class="tl-place" id="tl-other"></select> <!-- a second place to compare, or none -->
+            </div>
+            <div id="tl-single"> <!-- one place: its figure for the year -->
+              <p class="figure-label" id="tl-when"></p> <!-- e.g. "London in 2022" -->
+              <p class="tl-figure figure" id="tl-figure"></p> <!-- the figure for that year -->
+              <p class="tl-gap"><span class="tl-swatch" id="tl-swatch" aria-hidden="true"></span><span id="tl-gap-text"></span></p> <!-- how far from normal, with the pin's colour -->
+            </div>
+            <div id="tl-pair" hidden> <!-- two places side by side, filled by timeline.js -->
+              <p class="figure-label" id="tl-pair-when"></p> <!-- e.g. "In 2022" -->
+              <div class="tl-pair" id="tl-pair-cards"></div> <!-- one card per place -->
+            </div>
             <div class="chart-box tl-chart" id="tl-chart"></div> <!-- the place's whole record -->
             <p class="note" id="tl-chart-note">Dots are single years, the bold line is the 10-year average and the dashed line is normal. Click the chart to jump to a year.</p> <!-- chart key -->
             <p class="tl-trend" id="tl-trend"></p> <!-- the tested trend in a sentence -->

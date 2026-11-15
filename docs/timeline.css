@@ -58,6 +58,20 @@
   background: var(--color-paper-2); color: var(--color-ink); box-shadow: var(--edge-light), var(--shadow-part); /* same look as a pill */
   font-size: var(--text-md); cursor: pointer;
 }
+.tl-picks { display: flex; flex-wrap: wrap; gap: var(--space-xs); } /* the place menu and the compare menu */
+#timeline { --tl-a: var(--color-ink); --tl-b: #9085e9; } /* the two line colours when comparing: white and violet */
+#tl-pair-when { margin-top: var(--space-lg); } /* "In 2022" */
+.tl-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); margin-top: var(--space-xs); } /* the two cards */
+.tl-card { padding-top: var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule); } /* hairline above each, like the facts */
+.tl-card-name { display: flex; align-items: center; gap: var(--space-xs); color: var(--color-ink-2); } /* line key, then the place */
+.tl-line-key { flex-shrink: 0; width: 18px; height: 3px; border-radius: 2px; background: var(--tl-a); } /* a short piece of the place's line */
+.tl-line-key[data-key="b"] { background: var(--tl-b); }
+.tl-card-figure { margin-top: var(--space-2xs); font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1.1; letter-spacing: var(--tracking-display); color: var(--color-ink); }
+.tl-card-gap { margin-top: var(--space-2xs); font-size: var(--text-sm); color: var(--color-ink-2); }
+.tl-chart .tl-line-a { stroke: var(--tl-a); } .tl-chart .tl-line-b { stroke: var(--tl-b); } /* each place keeps its colour */
+.tl-chart .tl-thin-a { stroke: var(--tl-a); stroke-opacity: 0.3; } .tl-chart .tl-thin-b { stroke: var(--tl-b); stroke-opacity: 0.3; } /* single years sit behind the 10-year lines */
+.tl-chart .tl-dot-a, .tl-chart .tl-dot-b { stroke: var(--color-paper); stroke-width: 2; } .tl-chart .tl-dot-a { fill: var(--tl-a); } .tl-chart .tl-dot-b { fill: var(--tl-b); } /* the slider year on each line */
+.tl-chart .tl-end-label { fill: var(--color-ink-2); font-size: 12px; } /* place name at the end of its line */
 #tl-when { margin-top: var(--space-lg); } /* "London in 2022" */
 .tl-figure { margin-top: var(--space-2xs); font-family: var(--font-display); font-size: var(--text-3xl); line-height: 1.1; letter-spacing: var(--tracking-display); color: var(--color-ink); }
 .tl-gap { display: flex; align-items: baseline; gap: var(--space-xs); margin-top: var(--space-xs); color: var(--color-ink-2); } /* swatch, then the gap from normal in words */

@@ -1,5 +1,5 @@
-// The "Watch it change" section: every place on a map with a year slider, and one place's
-// chart beside it. Nothing here does statistics: every number is looked up in
+// The "Watch it change" section: every place on a map with a year slider, and beside it the
+// chart of one place, or of two places set side by side. Nothing here does statistics: every number is looked up in
 // data/timeline.json, which data/make_timeline.py builds from the analysis files.
 // It reuses the small helpers in app.js ($, pill, fill, fmtNum, state, DATA, setPlace,
 // reduceMotion), so it is loaded after app.js. Everything else stays inside this function.
@@ -21,7 +21,7 @@
   const STEP_MS = 550; // how long each year stays up while playing
 
   let T = null; // the whole timeline.json once it has loaded
-  const tl = { variable: "avg_temp", mode: "year", year: 2025, place: "London", view: "UK", playing: false };
+  const tl = { variable: "avg_temp", mode: "year", year: 2025, place: "London", other: "", view: "UK", playing: false }; // other: the place compared with, "" for none
   let map = null; // the leaflet map, made once
   const pins = {}; // place name -> its pin
   const pinned = {}; // place name -> whether its label is currently always shown
@@ -82,6 +82,7 @@
     section.dataset.tlKind = words().kind; // the css swaps the colour pair on this
     $("tl-definition").textContent = info().definition;
     $("tl-place").value = tl.place;
+    $("tl-other").value = tl.other;
 
     // The two ends of the colour scale, in words.
     const end = `${words().scale}${info().compare === "percent" ? "%" : " °C"}`;
@@ -98,6 +99,8 @@
       return group;
     });
     fill($("tl-place"), groups);
+    // The second menu holds the same places under a first entry that means "no comparison".
+    fill($("tl-other"), [new Option("Compare with…", ""), ...groups.map((g) => g.cloneNode(true))]);
   }
 
   // ---------- the map ----------
@@ -130,7 +133,7 @@
     for (const [place, pin] of Object.entries(pins)) {
       const now = at(rowFor(place), tl.year);
       const has = now.value !== null;
-      const current = place === tl.place;
+      const current = place === tl.place || place === tl.other; // the followed place, and the one compared with it
       const inView = T.places[place].region === tl.view;
       const el = pin.getElement();
       el.style.fill = has ? colour(now.vs) : ""; // hollow (from the css) when there is no figure
@@ -187,6 +190,12 @@
   // ---------- the panel for one place ----------
 
   function renderPanel() {
+    const comparing = tl.other !== "";
+    $("tl-single").hidden = comparing;
+    $("tl-pair").hidden = !comparing;
+    $("tl-hunch-place").textContent = tl.place;
+    if (comparing) return renderPair();
+    $("tl-chart-note").textContent = "Dots are single years, the bold line is the 10-year average and the dashed line is normal. Click the chart to jump to a year.";
     const r = rowFor(tl.place);
     const now = at(r, tl.year);
     const has = now.value !== null;
@@ -216,7 +225,6 @@
     if (r && r.change === "no_clear_change") trend = `Across ${r.n_years} years there is no clear trend here. The ups and downs could be chance.`;
     else if (r) trend = `Across ${r.n_years} years ${words().subject} ${r.change === "rising" ? "risen" : "fallen"} by ${fmtNum(Math.abs(r.rate), words().rateDigits)} ${info().unit} per decade here, and that is very unlikely to be chance.`;
     $("tl-trend").textContent = trend;
-    $("tl-hunch-place").textContent = tl.place;
     renderChart(r, now);
   }
 
@@ -261,6 +269,89 @@
     box.replaceChildren(chart);
   }
 
+  // ---------- two places side by side ----------
+
+  // Two places are compared by their gap from their own normal, never by the raw figure:
+  // Dubai is always hotter than Aberdeen, so the fair question is which has changed more.
+  const signed = (vs) => { // "+1.2 °C", "−8%"
+    const percent = info().compare === "percent";
+    const n = fmtNum(Math.abs(vs), percent ? 0 : 1);
+    return `${Number(n) === 0 ? "" : vs > 0 ? "+" : "−"}${n}${percent ? "%" : " °C"}`;
+  };
+  const rateText = (r) => `${fmtNum(Math.abs(r.rate), words().rateDigits)} ${info().unit} per decade`;
+
+  // The tested trends of the two places in one or two sentences, straight from their "change" columns.
+  function pairTrend(a, b) {
+    const [A, B] = [tl.place, tl.other];
+    if (!a || !b) return "";
+    const moved = (r) => (r.change === "rising" ? "rising" : "falling");
+    if (a.change === "no_clear_change" && b.change === "no_clear_change") return `Neither ${A} nor ${B} shows a clear trend. The ups and downs could be chance.`;
+    if (a.change === "no_clear_change") return `${B} is ${moved(b)} by ${rateText(b)}, and that is very unlikely to be chance. ${A} shows no clear trend.`;
+    if (b.change === "no_clear_change") return `${A} is ${moved(a)} by ${rateText(a)}, and that is very unlikely to be chance. ${B} shows no clear trend.`;
+    if (a.change !== b.change) return `Same test, opposite answers: ${A} is ${moved(a)} by ${rateText(a)} and ${B} is ${moved(b)} by ${rateText(b)}. Neither is likely to be chance.`;
+    return `Both are ${moved(a)}, and neither is likely to be chance: ${A} by ${rateText(a)}, ${B} by ${rateText(b)}.`;
+  }
+
+  // One small card per place: its line colour, its figure for the year and its gap from normal.
+  function pairCard(place, r, now, key) {
+    const card = document.createElement("div");
+    card.className = "tl-card";
+    card.innerHTML = `<p class="tl-card-name"><span class="tl-line-key" data-key="${key}" aria-hidden="true"></span><span></span></p><p class="tl-card-figure figure"></p><p class="tl-card-gap"></p>`;
+    card.querySelector(".tl-card-name span:last-child").textContent = place;
+    card.querySelector(".tl-card-figure").textContent = now.value !== null ? fmt(now.value) : "No figure";
+    card.querySelector(".tl-card-gap").textContent = now.value !== null ? gapText(now.vs) : !r ? "not in this data" : "no figure for this year";
+    return card;
+  }
+
+  function renderPair() {
+    const a = rowFor(tl.place), b = rowFor(tl.other);
+    const nowA = at(a, tl.year), nowB = at(b, tl.year);
+    $("tl-pair-when").textContent = tl.mode === "year" ? `In ${tl.year}` : `${period(tl.year)} average`;
+    fill($("tl-pair-cards"), [pairCard(tl.place, a, nowA, "a"), pairCard(tl.other, b, nowB, "b")]);
+    $("tl-trend").textContent = pairTrend(a, b);
+    $("tl-chart-note").textContent = "Each bold line is a place’s 10-year average, shown as its gap from its own normal (the dashed line). Thin lines are single years. Click the chart to jump to a year.";
+
+    // One chart, one axis: both places as their gap from normal, so they share a scale.
+    const box = $("tl-chart");
+    $("tl-chart-note").hidden = box.hidden = false;
+    const first = T.first_year, last = T.last_year;
+    const series = [[tl.place, a, "a", nowA], [tl.other, b, "b", nowB]].filter(([, r]) => r);
+    const points = (r) => r.vs.map((v, i) => ({ year: first + i, vs: v ?? NaN, vs10: r.vs10[i] ?? NaN })); // NaN leaves a gap
+    const width = box.clientWidth || 420;
+    const small = width < 420;
+    const ends = series.map(([place, r]) => { // where each bold line stops, for its name label
+      const i = r.vs10.findLastIndex((v) => v !== null);
+      return { place, year: first + i, vs10: r.vs10[i] };
+    }).filter((d) => d.vs10 !== undefined);
+
+    const chart = Plot.plot({
+      width,
+      height: small ? 230 : 280,
+      marginLeft: 48, marginRight: small ? 12 : 76, marginTop: 22, marginBottom: 28,
+      style: { background: "transparent", fontFamily: "var(--font-body)", fontSize: "12px", color: "var(--color-muted)", overflow: "visible" },
+      ariaLabel: `${info().name} in ${tl.place} and ${tl.other}, gap from normal, ${first} to ${last}`,
+      x: { label: null, tickFormat: "d", ticks: small ? 4 : 6, domain: [first - 0.5, last + 0.5] },
+      y: { label: null, grid: true, ticks: 5, tickFormat: signed },
+      marks: [
+        tl.mode === "decade" ? Plot.rect([0], { x1: tl.year - T.window + 0.5, x2: tl.year + 0.5, className: "tl-window" }) : null,
+        Plot.ruleY([0], { className: "avg", strokeDasharray: "4 4", strokeWidth: 1 }),
+        ...series.map(([, r, key]) => Plot.lineY(points(r), { x: "year", y: "vs", className: `tl-thin-${key}`, strokeWidth: 1 })),
+        ...series.map(([, r, key]) => Plot.lineY(points(r), { x: "year", y: "vs10", className: `tl-line-${key}`, strokeWidth: 2.5 })),
+        Plot.ruleX([tl.year], { className: "tl-now-rule" }),
+        ...series.filter(([, , , now]) => now.value !== null).map(([, , key, now]) => Plot.dot([{ year: tl.year, vs: now.vs }], { x: "year", y: "vs", r: 5.5, className: `tl-dot-${key}` })),
+        small ? null : Plot.text(ends, { x: "year", y: "vs10", text: "place", dx: 8, textAnchor: "start", className: "tl-end-label" }),
+        Plot.tip(series.flatMap(([place, r]) => points(r).filter((d) => !isNaN(d.vs)).map((d) => ({ ...d, place }))),
+          Plot.pointer({ x: "year", y: "vs", title: (d) => `${d.place}, ${d.year}: ${signed(d.vs)} from normal` })),
+      ],
+    });
+    chart.addEventListener("click", (e) => {
+      const year = Math.round(chart.scale("x").invert(e.clientX - chart.getBoundingClientRect().left));
+      stop();
+      setYear(Math.max(firstYear(), Math.min(last, year)));
+    });
+    box.replaceChildren(chart);
+  }
+
   // ---------- changing the picks ----------
 
   function renderYear() { // everything that follows the slider
@@ -284,6 +375,7 @@
   function setView(view) { tl.view = view; renderAll(); fitView(); }
 
   function pickPlace(place) { // following a place also brings its region into view
+    if (place === tl.other) tl.other = ""; // a place is not compared with itself
     tl.place = place;
     const region = T.places[place].region;
     if (region !== tl.view) { tl.view = region; fitView(); }
@@ -293,6 +385,12 @@
   $("tl-year").addEventListener("input", (e) => { stop(); setYear(Number(e.target.value)); });
   $("tl-play").addEventListener("click", () => play(!tl.playing));
   $("tl-place").addEventListener("change", (e) => pickPlace(e.target.value));
+  $("tl-other").addEventListener("change", (e) => {
+    tl.other = e.target.value === tl.place ? "" : e.target.value;
+    // Two places in different regions need the world view to be seen together.
+    if (tl.other && T.places[tl.other].region !== T.places[tl.place].region && tl.view !== "World") { tl.view = "World"; fitView(); }
+    renderAll();
+  });
 
   // "Test a hunch here" hands the place to the hunch pickers at the top of the page.
   $("tl-hunch").addEventListener("click", () => {
