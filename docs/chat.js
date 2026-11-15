@@ -268,12 +268,14 @@ async function card(c, guess, worded) { // the whole answer, small: verdict, wor
   const nums = el("p", "chat-nums");
   nums.append(el("span", "chat-then", f.then), el("span", "chat-arrow", "→"), el("span", "chat-now", f.now), el("span", "chat-noun", `${f.noun}, 1980s to now`));
 
-  const next = el("div", "pills chat-next");
-  next.append(pill("See the full case", false, () => openFullCase(c, guess)));
+  const next = el("div", "chat-next"); // what to do after the answer
+  next.append(pill("See the full case", false, () => openFullCase(c, guess))); // the main next step, on its own line
+  const tries = el("div", "pills chat-tries"); // other questions worth asking
   const other = differentPlace(c, r.verdict);
-  if (other) next.append(pill(`Is it just me? or... is it different in ${other}?`, false, () => followUp(asQuestion(c.measure, other), { place: other, measure: c.measure })));
+  if (other) tries.append(pill(`Is it just me? or... is it different in ${other}?`, false, () => followUp(asQuestion(c.measure, other), { place: other, measure: c.measure })));
   const big = biggestChange(c); // the clearest other change here, offered as its own question
-  if (big) next.append(pill(asQuestion(big), false, () => followUp(asQuestion(big, c.place), { place: c.place, measure: big })));
+  if (big) tries.append(pill(asQuestion(big), false, () => followUp(asQuestion(big, c.place), { place: c.place, measure: big })));
+  if (tries.children.length) next.append(el("p", "chat-tries-label", "Why not try these as well?"), tries); // label then the questions, only when there are some
 
   box.append(
     head,
