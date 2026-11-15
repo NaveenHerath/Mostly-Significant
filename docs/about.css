@@ -46,4 +46,25 @@
 .odd-msg { min-height: 1.5em; color: var(--color-ink-2); } /* short feedback, keeps its line so the panel doesn't jump */
 .odd-next.is-waiting { visibility: hidden; } /* invisible before the pick but keeps its spot, so it never moves */
 
-@media (prefers-reduced-motion: reduce) { .odd-card { transition: none; } .odd-card.revealed .odd-result { animation: none; } .odd-card:active:not(:disabled) { transform: none; } } /* no movement if asked */
+/* ---------- 2. real, error or quirk? ---------- */
+
+.quiz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); margin-top: var(--space-lg); } /* three across on laptops */
+@media (max-width: 60rem) { .quiz-grid { grid-template-columns: repeat(2, 1fr); } } /* two on tablets */
+@media (max-width: 40rem) { .quiz-grid { grid-template-columns: 1fr; } } /* one on phones */
+
+.quiz-card { display: flex; flex-direction: column; padding: var(--space-md) var(--space-lg) var(--space-lg); background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); box-shadow: var(--edge-light), var(--shadow-part); } /* same card as the odd one out */
+.quiz-where { font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); } /* place and date, small */
+.quiz-figure { margin-top: var(--space-xs); font-family: var(--font-display); font-size: var(--text-3xl); letter-spacing: var(--tracking-display); font-variant-numeric: tabular-nums; color: var(--color-ink); } /* the number is the hero */
+.quiz-claim { margin-top: var(--space-2xs); font-size: var(--text-sm); color: var(--color-ink-2); } /* what the number is */
+.quiz-choices { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-top: auto; padding-top: var(--space-md); } /* three pills, pushed to the bottom so cards line up */
+.quiz-choice { min-height: 40px; padding: 0 var(--space-sm); font-size: var(--text-sm); } /* slightly smaller pills inside a card */
+.quiz-choice:disabled { opacity: 0.4; } /* the ones they didn't pick fade */
+.quiz-choice.is-right { opacity: 1; border-color: var(--verdict-real); color: var(--color-ink); } /* right pick goes green */
+.quiz-choice.is-wrong { opacity: 1; border-color: var(--verdict-opposite); color: var(--color-ink); } /* wrong pick goes red */
+.quiz-choice.is-answer { opacity: 1; border-color: var(--verdict-real); border-style: dashed; } /* the right answer, dashed so it reads as "this one" not "you picked" */
+.quiz-reveal { font-size: var(--text-sm); color: var(--color-ink-2); } /* the why, empty till they pick */
+.quiz-card.revealed .quiz-reveal { margin-top: var(--space-sm); animation: odd-in var(--dur-short) var(--ease-out); } /* fades in with a small rise */
+.quiz-reveal strong { font-weight: 500; color: var(--color-ink); } /* the answer word */
+.quiz-score { min-height: 1.5em; margin-top: var(--space-lg); color: var(--color-ink-2); } /* final score, keeps its line */
+
+@media (prefers-reduced-motion: reduce) { .odd-card { transition: none; } .odd-card.revealed .odd-result, .quiz-card.revealed .quiz-reveal { animation: none; } .odd-card:active:not(:disabled) { transform: none; } } /* no movement if asked */

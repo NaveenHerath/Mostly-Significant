@@ -165,12 +165,75 @@ function buildOddOneOut(data) {
   return s; // hand the section back
 }
 
+// ---------- 2. real, error or quirk? ----------
+
+// six odd-looking things from the data. answers and figures come from naveen's checks
+// (data-generation/data/clean/data_checks.csv) and the Limitations part of data-generation/README.md
+// figure can be a function, so it reads the live number from data.json
+const QUIZ = [
+  { where: "London, 19 July 2022", figure: d => fmtUnit(Math.max(...d.rows.London.hottest_day.values), " °C"), claim: "London’s hottest day in our data. Weather stations recorded about 40 °C that day.", answer: "quirk", why: "Our numbers are averages over a 50 km square, parks and fields included, so peaks read low. The trends still hold." }, // live from data.json
+  { where: "London, 18 Feb 2022", figure: "20.5 m/s", claim: "Strongest wind that day. A normal top-1% windy day here is 15.2 m/s.", answer: "real", why: "That was Storm Eunice, one of the worst storms in southern England in decades." }, // data_checks.csv: 20.48 vs 99th percentile 15.2
+  { where: "London, December 2010", figure: "−0.3 °C", claim: "The month’s average. The coldest December in all 45 years.", answer: "real", why: "The big freeze of 2010: snow and ice across the UK for weeks." }, // data_checks.csv
+  { where: "Singapore, 2025", figure: "7,465 mm", claim: "Rain that year. Singapore usually gets about 2,400 mm.", answer: "error", why: "No rain gauge there shows it. NASA’s rain data for Singapore breaks in January 2021, so we cut it off there and use 1981 to 2020." }, // README limitations
+  { where: "Toronto", figure: "1.0 °C", claim: "How fast nights seemed to warm per decade, in sudden jumps. Squares nearby: 0.3 to 0.4 °C.", answer: "error", why: "Toronto’s grid square is mostly Lake Ontario, and the lake threw the numbers off. We moved it to a land square 39 km north." }, // README, one place per grid square
+  { where: "Mexico City", figure: "3 °C", claim: "How much colder our data reads than the city itself.", answer: "quirk", why: "Its grid square sits about 400 m higher than the city, and higher ground is cooler. The trends still hold." }, // README limitations
+];
+const QUIZ_CHOICES = [["real", "Real"], ["error", "Error"], ["quirk", "Quirk"]]; // value and button word
+const QUIZ_SAY = { real: "Real.", error: "Data error.", quirk: "Quirk." }; // how the answer is said on reveal
+
+// a number with its unit, one decimal
+function fmtUnit(n, unit) {
+  return n.toFixed(1) + unit; // e.g. 34.5 °C
+}
+
+function buildQuiz(data) {
+  const s = section("real-error-quirk", "Real, error or quirk?", '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M11 8v3M11 14h.01"/>'); // magnifier with a !
+  s.append(el("p", "note", "Every dataset has surprises. Real means it really happened. Error means the data went wrong. Quirk means the data is right but measures something a bit different. Which is which?")); // the three words explained once
+
+  const grid = el("div", "quiz-grid"); // the six cards
+  const score = el("p", "quiz-score"); // shows up when all six are done
+  score.setAttribute("aria-live", "polite"); // read out the final score
+  s.append(grid, score); // put it together
+  let done = 0, right = 0; // progress
+
+  QUIZ.forEach((item, i) => {
+    const card = el("div", "quiz-card"); // one surprise
+    const figure = typeof item.figure === "function" ? item.figure(data) : item.figure; // live number or the written one
+    card.append(el("p", "quiz-where", item.where), el("p", "quiz-figure", figure), el("p", "quiz-claim", item.claim)); // place, big number, what it is
+    const choices = el("div", "quiz-choices"); // the three buttons
+    choices.setAttribute("role", "group"); // they belong together
+    choices.setAttribute("aria-label", `Real, error or quirk: ${item.where}`); // what the group is for
+    const reveal = el("p", "quiz-reveal"); // the answer, filled on pick
+    reveal.setAttribute("aria-live", "polite"); // read it out
+    QUIZ_CHOICES.forEach(([value, word]) => {
+      const b = el("button", "pill quiz-choice", word); // same pill as everywhere else
+      b.type = "button"; // not a form submit
+      b.addEventListener("click", () => {
+        const ok = value === item.answer; // did they get it
+        choices.querySelectorAll("button").forEach(x => {
+          x.disabled = true; // one go per card
+          if (x === b) x.classList.add(ok ? "is-right" : "is-wrong"); // their pick, green or red
+          if (!ok && x.textContent === QUIZ_CHOICES.find(c => c[0] === item.answer)[1]) x.classList.add("is-answer"); // show the right one if they missed
+        });
+        reveal.innerHTML = `<strong>${QUIZ_SAY[item.answer]}</strong> ${item.why}`; // answer then why
+        card.classList.add("revealed"); // lets the css fade the answer in
+        done++; if (ok) right++; // keep count
+        if (done === QUIZ.length) score.textContent = `You got ${right} of ${QUIZ.length}.`; // all done
+      });
+      choices.append(b); // into the row
+    });
+    card.append(choices, reveal); // buttons then answer
+    grid.append(card); // into the grid
+  });
+  return s; // hand the section back
+}
+
 // ---------- put it all on the page ----------
 
 function buildAbout(data) {
   const root = document.getElementById("about-root"); // where it all goes
   if (!root) return; // page doesn't have the slot yet
-  [buildOddOneOut].forEach(build => { // one builder per section, in page order
+  [buildOddOneOut, buildQuiz].forEach(build => { // one builder per section, in page order
     const s = build(data); // make the section
     if (s) root.append(s); // add it if it built
   });
