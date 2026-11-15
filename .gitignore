@@ -1,30 +1,22 @@
-# streamlit's helper files, only for my laptop
+# Local tool and editor folders
 .agents/
 .claude/
-
-# where the gemini key will go, must never go on github
-.streamlit/secrets.toml
-
-# python's temporary files
-__pycache__/
-
-# mac's hidden folder-settings file
-.DS_Store
-
-# my notes for claude code, only for my laptop
+.vscode/
 CLAUDE.md
-
-# local test script and its screenshots, only for my laptop
 tools/
 
-# vercel's local link and token files, only for the laptop that deploys
-.vercel
+# Secrets: the Gemini key and Vercel's link files never go on GitHub
 .env*
+.vercel
 
-# naveen's raw nasa download, too big for github
+# Python and system clutter
+__pycache__/
+*.pyc
+.DS_Store
+*.log
+
+# The raw NASA download, too big for GitHub (download_power.py fetches it again)
 power_raw.zip
 
-
-# the chat test script's installed packages, npm install rebuilds them
+# The chat test script's packages (npm install rebuilds them)
 chat-eval/node_modules/
-*.log

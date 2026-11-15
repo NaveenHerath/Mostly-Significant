@@ -1,0 +1,11 @@
+# Text files are stored with LF line endings, so Windows and Mac edits give clean diffs.
+* text=auto eol=lf
+
+# Binary files are never converted.
+*.png binary
+*.webp binary
+*.mp4 binary
+*.onnx binary
+*.parquet binary
+*.zip binary
+*.pt binary
