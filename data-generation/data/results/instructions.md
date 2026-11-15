@@ -12,7 +12,7 @@ does any maths.
 
 | File | One row is | What the app uses it for |
 |---|---|---|
-| `results.csv` | one place × one measure (310 rows) | the verdict, the size of the change, the map, the chatbot's answers |
+| `results.csv` | one place × one measure (414 rows) | the verdict, the size of the change, the map, the chatbot's answers |
 | `annual.csv` | one place × one measure × one year | trend charts and the time slider |
 | `luck.csv` | one place × one measure | the "could this be luck?" feature |
 | `season_dates.csv` (UK only) | one place × one year | the season-clock feature |
@@ -134,14 +134,18 @@ The `opposite` rows are the strongest demo moments. The longest summer dry spell
 **UK (12 towns, 15 measures each):** London, Maidstone, Norwich, Plymouth, Bristol, Cardiff,
 Birmingham, Manchester, Newcastle, Belfast, Edinburgh, Aberdeen.
 
-**World (26 cities, 5 measures each):** New York, Los Angeles, Toronto, Sao Paulo, Paris,
+**World (26 cities, 9 measures each):** New York, Los Angeles, Toronto, Sao Paulo, Paris,
 Berlin, Madrid, Cairo, Delhi, Tokyo, Sydney, Johannesburg, Barcelona, Rome, Lisbon, Athens,
 Amsterdam, Istanbul, Dubai, Marrakech, Cape Town, Bangkok, Singapore, Orlando, Mexico City,
 Rio de Janeiro.
 
-World cities have only `heatwave_events`, `heatwave_days`, `longest_heatwave`, `hottest_day`
-and `warm_nights`. A question about frost, rain, sunshine or heating in a world city has no
-row, so the honest answer is that only heat measures are covered there.
+World cities have nine measures: the five heat ones (`heatwave_events`, `heatwave_days`,
+`longest_heatwave`, `hottest_day`, `warm_nights`), two rain ones (`wettest_day`,
+`heavy_rain_days`) and two made for any climate, which UK towns do not have:
+`yearly_sunshine` (whole-year mean sunshine, MJ/m² per day, from 1984, expected up) and
+`cooling_need` (yearly cooling degree days above 18.3 °C, expected up). A question about
+frost, season dates, dry spells, winter rain or heating in a world city has no row, so the
+honest answer is that those are covered for the UK only.
 
 Sydney, Sao Paulo, Johannesburg, Cape Town and Rio de Janeiro use July–June years, so their
 data starts in 1982. Their `caveat` says so.
@@ -227,7 +231,7 @@ def check_hunch(place: str, measure_id: str) -> dict:
 ```
 
 In the tool's schema, `place` is an enum of the 38 place names and `measure_id` an enum of
-the 15 IDs. An enum stops the model inventing a value. A `none` option covers a hunch that
+the 17 IDs. An enum stops the model inventing a value. A `none` option covers a hunch that
 cannot be mapped.
 
 ### System prompt for the chatbot
@@ -291,7 +295,7 @@ These are the expected answers. If the app shows different numbers, the lookup i
 | "We barely get frosts" | London / `first_frost_doy` | day 321.5 → 326.8 | `leaning` |
 | "Summer dry spells are longer" | Plymouth / `summer_dry_spell` | 15.3 → 11.7 days | `opposite` |
 | "It's snowing less" | any | not testable | no measure for this |
-| "Frost is rarer" | Cairo | no row for world cities | heat measures only |
+| "Frost is rarer" | Cairo | no row for world cities | season measures are UK only |
 
 ---
 

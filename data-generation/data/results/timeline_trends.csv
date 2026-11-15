@@ -1,0 +1,190 @@
+place,variable_id,variable_name,unit,nasa_variable,compare_as,start_year,end_year,n_years,normal,rate_per_decade,early_mean,late_mean,p_value,test_method,change,plain_definition
+London,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,9.95,0.388,9.6,10.92,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+London,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,14.02,0.446,13.67,15.2,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+London,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,6.05,0.323,5.68,6.88,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+London,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,699.87,3.696,680.04,712.47,0.70217,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+London,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,10.39,0.178,10.27,10.88,0.00113,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Maidstone,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,10.33,0.393,9.96,11.31,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Maidstone,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,13.6,0.431,13.22,14.73,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Maidstone,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,7.15,0.346,6.75,8.03,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Maidstone,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,664.65,8.584,648.29,688.38,0.40569,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Maidstone,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,10.35,0.272,9.99,10.98,1e-05,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Norwich,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,9.7,0.362,9.31,10.6,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Norwich,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,13.55,0.385,13.16,14.55,1e-05,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Norwich,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,5.99,0.342,5.58,6.83,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Norwich,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,679.3,26.57,655.08,758.72,0.01048,Mann-Kendall (Hamed-Rao),rising,"All the rain that fell in the year, added up."
+Norwich,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,10.17,0.237,9.96,10.84,2e-05,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Plymouth,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,10.54,0.276,10.33,11.34,2e-05,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Plymouth,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,12.89,0.272,12.72,13.71,5e-05,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Plymouth,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,8.16,0.282,7.88,8.97,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Plymouth,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,1108.25,49.854,1059.75,1285.5,0.00345,Mann-Kendall (Hamed-Rao),rising,"All the rain that fell in the year, added up."
+Plymouth,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,11.3,0.122,11.41,11.52,1e-05,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Bristol,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,9.97,0.291,9.69,10.74,4e-05,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Bristol,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,13.66,0.308,13.4,14.51,0.00044,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Bristol,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,6.37,0.278,6.05,7.09,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Bristol,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,774.13,32.593,740.67,898.26,0.02508,Mann-Kendall (Hamed-Rao),rising,"All the rain that fell in the year, added up."
+Bristol,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,10.42,0.162,10.38,10.79,0.00749,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Cardiff,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,10.03,0.278,9.75,10.8,2e-05,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Cardiff,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,13.06,0.297,12.79,13.89,6e-05,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Cardiff,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,7.0,0.283,6.68,7.73,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Cardiff,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,929.67,27.804,889.02,1015.28,0.04492,Mann-Kendall (Hamed-Rao),rising,"All the rain that fell in the year, added up."
+Cardiff,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,10.42,0.162,10.38,10.79,0.00749,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Birmingham,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,9.17,0.343,8.8,10.02,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Birmingham,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,13.09,0.384,12.7,14.1,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Birmingham,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,5.38,0.301,5.01,6.12,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Birmingham,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,756.49,5.379,737.66,788.09,0.59056,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Birmingham,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,10.1,0.21,9.9,10.61,6e-05,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Manchester,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,8.72,0.338,8.35,9.58,2e-05,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Manchester,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,11.9,0.37,11.51,12.89,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Manchester,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,5.58,0.318,5.2,6.35,1e-05,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Manchester,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,974.28,17.224,961.45,1029.94,0.24439,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Manchester,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,9.78,0.132,9.78,10.12,0.00553,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Newcastle,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,8.21,0.316,7.83,8.96,0.00017,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Newcastle,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,11.16,0.342,10.78,12.01,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Newcastle,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,5.26,0.29,4.88,5.96,4e-05,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Newcastle,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,814.25,23.499,794.68,864.82,0.0409,Mann-Kendall (Hamed-Rao),rising,"All the rain that fell in the year, added up."
+Newcastle,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,9.18,0.235,8.91,9.7,3e-05,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Belfast,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,8.92,0.254,8.61,9.58,6e-05,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Belfast,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,11.61,0.277,11.32,12.36,0.00014,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Belfast,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,6.19,0.249,5.84,6.78,4e-05,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Belfast,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,1025.84,19.519,996.6,1071.83,0.00626,Mann-Kendall (Hamed-Rao),rising,"All the rain that fell in the year, added up."
+Belfast,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,9.04,0.134,8.95,9.33,0.00029,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Edinburgh,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,8.09,0.297,7.77,8.81,0.00032,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Edinburgh,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,10.83,0.302,10.51,11.62,9e-05,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Edinburgh,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,5.33,0.297,4.97,6.0,0.0002,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Edinburgh,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,843.57,20.843,830.72,879.26,0.00654,Mann-Kendall (Hamed-Rao),rising,"All the rain that fell in the year, added up."
+Edinburgh,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,8.89,0.194,8.73,9.36,0.00016,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Aberdeen,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,7.17,0.291,6.86,7.95,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Aberdeen,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,9.72,0.306,9.45,10.62,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Aberdeen,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,4.55,0.299,4.16,5.25,0.00012,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Aberdeen,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,921.86,14.203,869.33,905.3,0.08959,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Aberdeen,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,8.59,0.167,8.48,9.07,0.0,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+New York,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,11.75,0.356,11.46,12.72,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+New York,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,14.45,0.294,14.21,15.25,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+New York,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,8.96,0.443,8.59,10.11,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+New York,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,1176.6,71.744,1212.46,1489.5,0.01261,Mann-Kendall (Hamed-Rao),rising,"All the rain that fell in the year, added up."
+New York,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,14.04,0.043,13.92,14.16,0.35133,Mann-Kendall (Hamed-Rao),no_clear_change,The average energy from the sun reaching the ground each day (records start in 1984).
+Los Angeles,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,17.05,0.177,17.12,17.62,0.02265,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Los Angeles,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,23.52,0.162,23.77,23.91,0.11985,Mann-Kendall (Hamed-Rao),no_clear_change,The average of each day's highest temperature across the year.
+Los Angeles,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,12.0,0.252,11.85,12.81,0.00044,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Los Angeles,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,385.39,-1.011,348.27,424.79,0.99219,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Los Angeles,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,19.9,0.221,19.48,20.14,0.00084,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Toronto,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,7.37,0.381,7.17,8.5,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Toronto,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,12.13,0.353,12.02,13.22,0.00023,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Toronto,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,2.68,0.449,2.37,3.93,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Toronto,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,657.84,10.823,597.12,644.43,0.53675,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Toronto,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,12.93,0.071,12.78,13.05,0.21666,Mann-Kendall (Hamed-Rao),no_clear_change,The average energy from the sun reaching the ground each day (records start in 1984).
+Sao Paulo,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,19.01,0.386,18.76,20.16,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Sao Paulo,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,24.63,0.675,24.34,26.67,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Sao Paulo,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,14.69,0.24,14.46,15.32,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Sao Paulo,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,1616.86,-157.227,1697.24,1144.54,2e-05,Mann-Kendall (Hamed-Rao),falling,"All the rain that fell in the year, added up."
+Sao Paulo,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,16.19,0.063,16.26,16.52,0.30834,Mann-Kendall (Hamed-Rao),no_clear_change,The average energy from the sun reaching the ground each day (records start in 1984).
+Paris,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,10.45,0.397,10.03,11.63,1e-05,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Paris,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,15.13,0.501,14.53,16.47,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Paris,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,6.1,0.324,5.82,7.1,8e-05,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Paris,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,671.63,-5.858,713.38,697.77,0.56773,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Paris,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,11.64,0.242,11.37,12.24,0.00057,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Berlin,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,8.94,0.55,8.47,10.56,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Berlin,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,13.35,0.622,12.71,15.08,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Berlin,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,4.74,0.496,4.42,6.27,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Berlin,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,606.08,-5.422,620.09,590.74,0.65979,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Berlin,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,9.78,0.303,9.44,10.51,0.0,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Madrid,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,13.02,0.35,13.0,14.16,1e-05,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Madrid,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,19.8,0.349,19.78,20.94,0.00026,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Madrid,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,6.92,0.341,6.91,8.04,1e-05,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Madrid,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,441.52,21.607,435.63,509.51,0.09058,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Madrid,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,16.47,0.267,15.84,16.91,0.00012,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Cairo,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,21.4,0.318,21.04,22.1,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Cairo,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,29.5,0.246,29.16,29.97,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Cairo,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,14.31,0.389,13.89,15.29,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Cairo,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,41.47,3.152,64.39,141.99,0.74743,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Cairo,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,20.34,0.135,20.12,20.66,0.00016,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Delhi,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,25.77,-0.125,25.67,25.34,0.01239,Mann-Kendall (Hamed-Rao),falling,"The average temperature across the whole year, day and night."
+Delhi,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,33.44,-0.343,33.5,32.52,0.0,Mann-Kendall (Hamed-Rao),falling,The average of each day's highest temperature across the year.
+Delhi,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,19.06,0.068,18.83,19.18,0.24439,Mann-Kendall (Hamed-Rao),no_clear_change,The average of each night's lowest temperature across the year.
+Delhi,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,727.57,26.558,711.73,794.58,0.00186,Mann-Kendall (Hamed-Rao),rising,"All the rain that fell in the year, added up."
+Delhi,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,18.37,-0.606,18.92,16.96,0.0,Mann-Kendall (Hamed-Rao),falling,The average energy from the sun reaching the ground each day (records start in 1984).
+Tokyo,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,15.32,0.312,15.02,16.24,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Tokyo,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,19.67,0.263,19.51,20.47,5e-05,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Tokyo,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,11.44,0.407,11.0,12.53,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Tokyo,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,1557.07,105.463,1404.97,1793.16,0.00048,Mann-Kendall (Hamed-Rao),rising,"All the rain that fell in the year, added up."
+Tokyo,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,13.91,0.105,13.85,14.23,0.14644,Mann-Kendall (Hamed-Rao),no_clear_change,The average energy from the sun reaching the ground each day (records start in 1984).
+Sydney,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,18.16,0.315,17.88,18.94,0.0001,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Sydney,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,20.84,0.348,20.51,21.68,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Sydney,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,15.82,0.317,15.51,16.57,0.00012,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Sydney,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,986.77,-50.826,1128.88,887.09,0.07994,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Sydney,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,16.62,0.011,16.69,16.81,0.89653,Mann-Kendall (Hamed-Rao),no_clear_change,The average energy from the sun reaching the ground each day (records start in 1984).
+Johannesburg,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,16.67,0.202,16.46,17.3,0.00169,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Johannesburg,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,24.47,0.358,24.07,25.4,0.00079,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Johannesburg,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,9.89,0.154,9.81,10.37,0.0006,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Johannesburg,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,729.9,-38.544,778.55,653.99,0.04287,Mann-Kendall (Hamed-Rao),falling,"All the rain that fell in the year, added up."
+Johannesburg,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,19.88,0.043,19.9,19.94,0.27704,Mann-Kendall (Hamed-Rao),no_clear_change,The average energy from the sun reaching the ground each day (records start in 1984).
+Barcelona,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,15.19,0.317,15.05,16.27,1e-05,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Barcelona,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,20.5,0.298,20.39,21.49,2e-05,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Barcelona,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,10.88,0.366,10.73,12.11,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Barcelona,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,502.55,-14.567,524.09,598.49,0.34446,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Barcelona,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,15.09,0.406,14.43,15.85,0.0,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Rome,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,15.47,0.371,15.22,16.67,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Rome,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,20.73,0.393,20.55,22.06,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Rome,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,10.88,0.4,10.57,12.04,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Rome,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,721.2,7.996,717.38,709.98,0.50104,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Rome,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,15.78,0.326,15.45,16.51,0.0,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Lisbon,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,16.81,0.157,16.81,17.36,0.03096,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Lisbon,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,22.5,0.27,22.41,23.42,0.00112,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Lisbon,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,11.91,0.121,11.95,12.37,0.04352,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Lisbon,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,597.2,-27.368,633.92,525.58,0.04385,Mann-Kendall (Hamed-Rao),falling,"All the rain that fell in the year, added up."
+Lisbon,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,17.22,0.207,16.7,17.6,0.00106,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Athens,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,17.28,0.434,16.96,18.42,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Athens,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,21.46,0.417,21.26,22.65,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Athens,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,13.64,0.458,13.23,14.79,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Athens,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,445.06,20.322,421.88,539.98,0.05922,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Athens,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,16.86,0.381,16.23,17.64,0.0,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Amsterdam,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,9.91,0.426,9.5,11.12,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Amsterdam,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,12.66,0.469,12.19,13.97,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Amsterdam,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,7.18,0.39,6.82,8.3,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Amsterdam,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,837.29,-1.893,819.41,834.7,0.91431,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Amsterdam,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,10.43,0.201,10.31,11.03,0.00012,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Istanbul,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,14.42,0.538,14.1,15.85,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Istanbul,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,17.66,0.575,17.35,19.18,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Istanbul,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,11.52,0.546,11.16,12.93,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Istanbul,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,623.8,-5.876,609.49,620.13,0.70328,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Istanbul,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,13.96,0.328,13.51,14.65,0.0,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Dubai,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,27.74,0.38,27.31,28.72,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Dubai,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,31.64,0.364,31.26,32.65,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Dubai,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,24.63,0.403,24.17,25.62,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Dubai,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,93.27,2.758,108.32,151.2,0.70282,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Dubai,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,19.94,0.103,19.7,19.87,0.60503,Mann-Kendall (Hamed-Rao),no_clear_change,The average energy from the sun reaching the ground each day (records start in 1984).
+Marrakech,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,18.52,0.314,18.45,19.54,0.00057,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Marrakech,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,26.71,0.338,26.65,27.81,0.0015,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Marrakech,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,12.15,0.282,12.09,13.07,0.00021,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Marrakech,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,275.93,8.771,260.51,274.42,0.41683,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Marrakech,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,19.8,0.354,19.07,20.44,1e-05,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Cape Town,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,16.43,0.042,16.18,16.38,0.43283,Mann-Kendall (Hamed-Rao),no_clear_change,"The average temperature across the whole year, day and night."
+Cape Town,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,21.4,0.012,21.16,21.26,0.84628,Mann-Kendall (Hamed-Rao),no_clear_change,The average of each day's highest temperature across the year.
+Cape Town,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,12.44,0.078,12.15,12.5,0.14351,Mann-Kendall (Hamed-Rao),no_clear_change,The average of each night's lowest temperature across the year.
+Cape Town,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,665.49,41.79,702.13,893.41,0.03719,Mann-Kendall (Hamed-Rao),rising,"All the rain that fell in the year, added up."
+Cape Town,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,19.77,0.166,19.51,20.15,0.00106,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Bangkok,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,27.71,0.092,27.7,28.05,0.03951,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Bangkok,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,32.83,0.025,32.97,33.02,0.86792,Mann-Kendall (Hamed-Rao),no_clear_change,The average of each day's highest temperature across the year.
+Bangkok,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,23.46,0.169,23.32,23.98,0.00074,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Bangkok,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,1288.3,68.32,1276.85,1507.03,0.00812,Mann-Kendall (Hamed-Rao),rising,"All the rain that fell in the year, added up."
+Bangkok,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,19.54,-0.445,20.31,18.78,3e-05,Mann-Kendall (Hamed-Rao),falling,The average energy from the sun reaching the ground each day (records start in 1984).
+Singapore,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,26.8,0.182,26.73,27.37,1e-05,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Singapore,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,29.23,0.109,29.32,29.71,0.02638,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Singapore,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,24.97,0.191,24.8,25.54,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Singapore,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,16.8,-0.211,17.09,16.5,0.00013,Mann-Kendall (Hamed-Rao),falling,The average energy from the sun reaching the ground each day (records start in 1984).
+Orlando,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,21.93,0.351,21.8,23.03,0.00024,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Orlando,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,27.16,0.471,27.05,28.53,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Orlando,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,17.31,0.331,17.14,18.34,0.00021,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Orlando,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,1309.69,-15.318,1284.02,1295.83,0.5122,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Orlando,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,17.36,0.177,17.17,17.72,0.00052,Mann-Kendall (Hamed-Rao),rising,The average energy from the sun reaching the ground each day (records start in 1984).
+Mexico City,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,13.38,0.371,13.06,14.5,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Mexico City,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,21.27,0.403,20.89,22.48,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Mexico City,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,7.3,0.336,7.06,8.33,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Mexico City,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,780.02,4.411,815.05,817.12,0.82198,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Mexico City,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,19.71,0.144,19.34,20.01,0.06542,Mann-Kendall (Hamed-Rao),no_clear_change,The average energy from the sun reaching the ground each day (records start in 1984).
+Rio de Janeiro,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,22.99,0.179,22.78,23.34,0.0,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
+Rio de Janeiro,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,26.11,0.225,25.9,26.5,0.00012,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
+Rio de Janeiro,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,20.72,0.166,20.51,21.1,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Rio de Janeiro,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2025,45,1446.38,12.451,1455.14,1687.51,0.78518,Mann-Kendall (Hamed-Rao),no_clear_change,"All the rain that fell in the year, added up."
+Rio de Janeiro,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,16.87,-0.015,16.95,16.87,0.8284,Mann-Kendall (Hamed-Rao),no_clear_change,The average energy from the sun reaching the ground each day (records start in 1984).

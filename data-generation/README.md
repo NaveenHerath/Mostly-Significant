@@ -112,6 +112,9 @@ out of that check:
 - **Winter rain:** December–February total, named after the January's year (from 1982).
 - **Summer sunshine:** June–August mean of `ALLSKY_SFC_SW_DWN`, MJ/m² per day (from 1984).
 - **Heating need:** yearly sum of `HDD18_3` (degree days below 18.3 °C).
+- **Yearly sunshine (world cities):** whole-year mean of `ALLSKY_SFC_SW_DWN`, MJ/m² per day
+  (from 1984). A year with fewer than 330 days of readings is left blank.
+- **Cooling need (world cities):** yearly sum of `CDD18_3` (degree days above 18.3 °C).
 - **Southern-hemisphere year:** for Sydney, Sao Paulo, Johannesburg, Cape Town and Rio de
   Janeiro a year runs July to June and is named after the year it ends in, so one summer is never split across two
   years. Their series start in 1982.
@@ -129,15 +132,18 @@ out of that check:
 | `summer_length` | Days of summer-like warmth | UK |
 | `autumn_onset_doy` | Day of year autumn chill arrives | UK |
 | `first_frost_doy` | Day of year of the first frost | UK |
-| `wettest_day` | Wettest day of the year (mm) | UK |
-| `heavy_rain_days` | Days with 10 mm of rain or more | UK |
+| `wettest_day` | Wettest day of the year (mm) | UK + World |
+| `heavy_rain_days` | Days with 10 mm of rain or more | UK + World |
 | `summer_dry_spell` | Longest summer dry spell (days) | UK |
 | `winter_rain` | Winter rainfall (mm) | UK |
 | `summer_sunshine` | Summer sunshine (MJ/m² per day) | UK |
 | `heating_need` | Heating degree days per year | UK |
+| `yearly_sunshine` | Sunshine over the whole year (MJ/m² per day) | World |
+| `cooling_need` | Cooling degree days per year | World |
 
-World cities are compared only on the five heat measures, because those mean the same thing
-in any climate. The season and rain measures are built around UK seasons.
+World cities are compared on nine measures that mean the same thing in any climate: the
+five heat measures, the two whole-year rain measures, and yearly sunshine and cooling need.
+The other measures are built around UK seasons (June–August, December–February, frost).
 
 ### Statistics
 
@@ -251,7 +257,7 @@ summers of 2018 and 2022).
 
 | File | One row is | Columns |
 |---|---|---|
-| `results.csv` | one place × one measure (310 rows) | `place, region, lat, lon, measure_id, measure_name, unit, season, start_year, end_year, n_years, rate_per_decade, early_mean, late_mean, p_value, test_method, expected_direction, verdict, plain_definition, caveat` |
+| `results.csv` | one place × one measure (414 rows) | `place, region, lat, lon, measure_id, measure_name, unit, season, start_year, end_year, n_years, rate_per_decade, early_mean, late_mean, p_value, test_method, expected_direction, verdict, plain_definition, caveat` |
 | `annual.csv` | one place × one measure × one year | `place, measure_id, year, value` |
 | `luck.csv` | one place × one measure | `place, measure_id, real_trend_per_decade, share_as_strong, n_shuffles, p_value` |
 | `season_dates.csv` | one UK town × one year | `place, year, summer_start_doy, summer_end_doy, first_heatwave_doy` |
@@ -272,12 +278,12 @@ chatbot use these files.
 
 ## Results in brief
 
-310 results: 12 UK towns × 15 measures and 26 world cities × 5 measures.
+414 results: 12 UK towns × 15 measures and 26 world cities × 9 measures.
 
 | Region | `real` | `leaning` | `not_backed` | `opposite` |
 |---|---|---|---|---|
 | UK (180) | 77 | 89 | 11 | 3 |
-| World (130) | 79 | 41 | 10 | 0 |
+| World (234) | 125 | 77 | 26 | 6 |
 
 **London, first ten years against the last ten:**
 
@@ -316,7 +322,8 @@ chatbot use these files.
 - Sunshine and cloud data start in 1984.
 - Rain varies a lot from year to year, so most rain trends are only `leaning`. A 50 km
   average also reads low for local downpours.
-- World cities are compared on five heat measures only.
+- World cities are compared on nine measures (heat, rain, yearly sunshine, cooling need); the
+  season measures are UK-only.
 - Southern-hemisphere years run July to June, so they cover 1982–2025.
 - **Hamed-Rao correction:** in six results the corrected test says significant while the
   plain Mann-Kendall test and the shuffle test both say not significant (Birmingham

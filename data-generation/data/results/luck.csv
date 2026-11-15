@@ -184,128 +184,232 @@ New York,heatwave_days,2.22,0.021,1000,0.0007
 New York,longest_heatwave,0.62,0.096,1000,0.092
 New York,hottest_day,0.26,0.141,1000,0.1396
 New York,warm_nights,7.11,0.0,1000,0.0
-Los Angeles,heatwave_events,0.0,0.415,1000,0.2415
-Los Angeles,heatwave_days,0.66,0.359,1000,0.3264
-Los Angeles,longest_heatwave,0.0,0.264,1000,0.0227
-Los Angeles,hottest_day,0.03,0.827,1000,0.8537
-Los Angeles,warm_nights,1.25,0.083,1000,0.0734
-Toronto,heatwave_events,0.37,0.093,1000,0.0881
-Toronto,heatwave_days,1.82,0.064,1000,0.0836
-Toronto,longest_heatwave,0.34,0.094,1000,0.1245
-Toronto,hottest_day,0.39,0.066,1000,0.063
-Toronto,warm_nights,4.44,0.001,1000,0.0007
+New York,wettest_day,5.69,0.005,1000,0.0001
+New York,heavy_rain_days,1.11,0.139,1000,0.1556
+New York,yearly_sunshine,0.04,0.357,1000,0.3513
+New York,cooling_need,44.59,0.0,1000,0.0
+Los Angeles,heatwave_events,0.0,0.422,1000,0.2415
+Los Angeles,heatwave_days,0.66,0.353,1000,0.3264
+Los Angeles,longest_heatwave,0.0,0.281,1000,0.0227
+Los Angeles,hottest_day,0.03,0.816,1000,0.8537
+Los Angeles,warm_nights,1.25,0.089,1000,0.0734
+Los Angeles,wettest_day,3.66,0.106,1000,0.0696
+Los Angeles,heavy_rain_days,0.0,0.852,1000,0.8521
+Los Angeles,yearly_sunshine,0.22,0.001,1000,0.0008
+Los Angeles,cooling_need,24.49,0.085,1000,0.0869
+Toronto,heatwave_events,0.37,0.084,1000,0.0881
+Toronto,heatwave_days,1.82,0.086,1000,0.0836
+Toronto,longest_heatwave,0.34,0.095,1000,0.1245
+Toronto,hottest_day,0.39,0.067,1000,0.063
+Toronto,warm_nights,4.44,0.0,1000,0.0007
+Toronto,wettest_day,-1.33,0.075,1000,0.0734
+Toronto,heavy_rain_days,-1.2,0.039,1000,0.1552
+Toronto,yearly_sunshine,0.07,0.212,1000,0.2167
+Toronto,cooling_need,40.52,0.0,1000,0.0017
 Sao Paulo,heatwave_events,1.79,0.0,1000,0.0001
-Sao Paulo,heatwave_days,9.39,0.0,1000,0.0002
-Sao Paulo,longest_heatwave,1.76,0.0,1000,0.0012
+Sao Paulo,heatwave_days,9.39,0.001,1000,0.0002
+Sao Paulo,longest_heatwave,1.76,0.002,1000,0.0012
 Sao Paulo,hottest_day,1.12,0.0,1000,0.0001
-Sao Paulo,warm_nights,5.36,0.001,1000,0.0003
-Paris,heatwave_events,0.51,0.004,1000,0.0045
-Paris,heatwave_days,2.77,0.005,1000,0.0052
-Paris,longest_heatwave,0.77,0.012,1000,0.0367
+Sao Paulo,warm_nights,5.36,0.002,1000,0.0003
+Sao Paulo,wettest_day,-2.75,0.078,1000,0.0734
+Sao Paulo,heavy_rain_days,-5.91,0.0,1000,0.0001
+Sao Paulo,yearly_sunshine,0.12,0.083,1000,0.0419
+Sao Paulo,cooling_need,100.06,0.0,1000,0.0
+Paris,heatwave_events,0.51,0.002,1000,0.0045
+Paris,heatwave_days,2.77,0.004,1000,0.0052
+Paris,longest_heatwave,0.77,0.013,1000,0.0367
 Paris,hottest_day,1.08,0.0,1000,0.0
-Paris,warm_nights,3.0,0.002,1000,0.0059
-Berlin,heatwave_events,0.48,0.008,1000,0.0074
-Berlin,heatwave_days,2.95,0.009,1000,0.0073
-Berlin,longest_heatwave,0.95,0.023,1000,0.0244
-Berlin,hottest_day,0.69,0.007,1000,0.0133
+Paris,warm_nights,3.0,0.003,1000,0.0059
+Paris,wettest_day,1.2,0.041,1000,0.0449
+Paris,heavy_rain_days,0.0,0.982,1000,0.9765
+Paris,yearly_sunshine,0.24,0.001,1000,0.0006
+Paris,cooling_need,21.76,0.001,1000,0.0014
+Berlin,heatwave_events,0.48,0.006,1000,0.0074
+Berlin,heatwave_days,2.95,0.005,1000,0.0073
+Berlin,longest_heatwave,0.95,0.022,1000,0.0244
+Berlin,hottest_day,0.69,0.014,1000,0.0133
 Berlin,warm_nights,5.0,0.0,1000,0.0
-Madrid,heatwave_events,0.43,0.001,1000,0.0006
+Berlin,wettest_day,1.79,0.174,1000,0.1561
+Berlin,heavy_rain_days,0.0,0.792,1000,0.8151
+Berlin,yearly_sunshine,0.3,0.0,1000,0.0
+Berlin,cooling_need,36.3,0.0,1000,0.0001
+Madrid,heatwave_events,0.43,0.002,1000,0.0006
 Madrid,heatwave_days,4.53,0.0,1000,0.0
 Madrid,longest_heatwave,1.11,0.0,1000,0.0001
-Madrid,hottest_day,0.45,0.001,1000,0.0003
+Madrid,hottest_day,0.45,0.003,1000,0.0003
 Madrid,warm_nights,5.0,0.0,1000,0.0
-Cairo,heatwave_events,0.27,0.05,1000,0.0446
-Cairo,heatwave_days,1.25,0.07,1000,0.0817
-Cairo,longest_heatwave,0.0,0.366,1000,0.3713
-Cairo,hottest_day,0.39,0.002,1000,0.0048
+Madrid,wettest_day,2.33,0.007,1000,0.0106
+Madrid,heavy_rain_days,0.93,0.024,1000,0.0282
+Madrid,yearly_sunshine,0.27,0.001,1000,0.0001
+Madrid,cooling_need,52.88,0.0,1000,0.0
+Cairo,heatwave_events,0.27,0.024,1000,0.0446
+Cairo,heatwave_days,1.25,0.088,1000,0.0817
+Cairo,longest_heatwave,0.0,0.387,1000,0.3713
+Cairo,hottest_day,0.39,0.006,1000,0.0048
 Cairo,warm_nights,8.69,0.0,1000,0.0
-Delhi,heatwave_events,0.0,0.706,1000,0.7009
-Delhi,heatwave_days,-1.3,0.209,1000,0.209
-Delhi,longest_heatwave,-0.78,0.157,1000,0.1707
-Delhi,hottest_day,-0.16,0.304,1000,0.0637
-Delhi,warm_nights,-1.03,0.339,1000,0.2277
-Tokyo,heatwave_events,0.36,0.035,1000,0.0332
-Tokyo,heatwave_days,2.93,0.01,1000,0.0128
-Tokyo,longest_heatwave,1.13,0.028,1000,0.0274
-Tokyo,hottest_day,0.35,0.01,1000,0.0001
+Cairo,wettest_day,1.12,0.318,1000,0.6142
+Cairo,heavy_rain_days,0.0,0.032,1000,0.342
+Cairo,yearly_sunshine,0.14,0.0,1000,0.0002
+Cairo,cooling_need,79.17,0.0,1000,0.0
+Delhi,heatwave_events,0.0,0.711,1000,0.7009
+Delhi,heatwave_days,-1.3,0.226,1000,0.209
+Delhi,longest_heatwave,-0.78,0.176,1000,0.1707
+Delhi,hottest_day,-0.16,0.331,1000,0.0637
+Delhi,warm_nights,-1.03,0.354,1000,0.2277
+Delhi,wettest_day,-2.81,0.126,1000,0.1319
+Delhi,heavy_rain_days,1.88,0.052,1000,0.061
+Delhi,yearly_sunshine,-0.61,0.0,1000,0.0
+Delhi,cooling_need,-32.98,0.23,1000,0.2374
+Tokyo,heatwave_events,0.36,0.03,1000,0.0332
+Tokyo,heatwave_days,2.93,0.018,1000,0.0128
+Tokyo,longest_heatwave,1.13,0.023,1000,0.0274
+Tokyo,hottest_day,0.35,0.019,1000,0.0001
 Tokyo,warm_nights,7.04,0.0,1000,0.0
-Sydney,heatwave_events,0.0,0.342,1000,0.3235
-Sydney,heatwave_days,0.0,0.286,1000,0.3566
-Sydney,longest_heatwave,0.0,0.147,1000,0.1294
-Sydney,hottest_day,0.17,0.586,1000,0.5919
+Tokyo,wettest_day,4.33,0.232,1000,0.2
+Tokyo,heavy_rain_days,2.35,0.01,1000,0.005
+Tokyo,yearly_sunshine,0.11,0.149,1000,0.1464
+Tokyo,cooling_need,57.32,0.0,1000,0.0
+Sydney,heatwave_events,0.0,0.309,1000,0.3235
+Sydney,heatwave_days,0.0,0.299,1000,0.3566
+Sydney,longest_heatwave,0.0,0.123,1000,0.1294
+Sydney,hottest_day,0.17,0.605,1000,0.5919
 Sydney,warm_nights,5.56,0.0,1000,0.0002
-Johannesburg,heatwave_events,0.67,0.001,1000,0.0023
+Sydney,wettest_day,-2.53,0.5,1000,0.498
+Sydney,heavy_rain_days,-1.0,0.266,1000,0.1764
+Sydney,yearly_sunshine,0.03,0.7,1000,0.7413
+Sydney,cooling_need,59.67,0.0,1000,0.0001
+Johannesburg,heatwave_events,0.67,0.002,1000,0.0023
 Johannesburg,heatwave_days,3.15,0.0,1000,0.0
 Johannesburg,longest_heatwave,0.96,0.001,1000,0.0022
 Johannesburg,hottest_day,0.52,0.002,1000,0.0048
 Johannesburg,warm_nights,2.6,0.025,1000,0.0259
-Barcelona,heatwave_events,0.36,0.031,1000,0.0262
-Barcelona,heatwave_days,3.33,0.001,1000,0.0053
-Barcelona,longest_heatwave,1.11,0.008,1000,0.0156
-Barcelona,hottest_day,0.46,0.034,1000,0.0338
+Johannesburg,wettest_day,1.02,0.504,1000,0.3871
+Johannesburg,heavy_rain_days,-0.67,0.355,1000,0.3457
+Johannesburg,yearly_sunshine,0.05,0.546,1000,0.5367
+Johannesburg,cooling_need,56.38,0.002,1000,0.0045
+Barcelona,heatwave_events,0.36,0.025,1000,0.0262
+Barcelona,heatwave_days,3.33,0.004,1000,0.0053
+Barcelona,longest_heatwave,1.11,0.015,1000,0.0156
+Barcelona,hottest_day,0.46,0.039,1000,0.0338
 Barcelona,warm_nights,6.67,0.0,1000,0.0
-Rome,heatwave_events,0.29,0.027,1000,0.029
-Rome,heatwave_days,3.33,0.008,1000,0.0089
-Rome,longest_heatwave,1.3,0.014,1000,0.0192
-Rome,hottest_day,0.56,0.002,1000,0.0036
+Barcelona,wettest_day,-2.36,0.109,1000,0.1153
+Barcelona,heavy_rain_days,-0.43,0.444,1000,0.1526
+Barcelona,yearly_sunshine,0.41,0.0,1000,0.0
+Barcelona,cooling_need,54.38,0.0,1000,0.0
+Rome,heatwave_events,0.29,0.023,1000,0.029
+Rome,heatwave_days,3.33,0.011,1000,0.0089
+Rome,longest_heatwave,1.3,0.023,1000,0.0192
+Rome,hottest_day,0.56,0.003,1000,0.0036
 Rome,warm_nights,6.23,0.0,1000,0.0
-Lisbon,heatwave_events,0.3,0.067,1000,0.0705
-Lisbon,heatwave_days,0.83,0.376,1000,0.3661
-Lisbon,longest_heatwave,0.0,0.991,1000,0.9842
-Lisbon,hottest_day,0.22,0.241,1000,0.2565
-Lisbon,warm_nights,0.0,0.901,1000,0.8986
+Rome,wettest_day,-1.56,0.243,1000,0.2483
+Rome,heavy_rain_days,0.98,0.288,1000,0.2942
+Rome,yearly_sunshine,0.33,0.0,1000,0.0
+Rome,cooling_need,64.9,0.0,1000,0.0
+Lisbon,heatwave_events,0.3,0.073,1000,0.0705
+Lisbon,heatwave_days,0.83,0.356,1000,0.3661
+Lisbon,longest_heatwave,0.0,0.985,1000,0.9842
+Lisbon,hottest_day,0.22,0.264,1000,0.2565
+Lisbon,warm_nights,0.0,0.882,1000,0.8986
+Lisbon,wettest_day,-2.01,0.018,1000,0.0184
+Lisbon,heavy_rain_days,-1.0,0.2,1000,0.2023
+Lisbon,yearly_sunshine,0.21,0.001,1000,0.0011
+Lisbon,cooling_need,35.15,0.001,1000,0.0
 Athens,heatwave_events,0.53,0.0,1000,0.0
 Athens,heatwave_days,3.19,0.0,1000,0.0001
-Athens,longest_heatwave,0.86,0.002,1000,0.0051
-Athens,hottest_day,0.23,0.319,1000,0.3043
+Athens,longest_heatwave,0.86,0.006,1000,0.0051
+Athens,hottest_day,0.23,0.295,1000,0.3043
 Athens,warm_nights,10.0,0.0,1000,0.0
-Amsterdam,heatwave_events,0.34,0.048,1000,0.0504
-Amsterdam,heatwave_days,2.16,0.024,1000,0.0246
-Amsterdam,longest_heatwave,0.62,0.074,1000,0.0615
+Athens,wettest_day,1.64,0.411,1000,0.4396
+Athens,heavy_rain_days,0.31,0.389,1000,0.3803
+Athens,yearly_sunshine,0.38,0.0,1000,0.0
+Athens,cooling_need,73.26,0.0,1000,0.0
+Amsterdam,heatwave_events,0.34,0.06,1000,0.0504
+Amsterdam,heatwave_days,2.16,0.02,1000,0.0246
+Amsterdam,longest_heatwave,0.62,0.059,1000,0.0615
 Amsterdam,hottest_day,0.88,0.0,1000,0.0
 Amsterdam,warm_nights,6.9,0.0,1000,0.0
+Amsterdam,wettest_day,-0.09,0.848,1000,0.8526
+Amsterdam,heavy_rain_days,0.38,0.415,1000,0.4204
+Amsterdam,yearly_sunshine,0.2,0.0,1000,0.0001
+Amsterdam,cooling_need,13.12,0.0,1000,0.0001
 Istanbul,heatwave_events,1.18,0.0,1000,0.0
 Istanbul,heatwave_days,6.67,0.0,1000,0.0001
 Istanbul,longest_heatwave,2.0,0.0,1000,0.0008
-Istanbul,hottest_day,0.38,0.079,1000,0.075
+Istanbul,hottest_day,0.38,0.075,1000,0.075
 Istanbul,warm_nights,10.77,0.0,1000,0.0
-Dubai,heatwave_events,0.56,0.004,1000,0.0045
-Dubai,heatwave_days,2.5,0.009,1000,0.011
-Dubai,longest_heatwave,0.0,0.367,1000,0.332
-Dubai,hottest_day,0.37,0.0,1000,0.0012
+Istanbul,wettest_day,0.18,0.807,1000,0.7992
+Istanbul,heavy_rain_days,-0.76,0.12,1000,0.0218
+Istanbul,yearly_sunshine,0.33,0.0,1000,0.0
+Istanbul,cooling_need,79.32,0.0,1000,0.0
+Dubai,heatwave_events,0.56,0.001,1000,0.0045
+Dubai,heatwave_days,2.5,0.011,1000,0.011
+Dubai,longest_heatwave,0.0,0.347,1000,0.332
+Dubai,hottest_day,0.37,0.002,1000,0.0012
 Dubai,warm_nights,7.5,0.0,1000,0.0
-Marrakech,heatwave_events,0.53,0.001,1000,0.0038
-Marrakech,heatwave_days,3.33,0.001,1000,0.0006
-Marrakech,longest_heatwave,0.8,0.022,1000,0.0135
+Dubai,wettest_day,1.29,0.536,1000,0.5507
+Dubai,heavy_rain_days,0.0,0.442,1000,0.4106
+Dubai,yearly_sunshine,0.1,0.343,1000,0.605
+Dubai,cooling_need,139.54,0.0,1000,0.0
+Marrakech,heatwave_events,0.53,0.006,1000,0.0038
+Marrakech,heatwave_days,3.33,0.0,1000,0.0006
+Marrakech,longest_heatwave,0.8,0.017,1000,0.0135
 Marrakech,hottest_day,0.44,0.0,1000,0.0
-Marrakech,warm_nights,3.64,0.002,1000,0.0
-Cape Town,heatwave_events,0.0,0.557,1000,0.5537
-Cape Town,heatwave_days,0.0,0.802,1000,0.7941
-Cape Town,longest_heatwave,0.0,0.887,1000,0.8827
-Cape Town,hottest_day,0.08,0.628,1000,0.6005
-Cape Town,warm_nights,1.74,0.086,1000,0.0761
-Bangkok,heatwave_events,0.0,0.325,1000,0.3977
-Bangkok,heatwave_days,-0.94,0.286,1000,0.3541
-Bangkok,longest_heatwave,-0.83,0.077,1000,0.1419
-Bangkok,hottest_day,-0.18,0.274,1000,0.2689
-Bangkok,warm_nights,1.54,0.306,1000,0.3272
-Singapore,heatwave_events,0.0,0.138,1000,0.1464
-Singapore,heatwave_days,0.0,0.229,1000,0.2105
-Singapore,longest_heatwave,0.0,0.282,1000,0.3012
-Singapore,hottest_day,0.16,0.147,1000,0.1588
+Marrakech,warm_nights,3.64,0.001,1000,0.0
+Marrakech,wettest_day,1.57,0.256,1000,0.1984
+Marrakech,heavy_rain_days,0.0,0.628,1000,0.6283
+Marrakech,yearly_sunshine,0.35,0.0,1000,0.0
+Marrakech,cooling_need,82.93,0.0,1000,0.0
+Cape Town,heatwave_events,0.0,0.55,1000,0.5537
+Cape Town,heatwave_days,0.0,0.782,1000,0.7941
+Cape Town,longest_heatwave,0.0,0.899,1000,0.8827
+Cape Town,hottest_day,0.08,0.636,1000,0.6005
+Cape Town,warm_nights,1.74,0.075,1000,0.0761
+Cape Town,wettest_day,7.12,0.021,1000,0.0239
+Cape Town,heavy_rain_days,1.5,0.048,1000,0.0516
+Cape Town,yearly_sunshine,0.15,0.0,1000,0.0003
+Cape Town,cooling_need,0.54,0.993,1000,0.9914
+Bangkok,heatwave_events,0.0,0.337,1000,0.3977
+Bangkok,heatwave_days,-0.94,0.268,1000,0.3541
+Bangkok,longest_heatwave,-0.83,0.084,1000,0.1419
+Bangkok,hottest_day,-0.18,0.259,1000,0.2689
+Bangkok,warm_nights,1.54,0.309,1000,0.3272
+Bangkok,wettest_day,0.38,0.794,1000,0.8068
+Bangkok,heavy_rain_days,3.15,0.001,1000,0.0075
+Bangkok,yearly_sunshine,-0.45,0.0,1000,0.0
+Bangkok,cooling_need,34.03,0.213,1000,0.0505
+Singapore,heatwave_events,0.0,0.139,1000,0.1464
+Singapore,heatwave_days,0.0,0.207,1000,0.2105
+Singapore,longest_heatwave,0.0,0.312,1000,0.3012
+Singapore,hottest_day,0.16,0.165,1000,0.1588
 Singapore,warm_nights,12.5,0.0,1000,0.0
-Orlando,heatwave_events,0.45,0.04,1000,0.0457
-Orlando,heatwave_days,1.85,0.107,1000,0.1099
-Orlando,longest_heatwave,0.0,0.333,1000,0.3418
-Orlando,hottest_day,0.19,0.376,1000,0.3426
+Singapore,wettest_day,2.38,0.57,1000,0.6146
+Singapore,heavy_rain_days,10.0,0.0,1000,0.0
+Singapore,yearly_sunshine,-0.21,0.002,1000,0.0001
+Singapore,cooling_need,59.55,0.0,1000,0.0001
+Orlando,heatwave_events,0.45,0.059,1000,0.0457
+Orlando,heatwave_days,1.85,0.115,1000,0.1099
+Orlando,longest_heatwave,0.0,0.373,1000,0.3418
+Orlando,hottest_day,0.19,0.334,1000,0.3426
 Orlando,warm_nights,7.42,0.0,1000,0.0
-Mexico City,heatwave_events,0.45,0.023,1000,0.015
-Mexico City,heatwave_days,4.29,0.005,1000,0.0025
-Mexico City,longest_heatwave,2.0,0.0,1000,0.0007
-Mexico City,hottest_day,0.4,0.0,1000,0.0022
+Orlando,wettest_day,5.38,0.033,1000,0.0023
+Orlando,heavy_rain_days,-0.43,0.539,1000,0.5496
+Orlando,yearly_sunshine,0.18,0.001,1000,0.0005
+Orlando,cooling_need,108.06,0.0,1000,0.0001
+Mexico City,heatwave_events,0.45,0.014,1000,0.015
+Mexico City,heatwave_days,4.29,0.004,1000,0.0025
+Mexico City,longest_heatwave,2.0,0.001,1000,0.0007
+Mexico City,hottest_day,0.4,0.002,1000,0.0022
 Mexico City,warm_nights,9.24,0.0,1000,0.0
-Rio de Janeiro,heatwave_events,0.0,0.575,1000,0.5846
-Rio de Janeiro,heatwave_days,0.0,0.563,1000,0.5543
-Rio de Janeiro,longest_heatwave,0.0,0.206,1000,0.2379
-Rio de Janeiro,hottest_day,0.51,0.006,1000,0.0038
+Mexico City,wettest_day,0.18,0.824,1000,0.6805
+Mexico City,heavy_rain_days,0.0,0.879,1000,0.8675
+Mexico City,yearly_sunshine,0.14,0.075,1000,0.0654
+Mexico City,cooling_need,6.75,0.002,1000,0.0021
+Rio de Janeiro,heatwave_events,0.0,0.584,1000,0.5846
+Rio de Janeiro,heatwave_days,0.0,0.552,1000,0.5543
+Rio de Janeiro,longest_heatwave,0.0,0.236,1000,0.2379
+Rio de Janeiro,hottest_day,0.51,0.005,1000,0.0038
 Rio de Janeiro,warm_nights,4.73,0.004,1000,0.004
+Rio de Janeiro,wettest_day,3.58,0.115,1000,0.2233
+Rio de Janeiro,heavy_rain_days,0.67,0.466,1000,0.4655
+Rio de Janeiro,yearly_sunshine,0.02,0.814,1000,0.7961
+Rio de Janeiro,cooling_need,70.32,0.001,1000,0.0002

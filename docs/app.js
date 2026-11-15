@@ -121,7 +121,7 @@ function measuresFor(place, topic) { // hunches available for a place and topic
 }
 
 function topicHasData(place, topic) { // does this place have anything in this topic?
-  return measuresFor(place, topic).length > 0; // world cities only have heat
+  return measuresFor(place, topic).length > 0; // world cities have no season hunches
 }
 
 function renderRegions() { // the uk / world switch
@@ -535,7 +535,7 @@ let askTimer = null; // the next swap, so we can cancel it
 let askPaused = false; // true while the mouse is over it or it has keyboard focus
 
 function examplesFor(place) { // the examples this place actually has data for
-  return EXAMPLES.filter((m) => DATA.rows[place]?.[m]); // world cities only keep the heat ones
+  return EXAMPLES.filter((m) => DATA.rows[place]?.[m]); // world cities only keep the ones they have
 }
 
 function showExample() { // puts the current example into the line

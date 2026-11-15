@@ -21,6 +21,8 @@ DEFINITIONS (the same wording is used in the app and on the project page)
   Winter rainfall : December-February total, named after the year of its January.
   Summer sunshine : average daily sunlight energy at the ground in June-August (from 1984).
   Heating need    : NASA's heating degree days (degrees below 18.3 C), added up over the year.
+  Yearly sunshine : average daily sunlight energy at the ground over the whole year (from 1984).
+  Cooling need    : NASA's cooling degree days (degrees above 18.3 C), added up over the year.
   Year            : January-December. South of the equator it is July-June, named after the
                     year it ends in, so that one summer is never split across two years.
 """
@@ -31,8 +33,14 @@ BASELINE = (1981, 2010)
 FIRST_YEAR, LAST_YEAR = 1981, 2025
 
 # The measures that mean the same thing in any climate. World cities get only these;
-# frost, summer length and the calendar-date measures are built around UK seasons.
-WORLD_MEASURES = ["heatwave_events", "heatwave_days", "longest_heatwave", "hottest_day", "warm_nights"]
+# frost, summer length and the June-August and December-February measures are built around
+# UK seasons. The last two are whole-year versions of sunshine and energy need, made for the
+# world cities, so UK towns keep their own summer sunshine and heating need instead.
+WORLD_ONLY_MEASURES = ["yearly_sunshine", "cooling_need"]
+WORLD_MEASURES = ["heatwave_events", "heatwave_days", "longest_heatwave", "hottest_day", "warm_nights",
+                  "wettest_day", "heavy_rain_days"] + WORLD_ONLY_MEASURES
+# A year of sunshine needs at least this many days with a reading to count.
+MIN_SUN_DAYS = 330
 MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 # The catalogue of measures. Each entry tells the app what the number is, and tells the
@@ -98,7 +106,18 @@ MEASURES = {
         name="Heating need", unit="degree days", season="winter", expected="down",
         definition="How much heating a home needs over the year: for each day colder than 18.3 °C, the number of degrees below it is added up. A smaller number means less heating.",
         caveat="This counts cold weather only. Real heating bills also depend on insulation, wind and prices."),
+    "yearly_sunshine": dict(
+        name="Sunshine over the year", unit="MJ/m² per day", season="year", expected="up",
+        definition="Average sunlight energy reaching the ground each day, over the whole year. A higher number means sunnier, less cloudy or less hazy skies.",
+        caveat="NASA's sunshine record starts in 1984, so this trend starts then. Haze and air pollution dim the sun as well as cloud."),
+    "cooling_need": dict(
+        name="Cooling need", unit="degree days", season="year", expected="up",
+        definition="How much cooling a home needs over the year: for each day warmer than 18.3 °C, the number of degrees above it is added up. A bigger number means more need for fans or air conditioning.",
+        caveat="This counts warm weather only. Real cooling use also depends on humidity, buildings and who has air conditioning."),
 }
+
+# UK towns get every measure except the whole-year ones made for the world cities.
+UK_MEASURES = [m for m in MEASURES if m not in WORLD_ONLY_MEASURES]
 
 
 def _run_lengths(flags):
@@ -212,5 +231,10 @@ def yearly_measures(place_daily):
             # Sunshine is blank before 1984, so those years come out blank here too.
             "summer_sunshine": june_to_august["ALLSKY_SFC_SW_DWN"].mean(),
             "heating_need": y["HDD18_3"].sum(),
+            # A year with too few sunshine readings (1981-83, or a July-June year that starts
+            # before 1984) is left blank, so half a year is never compared with whole ones.
+            "yearly_sunshine": (y["ALLSKY_SFC_SW_DWN"].mean()
+                                if y["ALLSKY_SFC_SW_DWN"].notna().sum() >= MIN_SUN_DAYS else np.nan),
+            "cooling_need": y["CDD18_3"].sum(),
         })
     return pd.DataFrame(rows)

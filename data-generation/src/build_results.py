@@ -2,7 +2,7 @@
 STEP 4 - BUILD RESULTS: this runs the measures for every place and writes the results files
 the app reads.
 
-UK towns get all fifteen measures. World cities get the five that mean the same in any climate.
+UK towns get fifteen measures. World cities get the nine that mean the same in any climate.
 
 How it is run: python src/build_results.py, after src/clean.py
 Reads:  data/clean/daily.parquet
@@ -15,7 +15,7 @@ import os
 
 import pandas as pd
 
-from measures import (MEASURES, WORLD_MEASURES, is_southern, thresholds,
+from measures import (MEASURES, UK_MEASURES, WORLD_MEASURES, is_southern, thresholds,
                       warm_season_label, yearly_measures)
 from stats import MIN_YEARS, trend_test, verdict
 
@@ -56,7 +56,7 @@ def main():
                       "so each one holds a whole southern summer. " if is_southern(place_daily) else "")
 
         # World cities only get the measures that make sense in any climate.
-        wanted = WORLD_MEASURES if info["region"] == "World" else list(MEASURES)
+        wanted = WORLD_MEASURES if info["region"] == "World" else UK_MEASURES
 
         for measure_id in wanted:
             meta = MEASURES[measure_id]
@@ -99,7 +99,7 @@ def main():
 
     # A quick overview is printed: places down the side, measures across, verdicts in the cells.
     print(f"results.csv: {len(detail)} rows\n")
-    # A dash marks a measure that is not produced for that place (UK-only measures in world cities).
+    # A dash marks a measure that is not produced for that place (UK-only measures in world cities, world-only ones in UK towns).
     print(detail.pivot(index="place", columns="measure_id", values="verdict").fillna("-").to_string())
     print("\nSea-dominated places:", [x["place"] for x in limits if x["sea_dominated"]])
     print("Methods disagree on:", detail.loc[detail["methods_disagree"], ["place", "measure_id"]].values.tolist())

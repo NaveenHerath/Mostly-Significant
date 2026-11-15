@@ -5,7 +5,7 @@ const TOPICS = [
   { id: "heat", label: "Heat", icon: "thermometer" }, // heatwaves, hot days, warm nights
   { id: "seasons", label: "Seasons", icon: "leaf" }, // when summer, autumn and frost turn up
   { id: "rain", label: "Rain", icon: "cloud-rain" }, // downpours, wet days, dry spells
-  { id: "sun", label: "Sun and heating", icon: "sun" }, // sunshine and how much heating we need
+  { id: "sun", label: "Sun and energy", icon: "sun" }, // sunshine, and how much heating (uk) or cooling (world) we need
 ];
 
 // each measure as an everyday hunch, its colour (see tokens.css), the same hunch as a question that follows "Is it just me, or ...",
@@ -26,9 +26,11 @@ const HUNCHES = {
   winter_rain: { topic: "rain", accent: "rain", text: "Winters are wetter", question: "are winters wetter", noun: "mm of winter rain" }, // winter total
   summer_sunshine: { topic: "sun", accent: "sun", text: "Summers are sunnier", question: "are summers sunnier", noun: "MJ/m² of sun a day" }, // solar energy
   heating_need: { topic: "sun", accent: "sun", text: "We need less heating", question: "do we need less heating", noun: "heating degree days" }, // milder winters
+  yearly_sunshine: { topic: "sun", accent: "sun", text: "It’s sunnier than it used to be", question: "is it sunnier than it used to be", noun: "MJ/m² of sun a day" }, // world cities only, whole year
+  cooling_need: { topic: "sun", accent: "sun", text: "We need more air con", question: "do we need the air con more", noun: "cooling degree days" }, // world cities only, hotter days to cool
 };
 
-// the examples the hero line rotates through, the best ones first (world cities only get the heat ones)
+// the examples the hero line rotates through, the best ones first (world cities only get the ones they have data for)
 const EXAMPLES = ["warm_nights", "summer_length", "wettest_day", "heating_need", "first_frost_doy", "hottest_day", "heatwave_days"];
 
 // what each verdict says, straight from CLAUDE.md and naveen’s notes
