@@ -296,17 +296,41 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
 .stats strong { font-family: var(--font-display); font-weight: 400; font-size: var(--text-3xl); line-height: 1; letter-spacing: var(--tracking-display); color: var(--color-ink); font-variant-numeric: tabular-nums lining-nums; } /* the number is the hero */
 .stats span { grid-column: 1 / -1; margin-top: var(--space-2xs); font-size: var(--text-sm); color: var(--color-muted); } /* what the number counts */
 
-/* ---------- how this works ---------- */
+/* ---------- the science ---------- */
 
 .how p, .how li { color: var(--color-ink-2); margin-top: var(--space-sm); } /* reading text */
 .how h3 { margin-top: var(--space-xl); font-size: var(--text-lg); } /* "what it can't tell you" */
 .cant { padding-left: 1.1em; margin: 0; } /* small indent for the list */
-.verdicts { list-style: none; padding: 0; margin: 0; } /* no bullets, the colour does the job */
-.verdicts span { color: var(--verdict); } /* verdict name in its colour */
-.verdicts [data-verdict="real"] { --verdict: var(--verdict-real); } /* green */
-.verdicts [data-verdict="leaning"] { --verdict: var(--verdict-leaning); } /* amber */
-.verdicts [data-verdict="not_backed"] { --verdict: var(--verdict-not_backed); } /* grey */
-.verdicts [data-verdict="opposite"] { --verdict: var(--verdict-opposite); } /* red */
+.how [data-verdict="real"], .how .v-real { --verdict: var(--verdict-real); } /* green */
+.how [data-verdict="leaning"], .how .v-leaning { --verdict: var(--verdict-leaning); } /* amber */
+.how [data-verdict="not_backed"], .how .v-not_backed { --verdict: var(--verdict-not_backed); } /* grey */
+.how [data-verdict="opposite"], .how .v-opposite { --verdict: var(--verdict-opposite); } /* red */
+
+/* the five-step pipeline */
+.sci-steps { list-style: none; padding: 0; margin: var(--space-lg) 0 0; display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); } /* five across on laptops, wraps on tablets */
+.sci-steps li { margin: 0; padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); min-width: 0; } /* hairline over each, like the guide steps */
+.sci-art { display: block; width: 100%; max-width: 12rem; height: auto; aspect-ratio: 120 / 48; } /* the little drawing, keeps its shape */
+.sci-steps h3 { margin-top: var(--space-sm); font-size: var(--text-md); color: var(--color-ink); } /* step name */
+.sci-steps p { margin-top: var(--space-2xs); font-size: var(--text-sm); } /* one or two short lines */
+.sci-art circle, .sci-art rect { fill: var(--color-muted); } /* default marks are quiet blue-grey */
+.sci-art > circle { opacity: 0.45; } /* the grid of days, fainter still */
+.sci-art .bars rect { fill: var(--color-ink-2); } /* london's yearly bars a bit brighter */
+.sci-art .trendline line { stroke: var(--verdict-real); stroke-width: 2; stroke-linecap: round; } /* the trend in green, since london's heatwave days are real */
+.sci-art .luckdots circle { opacity: 0.35; } /* shuffles that didn't match */
+.sci-art .luckdots .lit { fill: var(--color-ink); opacity: 1; } /* the few that matched */
+.sci-art .chips rect { fill: var(--verdict); } /* the four verdict colours */
+
+/* all 1,142 trends as one bar */
+.how .sci-sub { margin-top: var(--space-2xl); } /* clear gap after the pipeline */
+.sci-bar { display: flex; gap: 2px; height: 14px; margin-top: var(--space-md); border-radius: var(--radius-pill); overflow: hidden; } /* one long bar split by count */
+.sci-bar span { flex-basis: 0; background: var(--verdict); } /* each part's width comes from its count */
+.sci-legend { list-style: none; padding: 0; margin: var(--space-md) 0 0; display: grid; gap: var(--space-sm) var(--gap-columns); grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); } /* four across on laptops */
+.sci-legend li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-sm); align-items: baseline; margin: 0; } /* count beside the words */
+.sci-legend strong { font-family: var(--font-display); font-weight: 400; font-size: var(--text-xl); color: var(--verdict); font-variant-numeric: tabular-nums lining-nums; } /* the count in its verdict colour */
+.sci-legend span { font-size: var(--text-sm); } /* what it means */
+.sci-legend b { font-weight: 500; color: var(--color-ink); } /* verdict name */
+.how .note { margin-top: var(--space-md); } /* the "not a score" line */
+.how .how-cols { margin-top: var(--space-xl); } /* room between the verdicts and the two columns */
 .cant li { max-width: 60ch; } /* keep lines readable */
 .credit { font-size: var(--text-sm); color: var(--color-muted) !important; margin-top: var(--space-xl) !important; } /* source credit */
 .how a { text-decoration-color: var(--color-muted); } /* quiet underline */
@@ -441,6 +465,9 @@ a.pill { text-decoration: none; } /* pills that are links don't get underlined *
   .actions { flex-direction: column; } /* the two links stack */
   .actions .pill { justify-content: center; } /* words centred in the full-width buttons */
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); } /* numbers 2 by 2 */
+  .sci-steps li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); column-gap: var(--space-md); align-items: start; } /* drawing on the left, words on the right */
+  .sci-steps li .sci-art { grid-row: span 2; } /* drawing spans the heading and the line */
+  .sci-steps h3 { margin-top: 0; } /* heading lines up with the drawing top */
   .footer-inner { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); } /* footer stacks */
   .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } /* two link columns */
 }
