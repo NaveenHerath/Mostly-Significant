@@ -43,10 +43,14 @@ const QUIZ = [
 const QUIZ_CHOICES = [["real", "Real"], ["error", "Error"], ["grid", "Grid effect"]]; // value and button word
 const QUIZ_SAY = { real: "Real.", error: "Data error.", grid: "Grid effect." }; // how the answer is said on reveal
 
+// naveen first, same order and links as the footer
 const TEAM = [
-  { name: "Bathila Jayasiri", initials: "BJ", role: "App, visuals and data expansion", where: "Kent, UK" }, // bathila
-  { name: "Naveen Herath", initials: "NH", role: "Data pipeline and stats", where: "London, UK" }, // naveen
+  { name: "Naveen Herath", where: "London, UK", linkedin: "https://www.linkedin.com/in/naveen-herath314/" }, // naveen
+  { name: "Bathila Jayasiri", where: "Kent, UK", linkedin: "https://www.linkedin.com/in/bathila-jayasiri" }, // bathila
 ];
+
+// the linkedin mark, same path as the footer's (from simple icons), a filled logo not a line icon
+const LINKEDIN = '<svg class="li-logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>';
 
 const FAQ = [
   { icon: "database", q: "Where does the data come from?", a: "NASA POWER, built on MERRA-2: satellite and ground observations combined in a weather model. Each place is a square about 50 km wide, with daily values from 1981 to 2025." },
@@ -84,6 +88,9 @@ const ICONS = {
   moon: '<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
   mountain: '<path d="m3 20 6-10 4 6 2-3 6 7z"/>',
   up: '<path d="M12 19V5M5 12l7-7 7 7"/>',
+  heart: '<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/>',
+  flag: '<path d="M4 22V4M4 4h13l-2 4 2 4H4"/>',
+  users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>',
   down: '<path d="M12 5v14M5 12l7 7 7-7"/>',
   to: '<path d="M5 12h14M13 6l6 6-6 6"/>',
 };
@@ -119,11 +126,14 @@ function pane(id, title, iconName, navKey) {
   return s; // caller fills the rest
 }
 
-// a sub-part inside a pane, with its own small heading
-function part(id, title) {
-  const p = el("div", "part"); // the block
+// an inner tile inside a pane: frosted like the "how it works" tiles, one topic colour, icon in its heading
+function part(id, title, iconName, tone) {
+  const p = el("div", "part glass tone-" + tone); // .glass gives the frost, tone sets the colour
   p.id = id; // so links can jump straight to it
-  p.append(el("h3", "part-h", title)); // small subheading
+  const h = el("h3", "part-h"); // small heading
+  h.innerHTML = icon(iconName, "part-icon"); // icon in the tile's colour
+  h.append(title); // then the words
+  p.append(h); // heading first
   return p; // caller fills the rest
 }
 
@@ -199,7 +209,7 @@ function buildOddOneOut(data) {
   });
   if (!rounds.length) return null; // nothing usable, skip the game
 
-  const g = part("odd-one-out", "Odd one out"); // the sub-part
+  const g = part("odd-one-out", "Odd one out", "target", "heat"); // the sub-part
   const meta = el("p", "game-meta"); // round 2 of 5
   const hunch = el("p", "game-hunch"); // "is it just me, or ..."
   const q = el("p", "game-q"); // the question, big
@@ -278,7 +288,7 @@ function buildOddOneOut(data) {
 // ---------- game 2: real, error or grid effect? ----------
 
 function buildQuiz(data) {
-  const g = part("real-error-grid", "Real, error or grid effect?"); // the sub-part
+  const g = part("real-error-grid", "Real, error or grid effect?", "help", "rain"); // the sub-part
   g.append(el("p", "game-hint", "Real happened. Error means the data broke. Grid effect means the 50 km square blurred or shifted it.")); // the three words, once
   const meta = el("p", "game-meta"); // card 2 of 6
   const where = el("p", "quiz-where"); // icon and place
@@ -359,44 +369,36 @@ function buildGut(data) {
 // ---------- section: about ----------
 
 function buildAboutPane(data) {
-  const s = pane("about", "About", "info", "about"); // the pane
-  const grid = el("div", "about-grid"); // two columns on laptops
+  const s = pane("about", "About", "info", "about"); // the big pane
+  const grid = el("div", "about-grid"); // the inner tiles, two across on laptops
 
-  // why we built it, led by the real numbers
-  const why = part("why", "Why we built it"); // sub-part
+  // why we built it
+  const why = part("why", "Why we built it", "heart", "heat"); // tile
   why.append(el("p", "part-p", "Everyone has a weather hunch, and memory makes a poor thermometer. NASA has 45 years of daily weather for anywhere on Earth, so we made it a guess you can check.")); // the story in two sentences
-  const all = Object.values(data.rows).flatMap(p => Object.values(p)); // every place and measure
-  const count = v => all.filter(r => r.verdict === v).length; // how many have a verdict
-  const figs = el("dl", "why-figs"); // number over label
-  [[Object.keys(data.places).length, "places", ""], [all.length, "trends tested", ""], [count("real"), "real", "real"], [count("opposite"), "the opposite", "opposite"]].forEach(([n, label, v]) => {
-    const f = el("div", "why-fig"); // one figure
-    const dd = el("dd", "why-n", n.toLocaleString("en-GB")); // the number, read live
-    if (v) dd.dataset.verdict = v; // coloured by its verdict
-    f.append(el("dt", "why-l", label), dd); // label first in the html (dl rule), css shows the number on top
-    figs.append(f); // into the row
-  });
-  why.append(figs); // under the story
 
-  // meet the team
-  const team = part("team", "Meet the team"); // sub-part
-  team.append(el("p", "part-p", "Mostly Significant, NASA Space Apps 2026, London.")); // who we are
-  const people = el("ul", "team-list"); // two rows
-  TEAM.forEach(p => {
-    const li = el("li", "team-row"); // one person
-    const badge = el("span", "team-badge", p.initials); // initials in a ring
-    badge.setAttribute("aria-hidden", "true"); // the name says it already
-    const words = el("span", "team-words"); // name, role, place
-    const where = el("span", "team-where"); // location with a pin
-    where.innerHTML = icon("pin"); // the pin
-    where.append(p.where); // then the place
-    words.append(el("span", "team-name", p.name), el("span", "team-role", p.role), where); // stacked
-    li.append(badge, words); // badge left, words right
-    people.append(li); // into the list
+  // stats: the strip that used to sit in "how it works", same numbers and icons, read live from data.json
+  const stats = part("stats", "Stats", "trend", "seasons"); // tile
+  const rows = Object.values(data.rows).flatMap(p => Object.values(p)); // every place and measure
+  const places = Object.values(data.places); // every place
+  const years = Object.values(data.rows.London)[0]; // any series gives the year span
+  const lastYear = years.start + years.values.length - 1; // 1981 + 45 - 1
+  const ul = el("ul", "ab-stats"); // four numbers
+  ul.setAttribute("aria-label", "The data in numbers"); // what the list is
+  [
+    ["map-pin", places.length, `places, ${places.filter(p => p.region === "UK").length} in the UK`], // how many places
+    ["history", years.values.length, `years, ${years.start} to ${lastYear}`], // how far back
+    ["chart-line", rows.length, "trends tested"], // place and measure pairs
+    ["dices", rows[0].shuffles, "luck shuffles for each"], // the luck test
+  ].forEach(([ic, n, label]) => {
+    const li = el("li"); // one number
+    li.innerHTML = `<svg class="icon" aria-hidden="true"><use href="icons.svg#${ic}" /></svg>`; // same icon sprite as the rest of the page
+    li.append(el("strong", null, n.toLocaleString("en-GB")), el("span", null, label)); // number then what it counts
+    ul.append(li); // into the list
   });
-  team.append(people); // under the line
+  stats.append(ul); // into the tile
 
-  // what you can do here
-  const can = part("what-you-can-do", "What you can do"); // sub-part
+  // features (was "what you can do")
+  const can = part("features", "Features", "lightbulb", "rain"); // tile
   can.append(list([
     { icon: "lightbulb", title: "Check a hunch", text: "Pick a place and a hunch, guess, see 45 years.", href: "#where" }, // main flow
     { icon: "message", title: "Say it your way", text: "Type a hunch and we find the right test.", href: "#chat" }, // chat box
@@ -406,8 +408,8 @@ function buildAboutPane(data) {
     { icon: "share", title: "Share your score", text: "It sits in the corner after your first guess." }, // gut bar
   ]));
 
-  // roadmap
-  const road = part("roadmap", "Where it could go next"); // sub-part
+  // future scope (was "where it could go next")
+  const road = part("future-scope", "Future scope", "flag", "sun"); // tile
   road.append(list([
     { icon: "pin", tag: "Next", title: "Any town you type", text: "Fetch NASA data for a new place on the spot." }, // more places
     { icon: "thermometer", tag: "Next", title: "Check against stations", text: "Compare with Met Office station records." }, // validation
@@ -416,8 +418,35 @@ function buildAboutPane(data) {
   ]));
   road.append(el("p", "part-small", "Ideas, not promises.")); // honest
 
-  // faq, full width
-  const faq = part("faq", "Questions"); // sub-part
+  // meet the team: name, place, linkedin
+  const team = part("team", "Meet the team", "users", "heat"); // tile
+  team.append(el("p", "part-p", "Mostly Significant, NASA Space Apps 2026, London.")); // who we are
+  const people = el("ul", "team-list"); // two rows
+  TEAM.forEach(p => {
+    const li = el("li", "team-row"); // one person
+    const words = el("span", "team-words"); // name and place
+    const where = el("span", "team-where"); // location with a pin
+    where.innerHTML = icon("pin"); // the pin
+    where.append(p.where); // then the place
+    words.append(el("span", "team-name", p.name), where); // stacked
+    const a = el("a", "team-li"); // the linkedin button
+    a.href = p.linkedin; a.target = "_blank"; a.rel = "noopener"; // opens in a new tab
+    a.setAttribute("aria-label", `${p.name} on LinkedIn (opens in a new tab)`); // what it is, for screen readers
+    a.innerHTML = LINKEDIN; // the logo
+    li.append(words, a); // words left, logo right
+    people.append(li); // into the list
+  });
+  team.append(people); // under the line
+
+  // demo video and slides
+  const media = part("watch", "Demo and slides", "play", "seasons"); // tile
+  media.append(list([
+    { icon: "play", title: "Demo video", text: "A quick walk through the site.", href: VIDEO_URL || null, tag: VIDEO_URL ? "Watch" : "Coming soon", soon: !VIDEO_URL }, // video
+    { icon: "slides", title: "Slides", text: "The problem, the data and what we found.", href: SLIDES_URL || null, tag: SLIDES_URL ? "Open" : "Coming soon", soon: !SLIDES_URL }, // slides
+  ]));
+
+  // faqs (was "questions"), full width
+  const faq = part("faq", "FAQs", "help", "rain"); // tile
   faq.classList.add("part-wide"); // spans both columns
   const qs = el("div", "faq-list"); // the questions
   FAQ.forEach(f => {
@@ -433,17 +462,7 @@ function buildAboutPane(data) {
   });
   faq.append(qs); // under the heading
 
-  // demo video and slides, full width, two rows side by side
-  const media = part("watch", "Demo and slides"); // sub-part
-  media.classList.add("part-wide"); // spans both columns
-  const ml = list([
-    { icon: "play", title: "Demo video", text: "A quick walk through the site.", href: VIDEO_URL || null, tag: VIDEO_URL ? "Watch" : "Coming soon", soon: !VIDEO_URL }, // video
-    { icon: "slides", title: "Slides", text: "The problem, the data and what we found.", href: SLIDES_URL || null, tag: SLIDES_URL ? "Open" : "Coming soon", soon: !SLIDES_URL }, // slides
-  ]);
-  ml.classList.add("hl-pair"); // two across on laptops
-  media.append(ml); // under the heading
-
-  grid.append(why, team, can, road, faq, media); // reading order
+  grid.append(why, stats, can, road, team, media, faq); // reading order: story and numbers, what it does, what's next, who, watch, questions
   s.append(grid); // into the pane
   return s; // hand it back
 }

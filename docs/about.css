@@ -1,5 +1,5 @@
 /* Hallmark · scope: component (bottom block: test your gut + about) · genre: atmospheric · theme: Ribbon night colourway, inherited from tokens.css · signature: the numbers set big, hairline rows instead of boxes · v2.0.0 */
-/* Hallmark · critique: one glass pane per section, no card inside a card, labels sentence case, motion on transform/opacity/colour only · weakest: the quiz still reads text-heavy before a pick */
+/* Hallmark · critique: frosted inner tiles inside each glass pane were asked for by Bathila and break Floor rule 11 (card inside a card), kept on purpose, labels sentence case, motion on transform/opacity/colour only · weakest: the quiz still reads text-heavy before a pick */
 
 /* ---------- the two panes: real frosted glass, same recipe as .glass in style.css ---------- */
 
@@ -10,17 +10,19 @@
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .about-pane { background: var(--glass-solid); } } /* no blur support: solid */
 @media (prefers-reduced-transparency: reduce) { .about-pane { background: var(--glass-solid); -webkit-backdrop-filter: none; backdrop-filter: none; } } /* less see-through wanted: solid */
 
-.part-h { font-family: var(--font-display); font-size: var(--text-lg); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); color: var(--color-ink); } /* small subheading inside a pane */
+.part { padding: var(--space-lg); --tile: var(--tab-heat); } /* inner tile: .glass gives the frost, same room as the how-it-works tiles */
+.tone-heat { --tile: var(--tab-heat); } .tone-seasons { --tile: var(--tab-seasons); } .tone-rain { --tile: var(--tab-rain); } .tone-sun { --tile: var(--tab-sun); } /* topic colours, same set as the tabs */
+@media (max-width: 40rem) { .part { padding: var(--space-md); } } /* tighter on phones */
+.part-h { display: flex; align-items: center; gap: var(--space-xs); font-family: var(--font-display); font-size: var(--text-lg); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); color: var(--color-ink); } /* small subheading inside a pane */
+.part-icon { width: 1.15rem; height: 1.15rem; color: var(--tile); } /* heading icon in the tile's colour */
 .part-p { margin-top: var(--space-2xs); max-width: 52ch; font-size: var(--text-sm); color: var(--color-ink-2); } /* a short line under a subheading */
 .part-small { margin-top: var(--space-xs); font-size: var(--text-xs); color: var(--color-muted); } /* footnote-sized */
 
 /* ---------- test your gut: two games side by side ---------- */
 
-.games { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xl); margin-top: var(--space-lg); } /* two columns on laptops */
-.games > .part + .part { padding-left: var(--space-xl); border-left: var(--rule-hair) solid var(--color-rule); } /* hairline between the games, no boxes */
+.games { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-sm); margin-top: var(--space-lg); } /* two tiles side by side on laptops, same gap as the how-it-works tiles */
 @media (max-width: 60rem) {
-  .games { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); } /* stacked on tablets and phones */
-  .games > .part + .part { padding-left: 0; padding-top: var(--space-lg); border-left: 0; border-top: var(--rule-hair) solid var(--color-rule); } /* hairline on top instead */
+  .games { grid-template-columns: minmax(0, 1fr); } /* stacked on tablets and phones */
 }
 
 .game-meta { margin-top: var(--space-2xs); font-size: var(--text-xs); color: var(--color-muted); font-variant-numeric: tabular-nums; } /* round 2 of 5 */
@@ -85,16 +87,17 @@
 
 /* ---------- about: sub-parts in two columns ---------- */
 
-.about-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xl) var(--space-2xl); margin-top: var(--space-lg); } /* two columns on laptops */
+.about-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-sm); margin-top: var(--space-lg); } /* two tiles across on laptops */
 .part-wide { grid-column: 1 / -1; } /* faq and demo take the full width */
-@media (max-width: 50rem) { .about-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); } } /* one column on phones */
+@media (max-width: 50rem) { .about-grid { grid-template-columns: minmax(0, 1fr); } } /* one column on phones */
 
-/* why: the numbers lead */
-.why-figs { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: var(--space-lg); margin-top: var(--space-md); } /* four figures in a row */
-@media (max-width: 30rem) { .why-figs { grid-template-columns: repeat(2, auto); gap: var(--space-md) var(--space-xl); } } /* two by two on small phones */
-.why-fig { display: flex; flex-direction: column-reverse; } /* dt comes first in the html, number shows on top */
-.why-n { margin: 0; font-family: var(--font-display); font-size: var(--text-3xl); letter-spacing: var(--tracking-display); line-height: 1.05; font-variant-numeric: tabular-nums; color: var(--color-ink); } /* the number */
-.why-l { font-size: var(--text-xs); color: var(--color-muted); } /* what it counts */
+/* stats: the strip from "how it works", 2 by 2 inside its tile */
+.ab-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); margin-top: var(--space-md); padding: 0; list-style: none; } /* four numbers */
+.ab-stats li { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: var(--space-xs); --num: var(--tab-heat); } /* icon beside the number, label under */
+.ab-stats li:nth-child(2) { --num: var(--tab-seasons); } .ab-stats li:nth-child(3) { --num: var(--tab-rain); } .ab-stats li:nth-child(4) { --num: var(--tab-sun); } /* same colour order as the old strip */
+.ab-stats .icon { width: 1.1rem; height: 1.1rem; color: var(--num); } /* small icon in its colour */
+.ab-stats strong { font-family: var(--font-display); font-weight: 400; font-size: clamp(2rem, 3.5vw, 2.75rem); line-height: 1; letter-spacing: var(--tracking-display); color: var(--color-ink); font-variant-numeric: tabular-nums lining-nums; } /* the numbers are the hero */
+.ab-stats span { grid-column: 1 / -1; margin-top: var(--space-2xs); font-size: var(--text-sm); color: var(--color-muted); } /* what it counts */
 
 /* hairline lists: icon beside the title, no boxes */
 .hl-list { margin-top: var(--space-sm); padding: 0; list-style: none; border-top: var(--rule-hair) solid var(--color-rule-2); } /* hairline above */
@@ -108,19 +111,18 @@
 .hl-tag.is-soon { color: var(--color-muted); } /* coming soon, quieter */
 a.hl-row:active { background: var(--color-paper-3); } /* press shows straight away */
 @media (hover: hover) and (pointer: fine) { a.hl-row:hover { background: color-mix(in oklab, var(--color-paper-3) 60%, transparent); } a.hl-row:hover .hl-title { text-decoration: underline; text-underline-offset: 3px; } } /* mice only */
-.hl-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-2xl); border-top: 0; } /* demo and slides side by side */
-.hl-pair li:nth-child(-n + 2) { border-top: var(--rule-hair) solid var(--color-rule-2); } /* hairline above both */
-@media (max-width: 50rem) { .hl-pair { grid-template-columns: minmax(0, 1fr); } .hl-pair li:nth-child(2) { border-top: 0; } } /* stacked on phones */
 
-/* team: two rows, initials in a ring */
+/* team: name and place, linkedin on the right */
 .team-list { margin-top: var(--space-sm); padding: 0; list-style: none; border-top: var(--rule-hair) solid var(--color-rule-2); } /* hairline above */
-.team-row { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-sm) var(--space-2xs); border-bottom: var(--rule-hair) solid var(--color-rule-2); } /* one person */
-.team-badge { display: grid; place-items: center; flex: none; width: 2.75rem; height: 2.75rem; border-radius: var(--radius-pill); border: var(--rule-hair) solid color-mix(in oklab, var(--color-accent) 55%, transparent); background: color-mix(in oklab, var(--color-accent) 14%, var(--color-paper-2)); font-family: var(--font-display); font-size: var(--text-md); color: var(--color-ink); } /* initials, tinted with the hunch colour */
-.team-words { display: flex; flex-direction: column; min-width: 0; } /* name, role, place */
+.team-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding: var(--space-xs) var(--space-2xs); border-bottom: var(--rule-hair) solid var(--color-rule-2); } /* one person */
+.team-words { display: flex; flex-direction: column; min-width: 0; } /* name over place */
 .team-name { font-size: var(--text-md); color: var(--color-ink); } /* name */
-.team-role { font-size: var(--text-sm); color: var(--color-ink-2); } /* what they did */
 .team-where { display: inline-flex; align-items: center; gap: var(--space-2xs); font-size: var(--text-xs); color: var(--color-muted); } /* place */
 .team-where .icon { width: 0.85rem; height: 0.85rem; } /* small pin */
+.team-li { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: var(--radius-pill); color: var(--color-muted); transition: color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); } /* big enough to tap */
+.team-li:active { transform: scale(0.94); } /* small press */
+.li-logo { width: 1.25rem; height: 1.25rem; fill: currentColor; } /* filled logo, same path as the footer */
+@media (hover: hover) and (pointer: fine) { .team-li:hover { color: var(--color-ink); } } /* mice only */
 
 /* faq: hairline rows, two columns on laptops */
 .faq-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-2xl); align-items: start; margin-top: var(--space-sm); } /* halves the height */
@@ -141,12 +143,13 @@ a.hl-row:active { background: var(--color-paper-3); } /* press shows straight aw
 /* ---------- focus ---------- */
 
 .odd-opt:focus-visible, .hl-row:focus-visible, .faq-item summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; } /* full-width rows: ring drawn inside, shows instantly */
-.quiz-choice:focus-visible, .game-next:focus-visible, .faq-a a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; } /* pills and links: ring outside */
+.quiz-choice:focus-visible, .game-next:focus-visible, .faq-a a:focus-visible, .team-li:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; } /* pills and links: ring outside */
 
 /* ---------- motion ---------- */
 
 @keyframes about-in { from { opacity: 0; transform: translateY(3px); } } /* small, quick rise */
 @media (prefers-reduced-motion: reduce) {
   .odd-opt.revealed .odd-ans { animation: none; } /* answer just appears */
-  .odd-opt, .odd-tap, .hl-row, .faq-chevron { transition: none; } /* no movement or fades */
+  .odd-opt, .odd-tap, .hl-row, .faq-chevron, .team-li { transition: none; } /* no movement or fades */
+  .team-li:active { transform: none; } /* no press shrink */
 }
