@@ -291,8 +291,9 @@ python src/build_timeline.py
 python src/train_weather_model.py   # optional, about 45 minutes on a laptop
 ```
 
-The raw download is also bundled in `power_raw.zip`, so the analysis can be rerun without
-calling the API again: unzip it into `data/raw/` and start from `src/clean.py`.
+The cleaned daily table (`data/clean/daily.parquet`) is in the repository, so the analysis can
+be rerun from `src/build_results.py` without calling the API. `download_power.py` also writes
+`power_raw.zip` locally; it is too large for GitHub and is not kept in the repository.
 
 ### Data checks
 
