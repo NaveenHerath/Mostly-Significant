@@ -41,6 +41,9 @@ WORLD_MEASURES = ["heatwave_events", "heatwave_days", "longest_heatwave", "hotte
                   "wettest_day", "heavy_rain_days"] + WORLD_ONLY_MEASURES
 # A year of sunshine needs at least this many days with a reading to count.
 MIN_SUN_DAYS = 330
+# A year of rain needs nearly every day. Rain is only ever blank where clean.py removed a
+# faulty stretch (Singapore from 2021), and those years get no rain measure at all.
+MIN_RAIN_DAYS = 350
 MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 # The catalogue of measures. Each entry tells the app what the number is, and tells the
@@ -188,7 +191,7 @@ def yearly_measures(place_daily):
     # total is worked out here, across the year boundary, before the year-by-year loop.
     month = d["date"].dt.month
     winter_of = d["date"].dt.year + (month == 12)
-    winter_rain = d[month.isin([12, 1, 2])].groupby(winter_of)["PRECTOTCORR"].sum()
+    winter_rain = d[month.isin([12, 1, 2])].groupby(winter_of)["PRECTOTCORR"].sum(min_count=85)
 
     rows = []
     for year, y in d.groupby("year"):
@@ -209,6 +212,7 @@ def yearly_measures(place_daily):
         # Dry spells: runs of days with under 1 mm of rain inside June, July and August.
         june_to_august = y[y["date"].dt.month.isin([6, 7, 8])]
         dry_runs = _run_lengths((june_to_august["PRECTOTCORR"] < 1).tolist())
+        has_rain = y["PRECTOTCORR"].notna().sum() >= MIN_RAIN_DAYS
 
         rows.append({
             "year": year,
@@ -223,9 +227,9 @@ def yearly_measures(place_daily):
             "summer_end_doy": summer["doy"].iloc[-1] if len(summer) else np.nan,
             "autumn_onset_doy": after_july["doy"].iloc[0] if len(after_july) else np.nan,
             "first_frost_doy": frost["doy"].iloc[0] if len(frost) else np.nan,
-            "wettest_day": y["PRECTOTCORR"].max(),
-            "heavy_rain_days": int((y["PRECTOTCORR"] >= 10).sum()),
-            "summer_dry_spell": max((n for _, n in dry_runs), default=0),
+            "wettest_day": y["PRECTOTCORR"].max() if has_rain else np.nan,
+            "heavy_rain_days": int((y["PRECTOTCORR"] >= 10).sum()) if has_rain else np.nan,
+            "summer_dry_spell": max((n for _, n in dry_runs), default=0) if has_rain else np.nan,
             # The winter of 1981 would need December 1980, which is before the data starts.
             "winter_rain": winter_rain.get(year, np.nan) if year > FIRST_YEAR else np.nan,
             # Sunshine is blank before 1984, so those years come out blank here too.

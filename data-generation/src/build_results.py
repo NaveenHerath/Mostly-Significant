@@ -20,6 +20,7 @@ from measures import (MEASURES, UK_MEASURES, WORLD_MEASURES, is_southern, thresh
 from stats import MIN_YEARS, trend_test, verdict
 
 RESULTS_DIR = os.path.join("data", "results")
+RAIN_MEASURES = ["wettest_day", "heavy_rain_days", "summer_dry_spell", "winter_rain"]
 SEA_GAP = 4.5     # average day-night temperature gap (C) below which a grid square is "mostly sea"
 REGIONS = ["UK", "World"]
 
@@ -68,6 +69,14 @@ def main():
 
             # The series is tested for a trend, then the verdict is decided.
             stats = trend_test(yearly["year"], yearly[measure_id])
+            # Where clean.py removed a faulty stretch of rain, the rain measures stop early and say so.
+            first_year, last_year = yearly["year"].min(), yearly["year"].max()
+            last_value_year = yearly.loc[yearly[measure_id].notna(), "year"].max()
+            cut_note = ""
+            if measure_id in RAIN_MEASURES and last_value_year < last_year:
+                cut_note = (f"NASA's rain data for this place is faulty after {last_value_year}, so this covers "
+                            f"{first_year} to {last_value_year} and the recent average is "
+                            f"{last_year - 9} to {last_value_year}. ")
             results.append({
                 "place": place, "region": info["region"],
                 # The real city centre goes in the results, so the app's map pins the city itself.
@@ -78,7 +87,7 @@ def main():
                 "expected_direction": meta["expected"], "verdict": verdict(stats, meta["expected"]),
                 "plain_definition": meta["definition"],
                 # Warnings go in front of the standard caveat when they apply.
-                "caveat": sea_note + south_note
+                "caveat": sea_note + south_note + cut_note
                           + ("Too few years with a value to test a trend. " if stats["n_years"] < MIN_YEARS else "")
                           + meta["caveat"],
                 **stats,

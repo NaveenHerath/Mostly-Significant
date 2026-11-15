@@ -378,14 +378,14 @@ Bangkok,7,heatwave_days,Heatwave days per year,not_backed,0.93,-0.94,15.4,15.1,d
 Bangkok,8,heatwave_events,Heatwaves per year,leaning,0.85,0.0,2.3,2.4,heatwaves
 Bangkok,9,wettest_day,Wettest day of the year,leaning,0.24,0.38,47.99,44.6,mm
 Singapore,1,warm_nights,Warm nights per year,real,5.08,12.5,9.3,71.8,nights
-Singapore,2,heavy_rain_days,Heavy rain days per year,real,4.42,10.0,59.9,108.1,days
-Singapore,3,cooling_need,Cooling need,real,4.04,59.55,3200.2,3407.13,degree days
-Singapore,4,yearly_sunshine,Sunshine over the year,opposite,3.83,-0.21,17.09,16.5,MJ/m² per day
-Singapore,5,heatwave_events,Heatwaves per year,leaning,1.45,0.0,2.4,4.4,heatwaves
-Singapore,6,hottest_day,Hottest day of the year,leaning,1.41,0.16,32.61,33.04,°C
-Singapore,7,heatwave_days,Heatwave days per year,leaning,1.25,0.0,13.1,22.1,days
-Singapore,8,longest_heatwave,Longest heatwave,leaning,1.03,0.0,4.3,5.0,days
-Singapore,9,wettest_day,Wettest day of the year,leaning,0.5,2.38,76.8,120.8,mm
+Singapore,2,cooling_need,Cooling need,real,4.04,59.55,3200.2,3407.13,degree days
+Singapore,3,yearly_sunshine,Sunshine over the year,opposite,3.83,-0.21,17.09,16.5,MJ/m² per day
+Singapore,4,heavy_rain_days,Heavy rain days per year,real,2.81,6.06,59.9,71.0,days
+Singapore,5,wettest_day,Wettest day of the year,not_backed,1.46,-5.48,76.8,56.73,mm
+Singapore,6,heatwave_events,Heatwaves per year,leaning,1.45,0.0,2.4,4.4,heatwaves
+Singapore,7,hottest_day,Hottest day of the year,leaning,1.41,0.16,32.61,33.04,°C
+Singapore,8,heatwave_days,Heatwave days per year,leaning,1.25,0.0,13.1,22.1,days
+Singapore,9,longest_heatwave,Longest heatwave,leaning,1.03,0.0,4.3,5.0,days
 Orlando,1,warm_nights,Warm nights per year,real,4.28,7.42,9.2,41.1,nights
 Orlando,2,cooling_need,Cooling need,real,3.8,108.06,1772.47,2119.62,degree days
 Orlando,3,yearly_sunshine,Sunshine over the year,real,3.47,0.18,17.17,17.72,MJ/m² per day

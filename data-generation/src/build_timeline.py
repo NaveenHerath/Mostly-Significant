@@ -46,10 +46,6 @@ VARIABLES = [
      "The average energy from the sun reaching the ground each day (records start in 1984)."),
 ]
 
-# Series left out because the data is plainly wrong. Singapore's rain more than doubles after
-# 2020 (7,465 mm in 2025 against about 2,400 mm a year before), which no rain gauge there shows.
-EXCLUDED = {("Singapore", "rain_total")}
-
 
 def yearly_values(daily):
     """Turns the daily table into one value per place, variable and calendar year."""
@@ -58,12 +54,11 @@ def yearly_values(daily):
     for var_id, _, column, how, *_ in VARIABLES:
         grouped = daily.groupby(["place", year], sort=False)[column]
         value = grouped.agg(how)
-        # A year missing more than a couple of weeks is left blank (sunshine before 1984).
+        # A year missing more than a couple of weeks is left blank (sunshine before 1984, and
+        # Singapore's rain from 2021, which clean.py removes as faulty).
         value[grouped.count() < MIN_DAYS] = np.nan
         tables.append(value.rename("value").reset_index().assign(variable_id=var_id))
-    yearly = pd.concat(tables, ignore_index=True)
-    excluded = pd.MultiIndex.from_frame(yearly[["place", "variable_id"]]).isin(EXCLUDED)
-    return yearly[~excluded]
+    return pd.concat(tables, ignore_index=True)
 
 
 def add_comparisons(yearly):

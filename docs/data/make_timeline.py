@@ -70,4 +70,6 @@ print(f"wrote {OUT} ({OUT.stat().st_size // 1024} KB, {len(rows)} places, {len(v
 london = rows["London"]["avg_temp"]
 print("London 10-year average temperature, 1990 and 2025:", london["value10"][1990 - FIRST_YEAR], london["value10"][-1],
       "(should be 9.6 and 10.92)")
-print("Singapore has rain?", "rain_total" in rows["Singapore"], "(should be False)")
+singapore = rows["Singapore"]["rain_total"]["value"]
+print("Singapore rain in 2020 and 2021:", singapore[2020 - FIRST_YEAR], singapore[2021 - FIRST_YEAR],
+      "(should be a number, then None: the faulty years are blank)")

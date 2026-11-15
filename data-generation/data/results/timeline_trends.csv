@@ -172,6 +172,7 @@ Bangkok,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,
 Singapore,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,26.8,0.182,26.73,27.37,1e-05,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
 Singapore,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,29.23,0.109,29.32,29.71,0.02638,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.
 Singapore,night_temp,Night-time lows,°C,T2M_MIN,difference,1981,2025,45,24.97,0.191,24.8,25.54,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each night's lowest temperature across the year.
+Singapore,rain_total,Rain,mm,PRECTOTCORR,percent,1981,2020,40,2173.57,118.296,2020.1,2295.74,0.03496,Mann-Kendall (Hamed-Rao),rising,"All the rain that fell in the year, added up."
 Singapore,sunshine,Sunshine,MJ/m² per day,ALLSKY_SFC_SW_DWN,percent,1984,2025,42,16.8,-0.211,17.09,16.5,0.00013,Mann-Kendall (Hamed-Rao),falling,The average energy from the sun reaching the ground each day (records start in 1984).
 Orlando,avg_temp,Average temperature,°C,T2M,difference,1981,2025,45,21.93,0.351,21.8,23.03,0.00024,Mann-Kendall (Hamed-Rao),rising,"The average temperature across the whole year, day and night."
 Orlando,day_temp,Daytime highs,°C,T2M_MAX,difference,1981,2025,45,27.16,0.471,27.05,28.53,0.0,Mann-Kendall (Hamed-Rao),rising,The average of each day's highest temperature across the year.

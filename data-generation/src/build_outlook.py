@@ -95,10 +95,13 @@ def label_days(d, bars):
     d["hot_day"] = hot.astype(float)
     d["warm_night"] = (d["T2M_MIN"] >= bars["warm_night"]).astype(float)
     d["above_30"] = (d["T2M_MAX"] >= 30).astype(float)
-    d["wet_day"] = (d["PRECTOTCORR"] >= 5).astype(float)
+    # Days with no rain figure (the faulty stretch removed in clean.py) are left out of the
+    # wet-day and good-day counts, so those chances rest on the years that can be trusted.
+    has_rain = d["PRECTOTCORR"].notna()
+    d["wet_day"] = (d["PRECTOTCORR"] >= 5).astype(float).where(has_rain)
     good = d["T2M_MAX"].between(18, 28) & (d["PRECTOTCORR"] < 1) & (d["CLOUD_AMT"] < 60)
     # Cloud is missing before 1984 and on a few later days; those days are left out of the count.
-    d["good_day"] = good.astype(float).where(d["CLOUD_AMT"].notna())
+    d["good_day"] = good.astype(float).where(d["CLOUD_AMT"].notna() & has_rain)
     return d
 
 
@@ -210,7 +213,15 @@ if __name__ == "__main__":
     trips = build_trip_weeks(daily)
     trips.to_csv(os.path.join(RESULTS_DIR, "trip_weeks.csv"), index=False)
     checks = build_checks(daily)
-    checks.to_csv(os.path.join(RESULTS_DIR, "outlook_checks.csv"), index=False)
+    # The neural network's scores (added by train_weather_model.py) are carried over, so this
+    # script can be rerun without retraining the network.
+    checks_path = os.path.join(RESULTS_DIR, "outlook_checks.csv")
+    if os.path.exists(checks_path):
+        old = pd.read_csv(checks_path)
+        checks = pd.concat([checks, old[old["method"] == "neural"]], ignore_index=True)
+        rank = {name: i for i, name in enumerate(["All", "UK", "World"] + ALL_LABELS)}
+        checks = checks.sort_values(["region", "label"], key=lambda col: col.map(rank), kind="stable")
+    checks.to_csv(checks_path, index=False)
 
     print(f"trip_weeks.csv: {len(trips)} rows, outlook_checks.csv: {len(checks)} rows\n")
     # London in mid-July (week 28 starts on 9 July), then the back-test scores for all places.

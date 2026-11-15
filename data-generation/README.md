@@ -17,7 +17,7 @@ Everything on this page belongs to phase 1. The only thing that passes from phas
 phase 2 is the results files in `data/results`. The app does no calculation of its own, so
 every number a user sees is generated here.
 
-The phase runs as six scripts, each feeding the next:
+The phase runs as seven scripts, each feeding the next:
 
 ```
 NASA POWER API
@@ -27,6 +27,7 @@ NASA POWER API
    → src/build_extras.py   luck test and season dates          data/results
    → src/build_casefile.py extras for the app's case file      data/results
    → src/build_outlook.py  weekly chances for next year        data/results
+   → src/build_timeline.py yearly values for the map's slider  data/results
    → the app (phase 2)
 ```
 
@@ -189,7 +190,7 @@ week, a hot day, a warm night, a day above 30 °C, a wet day (5 mm or more) and 
   shifted.
 - **Back-test:** rebuilt with only data to 2020 and scored on 2021–2025 with the Brier score.
   Against plain 1981–2010 averages it cuts the error by 16% for warm nights, 10% for heatwave
-  weeks, 8% for days above 30 °C, 6% for hot days, 2% for good days and 1% for wet days. In
+  weeks, 8% for days above 30 °C, 6% for hot days, 2% for good days and 0% for wet days. In
   the UK alone the gain is small (6%, 3%, 0%, 1%, 1%, 0%). `outlook_checks.csv` has the
   scores.
 - **Neural cross-check:** a small neural network (`src/train_weather_model.py`) was trained on
@@ -200,6 +201,23 @@ week, a hot day, a warm night, a day above 30 °C, a wet day (5 mm or more) and 
   uses the simple numbers. `trip_weeks_neural.csv` holds the network's version for comparison.
 - These are chances for a typical year under the current trend. They are not a forecast of
   the weather in 2027.
+- Singapore's wet-day and good-day chances use rain up to 2020 only, because its rain data
+  is faulty after that (see Limitations). Those days are also left out of the back-test.
+
+### Map with a year slider
+
+`timeline_years.csv` gives five everyday variables for every place and calendar year: average
+temperature, daytime highs, night-time lows, rain and sunshine.
+
+- Each year is compared with the place's own normal, the 1981–2010 average: in °C for the
+  temperatures and in percent for rain and sunshine. The map colours a pin by that gap, so a
+  hot city and a cold one can be read on one scale.
+- `value_10yr` is the average of the 10 years ending in that year. At 1990 and 2025 it equals
+  `early_mean` and `late_mean`. A single year is mostly weather; the 10-year average is climate.
+- `timeline_trends.csv` tests each series with the same Mann-Kendall test and Sen's slope as
+  the hunches. These variables carry no hunch, so there is no verdict: `change` is `rising`
+  or `falling` when p < 0.05, and `no_clear_change` otherwise.
+- Average temperature is rising in 36 of the 38 places. Rain shows no clear change in 22 of 38.
 
 ### Verdict rules
 
@@ -218,13 +236,14 @@ everything except `first_heatwave_doy` and `heating_need`, which are "down".
 | File | What it does |
 |---|---|
 | `download_power.py` | Tests each place for sea, downloads the raw JSON, writes `manifest.csv` and `power_raw.zip` |
-| `src/clean.py` | Raw JSON → `data/clean/daily.parquet`, plus eleven data checks → `data_checks.csv` |
+| `src/clean.py` | Raw JSON → `data/clean/daily.parquet` (faulty stretches blanked), plus twelve data checks → `data_checks.csv` |
 | `src/measures.py` | Definitions and the yearly measures (a toolbox, not run directly) |
 | `src/stats.py` | Trend tests and verdict rules (a toolbox, not run directly) |
 | `src/build_results.py` | Runs everything → `results.csv`, `annual.csv`, `results_detail.csv`, `thresholds.csv` |
 | `src/build_extras.py` | Shuffle test and season dates → `luck.csv`, `season_dates.csv` |
 | `src/build_casefile.py` | Extras for the app's case file → `years_to_know.csv`, `luck_lines.csv`, `top_changes.csv`, `stripes.csv` |
 | `src/build_outlook.py` | Weekly chances for the 1980s, recent years and 2027, plus a back-test → `trip_weeks.csv`, `outlook_checks.csv` |
+| `src/build_timeline.py` | Five yearly variables per place, their gap from normal and their trend, for the map with a year slider → `timeline_years.csv`, `timeline_trends.csv` |
 | `src/weather_model.py` | The neural network that gives the chances for tomorrow's weather (a toolbox, not run directly) |
 | `src/train_weather_model.py` | Optional second method for the outlook: trains the network, makes up 1,000 versions of the year per place and back-tests them → `models/weather_gru.pt`, `trip_weeks_neural.csv`, `neural` rows in `outlook_checks.csv` |
 
@@ -238,6 +257,7 @@ python src/build_results.py
 python src/build_extras.py
 python src/build_casefile.py
 python src/build_outlook.py
+python src/build_timeline.py
 python src/train_weather_model.py   # optional, about 45 minutes on a laptop
 ```
 
@@ -246,10 +266,10 @@ calling the API again: unzip it into `data/raw/` and start from `src/clean.py`.
 
 ### Data checks
 
-`src/clean.py` runs eleven checks and all of them pass on the current data
+`src/clean.py` runs twelve checks and all of them pass on the current data
 (`data/clean/data_checks.csv`): full date coverage, missing values only where expected,
 physical ranges for temperature, rain, humidity and soil wetness, no place warming faster
-than 0.8 °C per decade at night, and four known events that should appear in the data
+than 0.8 °C per decade at night, no rain total jumping after 2020, and four known events that should appear in the data
 (London's hottest day on 19 July 2022, the cold December of 2010, Storm Eunice, and the dry
 summers of 2018 and 2022).
 
@@ -268,6 +288,8 @@ summers of 2018 and 2022).
 | `trip_weeks.csv` | one place × one week × one period | `place, week, week_start, period, p_heatwave_week, p_hot_day, p_warm_night, p_above_30, p_wet_day, p_good_day, typ_max_low, typ_max_high, n_years, method` |
 | `outlook_checks.csv` | one region × one label × one method | `region, label, method, cases, brier, brier_guidebook, skill_vs_guidebook` |
 | `trip_weeks_neural.csv` | as `trip_weeks.csv` | same columns; the `2027` rows come from the network (`method = neural`, `n_years` = 1,000 made-up years) |
+| `timeline_years.csv` | one place × one variable × one year | `place, variable_id, year, value, vs_normal, value_10yr, vs_normal_10yr` |
+| `timeline_trends.csv` | one place × one variable | `place, variable_id, variable_name, unit, nasa_variable, compare_as, start_year, end_year, n_years, normal, rate_per_decade, early_mean, late_mean, p_value, test_method, change, plain_definition` |
 | `results_detail.csv` | as `results.csv` | adds the regression cross-check columns |
 | `thresholds.csv` | one place | hot-day and warm-night thresholds, warm season, day-night gap |
 
@@ -283,7 +305,7 @@ chatbot use these files.
 | Region | `real` | `leaning` | `not_backed` | `opposite` |
 |---|---|---|---|---|
 | UK (180) | 77 | 89 | 11 | 3 |
-| World (234) | 125 | 77 | 26 | 6 |
+| World (234) | 125 | 76 | 27 | 6 |
 
 **London, first ten years against the last ten:**
 
@@ -320,6 +342,12 @@ chatbot use these files.
   nights over the threshold. Warm-night counts rise very steeply there (Singapore 9 → 72 a
   year) and are best read as "how often", not "how much hotter".
 - Sunshine and cloud data start in 1984.
+- Singapore's rain is faulty from January 2021: the yearly total climbs to 7,465 mm in 2025
+  against about 2,400 mm a year before, which no rain gauge there shows. `src/clean.py`
+  blanks it from that month, so every rain figure for Singapore covers 1981–2020 (its
+  "recent" average is 2016–2020) and its caveat says so. A data check confirms no other
+  place has a jump like this. The neural rows in `outlook_checks.csv` were scored before
+  this fix, so their wet-day and good-day case counts are slightly higher.
 - Rain varies a lot from year to year, so most rain trends are only `leaning`. A 50 km
   average also reads low for local downpours.
 - World cities are compared on nine measures (heat, rain, yearly sunshine, cooling need); the

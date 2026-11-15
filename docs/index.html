@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"> <!-- leaflet’s own map styles -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css"> <!-- small svg country flags for the world city pills -->
   <link rel="stylesheet" href="style.css"> <!-- our styles (pulls in tokens.css and base.css), after leaflet so ours win -->
+  <link rel="stylesheet" href="timeline.css"> <!-- styles for the "watch it change" map and slider -->
 </head>
 <body>
 
@@ -32,6 +33,7 @@
         <a href="#where" data-nav="try" class="needs-js">Try it</a> <!-- the pickers -->
         <a href="#map" data-nav="everywhere" class="needs-answer" hidden>Everywhere</a> <!-- map, only once you’ve guessed -->
         <a href="#report" data-nav="hunches" class="needs-answer" hidden>Every hunch</a> <!-- report card, only once you’ve guessed -->
+        <a href="#timeline" data-nav="timeline" class="needs-js">Watch it change</a> <!-- the map with the year slider -->
         <a href="#how" data-nav="how">How it works</a> <!-- method and caveats -->
       </nav>
     </div>
@@ -161,6 +163,52 @@
 
     </div>
 
+    <!-- 9b. watch it change: every place on a map with a year slider, filled by timeline.js -->
+    <section class="step needs-js" id="timeline" data-nav="timeline" aria-labelledby="timeline-h">
+      <h2 id="timeline-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#history" /></svg>Watch it change</h2> <!-- heading -->
+      <p class="note">Drag the year or press play. Each dot is a place, coloured by how that year compares with its own normal, the 1981 to 2010 average. Tap a dot to follow that place.</p> <!-- how to use it -->
+      <p class="note" id="tl-status">Loading the map.</p> <!-- shown until the data is in, or if it fails -->
+      <div id="tl-body" hidden> <!-- everything below appears once the data has loaded -->
+        <div class="tl-controls"> <!-- the three switches -->
+          <div class="switch" id="tl-vars" role="group" aria-label="What to show"></div> <!-- temperature, highs, lows, rain, sunshine -->
+          <div class="switch" id="tl-modes" role="group" aria-label="Single year or 10-year average"></div> <!-- weather or climate -->
+          <div class="switch" id="tl-views" role="group" aria-label="Map view"></div> <!-- uk or world -->
+        </div>
+        <p class="note" id="tl-definition"></p> <!-- one plain sentence on the variable -->
+        <div class="tl-cols"> <!-- map on the left, one place on the right -->
+          <div> <!-- the map, its slider and its colour key -->
+            <div class="map-box" id="tl-map"></div> <!-- leaflet map goes here -->
+            <div class="tl-scrub"> <!-- play button, slider, year -->
+              <button class="tl-play" id="tl-play" type="button" aria-pressed="false"> <!-- plays through the years -->
+                <svg class="icon icon-play" aria-hidden="true"><use href="icons.svg#play" /></svg> <!-- shown while stopped -->
+                <svg class="icon icon-pause" aria-hidden="true"><use href="icons.svg#pause" /></svg> <!-- shown while playing -->
+                <span class="visually-hidden" id="tl-play-label">Play through the years</span> <!-- what it does, for screen readers -->
+              </button>
+              <input class="tl-range" id="tl-year" type="range" step="1" aria-label="Year"> <!-- the slider -->
+              <p class="tl-year"><span id="tl-year-label"></span> <span class="tl-year-sub" id="tl-year-sub"></span></p> <!-- the year, or the ten years being averaged -->
+            </div>
+            <div class="tl-legend"> <!-- colour key -->
+              <span class="tl-legend-bar" aria-hidden="true"></span> <!-- the colour scale -->
+              <span id="tl-legend-lo"></span><span>Normal</span><span id="tl-legend-hi"></span> <!-- its two ends and its middle, in words -->
+            </div>
+            <p class="tl-legend-none" id="tl-legend-none" hidden>Hollow dots have no figure for this year.</p> <!-- only when one is showing -->
+          </div>
+          <div> <!-- the followed place -->
+            <label class="visually-hidden" for="tl-place">Place</label> <!-- names the menu for screen readers -->
+            <select class="tl-place" id="tl-place"></select> <!-- every place, for keyboards and small screens -->
+            <p class="figure-label" id="tl-when"></p> <!-- e.g. "London in 2022" -->
+            <p class="tl-figure figure" id="tl-figure"></p> <!-- the figure for that year -->
+            <p class="tl-gap"><span class="tl-swatch" id="tl-swatch" aria-hidden="true"></span><span id="tl-gap-text"></span></p> <!-- how far from normal, with the pin's colour -->
+            <div class="chart-box tl-chart" id="tl-chart"></div> <!-- the place's whole record -->
+            <p class="note" id="tl-chart-note">Dots are single years, the bold line is the 10-year average and the dashed line is normal. Click the chart to jump to a year.</p> <!-- chart key -->
+            <p class="tl-trend" id="tl-trend"></p> <!-- the tested trend in a sentence -->
+            <button class="tl-hunch" id="tl-hunch" type="button"><span>Test a hunch in <span id="tl-hunch-place"></span></span><svg class="icon" aria-hidden="true"><use href="icons.svg#arrow-right" /></svg></button> <!-- back up to the hunch pickers with this place -->
+          </div>
+        </div>
+        <p class="note tl-foot">NASA POWER (MERRA-2), averaged over squares about 50 km wide. A single year is mostly weather; the 10-year average shows the climate. Rain is the least certain of the five, and Singapore’s rain stops in 2020 because its record is faulty after that.</p> <!-- the small print -->
+      </div>
+    </section>
+
     <!-- 10. how this works -->
     <section class="step how" id="how" data-nav="how" aria-labelledby="how-h">
       <h2 id="how-h"><svg class="icon" aria-hidden="true"><use href="icons.svg#info" /></svg>How this works</h2> <!-- heading -->
@@ -184,7 +232,7 @@
             <li>“Unusually hot” means hot for that place, so the bar is different in each town.</li> <!-- relative thresholds -->
             <li>Years with no heatwave or no frost have no date, so they drop out of those trends.</li> <!-- missing years -->
             <li>Rain jumps around a lot from year to year, so most rain trends only reach “leaning”.</li> <!-- rain is noisy -->
-            <li>Belfast, Aberdeen, Toronto, Lisbon and Cape Town use the square next door, because their own is mostly sea or lake. Singapore’s square is mostly sea with no better one nearby, so its numbers are provisional. Sunshine data starts in 1984. Sydney, Sao Paulo, Johannesburg, Cape Town and Rio de Janeiro count July to June, so they start in 1982.</li> <!-- the odd ones out -->
+            <li>Belfast, Aberdeen, Toronto, Lisbon and Cape Town use the square next door, because their own is mostly sea or lake. Singapore’s square is mostly sea with no better one nearby, so its numbers are provisional, and its rain stops in 2020 because the data is faulty after that. Sunshine data starts in 1984. Sydney, Sao Paulo, Johannesburg, Cape Town and Rio de Janeiro count July to June, so they start in 1982.</li> <!-- the odd ones out -->
             <li>It shows that something changed, not why.</li> <!-- no causes -->
             <li>Snow, fog, wind, storms and humidity aren’t covered.</li> <!-- untestable hunches -->
           </ul>
@@ -267,5 +315,6 @@
   <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script> <!-- unpacks the country outlines file -->
   <script src="hunches.js"></script> <!-- wording first, app.js uses it -->
   <script src="app.js"></script> <!-- the logic -->
+  <script src="timeline.js"></script> <!-- the "watch it change" map, uses app.js's helpers -->
 </body>
 </html>

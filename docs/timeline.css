@@ -1,0 +1,94 @@
+/* styles for the "Watch it change" section (timeline.js). colours, spacing and fonts come from tokens.css */
+
+/* the colour scale: a neutral grey for "normal" and two end colours, one pair per kind of variable */
+#timeline {
+  --tl-mid: oklch(50% 0.012 258); /* normal: grey, so it reads as "nothing unusual" */
+  --tl-lo: #4f9cf0; /* cooler than normal */
+  --tl-hi: #f0624d; /* warmer than normal */
+}
+#timeline[data-tl-kind="rain"] { --tl-lo: #c9944a; --tl-hi: #3fb8c4; } /* drier is ochre, wetter is teal */
+#timeline[data-tl-kind="sun"] { --tl-lo: #9a86d6; --tl-hi: #f2c14b; } /* duller is violet, sunnier is gold */
+
+/* ---------- controls ---------- */
+
+.tl-controls { display: flex; flex-wrap: wrap; gap: 0 var(--space-md); } /* the three switches, wrapping when they run out of room */
+
+/* ---------- map and panel side by side ---------- */
+
+.tl-cols { display: grid; gap: var(--space-xl); margin-top: var(--space-lg); } /* stacked on phones */
+.tl-cols > * { min-width: 0; } /* lets the map and chart shrink instead of overflowing */
+#tl-map { margin-top: 0; height: 440px; } /* the map itself reuses .map-box */
+
+.tl-pin { cursor: pointer; transition: fill 280ms linear; } /* colours glide from one year to the next */
+.tl-pin--none { fill: var(--color-paper); stroke: var(--color-muted); stroke-width: 1.5; stroke-dasharray: 2 2; } /* no figure this year: hollow and dashed */
+.tl-pin--none.pin--current { stroke: var(--color-ink); } /* still marked when it is the followed place */
+
+/* ---------- slider ---------- */
+
+.tl-scrub { display: flex; align-items: center; gap: var(--space-md); margin-top: var(--space-md); } /* play, slider, year */
+.tl-play {
+  display: inline-grid; place-items: center; flex-shrink: 0; /* centres the icon */
+  width: 44px; height: 44px; /* big enough to tap */
+  border: var(--rule-hair) solid var(--color-rule); border-radius: 50%; /* round */
+  background: var(--color-paper-3); color: var(--color-ink); box-shadow: var(--edge-light), var(--shadow-part); /* raised, like a picked pill */
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: transform var(--dur-micro) var(--ease-out);
+}
+.tl-play:active { transform: scale(0.95); } /* small press */
+.tl-play .icon { width: 16px; height: 16px; fill: currentColor; stroke: none; } /* solid glyphs */
+.tl-play .icon-pause, .tl-play[aria-pressed="true"] .icon-play { display: none; } /* play glyph while stopped */
+.tl-play[aria-pressed="true"] .icon-pause { display: block; } /* pause glyph while playing */
+.tl-range { flex: 1; min-width: 0; height: 44px; margin: 0; accent-color: var(--color-ink-2); cursor: pointer; } /* the slider, tall enough to grab */
+.tl-year { flex-shrink: 0; min-width: 8.5ch; text-align: right; line-height: 1.1; } /* the year in big type, fixed width so the slider does not jump */
+#tl-year-label { display: block; font-family: var(--font-display); font-size: var(--text-xl); letter-spacing: var(--tracking-display); font-variant-numeric: tabular-nums; color: var(--color-ink); }
+.tl-year-sub { display: block; font-size: var(--text-xs); color: var(--color-muted); } /* "single year" or "10-year average" */
+
+/* ---------- colour key ---------- */
+
+.tl-legend { display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--space-2xs) var(--space-sm); margin-top: var(--space-sm); font-size: var(--text-xs); color: var(--color-ink-2); }
+.tl-legend-bar { grid-column: 1 / -1; height: 10px; border-radius: var(--radius-pill); background: linear-gradient(to right in oklab, var(--tl-lo), var(--tl-mid), var(--tl-hi)); } /* the same mix the pins use */
+.tl-legend span:last-child { text-align: right; } /* the far end sits under the right of the bar */
+.tl-legend-none { margin-top: var(--space-xs); font-size: var(--text-xs); color: var(--color-muted); }
+
+/* ---------- one place ---------- */
+
+.tl-place {
+  min-height: 44px; max-width: 100%; padding: 0 var(--space-md); /* easy to tap */
+  border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-pill);
+  background: var(--color-paper-2); color: var(--color-ink); box-shadow: var(--edge-light), var(--shadow-part); /* same look as a pill */
+  font-size: var(--text-md); cursor: pointer;
+}
+#tl-when { margin-top: var(--space-lg); } /* "London in 2022" */
+.tl-figure { margin-top: var(--space-2xs); font-family: var(--font-display); font-size: var(--text-3xl); line-height: 1.1; letter-spacing: var(--tracking-display); color: var(--color-ink); }
+.tl-gap { display: flex; align-items: baseline; gap: var(--space-xs); margin-top: var(--space-xs); color: var(--color-ink-2); } /* swatch, then the gap from normal in words */
+.tl-swatch { flex-shrink: 0; width: 10px; height: 10px; border-radius: 50%; transition: background-color 280ms linear; } /* same colour as the pin */
+.tl-chart { margin-top: var(--space-md); min-height: 220px; cursor: pointer; } /* reuses .chart-box for the yearly line and dots */
+.tl-chart .avg { stroke-opacity: 0.45; } /* the normal line is quieter here than the averages in the main chart */
+.tl-chart .tl-average { stroke: var(--color-ink); } /* the 10-year average, the line to read */
+.tl-chart .tl-now-rule { stroke: var(--color-ink-2); stroke-opacity: 0.5; } /* the slider's year */
+.tl-chart .tl-now-dot { stroke: var(--color-paper); stroke-width: 2; } /* ringed so it stands clear of the lines */
+.tl-chart .tl-window { fill: var(--color-ink); fill-opacity: 0.06; } /* the ten years being averaged */
+.tl-trend { margin-top: var(--space-md); color: var(--color-ink-2); max-width: 60ch; } /* the tested trend in a sentence */
+.tl-hunch {
+  display: inline-flex; align-items: center; gap: var(--space-xs); /* words then arrow */
+  min-height: 44px; margin-top: var(--space-md); padding: 0 var(--space-md);
+  border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-pill);
+  background: var(--color-paper-2); color: var(--color-ink); box-shadow: var(--edge-light), var(--shadow-part);
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: transform var(--dur-micro) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+}
+.tl-hunch:active { transform: scale(0.97); } /* small press */
+@media (hover: hover) and (pointer: fine) { .tl-hunch:hover, .tl-place:hover { border-color: var(--color-muted); } } /* gentle lift on hover */
+.tl-foot { margin-top: var(--space-lg); max-width: 80ch; } /* the honest small print */
+
+/* ---------- laptops and phones ---------- */
+
+@media (min-width: 60rem) { .tl-cols { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); } } /* map left, place right */
+@media (max-width: 40rem) {
+  #tl-map { height: 320px; } /* shorter map */
+  .tl-scrub { flex-wrap: wrap; } /* the year moves onto its own line above the slider */
+  .tl-year { order: -1; width: 100%; text-align: left; }
+  .tl-year-sub { display: inline; margin-left: var(--space-xs); }
+  #tl-year-label { display: inline; }
+}
+@media (prefers-reduced-motion: reduce) { .tl-pin, .tl-swatch { transition: none; } } /* colours switch at once */

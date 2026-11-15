@@ -15,6 +15,13 @@ import pandas as pd
 RAW_DIR = os.path.join("data", "raw")
 CLEAN_DIR = os.path.join("data", "clean")
 
+# Stretches of the record that are plainly wrong and are blanked: (place, variable, first bad day).
+# Singapore's rain more than doubles from January 2021 (603 mm that month, 7,465 mm in 2025,
+# against about 2,400 mm a year before), which no rain gauge there shows. Everything up to
+# the end of 2020 is kept, so the place loses five years of rain and nothing else.
+FAULTY_FROM = [("Singapore", "PRECTOTCORR", "2021-01-01")]
+RAIN_JUMP_LIMIT = 4   # the rain check fails if 2021-2025 sits this many spreads from 2001-2020
+
 
 def load_place(place, filename):
     """Reads one raw NASA file and returns a table: one row per day, one column per variable."""
@@ -34,6 +41,8 @@ def build_daily():
     manifest = pd.read_csv(os.path.join(RAW_DIR, "manifest.csv"))
     tables = [load_place(row.place, row.file) for row in manifest.itertuples()]
     daily = pd.concat(tables, ignore_index=True)
+    for place, variable, first_bad_day in FAULTY_FROM:
+        daily.loc[(daily["place"] == place) & (daily["date"] >= first_bad_day), variable] = np.nan
     # Region (UK / World) and coordinates are attached so later steps don't need the manifest.
     # lat/lon is the point the data comes from; city_lat/city_lon is the real city centre.
     if "city_lat" not in manifest.columns:
@@ -42,7 +51,7 @@ def build_daily():
 
 
 def run_checks(daily):
-    """Runs the eleven data checks and returns them as a pass/fail table."""
+    """Runs the twelve data checks and returns them as a pass/fail table."""
     checks = []
 
     def add(name, passed, detail):
@@ -54,14 +63,18 @@ def run_checks(daily):
         f"{days['count'].min()} to {days['count'].max()} days per place")
 
     # Missing values: only sunshine and cloud should have gaps, and almost all before 1984.
+    # The stretches blanked on purpose (FAULTY_FROM) are set aside first and checked further down.
     # The satellite record occasionally misses a single day later on, so a handful of stray
     # gaps (under 0.1% of days) is allowed, and the places they fall in are named.
     variables = [c for c in daily.columns if c not in ("date", "place", "region", "lat", "lon", "city_lat", "city_lon")]
-    blanks = daily[variables].isna().sum()
+    known = daily.copy()
+    for place, variable, first_bad_day in FAULTY_FROM:
+        known.loc[(known["place"] == place) & (known["date"] >= first_bad_day), variable] = 0
+    blanks = known[variables].isna().sum()
     blanks = blanks[blanks > 0]
-    late = daily[daily["date"] >= "1984-01-01"]
+    late = known[known["date"] >= "1984-01-01"]
     late_gaps = late[late[variables].isna().any(axis=1)]
-    add("missing values only in sunshine/cloud, almost all before 1984",
+    add("missing values only in sunshine/cloud, almost all before 1984 (apart from blanked faults)",
         set(blanks.index) <= {"ALLSKY_SFC_SW_DWN", "CLOUD_AMT"} and len(late_gaps) < 0.001 * len(late),
         f"blank counts: {blanks.to_dict()}; days with a gap from 1984 on: {len(late_gaps)} "
         f"{late_gaps['place'].value_counts().to_dict()}")
@@ -85,6 +98,17 @@ def run_checks(daily):
     warming = yearly_night.apply(lambda row: np.polyfit(row.index, row.values, 1)[0] * 10, axis=1)
     add("no place warms faster than 0.8 C per decade at night", warming.max() < 0.8,
         f"fastest is {warming.idxmax()} at {warming.max():.2f} C per decade")
+
+    # Believable rain: a real climate does not double its rain in a year and stay there. Each
+    # place's 2021-2025 average is compared with its 2001-2020 average, measured in spreads
+    # (standard deviations) of those 20 years. The stretches blanked above are left out.
+    yearly_rain = daily.groupby(["place", daily["date"].dt.year])["PRECTOTCORR"].sum(min_count=350).unstack()
+    before, after = yearly_rain.loc[:, 2001:2020], yearly_rain.loc[:, 2021:2025]
+    jump = ((after.mean(axis=1) - before.mean(axis=1)) / before.std(axis=1)).dropna()
+    worst = jump.abs().idxmax()
+    faults = "; ".join(f"{p} {v} from {d}" for p, v, d in FAULTY_FROM)
+    add(f"no rain total jumps by more than {RAIN_JUMP_LIMIT} spreads after 2020", jump.abs().max() < RAIN_JUMP_LIMIT,
+        f"largest is {worst} at {jump[worst]:.1f}; blanked as faulty: {faults}")
 
     # Known events: if the data is right, famous weather should show up in it.
     london = daily[daily["place"] == "London"].set_index("date")

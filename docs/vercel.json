@@ -2,6 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "installCommand": "",
-  "buildCommand": "python3 data/make_data.py",
+  "buildCommand": "python3 data/make_data.py && python3 data/make_timeline.py",
   "outputDirectory": "."
 }

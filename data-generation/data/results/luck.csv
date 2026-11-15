@@ -382,34 +382,34 @@ Singapore,heatwave_days,0.0,0.207,1000,0.2105
 Singapore,longest_heatwave,0.0,0.312,1000,0.3012
 Singapore,hottest_day,0.16,0.165,1000,0.1588
 Singapore,warm_nights,12.5,0.0,1000,0.0
-Singapore,wettest_day,2.38,0.57,1000,0.6146
-Singapore,heavy_rain_days,10.0,0.0,1000,0.0
+Singapore,wettest_day,-5.48,0.151,1000,0.1453
+Singapore,heavy_rain_days,6.06,0.008,1000,0.0049
 Singapore,yearly_sunshine,-0.21,0.002,1000,0.0001
 Singapore,cooling_need,59.55,0.0,1000,0.0001
-Orlando,heatwave_events,0.45,0.059,1000,0.0457
-Orlando,heatwave_days,1.85,0.115,1000,0.1099
-Orlando,longest_heatwave,0.0,0.373,1000,0.3418
-Orlando,hottest_day,0.19,0.334,1000,0.3426
+Orlando,heatwave_events,0.45,0.054,1000,0.0457
+Orlando,heatwave_days,1.85,0.125,1000,0.1099
+Orlando,longest_heatwave,0.0,0.35,1000,0.3418
+Orlando,hottest_day,0.19,0.342,1000,0.3426
 Orlando,warm_nights,7.42,0.0,1000,0.0
-Orlando,wettest_day,5.38,0.033,1000,0.0023
-Orlando,heavy_rain_days,-0.43,0.539,1000,0.5496
+Orlando,wettest_day,5.38,0.031,1000,0.0023
+Orlando,heavy_rain_days,-0.43,0.541,1000,0.5496
 Orlando,yearly_sunshine,0.18,0.001,1000,0.0005
 Orlando,cooling_need,108.06,0.0,1000,0.0001
-Mexico City,heatwave_events,0.45,0.014,1000,0.015
-Mexico City,heatwave_days,4.29,0.004,1000,0.0025
-Mexico City,longest_heatwave,2.0,0.001,1000,0.0007
-Mexico City,hottest_day,0.4,0.002,1000,0.0022
+Mexico City,heatwave_events,0.45,0.013,1000,0.015
+Mexico City,heatwave_days,4.29,0.002,1000,0.0025
+Mexico City,longest_heatwave,2.0,0.002,1000,0.0007
+Mexico City,hottest_day,0.4,0.001,1000,0.0022
 Mexico City,warm_nights,9.24,0.0,1000,0.0
-Mexico City,wettest_day,0.18,0.824,1000,0.6805
-Mexico City,heavy_rain_days,0.0,0.879,1000,0.8675
-Mexico City,yearly_sunshine,0.14,0.075,1000,0.0654
+Mexico City,wettest_day,0.18,0.843,1000,0.6805
+Mexico City,heavy_rain_days,0.0,0.865,1000,0.8675
+Mexico City,yearly_sunshine,0.14,0.073,1000,0.0654
 Mexico City,cooling_need,6.75,0.002,1000,0.0021
-Rio de Janeiro,heatwave_events,0.0,0.584,1000,0.5846
-Rio de Janeiro,heatwave_days,0.0,0.552,1000,0.5543
-Rio de Janeiro,longest_heatwave,0.0,0.236,1000,0.2379
-Rio de Janeiro,hottest_day,0.51,0.005,1000,0.0038
-Rio de Janeiro,warm_nights,4.73,0.004,1000,0.004
-Rio de Janeiro,wettest_day,3.58,0.115,1000,0.2233
-Rio de Janeiro,heavy_rain_days,0.67,0.466,1000,0.4655
-Rio de Janeiro,yearly_sunshine,0.02,0.814,1000,0.7961
-Rio de Janeiro,cooling_need,70.32,0.001,1000,0.0002
+Rio de Janeiro,heatwave_events,0.0,0.593,1000,0.5846
+Rio de Janeiro,heatwave_days,0.0,0.555,1000,0.5543
+Rio de Janeiro,longest_heatwave,0.0,0.245,1000,0.2379
+Rio de Janeiro,hottest_day,0.51,0.003,1000,0.0038
+Rio de Janeiro,warm_nights,4.73,0.006,1000,0.004
+Rio de Janeiro,wettest_day,3.58,0.119,1000,0.2233
+Rio de Janeiro,heavy_rain_days,0.67,0.469,1000,0.4655
+Rio de Janeiro,yearly_sunshine,0.02,0.81,1000,0.7961
+Rio de Janeiro,cooling_need,70.32,0.0,1000,0.0002
