@@ -8,7 +8,10 @@ body[data-page="games"] main > [data-page]:not([data-page="games"]),
 body[data-page="how"] main > [data-page]:not([data-page="how"]),
 body[data-page="about"] main > [data-page]:not([data-page="about"]) { display: none !important; }
 
-/* every page except home opens on a title and one line under it */
+/* every page except home opens on a title and one line under it, with a short bar in the accent colour above */
+.page-head::before { content: ""; display: block; width: 40px; height: 3px; margin-bottom: var(--space-md); border-radius: 2px; background: var(--color-accent); opacity: 0.85; }
+@media (prefers-reduced-motion: no-preference) { .page-head::before { animation: bar-in 700ms var(--ease-out) 120ms both; transform-origin: left; } }
+@keyframes bar-in { from { transform: scaleX(0); opacity: 0; } } /* the bar draws in from the left */
 .page-head { padding: var(--space-2xl) 0 var(--space-xs); max-width: 46rem; }
 .page-head h1 { font-size: var(--text-3xl); line-height: 1.05; max-width: none; }
 .page-head .lead { margin: var(--space-sm) 0 0; color: var(--color-ink-2); max-width: 60ch; } /* left-aligned, unlike the centred hero line */
@@ -40,6 +43,45 @@ body[data-page="about"] main > [data-page]:not([data-page="about"]) { display: n
 
 /* the model switch now sits in the chat box tile on the how it works page */
 .sci-tile .chat-tools { margin-top: var(--space-lg); }
+
+/* ---------- motion: only for people who haven't asked for less ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* opening a page: its blocks fade and rise in one after another (pages.js numbers them in --stagger).
+     the answer block is left out, it has its own rise when a guess is made */
+  main > [data-page]:not(#reveal) { animation: page-in 520ms var(--ease-out) both; animation-delay: calc(min(var(--stagger, 0), 5) * 70ms); }
+  .page-head h1 { animation: title-in 640ms var(--ease-out) both; } /* the page title settles in from a touch lower, letters slightly apart */
+  .page-head .lead { animation: page-in 640ms var(--ease-out) 90ms both; } /* the line under it follows */
+
+  /* tiles on home and how it works cascade in, left to right */
+  .guide-steps li { animation: tile-in 560ms var(--ease-out) both; }
+  .guide-steps li:nth-child(1) { animation-delay: 120ms; }
+  .guide-steps li:nth-child(2) { animation-delay: 190ms; }
+  .guide-steps li:nth-child(3) { animation-delay: 260ms; }
+  .guide-steps li:nth-child(4) { animation-delay: 330ms; }
+
+  /* the home tiles' icons lift a little on hover, on top of the tile's own lift */
+  .home-cards .icon { transition: transform var(--dur-short) var(--ease-out); }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .home-cards a:hover .icon { transform: translateY(-2px) scale(1.08); }
+}
+
+/* tiles further down a long page ease in as they scroll into view. only browsers that support
+   scroll-driven animation run it; the rest simply show the tiles, so nothing can stay hidden */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .sci-steps li, .how-cols > *, .sci-legend li, .about-grid > .part, .faq-item, .games > * {
+      animation: scroll-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+@keyframes page-in { from { opacity: 0; transform: translateY(14px); } }
+@keyframes title-in { from { opacity: 0; transform: translateY(10px); letter-spacing: 0.01em; } }
+@keyframes tile-in { from { opacity: 0; transform: translateY(16px) scale(0.98); } }
+@keyframes scroll-in { from { opacity: 0; transform: translateY(24px); } }
 
 @media (max-width: 40rem) {
   .page-head { padding-top: var(--space-xl); }

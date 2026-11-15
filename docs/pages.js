@@ -32,6 +32,9 @@
       if (a.dataset.nav === page) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
     if (changed) {
+      // The page's blocks are numbered in order, so pages.css can bring them in one after another.
+      let n = 0;
+      document.querySelectorAll(`main > [data-page="${page}"]`).forEach((el) => { el.style.setProperty("--stagger", n++); });
       window.scrollTo({ top: 0, behavior: "instant" });
       // Maps and charts drawn while their page was hidden measure themselves again now.
       window.dispatchEvent(new Event("resize"));
